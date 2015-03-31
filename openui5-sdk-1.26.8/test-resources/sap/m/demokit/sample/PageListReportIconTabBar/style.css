@@ -1,0 +1,15 @@
+.sapUiMedia-Std-Desktop .sapMSampleFioriListReportIconTabBar .sapMITBContent {
+	padding: 1rem 2rem;
+}
+
+.sapUiMedia-Std-Tablet .sapMSampleFioriListReportIconTabBar .sapMITBContent {
+	padding: 1rem;
+}
+
+.sapUiMedia-Std-Phone .sapMSampleFioriListReportIconTabBar .sapMITBContent {
+	padding: 1rem 0;
+}
+
+.sapMSampleFioriListReportIconTabBarOverflow .sapMPageScroll {
+	overflow: auto;
+}
