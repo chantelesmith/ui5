@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="To be of high quality and usable in mission-critical business software, SAPUI5 needs to fulfill specific product standards and acceptance criteria. While these are not directly related to code conventions, the most important standards and criteria are mentioned here, because new code needs to fulfill these requirements."/>
+<meta name="description" content="To be of high quality and usable in mission-critical business software, SAPUI5 needs to fulfill specific product standards and acceptance criteria. While these are not directly related to code conventions, the most important standards and criteria are mentioned here, because new code needs to fulfill these requirements."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Product Standards and Acceptance Criteria</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiobafc6867041644a9b596370e48a106ee">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Product Standards and Acceptance Criteria</h1>
+<div class="body"><p class="shortdesc">To be of high quality and usable in mission-critical business software, SAPUI5 needs to
+		fulfill specific product standards and acceptance criteria. While these are not directly
+		related to code conventions, the most important standards and criteria are mentioned here,
+		because new code needs to fulfill these requirements.</p>
+<p class="p">General product standards and aceptance criteria:</p>
+<ul class="ul" id="loiobafc6867041644a9b596370e48a106ee__ul_en5_js5_np"><li class="li">
+				<p class="p">Browser support, see <a class="xref" href="74b59efa0eef48988d3b716bd0ecc933.html" title="The browser and platform information in the following sections provides you the information you need to decide, which browsers and platforms suit best to your use case.">Browser and Platform Matrixes</a></p>
+
+			</li>
+<li class="li">
+				<p class="p">Security issues, such as output encoding to prevent XSS attacks</p>
+
+			</li>
+<li class="li">
+				<p class="p">Performance needs to be in focus</p>
+
+			</li>
+<li class="li">
+				<p class="p">Automated tests, such as QUnit</p>
+
+			</li>
+<li class="li">
+				<p class="p">Proper API documentation</p>
+
+			</li>
+<li class="li">
+				<p class="p">Translation: All texts that are visible on the UI must be enabled for
+					translation.</p>
+
+				<p class="p">Do <strong class="ph b">not</strong> provide the translations, but only provide a raw english version in the
+						<samp class="ph codeph">messagebundle.properties</samp> file.</p>
+
+				<p class="p">Make sure that you annotate the strings
+					properly for translation. For more information, see <a class="xref" href="831039835e7c4da3a8a0b49567573afe.html" title="All strings for translation have to be annotated to provide more context for translation. An annotation consists of an &#34;X/Y&#34; text type classification, an optional length restriction, and a freetext explanation how the string is used on the UI.">Annotations in Translation Files</a>.</p>
+
+			</li>
+<li class="li">
+				<p class="p">Adhere to the compatibility rules, see <a class="xref" href="91f087396f4d1014b6dd926db0e91070.html" title="SAPUI5 is a Release-independant component (RIC) and, therefore, has specific requirements with regard to compatilbilty. This includes topics such as the versioning scheme and the API evolution as well as an overview of the compatible and incompatible changes to the API, deprecation, experimental features, and third party open source libraries.">Compatibility Rules</a>.</p>
+
+			</li>
+<li class="li">
+				<p class="p">Make sure that any Open Source libraries (or parts of them) that you use are
+					officially approved before you add them SAPUI5. Do <strong class="ph b">not</strong> add any code you
+					"found" somewhere.</p>
+
+			</li>
+</ul>
+<p class="p">Additional product standard and acceptance criteria for controls:</p>
+<ul class="ul" id="loiobafc6867041644a9b596370e48a106ee__ul_tgy_ts5_np"><li class="li">
+				<p class="p">Screenreader support (ARIA)</p>
+
+			</li>
+<li class="li">
+				<p class="p">Keyboard navigation support</p>
+
+			</li>
+<li class="li">
+				<p class="p">Required themes; what themes are required depends on the library, but always
+					includs the High Contrast theme for accessibility</p>
+
+			</li>
+<li class="li">
+				<p class="p">Right-to-left support</p>
+
+			</li>
+<li class="li">
+				<p class="p">Example page in Demokit/Explored App</p>
+
+			</li>
+</ul>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="831039835e7c4da3a8a0b49567573afe.html">Annotations in Translation Files</a></strong><br/>
+All strings for translation have to be annotated to provide more context for 		translation. An annotation consists of an "X/Y" text type classification, an optional length 		restriction, and a freetext explanation how the string is used on the UI.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Product Standards and Acceptance Criteria";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

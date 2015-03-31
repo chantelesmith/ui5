@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 provides three classes for control rendering: sap.ui.core.Control, sap.ui.core.RenderManager, and sap.ui.core.Renderer."/>
+<meta name="description" content="SAPUI5 provides three classes for control rendering: sap.ui.core.Control, sap.ui.core.RenderManager, and sap.ui.core.Renderer."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Writing a Control Renderer</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f393916f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Writing a Control Renderer</h1>
+<div class="body"><p class="shortdesc">SAPUI5 provides three classes for control rendering:
+			<samp class="ph codeph">sap.ui.core.Control</samp>, <samp class="ph codeph">sap.ui.core.RenderManager</samp>, and
+			<samp class="ph codeph">sap.ui.core.Renderer</samp>.</p>
+<div class="section" id="loio91f393916f4d1014b6dd926db0e91070__section_B946B1C4760F4A619D34055C49017F77"><div class="section_title">Control Class (sap.ui.core.Control)</div><div type="Control Class (sap.ui.core.Control)"> 
+	 
+	<div class="p">The control class contains the control for rendering. A control consists of properties, events,
+				aggregations, associations, and methods. They define the behavior of the control.
+				The appearance and data of the control is determined by properties, associations,
+				and aggregations. The <samp class="ph codeph">get...</samp> methods of the control are used to
+				access this information during the execution of the <samp class="ph codeph">render()</samp>
+					method:<ul class="ul" id="loio91f393916f4d1014b6dd926db0e91070__ul_tbr_3rf_bn"><li class="li">
+						<p class="p">Accessing properties:</p>
+
+						<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">// var oValue = oControl.get&lt;Property&gt;();
+// for example for the 'text'-property
+var oValue = oControl.getText();</pre></div>
+
+					</li>
+<li class="li">
+						<p class="p">Accessing 1..1 aggregations</p>
+
+						<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">// var oAggregation = oControl.get&lt;Aggregation&gt;();
+// for example for content-aggregation
+var oAggregation = oControl.getContent();</pre></div>
+
+					</li>
+<li class="li">
+						<p class="p">Accessing 1..n aggregrations:</p>
+
+						<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">// var aAggregations = oControl.get&lt;Aggregation&gt;s();
+// for example for rows-aggregation
+var aAggregations = oControl.getRows();</pre></div>
+
+					</li>
+<li class="li">
+						<p class="p">Accessing associations:</p>
+
+						<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">// var sAssociatedControlId = oControl.get&lt;Association&gt;();
+// for example labelFor-association
+var sAssociatedControlId = oControl.getLabelFor();</pre></div>
+
+					</li>
+</ul>
+</div>
+ 
+</div></div>
+<div class="section" id="loio91f393916f4d1014b6dd926db0e91070__section_EE2A2957C19D4C6DA8E0AE811D87623A"><div class="section_title">RenderManager Class (sap.ui.core.RenderManager)</div><div type="RenderManager Class (sap.ui.core.RenderManager)"> 
+	 
+	<p class="p">The render manager class collects pieces of HTML and injects the generated markup into the DOM.
+				The <samp class="ph codeph">RenderManager</samp> determines and loads the corresponding renderer
+				and delegates the control rendering to the renderer. The
+					<samp class="ph codeph">RenderManager</samp> also provides, amongst others, the following
+				helper functions for rendering:</p>
+ 
+	<table summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d1262237e90" class="stentry">Method</th>
+<th valign="bottom" align="left" id="d1262237e92" class="stentry">Description</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d1262237e90" class="stentry"><samp class="ph codeph">write()</samp></td>
+<td valign="top" headers="d1262237e92" class="stentry">Writes
+		string information to the HTML</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1262237e90" class="stentry"><samp class="ph codeph">writeControlData()</samp> 
+		</td>
+<td valign="top" headers="d1262237e92" class="stentry">Writes the ID and the recognition data of the
+			control to the HTML</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1262237e90" class="stentry"><samp class="ph codeph">renderControl()</samp> 
+			</td>
+<td valign="top" headers="d1262237e92" class="stentry">Converts the specified control into HTML representation and adds it to the HTML; used for
+				rendering child controls</td>
+</tr>
+</table>
+ 
+	<p class="p">For more information, see <a class="extlink" href="../../docs/api/symbols/sap.ui.core.RenderManager.html">sap.ui.core.RenderManager<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a>.</p>
+ 
+</div></div>
+<div class="section" id="loio91f393916f4d1014b6dd926db0e91070__section_A9C3AEFF8AC94677BAE58BFF59FAE84A"><div class="section_title">Renderer Class (sap.ui.core.Renderer)</div><div type="Renderer Class (sap.ui.core.Renderer)"> 
+	 
+	<p class="p">The renderer class is the base class for control renderers. The <samp class="ph codeph">Renderer</samp>
+				implements the static <samp class="ph codeph">render</samp> method that is called when a control
+				is added to the DOM. To render a control, the <samp class="ph codeph">RenderManager</samp>
+				executes the <samp class="ph codeph">render</samp> method on the corresponding
+					<samp class="ph codeph">Renderer</samp> of the respective control and passes the reference to
+				itself and to the control.</p>
+
+			<p class="p">For notepad controls. the renderer class is normally not directly used, the "renderer" method
+				is directly part of the control implementation and will be added to a renderer class
+				behind the scenes.</p>
+ 
+</div></div>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="4de64e2e191f4a7297d4fd2d1e233a2d.html">Prevention of Cross-site Scripting</a></strong><br/>
+Cross-site scripting (XSS) can be prevented by ensuring that it is 			<span class="ph emphasis emphasis">not</span> possible to inject script code into an application page that 		runs in a browser.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="4de64e2e191f4a7297d4fd2d1e233a2d.html" title="Cross-site scripting (XSS) can be prevented by ensuring that it is not possible to inject script code into an application page that runs in a browser.">Prevention of Cross-site Scripting</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Writing a Control Renderer";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

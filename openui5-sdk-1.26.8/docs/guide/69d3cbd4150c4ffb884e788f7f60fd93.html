@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Introduces how mock server is used to simulate OData backend calls"/>
+<meta name="description" content="Introduces how mock server is used to simulate OData backend calls"/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Mock Server</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio69d3cbd4150c4ffb884e788f7f60fd93">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Mock Server</h1>
+<div class="body conbody"><p class="shortdesc">Introduces how mock server is used to simulate OData backend calls</p>
+<p class="p">Mock server is a mocking framework for HTTP and HTTPS that is used to simplify integration
+			testing and to decouple development teams by allowing to develop against a service that
+			is not complete or unstable.</p>
+<p class="p">In SAPUI5, the mock server mimics OData backend calls. It simulates the OData provider and is
+			completely client-based, meaning that no network connectivity to a remote host is
+			required. It intercepts HTTP calls made to the server and provides a fake output to the
+			client. All this is transparent to data binding and use of OData model and feels like a
+			real server. No changes are required on the OData model.</p>
+<p class="p">The mock server provides mock services and also mock data. It supports randomly generated data
+			based on the service metadata, as well as mock data provided in JSON files.</p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="3459c372aaaa4c31ab87bb0e174adcc3.html">OData Features Supported by Mock Server</a></strong><br/>
+List of OData version 2.0 features supported by mock server</li>
+<li class="link ulchildlink"><strong><a href="f06cdca43ddc467c93aa6cd25cc0d181.html">Using the Mock Server in SAPUI5</a></strong><br/>
+Link to the Mock Data guide.</li>
+<li class="link ulchildlink"><strong><a href="c9a91ddaef47461c9c44bfc2198ea3f0.html">Mock Server: Frequently Asked Questions</a></strong><br/>
+List of FAQs</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Mock Server";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

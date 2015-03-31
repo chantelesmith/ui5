@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="This chapter and its sections introduce the SAPUI5 architecture and the main concepts, such as the Model View Controller and Components."/>
+<meta name="description" content="This chapter and its sections introduce the SAPUI5 architecture and the main concepts, such as the Model View Controller and Components."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Concepts</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioec699e0817fb46a0817b0fa276a249f8">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Concepts</h1>
+<div class="body conbody"><p class="shortdesc">This chapter and its sections introduce the SAPUI5 architecture and the main concepts,
+		such as the Model View Controller and Components.</p>
+<p class="p">SAPUI5 is a client UI technology based on JavaScript, CSS and HTML5. SAPUI5 applications
+			run in a browser. Depending on the device the application is to run on (mobile, tablet
+			or desktop PC), you use different UI libraries. </p>
+<p class="p">Servers come into play for deploying your applications, storing the SAPUI5 libraries and
+			connecting to a database. Depending on the environment in which SAPUI5 is used, the
+			libraries or your applications are stored on an <span class="ph pname">SAP NetWeaver Application Server</span> or an
+			<span class="ph pname">SAP HANA Cloud Platform</span>, for instance. the preferred way to access business data for
+			your application is using the OData model through a <span class="ph pname">SAP NetWeaver Gateway</span>.</p>
+<p class="p">When users access an SAPUI5 application from their device, a request is sent to the
+			respective server to load the application into the browser. The view accesses the
+			relevant libraries. Usually the model is also instantiated and business data is fetched
+			from the database.</p>
+<p class="p"><img class="image" id="loioec699e0817fb46a0817b0fa276a249f8__image_apr_kqh_sk" src="loio99b4be76a3f94db18172e67e730fb7fb_LowRes.png" alt="SAPUI5 Architecture Overview" title="SAPUI5 Architecture Overview"/></p>
+<div class="section"><div class="section_title">Model View Controller</div><div type="Model View Controller">
+			
+			<p class="p">SAPUI5 uses the model view controller (MVC) concept to achieve the following objectives: </p>
+
+			<ul class="ul" id="loioec699e0817fb46a0817b0fa276a249f8__ul_m2h_m1y_tk"><li class="li">
+					<p class="p">Support development in distributed teams with different source locations </p>
+
+				</li>
+<li class="li">
+					<p class="p">Propose file structure, naming, and usage patterns </p>
+
+				</li>
+<li class="li">
+					<p class="p">Add capability of UI declaration (in comparison to a programmatic
+						construction) </p>
+
+				</li>
+</ul>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="91f233476f4d1014b6dd926db0e91070.html">Model View Controller (MVC)</a></strong><br/>
+The Model View Controller (MVC) concept is used in SAPUI5 to separate the representation 		of information from the user interaction. This separation facilitates development and the 		changing of parts independently.</li>
+<li class="link ulchildlink"><strong><a href="9141a338ec064813be274198568413af.html">Resource Handling</a></strong><br/>
+In SAPUI5, resources are handled in a client-side and a server-side part.</li>
+<li class="link ulchildlink"><strong><a href="363cd16eba1f45babe3f661f321a7820.html">Libraries</a></strong><br/>
+SAPUI5 provides a set of JavaScript and CSS libraries ans well as a mobile library. The 		libraries can be combined and different options to embed the libraries in the application 		are provided.</li>
+<li class="link ulchildlink"><strong><a href="958ead51e2e94ab8bcdc90fb7e9d53d0.html">SAPUI5 Components</a></strong><br/>
+Components are independent and reusable parts used in SAPUI5 applications.</li>
+<li class="link ulchildlink"><strong><a href="36a5b130076e4b4aac2c27eebf324909.html">Fragments</a></strong><br/>
+Fragments are light-weight UI parts (UI sub-trees) which can be reused, defined similar 		to views, but do not have any controller or other behavior code involved</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="68b9644a253741e8a4b9e4279a35c247.html" title="SAPUI5 uses data binding to bind two data sources or information sources together to keep them in synch: All changes in one data source are also reflected in the other data source.">Data Binding</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Concepts";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>APF Configuration Modeler</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiob57224b3f6d14640b36e696537653e98">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">APF Configuration Modeler</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">You use the APF Configuration Modeler to design or enhance your APF-based applications. </p>
+<p class="p">To configure a <strong class="ph b">new</strong> application, the following steps are relevant and build on one
+			another:</p>
+<ol class="ol" id="loiob57224b3f6d14640b36e696537653e98__ol_ef1_bzm_kq"><li class="li">Create an <strong class="ph b">application</strong><p class="p">In this step, you create a node under which you can
+					define several different configurations. This step only serves to organize
+					configurations in a structured way. At runtime, the information you enter here
+					is not reflected on the UI. </p>
+<p class="p">All configurations that you create under one
+					application node share a common text pool, that is, one text file that contains
+					the texts for all configurations belonging to an application node. This is
+					useful if you have configurations that have very similar content and therefore
+					share large parts of their texts. Having all these texts in one text file can
+					also save translation costs.</p>
+</li>
+<li class="li">Create one or more <strong class="ph b">configurations</strong><p class="p">You can define several configurations
+					under one application. At runtime, only one configuration is used at a
+				time.</p>
+</li>
+<li class="li"> Create <strong class="ph b">categories</strong> for a configuration<p class="p"> The categories you define here are
+					displayed on the first level of the analysis step gallery. They help to clearly
+					arrange the analysis steps, for example, by drill-down dimensions or by KPIs.
+					</p>
+<p class="p"> Note that the assignment of steps to categories is done manually. The
+					steps cannot be assigned automatically based on their content.</p>
+</li>
+<li class="li">Create <strong class="ph b">analysis steps</strong> for each category<p class="p">Here, you define the steps that a
+					user can choose from in the analysis step gallery and that make up the actual
+					analysis in an APF-based application. Analysis steps have a request assigned
+					that retrieves the data to be analyzed, and one or more representations that
+					determine the chart types.</p>
+</li>
+<li class="li">Create <strong class="ph b">representations</strong> for each analysis step<p class="p">Representations define how
+					the data of an analysis step is visualized on the UI, that is, which chart type
+					is used. You can define several representations for each step so that the user
+					can then select the required one in the analysis step gallery. At runtime, the
+					user can switch between the different representations of a step.</p>
+</li>
+<li class="li">Create <strong class="ph b">facet filters</strong> for a configuration<p class="p"> Using facet filters, the user can
+					set global filter values that apply to an entire analysis path.</p>
+</li>
+</ol>
+<p class="p">To <strong class="ph b">change</strong> an application that was shipped by SAP, you must first import the relevant
+			files into the APF Configuration Modeler. You can then edit the elements listed above.
+			For more information about importing files, see <a class="xref" href="6528aa8787c94993a971697025cc4290.html">Import</a>.</p>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="APF Configuration Modeler";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

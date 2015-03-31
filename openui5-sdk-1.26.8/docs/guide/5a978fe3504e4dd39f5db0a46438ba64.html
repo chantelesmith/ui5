@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="To avoid conflicts with other frameworks or development, the JavaScript development follows the OpenAJAX concept for namespaces. For this, the sap namespace has been officially reserved for SAP."/>
+<meta name="description" content="To avoid conflicts with other frameworks or development, the JavaScript development follows the OpenAJAX concept for namespaces. For this, the sap namespace has been officially reserved for SAP."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>JavaScript Namespaces</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio5a978fe3504e4dd39f5db0a46438ba64">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">JavaScript Namespaces</h1>
+<div class="body"><p class="shortdesc">To avoid conflicts with other frameworks or development, the JavaScript development
+		follows the OpenAJAX concept for namespaces. For this, the <samp class="ph codeph">sap</samp> namespace
+		has been officially reserved for SAP. </p>
+<p class="p">All objects, functions, classes, and so on, that have been developed by SAP and are visible
+			globally must either be defined as direct members of that namespace, or as members of
+			one of its subnamespaces. Non-SAPUI5 content, such as application code or controls
+			developed by customers and partners, must <strong class="ph b">not</strong> use this <samp class="ph codeph">sap</samp>
+			namespace prefix.</p>
+<p class="p">For SAPUI5-related development, the namespace is further restricted to the
+				<samp class="ph codeph">sap.ui</samp> child namespace with an exception for the
+				<samp class="ph codeph">sap.m</samp> entities.</p>
+<div class="note note"><span class="notetitle">Note</span> 
+			<p class="p">SAP's JavaScript objects with an accessible name that are not part of a closure must have a
+				name starting with the reserved namespace <samp class="ph codeph">sap</samp>. The namespace for
+				SAPUI5 objects must start with <samp class="ph codeph">sap.ui</samp> or
+				<samp class="ph codeph">sap.m</samp>.</p>
+
+			<p class="p">Global variables, for example <samp class="ph codeph">window.xyz</samp>, are forbidden. They may
+				lead to conflicts with other frameworks, applications, and so on.</p>
+
+		</div>
+<p class="p">To ease the handling of namespaces, SAPUI5 provides two helper functions</p>
+<ul class="ul" id="loio5a978fe3504e4dd39f5db0a46438ba64__ul_vl5_nrw_np"><li class="li">
+				<p class="p"><samp class="ph codeph">jQuery.sap.declare(sModuleName)</samp></p>
+
+			</li>
+<li class="li">
+				<p class="p"><samp class="ph codeph">sap.ui.namespace(sNamespace)</samp></p>
+
+			</li>
+</ul>
+<p class="p">The first helper function declares a module and should be the first statement in any
+			SAPUI5 module, see <a class="xref" href="91f2412f6f4d1014b6dd926db0e91070.html" title="The SAPUI5 framework has built-in support for modularizing comprehensive JavaScript applications. That means, instead of defining and loading one large bundle of JavaScript code, an application can be splitted into smaller parts which then can be loaded at runtime at the time when they are needed. These smaller individual files are called modules.">Modularization and Resource Handling</a>. This also
+			ensures that the parent namespace of the main module object, that is, the object with
+			the same name as the module, exists.</p>
+<p class="p">The second helper function explicitly ensures the existence of a namespace. A call to
+			this function is only needed when additional namespaces are used in a module. Calling
+			that function instead of simply creating the namespace object makes sense if the object
+			exists already (<samp class="ph codeph">sap.ui.namespaces</samp> checks this first, or if the name
+			hierarchy is deeper and creating/checking the intermediate namespaces becomes
+			cumbersome.</p>
+<div class="p"><strong class="ph b">Example</strong><div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">// A module declaration, ensures that sap.ui.sample exists
+jQuery.sap.declare("sap.ui.sample.MyClass");
+
+// now it is safe to use that namespace object and assign a new member 'MyClass'
+// to it
+// Note that jQuery.sap.declare does not create the MyClass object.
+// So the developer can decide whether it should be a function, an object,
+// or an instance of a specific type
+sap.ui.sample.MyClass = { key1 : 'value1' };
+
+// the following line guarantees that &lt;code&gt;sap.ui.sample.subspace&lt;/code&gt;
+// is a valid object
+sap.ui.namespace("sap.ui.sample.subspace");
+
+// now one can use this namespace as well
+sap.ui.sample.subspace.member1 = 42;
+sap.ui.sample.subspace.member2 = 3.141;</pre></div>
+</div>
+<div class="section"><div class="section_title">Naming of Subnamespaces (Packages)</div><div type="Naming of Subnamespaces (Packages)">
+			
+			<p class="p">Subnamespaces of <samp class="ph codeph">sap.ui</samp> that do <strong class="ph b">not</strong> represent classes should have a
+				lowercase name like the Java packages whereas CamelCase should be avoided.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">  sap.ui.base
+  sap.ui.core
+  sap.ui.util</pre></div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="JavaScript Namespaces";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

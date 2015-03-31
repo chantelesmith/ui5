@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 is a Release-independant component (RIC) and, therefore, has specific requirements with regard to compatilbilty. This includes topics such as the versioning scheme and the API evolution as well as an overview of the compatible and incompatible changes to the API, deprecation, experimental features, and third party open source libraries."/>
+<meta name="description" content="SAPUI5 is a Release-independant component (RIC) and, therefore, has specific requirements with regard to compatilbilty. This includes topics such as the versioning scheme and the API evolution as well as an overview of the compatible and incompatible changes to the API, deprecation, experimental features, and third party open source libraries."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Compatibility Rules</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f087396f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Compatibility Rules</h1>
+<div class="body"><p class="shortdesc">SAPUI5 is a Release-independant component (RIC) and, therefore, has specific
+		requirements with regard to compatilbilty. This includes topics such as the versioning
+		scheme and the API evolution as well as an overview of the compatible and incompatible
+		changes to the API, deprecation, experimental features, and third party open source
+		libraries.</p>
+<p class="p">As a release-independant component, an important constraint for SAPUI5 is that upgrades to a
+			newer version must be as easy as possible which, in turn, puts a special focus on
+			compatibility rules. The following sections explain the meaning of compatibility with
+			regard to the SAPUI5 application and control development.</p>
+<div class="section" id="loio91f087396f4d1014b6dd926db0e91070__section_DC50B59D56AC4B52A2DBEFADFA4B0E98"><div class="section_title">Versioning Scheme</div><div type="Versioning Scheme"> 
+		 
+		<p class="p">SAPUI5 uses a 3 digit version identifier, for
+		  example 1.4.3. The digits have the following meaning: 
+		</p>
+ 
+		<ul class="ul"><li class="li">The first digit (1) specifies the <span class="ph emphasis emphasis">major</span> version number. </li>
+<li class="li">The second digit (4) specifies the <span class="ph emphasis emphasis">minor</span> version number. </li>
+<li class="li">The third digit (3) specifies the <span class="ph emphasis emphasis">patch</span> version number. </li>
+</ul>
+ 
+		<p class="p">New releases of SAPUI5 are described by the major and minor version number. The patch version
+				number is only used to identify patches within a release.</p>
+ 
+	 </div></div>
+<div class="section" id="loio91f087396f4d1014b6dd926db0e91070__section_4BED038D0A7E4237BE7AD473862AA281"><div class="section_title">API Evolution</div><div type="API Evolution">
+			
+			<p class="p">If not mentioned differently, in the following paragraphs "API" refers to "public API",
+				meaning functions, classes, namespaces, controls with their declared properties,
+				aggregrations, and so on. The sole definition of the public API is the API
+				Reference, which is available in the Demo Kit at  <a class="xref" href="../../docs/api/symbols/sap.ui.html">API Reference</a>. Features
+				that are <strong class="ph b">not</strong> mentioned there are <strong class="ph b">not</strong> part of the API.</p>
+
+			<p class="p">The following rules apply for introducing new APIs or making incompatible changes to
+				existing APIs: </p>
+
+			<p class="p">A <strong class="ph b">major release</strong>, that is, a release with a new major version can introduce new
+				APIs or make incompatible changes to existing APIs. If this is the case, the
+				incompatibilities are described in the Release Notes. </p>
+
+			<p class="p">A <strong class="ph b">minor release</strong>, that is, a release with a new minor version can introduce new
+				APIs, but does not contain incompatible changes to APIs, which have been introduced
+				in the same major release. </p>
+
+			<p class="p">A <strong class="ph b">patch release</strong>, that is, a release with a new patch version, only contain fixes to the
+				existing implementation, but do not introduce new features or incompatible API
+				changes.</p>
+
+			<div class="note note" id="loio91f087396f4d1014b6dd926db0e91070__note_N1006F_N1003F_N10013_N10001"><span class="notetitle">Note</span> Exceptions to these rules are possible, but only in
+				very urgent cases, such as security issues. The exceptions are documented in the
+					<a class="xref" href="../../docs/guide/relnotes/ReleaseNotes.html">Release Notes</a>. </div>
+
+		</div></div>
+<div class="section" id="loio91f087396f4d1014b6dd926db0e91070__section_N10074_N10013_N10001"><div class="section_title">Compatible Changes</div><div type="Compatible Changes">
+			
+			<p class="p">The following changes to existing APIs are compatible:</p>
+
+			<ul class="ul" id="loio91f087396f4d1014b6dd926db0e91070__ul_kkd_s2f_z3"><li class="li">Adding new libraries, controls, classes, properties, functions, namespaces</li>
+<li class="li">Generalizing properties, that is, moving properties up in the inheritance hierarchy</li>
+<li class="li">Adding new values to enumeration types; this means that when dealing with enum properties,
+					always be prepared to accept new values, for example, by implementing a
+					"default" or "otherwise" path when reacting on enum values</li>
+</ul>
+
+			<p class="p">The following is <span class="ph emphasis emphasis">not</span> part of the public API and may change in
+				patch and minor releases:</p>
+
+			<ul class="ul" id="loio91f087396f4d1014b6dd926db0e91070__ul_gsh_tvp_v4"><li class="li">Manipulation of HTML/CSS, for example via jQuery,
+						<samp class="ph codeph">control.addStyleClass</samp>, or directly via CSS</li>
+<li class="li">
+					<p class="p">Using or overriding "private" functions that are not part of the <a class="extlink" href="../../docs/api/symbols/sap.ui.html">API Reference<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a>. Private functions are typically,
+						but not always, prefixed with a preceding "_". Always double check this by
+						looking in the API Reference.</p>
+
+				</li>
+<li class="li">Open source libraries</li>
+<li class="li">Log mesages</li>
+<li class="li">Creation of new controls, for example "Notepad-Controls" based on existing
+					controls (inheritance) or subclassing in general; new classes also depend on
+					private functionality of the super classes, collision of generated functions for
+					properties, aggregations are possible </li>
+</ul>
+
+		</div></div>
+<div class="section" id="loio91f087396f4d1014b6dd926db0e91070__section_N1009A_N10013_N10001"><div class="section_title">Incompatible Changes</div><div type="Incompatible Changes">
+			
+			<p class="p">The following changes to existing APIs are incompatible and can only be done in a new major
+				release:</p>
+
+			<ul class="ul" id="loio91f087396f4d1014b6dd926db0e91070__ul_okd_s2f_z3"><li class="li">Removing an API (library, namespace, function, property, control, events, and so on) </li>
+<li class="li">Renaming an API (library, namespace, function, property, control, events, and so on) </li>
+<li class="li">Removing support for parameters </li>
+<li class="li">Removing support for configuration entries </li>
+<li class="li">Reducing the visibility of an API; this does not break JavaScript applications,
+					but changes the contract </li>
+<li class="li">Removing or reordering parameters in an API signature </li>
+<li class="li">Reducing the accepted value range, for example, parameter of a function </li>
+<li class="li">Broadening the value range of a return value (or property); exception:
+					Enumerations </li>
+<li class="li">Moving JavaScript artifacts (namespaces, functions, classes) between modules </li>
+<li class="li">Replacing asserts by precondition checks </li>
+<li class="li">Moving properties, etc., down in the inheritance hierarchy </li>
+<li class="li">Changing the name of enum values </li>
+<li class="li">Changing defaults (properties, function parameters) </li>
+<li class="li">Renaming or removing files </li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Deprecation</div><div type="Deprecation">
+			
+			<p class="p">If possible, SAPUI5 marks old artifacts as deprecated and creates new artifacts, if
+				applicable, instead of incompatible changes. A deprecation documentation in the
+				SAPUI5 library and maybe a log entry in the implementation explain why and when an
+				artifact has been deprecated and provide hints how to achieve the same results
+				without deprecated functionality.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Experimental API</div><div type="Experimental API">
+			
+			<p class="p">Some features or controls delivered with this SAPUI5 version are flagged as "experimental".
+				These experimental features and controls are not part of the released scope of the
+				delivered SAPUI5 version. Do not use experimental features or controls in a
+				productive environment, or with data that has not been sufficiently backed up.</p>
+
+			<p class="p">Experimental features or controls can be changed, or deleted, at any time without
+				notice and without a formal deprecation process. They may also be incompatible to
+				changes provided in an upgrade.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Third Party Open Source Libraries</div><div type="Third Party Open Source Libraries">
+			
+			<p class="p">SAPUI5 contains and uses several third party open source libraries, for example,
+					<em class="ph i">jQuery</em>. These libraries can also be used by applications and/or custom
+				control libraries, but the SAPUI5 compatibility policy described within this
+				document does not apply to these third party libraries. </p>
+
+			<p class="p">If you want to use the contained third party open source libraries, note the
+				following restrictions: </p>
+
+			<ul class="ul" id="loio91f087396f4d1014b6dd926db0e91070__ul_qkd_fff_z3"><li class="li">SAP decides which version(s) and modules of the used libraries are provided. </li>
+<li class="li">SAP can upgrade to higher version(s) of the used libraries even within a micro
+					release. </li>
+<li class="li">For important reasons such as security SAPUI5 can stop providing a library. </li>
+<li class="li">The third party libraries are provided "as is". Extensions, adaptations, and
+					support are not done by SAP. </li>
+</ul>
+
+			<div class="note note" id="loio91f087396f4d1014b6dd926db0e91070__note_N10035_N10011_N10001"><span class="notetitle">Note</span> 
+				<p class="p">For closed source libraries, a use beyond the use of the corresponding SAPUI5
+					controls is not allowed. </p>
+
+			</div>
+
+			<p class="p">For a list of the third party open source software used in SAPUI5, see <a class="extlink" href="../../credits.html">Third Party Open Source Libraries<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a>.</p>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Compatibility Rules";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

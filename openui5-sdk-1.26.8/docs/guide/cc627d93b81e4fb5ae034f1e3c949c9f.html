@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The Configure KPI Tiles app allows you to create tile visualizations for an active evaluation."/>
+<meta name="description" content="The Configure KPI Tiles app allows you to create tile visualizations for an active evaluation."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Configure KPI Tiles</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiocc627d93b81e4fb5ae034f1e3c949c9f">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Configure KPI Tiles</h1>
+<div class="body conbody"><p class="shortdesc">The Configure KPI Tiles app allows you to create tile visualizations for an active
+		evaluation.</p>
+<p class="p">The app also lets you configure the drill-down navigation path for the tile. This
+			determines whether you navigate from the tile to the SAP Smart Business generic
+			drill-down application or to a custom application when you click the tile at
+			runtime.</p>
+<div class="section"><div class="section_title">Key Features</div><div type="Key Features">
+			
+			<ul class="ul" id="loiocc627d93b81e4fb5ae034f1e3c949c9f__ul_vks_qq4_n4"><li class="li">View the configured tiles for an active evaluation.<p class="p">In the <span class="ph uicontrol">Configured
+							Tiles</span> view, you can display the tiles that you have
+						configured for the selected active evaluation. </p>
+</li>
+<li class="li">Add a new tile configuration to an active evaluation.<p class="p">Select an active evaluation and
+						choose <span class="ph uicontrol">Add Tile</span> to add a new tile. You can choose
+						from one of the following tile formats:</p>
+
+<div class="tablenoborder"><table summary="" id="loiocc627d93b81e4fb5ae034f1e3c949c9f__table_jxk_xq4_n4" class="table" frame="border" border="1" rules="all"><tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%">Numeric</td>
+<td class="entry" valign="top" width="50%">Data is presented in a number format. The aggregate value of the KPI main measure of
+										the evaluation is displayed on the tile. The color of the
+										value indicates whether the value is in conformance with the
+										threshold values defined for the evaluation.<div class="note note"><span class="notetitle">Note</span> The
+											virtual data model (VDM) must ensure that all the values
+											for the KPI main measure column have the same Unit of
+											Measure (UoM), else, the number displayed on the tile
+											may not be the expected value. This is because when the
+											aggregate value is fetched, it is grouped based on the
+											UoM. If there are multiple UoMs for the backend values
+											of the KPI main measure column, then grouping by UoM
+											would result in multiple records being returned and
+											Smart Business only picks up the first value that is
+											returned.</div>
+
+									</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%">Comparison</td>
+<td class="entry" valign="top" width="50%">You select a dimension for which to show the top KPI values in comparison to each
+										other. For example, if you select Customer as the dimension,
+										you see a comparison of the values for the top customers
+										contributing to this KPI.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%">Trend</td>
+<td class="entry" valign="top" width="50%">Data is presented as a line chart illustrating the trend
+										over time. You must enter a time dimension representing a
+										duration (for example, month or week) to visualize this
+										tile.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%">Actual vs. Target</td>
+<td class="entry" valign="top" width="50%">Data is presented graphically in the form of a bullet
+										chart that shows the current value of the KPI in relation to
+										the target value and its thresholds.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%">Comparison Tile Multiple Measures</td>
+<td class="entry" valign="top" width="50%">You select multiple measures to be displayed on the tile. You must select at least
+										two measures. Only a maximum of three measures are
+										allowed.You must select at least two measures or a maximum
+										of three measures. The measures should be either the
+										evaluation main measure or threshold measures or one of the
+										additional measures defined for the evaluation using the
+										Create Evaluation modeler app. You can associate semantic
+										coloring with each of the measures that you choose.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%">Dual Tile</td>
+<td class="entry" valign="top" width="50%">You can create a dual tile, which is a 2x1 tile. In the dual tile, the left part
+										always shows the KPI measure in numeric format but the right
+										part can show any one of the mini chart visualizations
+										supported by Smart Business.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li">Define the drill-down navigation type. <p class="p">Choose whether the drill-down for this tile leads
+						to the SAP Smart Business generic drill-down application or another
+						application (for example, SAP Lumira or a custom application).</p>
+<p class="p">If you
+						choose the other drill-down, you must specify the semantic object and action
+						(and application parameters if required) with which the SAP Fiori framework
+						can start these applications.</p>
+<p class="p">If the semantic object and the action
+						are already specified for the evaluation of the tile that you are
+						configuring, these values are carried over during tile configuration (if you
+						have chosen <span class="ph uicontrol">Generic Drill-Down</span>, the action is
+						overwritten by the action for the generic drill-down).</p>
+<div class="note sap-example example"><span class="exampletitle">Example</span> SAP
+						Lumira as Other Drill-Down<p class="p">If you select SAP Lumira as the other
+							drill-down, the semantic object and action are already prefilled and you
+							only need to select the SAP Lumira story ID that you want to navigate to
+							from your tile.</p>
+</div>
+<div class="note note"><span class="notetitle">Note</span> You can only navigate to SAP
+						Lumira stories that are available for the <span class="ph pname">SAP HANA</span> view that your KPI is
+						based on (that is, only these story IDs are displayed in the value help and
+						can be selected in the tile configuration.)</div>
+<div class="note note"><span class="notetitle">Note</span> You can create and
+						activate a tile in one step by choosing <span class="ph uicontrol">Save and
+							Activate</span>. If there are any changes to the underlying
+						evaluation after the tile is activated, you must recreate the tile and
+						activate it again.</div>
+<p class="p">Only active entities are available at runtime.
+						If either the main measure or the threshold measures are displayed on the
+						tile and if the scaling factor (defined using the Create
+							Evaluation app) of the evaluation for which you have configured
+						the tile is percentage-based (%) then the value returned from the VDM for
+						the main measure or threshold measures in the backend is displayed as a
+						percentage. For example, if the backend returns a value 0.70 then it is
+						displayed as 70%.</p>
+</li>
+<li class="li">Navigate to Configure KPI Drill-Down<p class="p">You can now configure a KPI drill-down
+						directly from the <span class="ph uicontrol">Configure KPI Tiles</span> application by
+						choosing the <span class="ph uicontrol">Save and Configure Drilldown</span>
+						pushbutton.</p>
+<div class="note note"><span class="notetitle">Note</span> Save and Configure Drilldown pushbutton is not visible
+						when the drill-down navigation from the tile is configured as a non-Smart
+						Business generic drill-down. The exception to this is if you have chosen
+						Others -&gt; Analysis Path Framework as the drill-down navigation
+						target.</div>
+</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Related Apps</div><div type="Related Apps">
+			
+			<ul class="ul" id="loiocc627d93b81e4fb5ae034f1e3c949c9f__ul_eg2_tr4_n4"><li class="li">Create KPI</li>
+<li class="li">Create Evaluation</li>
+<li class="li">Configure KPI Drill-Down</li>
+<li class="li">Manage KPI Associations</li>
+<li class="li">Manage KPI Authorizations</li>
+<li class="li">KPI Workspace</li>
+<li class="li">Migration Tool</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Component for Customer Incidents</div><div type="Component for Customer Incidents">
+			
+			
+<div class="tablenoborder"><table summary="" id="loiocc627d93b81e4fb5ae034f1e3c949c9f__table_y4x_2s4_n4" class="table" frame="border" border="1" rules="all"><tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%">For all design time issues</td>
+<td class="entry" valign="top" width="50%"><span class="ph sap-technical-name sap-technical-name">CA-GTF-SB-DT</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%">For all runtime issues</td>
+<td class="entry" valign="top" width="50%"><span class="ph sap-technical-name sap-technical-name">CA-GTF-SB-RT</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">SAP Notes</div><div type="SAP Notes"><a href="http://help.sap.com/disclaimer?site=https://service.sap.com/sap/support/notes/2018360">2018360 <img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a></div></div>
+</div>
+<div class="related-links"> 
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="2ee2365cbbdc405bad32401fee1a9fbb.html">Create KPI</a></div>
+<div><a class="link" href="4348711baf09464284eaea36751c2628.html">Create Evaluation</a></div>
+<div><a class="link" href="11cd984817f24248b4291899b510f466.html">Manage KPI Authorizations</a></div>
+<div><a class="link" href="ba3330d57f2f4361bd108adcde23cfdd.html" title="The Configure KPI Drill-Down app allows you to configure the generic drill-down application that you navigate to when you click the KPI or OPI tile in the runtime environment.">Configure KPI Drill-Down</a></div>
+<div><a class="link" href="1288e9cb3d4b432082ae408efac8d7ae.html" title="The Manage Associations app allows you to create associations between KPIs or OPIs. Two types of association are available: supporting or conflicting.">Manage KPI Associations</a></div>
+<div><a class="link" href="cefc748420eb49d2b0e639ca0c86c6c0.html" title="The KPI Workspace app allows you to manage all of your KPIs and OPIs and their evaluations.">KPI Workspace</a></div>
+<div><a class="link" href="77543cb4350147ac84937fc16a4182bb.html" title="The Migration Tool app allows you to migrate content that you created with SAP Smart Business 1.0 (SP 02) wave 4 KPI modeler to the new SAP Smart Business wave 5 version.">Migration Tool</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Configure KPI Tiles";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

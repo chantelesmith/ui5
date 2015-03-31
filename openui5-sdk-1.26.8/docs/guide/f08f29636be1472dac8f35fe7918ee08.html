@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Depending on the combination of device and browser, visual degradations may occur in the sap.m library."/>
+<meta name="description" content="Depending on the combination of device and browser, visual degradations may occur in the sap.m library."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Visual Degradations</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiof08f29636be1472dac8f35fe7918ee08">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Visual Degradations</h1>
+<div class="body conbody"><p class="shortdesc">Depending on the combination of device and browser, visual degradations may occur in the
+			<samp class="ph codeph">sap.m</samp> library. </p>
+<p class="p">The following sections give an overview of the known degradations.</p>
+<div class="section"><div class="section_title">StandardListItem - info (property), DisplayListItem - label (property), InputListItem - content (aggregation)</div><div type="StandardListItem - info (property), DisplayListItem - label (property), InputListItem - content (aggregation)">
+			
+			<p class="p">Certain text elements contained in lists cannot be aligned to the right side of a
+				list if the following conditions apply:</p>
+
+			<ul class="ul" id="loiof08f29636be1472dac8f35fe7918ee08__ul_uh2_wch_z4"><li class="li">You are using Internet Explorer Version 9</li>
+<li class="li">You are displaying the list inside a popup</li>
+<li class="li">The <samp class="ph codeph">contentWidth</samp> property of the popup is set to 100% or not at
+					all</li>
+</ul>
+
+			<p class="p">These degradations affect the info of a <samp class="ph codeph">StandardListItem</samp>, the value of a
+					<samp class="ph codeph">DisplayListItem</samp> and the input of an
+					<samp class="ph codeph">InputListItem</samp>. The following comparison table shows you exactly
+				what the display should look like (left-hand side) and the visual degradation in
+				each case (right-hand side):</p>
+
+			<div class="p">
+				
+<div class="tablenoborder"><table summary="" id="loiof08f29636be1472dac8f35fe7918ee08__table_mfc_zc3_z4" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1:
+					List Item Visual Degradations</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="48.54368932038835%" id="d1689497e58">What it Should Look Like</th>
+<th class="entry" valign="top" width="51.45631067961165%" id="d1689497e60">Visual Degradation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="48.54368932038835%" headers="d1689497e58 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_drj_vyc_1p"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_bpj_wyc_1p" src="loio1847c9473d9e41109f671b8ada8cf3f0_LowRes.png"/></div></div>
+
+								</td>
+<td class="entry" valign="top" width="51.45631067961165%" headers="d1689497e60 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_jz5_wyc_1p"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_flp_q23_cp" src="loio0d0babea8c0345439147a71138c13823_LowRes.png"/></div></div>
+
+								</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="48.54368932038835%" headers="d1689497e58 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_zng_xyc_1p"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_hbz_yyc_1p" src="loio42a225ee39e34df7b72aa225197e9c9b_LowRes.png"/></div></div>
+
+								</td>
+<td class="entry" valign="top" width="51.45631067961165%" headers="d1689497e60 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_hky_xyc_1p"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_og1_rg3_cp" src="loio5010903a13d649ab806ee270f5a9bdf8_LowRes.png"/></div></div>
+
+								</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="48.54368932038835%" headers="d1689497e58 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_slm_xyc_1p"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_k35_zyc_1p" src="loio5dfe5c2398d14f63841f2d054f8c51e6_LowRes.png"/></div></div>
+
+								</td>
+<td class="entry" valign="top" width="51.45631067961165%" headers="d1689497e60 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_yvs_xyc_1p"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_irm_5g3_cp" src="loiobce0f214bfbc45ecba0aead93a9d95a9_LowRes.png"/></div></div>
+
+								</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			</div>
+
+		</div></div>
+<div class="section"><div class="section_title">sap.m.Text - maxLines (property), sap.m.Text - text (property), sap.m.ObjectListItem - title (property), sap.m.ObjectHeader - title (property)</div><div type="sap.m.Text - maxLines (property), sap.m.Text - text (property), sap.m.ObjectListItem - title (property), sap.m.ObjectHeader - title (property)">
+			
+			<p class="p">The visual aid for indicating multiline overflow is an ellipsis at the end of a line. This
+				ellipsis is displayed if the text string exceeds the maximum number of lines
+				displayed on screen. Depending on the line-clamping support offered by your browser,
+				this visual aid may not be displayed at all, meaning the text is simply truncated
+				without any visual indication that it is incomplete. The table below outlines which
+				browsers fail to support the multiline ellipsis handling of the
+					<samp class="ph codeph">maxLines</samp> property, and also shows examples of each visual
+				degradation along with what the display should look like in each case:</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loiof08f29636be1472dac8f35fe7918ee08__table_db3_rnj_cp" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 2:
+					maxLines Visual Degradations</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="25%" id="d1689497e119">What it Should Look Like</th>
+<th class="entry" colspan="3" valign="top" id="d1689497e121">Visual Degradation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d1689497e119 ">Google Chrome</td>
+<td class="entry" valign="top" width="25%" headers="d1689497e121 ">Mozilla Firefox</td>
+<td class="entry" valign="top" width="25%" headers="d1689497e121 ">Internet Explorer 9</td>
+<td class="entry" valign="top" width="25%" headers="d1689497e121 ">Internet Explorer 10</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d1689497e119 ">
+								<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_ifw_vnj_cp"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_ytn_xnj_cp" src="loio811e9b66afdd429383f5e7486b74b2f1_LowRes.png"/></div></div>
+
+							</td>
+<td class="entry" valign="top" width="25%" headers="d1689497e121 ">
+								<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_i1f_wnj_cp"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_b1y_xnj_cp" src="loio367464c5a12f4165b20f609d3481dee3_LowRes.png"/></div></div>
+
+							</td>
+<td class="entry" valign="top" width="25%" headers="d1689497e121 ">
+								<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_vfk_wnj_cp"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_dyh_ynj_cp" src="loio345f52aff35241eaa45473ed3380d1e4_LowRes.png"/></div></div>
+
+							</td>
+<td class="entry" valign="top" width="25%" headers="d1689497e121 ">
+								<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_prn_wnj_cp"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_ztq_ynj_cp" src="loiod6f168b8cc5d44a8b864b5f98b7cacb0_LowRes.png"/></div></div>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">sap.m.StandardListItem Screen Resizing</div><div type="sap.m.StandardListItem Screen Resizing">
+			
+			<p class="p">If you are displaying a Standard List Item using Internet Explorer Version 9 and try to reduce
+				the size of the screen, the status text is truncated (indicated by an ellipsis)
+				instead of the description, as shown below in the comparison with Google Chrome:</p>
+
+			<div class="p">
+				
+<div class="tablenoborder"><table summary="" id="loiof08f29636be1472dac8f35fe7918ee08__table_j1s_scg_bp" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 3:
+					Standard List Item Visual Degradation</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1689497e173">What it Should Look Like</th>
+<th class="entry" valign="top" width="50%" id="d1689497e175">Visual Degradation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e173 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_svh_5cg_bp"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_afk_wgm_bp" src="loio7fc61abd168440058a697ad465a0a716_LowRes.png"/></div></div>
+
+								</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e175 ">
+									<div class="fig fignone" id="loiof08f29636be1472dac8f35fe7918ee08__fig_odq_5cg_bp"><div class="figcontainer"><img class="image" id="loiof08f29636be1472dac8f35fe7918ee08__image_rtz_wh3_cp" src="loio6ceb3b3c80c1454a85ad26dd9b9d14bd_LowRes.png"/></div></div>
+
+								</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			</div>
+
+		</div></div>
+<div class="section"><div class="section_title">placeholder Property in sap.m.Input and sap.m.TextArea</div><div type="placeholder Property in sap.m.Input and sap.m.TextArea">
+			
+			<p class="p">As there is no W3C specification for how to use the placeholder property, browser
+				handling for this property varies greatly. Some browsers use a native placeholder
+				property, but for browsers that do not support this, SAP implements its own
+				placeholder version.</p>
+
+			<p class="p">The following overview outlines which browsers use which version, and which
+				limitations or degradations apply in each case for the <samp class="ph codeph">sap.m.Input</samp>
+				control and <samp class="ph codeph">sap.m.TextArea</samp> control.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loiof08f29636be1472dac8f35fe7918ee08__table_b3z_qkn_pp" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 4:
+					placeholder Property in sap.m.Input</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1689497e216">Browser</th>
+<th class="entry" valign="top" width="50%" id="d1689497e218">Situation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e216 ">Google Chrome</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e218 ">Google Chrome supports the native placeholder property and
+								displays the ellipsis correctly, indicating that the placeholder
+								text stretches beyond the field that is currently visible</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e216 ">Internet Explorer (all versions)</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e218 ">All IE versions do not use the native placeholder property,
+								instead they use the placeholder version developed by SAP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e216 ">Mozilla Firefox</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e218 ">Mozilla Firefox supports the native placeholder property but does
+								not display the ellipsis, instead it simply truncates the
+								placeholder text string</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">Whereas <samp class="ph codeph">sap.m.Input</samp> contains just a single line placeholder,
+					<samp class="ph codeph">sap.m.TextArea</samp> is a multiline control, meaning it brings with
+				it different issues to the ones listed above. These issues are listed below.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loiof08f29636be1472dac8f35fe7918ee08__table_jhl_ykn_pp" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 5:
+					placeholder Property in sap.m.TextArea</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1689497e255">Browser</th>
+<th class="entry" valign="top" width="50%" id="d1689497e257">Situation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e255 ">Google Chrome</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e257 ">Google Chrome supports the native placeholder property and
+								displays multiple lines, a scrollbar, and the ellipsis
+								correctly</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e255 ">Internet Explorer (all versions)</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e257 ">All IE versions do not use the native placeholder property,
+								instead they use the placeholder version developed by SAP. Where
+								multiple lines of placeholder text are expected, IE browsers only
+								display one line with an ellipsis at the end</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d1689497e255 ">Mozilla Firefox</td>
+<td class="entry" valign="top" width="50%" headers="d1689497e257 ">Mozilla Firefox supports the native placeholder property but does
+								not display a scrollbar, instead it simply truncates the placeholder
+								text string</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Visual Degradations";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

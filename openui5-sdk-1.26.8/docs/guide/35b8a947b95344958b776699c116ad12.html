@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Both sap.m.List and sap.m.Table offer the same events, inheriting them from sap.m.ListBase"/>
+<meta name="description" content="Both sap.m.List and sap.m.Table offer the same events, inheriting them from sap.m.ListBase"/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>List and Table Events</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio35b8a947b95344958b776699c116ad12">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">List and Table Events</h1>
+<div class="body conbody"><p class="shortdesc">Both <samp class="ph codeph">sap.m.List</samp> and <samp class="ph codeph">sap.m.Table</samp> offer the same events,
+        inheriting them from <samp class="ph codeph">sap.m.ListBase</samp></p>
+<p class="p">The events are:</p>
+<ul class="ul" id="loio35b8a947b95344958b776699c116ad12__ul_ub5_1xj_ln"><li class="li">delete</li>
+<li class="li">selectionChange</li>
+<li class="li">swipe</li>
+</ul>
+<p class="p">All are handled in the same way, in that an event is fired, and the event object that is passed
+            contains listItem data that tells you which items were affected. As with the list, the
+            table has SwipeContent aggregation, and you can set the swipe direction:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;Table
+   swipeDirection="RightToLeft"&gt;
+   &lt;swipeContent&gt;
+       &lt;Button 
+           text="press me for action" 
+           press="handleAction"/&gt;
+   &lt;/swipeContent&gt;
+   &lt;columns&gt;
+   ...
+
+handleAction: function(e) {
+   oTable = this.getView().byId("myTable");
+   jQuery.sap.log.info("Swiped item:", oTable.getSwipedItem());
+   oTable.swipeOut();
+}
+</pre></div>
+<p class="p">The SwipeContent is a control that appears on the right hand side of a list item when a
+            swipe gesture is made on the item. We can define handlers for different events that can
+            be triggered: </p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;Table
+   delete="deleteHandler"
+   swipe="swipeHandler"
+   selectionChange="selectionChangeHandler"
+   ...
+</pre></div>
+<div class="note note"><span class="notetitle">Note</span> 
+            <p class="p">To test swipe gestures on the desktop, open the Chrome developer tools, and within
+                Settings → Overrides, check the "Emulate touch events" checkbox and reload the
+                page.</p>
+
+        </div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="List and Table Events";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

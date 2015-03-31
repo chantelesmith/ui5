@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Best practices for OPA tests."/>
+<meta name="description" content="Best practices for OPA tests."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Cookbook for OPA5</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioce4b180d97064ad088a901b53ed48b21">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Cookbook for OPA5</h1>
+<div class="body"><p class="shortdesc">Best practices for OPA tests.</p>
+<p class="p">The following sections provide common use cases for retrieving controls.</p>
+<div class="section"><div class="section_title">Retrieving a Control by its ID</div><div type="Retrieving a Control by its ID">
+			
+			<p class="p">Example:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">new sap.ui.test.Opa5().waitFor({
+            id : "page-title",
+            viewName : "Category",
+            viewNamespace : "my.Application.",
+            success : function (oTitle) {
+                ok(oTitle.getVisible(), "the title was visible");
+            }
+        });
+</pre></div>
+
+			<p class="p">In this example, we search for a control with the ID "page-title". The control is
+				located in the <samp class="ph codeph">my.Application.Category</samp> view.</p>
+
+			<p class="p">After finding the control, OPA5 invokes the <samp class="ph codeph">check</samp> function until it returns
+					<samp class="ph codeph">true</samp>. This time, the <samp class="ph codeph">check</samp> function has
+				another parameter with the control instance.</p>
+
+			<p class="p">Another example:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">new sap.ui.test.Opa5().waitFor({
+                    id : "productList",
+                    viewName : "Category",
+                    success : function (oList) {
+                        ok(oList.getItems().length, "The list did contain products");
+                    }
+                });</pre></div>
+
+			<p class="p">In this example, the <samp class="ph codeph">check</samp> function is ommitted. In this case, OPA5 creates
+				its own <samp class="ph codeph">check</samp> function that waits until the control is found.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Triggering Clicks on Controls</div><div type="Triggering Clicks on Controls">
+			
+			<p class="p">The easiest way to trigger events is using the <samp class="ph codeph">tap</samp> event for mobile controls
+				or the <samp class="ph codeph">click</samp> event for common controls in jQuery:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">iPressOnTheFirstItemInAList : function (myList) {
+                var oFirstItem = myList.getItems()[0];
+
+                oFirstItem.$().trigger("tap");
+                return this;
+            },</pre></div>
+
+			<p class="p">This triggers an event even if the control cannot be clicked by an end user. If that
+				is an issue, you can add functionality to check the clickability of a control.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Retrieving a Control that does not have an ID</div><div type="Retrieving a Control that does not have an ID">
+			
+			<p class="p">Sometimes you face the issue that you want to test for a control that has no explicit ID set
+				and maybe you cannot or you do not want to change this for your test. To get arround
+				this issue, use a custom check function to filter for a control that fits your
+				expectation. Let's assume we have a view called "Detail" and there are multiple
+					<samp class="ph codeph">sap.m.ObjectHeaders</samp> on this page. We want to wait until there
+				is an object header with the title "myTitle".</p>
+
+			<p class="p">For achieving this, use the following code:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">return new Opa5().waitFor({
+            controlType : "sap.m.ObjectHeader",
+            viewName : "Detail",
+            matchers : new sap.ui.test.matchers.PropertyStrictEquals({
+                                         name : "title",
+                                         value: "myTitle"
+                                   }),
+            success : function (aObjectHeaders) {
+                strictEqual(aObjectHeaders.length, 1, "was there was only one Object header with this title on the page");
+                strictEqual(aObjectHeaders[0].getTitle(), "myTitle", "was on the correct Title");
+            }
+</pre></div>
+
+			<p class="p">As no ID is specified, OPA passes an array of controls into the <samp class="ph codeph">check</samp>
+				function. The array contains all visible object header instances in the Detail view.
+				However, a build in support for comparing properties does <span class="ph emphasis emphasis">not</span>
+				exist (yet). So we implement a custom check to achieve this.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">More About Matchers</div><div type="More About Matchers">
+			
+			<p class="p">You can use the following predefined matchers to retrieve controls:</p>
+
+			<p class="p"><samp class="ph codeph">sap.ui.test.matchers.Properties</samp>: This matcher checks if the controls
+				have properties with given values. The values may also be defined as RegExp
+				expressions for the string type properties.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">return new Opa5().waitFor({
+            controlType : "sap.ui.commons.TreeNode",
+            matchers : new sap.ui.test.matchers.Properties({
+                text: new RegExp("root", "i"),
+                isSelected: true
+            }),
+            success : function (aNodes) {
+                ok(aNodes[0], "Root node is selected")
+            },
+            errorMessage: "No selected root node found"
+});</pre></div>
+
+			<p class="p"><samp class="ph codeph">sap.ui.test.matchers.Ancestor</samp>: This matcher checks if the control
+				has the given ancestor (ancestor is of a control type).</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var oRootNode = getRootNode();
+return new Opa5().waitFor({
+            controlType : "sap.ui.commons.TreeNode",
+            matchers : new sap.ui.test.matchers.Ancestor(oRootNode),
+            success : function (aNodes) {
+                notStrictEqual(aNodes.length, 0, "Found nodes in a root node")
+            },
+            errorMessage: "No nodes in a root node found"
+});
+</pre></div>
+
+			<p class="p">You can also define a matcher as an inline function: The first parameter of the
+				function is a control to match. If the control matches, return <samp class="ph codeph">true</samp>
+				to pass the control on to the next matcher and/or to check and success
+				functions.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">return new Opa5().waitFor({
+            controlType : "sap.ui.commons.TreeNode",
+            matchers : function(oNode) {
+                return oNode.$().hasClass("specialNode");
+            },
+            success : function (aNodes) {
+                notStrictEqual(aNodes.length, 0, "Found special nodes")
+            },
+            errorMessage: "No special nodes found"
+});
+</pre></div>
+
+			<p class="p">If you return some 'truthy' value from matcher, but not a Boolean, it will be used
+				then as an input parameter for the next matchers and/or check and success. This
+				allows you to build a matchers pipeline.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">return new Opa5().waitFor({
+            controlType : "sap.ui.commons.TreeNode",
+            matchers : [
+                function(oNode) {
+                    // returns truthy value — jQuery instance of control
+                    return oNode.$();
+                },
+                function($node) {
+                    // $node is a previously returned value
+                    return $node.hasClass("specialNode");
+                }
+            ],
+            success : function (aNodes) {
+                // aNodes is an array of matching controls jQuery instances
+                aNodes[0].trigger("click");
+            },
+            errorMessage: "No special nodes found"
+});
+</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Searching for Controls Inside a Dialog</div><div type="Searching for Controls Inside a Dialog">
+			
+			<p class="p">This example covers the following use case: We want to press a button with <span class="ph uicontrol">Order
+					Now</span> text on it inside a dialog. To achieve this, we set the
+					<samp class="ph codeph">searchOpenDialogs</samp> option to <samp class="ph codeph">true</samp> and then
+				restrict the <samp class="ph codeph">controlType</samp> we want to search to
+					<samp class="ph codeph">sap.m.Button</samp>. We use the <samp class="ph codeph">check</samp> function to
+				search for a button with the text <span class="ph uicontrol">Order Now</span> and save it to
+				the outer scope. After we found it, we trigger a <samp class="ph codeph">tap</samp> event:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">iPressOrderNow : function () {
+                var oOrderNowButton = null;
+                this.waitFor({
+                    searchOpenDialogs : true,
+                    controlType : "sap.m.Button",
+                    check : function (aButtons) {
+                        return aButtons.filter(function (oButton) {
+                            if(oButton.getText() !== "Order Now") {
+                                return false;
+                            }
+
+                            oOrderNowButton = oButton;
+                            return true;
+                        });
+                    },
+                    success : function () {
+                        oOrderNowButton.$().trigger("tap");
+                    },
+                    errorMessage : "Did not find the Order Now button"
+                });
+                return this;
+            }</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Executing a Single Statement After Other waitFor are Done</div><div type="Executing a Single Statement After Other waitFor are Done">
+			
+			<p class="p">If you skip all parameters except for the <samp class="ph codeph">success</samp> parameter, you can execute
+				something after other <samp class="ph codeph">waitFors</samp> are done. As there is no
+					<samp class="ph codeph">check</samp> function, OPA runs directly to
+				<samp class="ph codeph">success</samp>.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">iChangeTheHashToTheThirdProduct : function () {
+        return this.waitFor({
+            success : function () {
+                sap.ui.test.Opa5.getWindow().location.hash = "#/Products(2)";
+            }
+        });
+    },</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Passing a Parameter from One waitFor to another</div><div type="Passing a Parameter from One waitFor to another">
+			
+			<p class="p">To check some special conditions, for example, how one control relates to another control, you
+				might need to pass a control found in one <samp class="ph codeph">waitFor</samp> statement as
+				input for another <samp class="ph codeph">waitFor</samp> statement. The following two options
+				exist:</p>
+
+			<ul class="ul" id="loioce4b180d97064ad088a901b53ed48b21__ul_jcn_vwr_1q"><li class="li">
+					<p class="p">Storing the control in a variable in the outer scope: Use this option if you
+						have a common outer scope, like the same functions or the same page object
+						file.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Storing the control in the OPA context: Use this option if you need to pass the parameter,
+						for example, across some page objects.</p>
+
+				</li>
+</ul>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">iDoSomething: function () {
+        var oControl;
+        this.waitFor({
+            id : "myControlId",
+            success : function (oCtrl) {
+                //store control in outer scope
+                oControl = oCtrl;
+                
+                //as alternative you could store the control in the Opa context
+                sap.ui.test.Opa.getContext().control = oCtrl;
+            }
+        });
+        return this.waitFor({
+            controlType : "some.other.control"
+            check: function (aControlsFromThisWaitFor) {
+                //now you can compare oControl with aControlsFromThisWaitFor
+
+                //or you can compare sap.ui.test.Opa.getContext().control with aControlsFromThisWaitFor
+            }
+        });
+    },
+</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Writing Nested Arrangements and Actions</div><div type="Writing Nested Arrangements and Actions">
+			
+			<p class="p">UI elements may be recursive, for example, in a tree. Instead of triggering the action for
+				each known element, you can also define it recursively, see the code snippet below.
+				OPA takes care that the <samp class="ph codeph">waitFor</samp> statements triggered in a success
+				handler are executed before the next arrangement, action, or assertion. That also
+				allows you to work with a not yet known number of entries, for example in a list.
+				First, you wait for the list, and then trigger actions on each list item in the
+				success handler.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">iExpandRecursively : function() {
+    return this.waitFor({
+        controlType : "sap.ui.commons.TreeNode",
+        matchers : new sap.ui.test.matchers.PropertyStrictEquals({
+            name : "expanded", 
+            value : false
+        }),
+        success : function (aTreeNodes) {
+            var that = this;
+            aTreeNodes.forEach(function(oTreeNode) {
+                if (oTreeNode.getNodes().length){
+                    oTreeNode.expand();
+                    that.iExpandRecursively()
+                }
+            });
+        },
+        errorMessage : "Didn't find collapsed tree nodes"
+    });
+}
+</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Structuring OPA Tests With Page Objects</div><div type="Structuring OPA Tests With Page Objects">
+			
+			<p class="p">The page object design pattern supports UI-based tests with improved readability, fostering
+				the <dfn class="term">don't repeat yourself</dfn> (DRY) principle of software development that
+				is aimed at reducing repetition of any kind of information. A page object wraps an
+				HTML page or fragment with an application-specific API, thus making is easy to find
+				a control and provide reuse across multiple tests. If you have multiple pages or UI
+				areas that have several operations, you can place them as reuse functionality in
+				page object. The page object groups all OPA arrangements, actions, and assertions
+				that logically belong to some part of the screen. As only the test will know if an
+				action is used to setup the test case or to act on the application under test, the
+				page object will combine actions and arrangements into actions. In contrast to the
+				general guidance of Selenium and Martin Fowler, OPA page objects also provide
+				assertions, as the corresponding testing via <samp class="ph codeph">waitFor</samp> statements
+				better fit into the page objects. When you define actions or assertions in your page
+				object, have in mind how the test would spell them and if that would be similar to
+				the way you would explain a scenario to your colleagues.</p>
+
+			
+			<p class="p">Page objects accept parameters, so you can parametrize your tests either by writing multiple
+				tests, or by letting your test being repeated on a set of parameters defined in the
+				code. It is also possible to put test fragments into a separate file and refer to
+				this file in the test. This enables you to reuse the same test fragments in
+				different test pages with different setups.</p>
+
+			<p class="p">You can also share utility functionality between page objects. Simulating clicks, for
+				example, is interesting for most page objects and should be placed in a base class
+				that you can create. As the page objects extend the base class, the functions
+				provided in the base class are available for the page objects. If, for example, you
+				want to share tree handling functions in all tree-based page objects, create a
+					<samp class="ph codeph">TreeBase</samp> class by extending the base class. Tree-based page
+				objects such as repository browser and outline then specify
+					<samp class="ph codeph">TreeBase</samp> as <samp class="ph codeph">baseClass</samp> instead of the generic
+				base class.</p>
+
+			<p class="p">OPA5 provides a static method to create page objects, see <a class="extlink" href="http://help.sap.com/disclaimer?site=https://sapui5.hana.ondemand.com/sdk/explored.html#/entity/sap.ui.test.Opa5/samples">Explored - OPA Samples<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a>.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">Opa5.createPageObjects({
+
+       //give a meaningfull name for the test code
+       inThe&lt;Page Object&gt; : {
+            //Optional: a class extending Opa5, with utility functionality
+            baseClass : fnSomeClassExtendingOpa5,
+             
+            actions : {
+               //place all arrangements and actions here
+               &lt;iDoSomething&gt; : function(){
+                   //always return this or a waitFor to allow chaining
+                    return this.waitFor({
+                        //see documentation for possibilities
+                    });
+                }
+           },
+           assertions : {
+               //place all assertions here
+               &lt;iCheckSomething&gt; : function(){
+                   //always return this or a waitFor to allow chaining
+                    return this.waitFor({
+                        //see documentation for possibilities
+                    });
+                }
+           }
+       }
+   });
+</pre></div>
+
+			<p class="p">The method in your test finds all actions at the <samp class="ph codeph">Given</samp> and
+					<samp class="ph codeph">When</samp> object, the assertions will be at the
+					<samp class="ph codeph">Then</samp> object. Everything is prefixed with the page object
+				name.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">When.inThe&lt;Page Object&gt;.&lt;iDoSomething&gt;();
+
+Then.inThe&lt;Page Object&gt;.&lt;iCheckSomething&gt;();
+</pre></div>
+
+			<p class="p">Be careful with <samp class="ph codeph">Opa5.extendConfig()</samp>, if you give arrangements, actions, or
+				assertions, all previously loaded page objects will be overwritten. So in case of
+				mixing them, call <samp class="ph codeph">extendConfig</samp> before loading the page objects, see
+					<a class="extlink" href="http://help.sap.com/disclaimer?site=https://sapui5.hana.ondemand.com/sdk/explored.html#/entity/sap.ui.test.Opa5/samples">Explored - OPA Samples<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Pitfalls and Troubleshooting</div><div type="Pitfalls and Troubleshooting">
+			
+			<p class="p"><strong class="ph b">OPA is Not Starting - sinon.js</strong></p>
+
+			<p class="p">If you require <samp class="ph codeph">sinon-qunit.js</samp>, it overwrites the browser functions
+					<samp class="ph codeph">setTimeout</samp> and <samp class="ph codeph">setIntervall</samp>. OPA needs these
+				functions and without them, the tests will not start. You can either set the
+					<samp class="ph codeph">fakeTimers</samp> to false in you test setup, or maybe you do not use
+				sinon together with OPA.</p>
+
+			<p class="p"><strong class="ph b">Finding out What Goes Wrong With the Checks</strong></p>
+
+			<p class="p">Turn the debug mode on by setting <samp class="ph codeph">sap-ui-debug=true</samp> as URL parameter
+				and have a look into the console. OPA has many logging messages. If you require
+					<samp class="ph codeph">sinon-qunit.js</samp>, it overwrites the <samp class="ph codeph">setTimeout</samp>
+				and <samp class="ph codeph">setIntervall</samp> functions of the browser. As OPA uses these
+				functions for polling, it will not even start to run and just time out. To work
+				around this, either do not load it, or set <samp class="ph codeph">fakeTimers</samp> of sinon for
+				OPA to <samp class="ph codeph">false</samp>: </p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">
+    module("Opatests", {
+        setup : function () {
+            sinon.config.useFakeTimers = false;
+        },
+        teardown : function () {
+            sinon.config.useFakeTimers = true;
+        }
+    });
+
+</pre></div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Cookbook for OPA5";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

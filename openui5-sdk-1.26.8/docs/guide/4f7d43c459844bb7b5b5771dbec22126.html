@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Adding an HTML control is an easy way to create simple CustomListItems."/>
+<meta name="description" content="Adding an HTML control is an easy way to create simple CustomListItems."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using HTML Controls for Creating Custom List Items</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio4f7d43c459844bb7b5b5771dbec22126">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using HTML Controls for Creating Custom List Items</h1>
+<div class="body taskbody"><p class="shortdesc">Adding an HTML control is an easy way to create simple
+		<samp class="ph codeph">CustomListItems</samp>.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Context</h2></div>
+			<div class="note caution" id="loio4f7d43c459844bb7b5b5771dbec22126__note_N10229_N10211_N101F1_N10011_N10001"><span class="cautiontitle">Caution</span> This approach only
+				works when you use JavaScript for the UI. When using a declarative model, such as
+				XML Views, use an on-the-fly control, see <a class="xref" href="91f1703b6f4d1014b6dd926db0e91070.html" title="For developing controls for SAPUI5 in JavaScript, it is either possible to extend existing controls or to create new controls on the fly, so-called notepad controls.">Developing UI5 Controls in
+					JavaScript</a>.</div>
+
+			<p class="p">You can write your HTML either directly, you can use a model and data binding and
+				then use a formatter to integrate it in the HTML.The following example assumes a
+				model with first name, last name, age and coty properties.</p>
+
+		</div><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><div class="li step p"><span class="ph cmd"> Create a <samp class="ph codeph">CustomListItem</samp>, add an HTML control to the list items
+						<samp class="ph codeph">content</samp> and then write a formatter as follows:</span><div class="itemgroup info">
+					<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var myCustomListItem = new sap.m.CustomListItem({
+  content: new sap.ui.core.HTML({
+    content: { parts: [
+                          {path: "firstName"},
+                          {path: "lastName"},
+                          {path: "age"},
+                          {path: "city"}
+                      ],
+            formatter: function(firstName, lastName, age, city) {
+      return "&lt;div&gt;&lt;div class='myStyleClass'&gt;Name: " + firstName + " " + lastName + 
+                 "&lt;/div&gt;&lt;div&gt;Age: " + age +"&lt;/div&gt;&lt;div&gt;City: " + city +"&lt;/div&gt;&lt;/div&gt;";  
+    }
+    }}),
+  type : 'Navigation' //({type} if provided by the model)
+  press : myTapEvent
+});
+</pre></div>
+
+				</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using HTML Controls for Creating Custom List Items";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

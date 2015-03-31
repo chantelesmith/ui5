@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Setting Up APF and the APF Configuration Modeler</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioecf70adefd71445586b2fbe264306fdd">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Setting Up APF and the APF Configuration Modeler</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">The following products are required:</p>
+<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_lsf_3pt_kq"><li class="li">
+				<p class="p"> SAP Smart Business foundation component 1.0 (SAP ANALYTICS FOUNDATION 1.0) </p>
+
+				<p class="p"> The following software component versions that are relevant for APF are included
+					in this product and installed automatically:</p>
+
+				<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_kdg_jpt_kq"><li class="li">
+						<p class="p"> HANA CONTENT HBA APF CORE 100 (technical name: HCO_HBA_R_APF_CORE)</p>
+
+						<p class="p"> This component contains the SAP HANA server part of APF.</p>
+
+					</li>
+<li class="li">
+						<p class="p"> UISAFND1 100 (technical name: UISAFND1)</p>
+
+						<p class="p"> This component contains the Fiori content for the APF Configuration Modeler.</p>
+
+					</li>
+</ul>
+
+				<div class="note note"><span class="notetitle">Note</span> 
+					<p class="p">This product is also included in all SAP Smart Business products.</p>
+
+				</div>
+
+			</li>
+<li class="li"> SAP HANA appliance software SPS08 or higher.</li>
+</ul>
+<div class="section"><div class="section_title">Prerequisites</div><div type="Prerequisites">
+			
+			<p class="p">APF and the APF Configuration Modeler only support the consumption of OData Version
+				2.0 services provided on SAP HANA extended application services (SAP HANA XS).</p>
+
+			<p class="p">All required OData services must exist and must fulfill the following
+				requirements:</p>
+
+			<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_xmb_4qt_kq"><li class="li">The service definition must
+					contain:<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">annotations {
+    enable OData4SAP;
+}</pre></div>
+</li>
+<li class="li">
+					<p class="p">For each entity set you must specify the key words “aggregates always”.</p>
+
+					<p class="p">In addition, for each entity set that corresponds to an analytical query
+						view, the statement “keys generate local” must be included.</p>
+
+					<p class="p">Example:</p>
+
+					<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">service  {
+    "sap.hba.ecc/YearMonthQuery.calculationview" as "YearMonthQueryResults"
+        keys generate local "GenID"       
+        aggregates always;
+}</pre></div>
+
+				</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Installation of APF on the Front-End Server</div><div type="Installation of APF on the Front-End Server">
+			
+			<p class="p">APF is part of the User Interface Add-On 1.0 forSAP NetWeaver.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Implementation of Fiori Content for APF</div><div type="Implementation of Fiori Content for APF">
+			
+			<p class="p">The following catalog, group, and role are relevant for the APF Configuration
+				Modeler:</p>
+
+			<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_nch_qn1_lq"><li class="li"> Catalog <span class="ph sap-technical-name sap-technical-name">SAP_APF_DT_TC_A</span></li>
+<li class="li"> Group <span class="ph sap-technical-name sap-technical-name">SAP_APF_DT_TCG_A</span></li>
+<li class="li"> Role <span class="ph sap-technical-name sap-technical-name">SAP_APF_DT_TCR_A</span></li>
+</ul>
+
+			<p class="p">The following catalog and role are relevant for the generic runtime application:</p>
+
+			<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_ohx_sn1_lq"><li class="li"> Catalog <span class="ph sap-technical-name sap-technical-name">SAP_APF_RT_TC_A</span></li>
+<li class="li"> Role <span class="ph sap-technical-name sap-technical-name">SAP_APF_RT_TCR_A</span></li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Implementation of SAP HANA Content for APF</div><div type="Implementation of SAP HANA Content for APF">
+			
+			<p class="p">The following role is relevant for the APF Configuration Modeler:</p>
+
+			<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_nvr_vn1_lq"><li class="li">
+					<span class="ph sap-technical-name sap-technical-name">sap.hba.r.apf.core.roles:AnalyticalConfiguration</span></li>
+</ul>
+
+			<p class="p">The following role is relevant for all APF-based applications :</p>
+
+			<ul class="ul" id="loioecf70adefd71445586b2fbe264306fdd__ul_cxr_vn1_lq"><li class="li">
+					<span class="ph sap-technical-name sap-technical-name">sap.hba.r.apf.core.roles::AnalysisPath</span></li>
+</ul>
+
+		</div></div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Setting Up APF and the APF Configuration Modeler";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

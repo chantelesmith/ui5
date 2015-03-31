@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Content developers developing SAPUI5 controls should follow the guidelines outlined below with regard to API, behavior, and themes/CSS."/>
+<meta name="description" content="Content developers developing SAPUI5 controls should follow the guidelines outlined below with regard to API, behavior, and themes/CSS."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>SAPUI5 Control Development Guidelines</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio4549da61e2d949d6a3d20ad8a9d17a6f">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">SAPUI5 Control Development Guidelines</h1>
+<div class="body"><p class="shortdesc">Content developers developing SAPUI5 controls should follow the guidelines outlined
+		below with regard to API, behavior, and themes/CSS.</p>
+<div class="section"><div class="section_title">API</div><div type="API">
+			
+			<p class="p">For API, the following guidelines apply:</p>
+
+			<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_hyh_yxv_np"><li class="li">
+					<p class="p">Get the API right the first time, you will not be able to change it later
+						(compatibility).</p>
+
+				</li>
+<li class="li">
+					<p class="p">Control names start with an uppercase letter and use CamelCase for concatenated words.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Property, event, aggregation, association, method, and parameter names start with a
+						lowercase letter and also use camelCase,</p>
+
+				</li>
+<li class="li">
+					<p class="p">Do <strong class="ph b">not</strong> use Hungarian notation for API parameters, as their type is documented in
+						JSDoc.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Provide a reasonable default value for properties. Consider the most frequent use case.</p>
+
+					<p class="p">Let block elements "auto"-fill the available width instead of explicitly setting "100%" as
+						default width.</p>
+
+				</li>
+<li class="li">
+					<p class="p"> "editable" and "enabled" are two different properties. "Not enabled" controls are
+							<strong class="ph b">not</strong> in the focus tab chain.</p>
+
+				</li>
+<li class="li">
+					<p class="p">In general, check similar controls for consistent naming and modeling of public APIs.</p>
+
+					<p class="p">Controls for text input have a "value" property. Container controls with one generic area
+						for child controls have a 1..n "content" aggregation. When the child
+						controls are not generic, but have a specific semantics, arrangement, or
+						type, the name should be chosen accordingly ("items", "buttons",…).</p>
+
+					<p class="p">When there is one most important aggregation, it should be marked as default aggregation;
+						this facilitates the use in XMLViews.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Properties, associations, and aggregations should be preferred to API methods due to data
+						binding support and easier usage in XMLViews.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Make sure not to break use in XMLViews; for example, types like
+							<samp class="ph codeph">sap.ui.core/object</samp> and <samp class="ph codeph">sap.ui.core/any</samp>
+						may not be used for mandatory properties.</p>
+
+				</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Behavior</div><div type="Behavior">
+			
+			<p class="p">For behavior-related developement, the following guidelines apply:</p>
+
+			<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_gqk_syv_np"><li class="li">
+					<p class="p">Do <strong class="ph b">not</strong> use hardcoded IDs. When creating internal subcontrols, their ID should be
+						prefixed with <samp class="ph codeph">this.getId() + "-"</samp>.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Make sure not to break data binding.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Do <strong class="ph b">not</strong> make assumptions about how your control is used. It will be used
+						differently.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Do <strong class="ph b">not</strong> use <samp class="ph codeph">oEvent.preventDefault()</samp> or
+							<samp class="ph codeph">oEvent.stopPropagation()</samp> without a good reason and
+						clear documentation why it is really required.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use the SAPUI5 event handling methods when available instead of
+							<samp class="ph codeph">jQuery.bind()/.on()</samp>. When you use
+							<samp class="ph codeph">jQuery.bind()</samp> or <samp class="ph codeph">jQuery.on()</samp>, always
+						unbind them again, for example in <samp class="ph codeph">onBeforeRendering()</samp> and
+						in <samp class="ph codeph">exit()</samp> and rebind after rendering.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use CSS3 for animations, fall back to no animation for legacy browsers; only few exceptions
+						exist where the animation is important.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Keep in mind that a control can be used multiple times in a page.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Provide immediate feedback for user interaction.</p>
+
+				</li>
+<li class="li">
+					<p class="p">If an action takes a longer period of time, visualize this, for example by using a
+							<samp class="ph codeph">BusyIndicator</samp>.</p>
+
+				</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Renderer</div><div type="Renderer">
+			
+			<p class="p">With regard to the renderer, the following guidelines apply:</p>
+
+			<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_yhc_pzv_np"><li class="li">
+					<p class="p">Produce clean, semantic HTML5, as compact as reasonably possible.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Each control instance must have exactly one root HTML element and can have any HTML element
+						structure below that.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Unknown strings such as values coming from string properties need to be escaped before
+						writing to HTML; this avoids security risks via XSS attacks.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use <samp class="ph codeph">RenderManager.writeEscaped(…)</samp> or
+							<samp class="ph codeph">jQuery.sap.encodeHTML(…)</samp>.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Container controls such as Panel or Page as opposed to layout controls with a generic
+						"content" aggregation should render the children all directly next to each
+						other with no additional HTML or layout applied.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use the Icon pool for images.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Provide a sufficiently large touch area for interaction on touch devices (usually
+						3rem/48px).</p>
+
+				</li>
+<li class="li">
+					<p class="p">When internal HTML elements of the control below the root element need an ID, construct the
+						ID as follows: <samp class="ph codeph">&lt;control ID&gt; + "-" +
+							&lt;someSuffix&gt;</samp>.</p>
+
+				</li>
+<li class="li">
+					<p class="p">The HTML should adhere to the basic XHTML rules; close all tags, enclose attribute values in
+						quotes and do <strong class="ph b">not</strong> use empty attributes without value.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Avoid &lt;table&gt;-based layouts when there is no logical table. If a table is used for
+						layout, try to use "display:table" or even "table-layout:fixed" tables.</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">RenderManager.writeControlData()</samp> must be called in the root HTML element of
+						the control (to make events work).</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">RenderManager.writeClasses()</samp> must be called in the root HTML element of a
+						control; otherwise <samp class="ph codeph">addStyleClass</samp> does not work; however,
+						this does not need to be used in subelements.</p>
+
+				</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Themes/CSS - General Guidelines</div><div type="Themes/CSS - General Guidelines">
+			
+			<div class="p">For themes and CSS, the following general guidelines apply:<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_r1y_z1w_np"><li class="li">
+						<p class="p">Write semicolons even where optional.</p>
+
+					</li>
+<li class="li">
+						<p class="p">In general, use "rem" for dimensions; use "px" only for dimensions that do not depend on
+							the font size. Exception: Controls still supporting IE8 cannot use
+							rem.</p>
+
+					</li>
+<li class="li">
+						<p class="p">The root element of a control should come without outer margins; add any required padding
+							inside. Root margins are owned by the parent control.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Do not hard-code any colors, use LESS parameters and color calculations instead; also
+							recommended for other significant theme aspects like fonts and
+							background images.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Use other LESS features moderately. The more LESS processing happens, the less clear it is
+							where the runtime CSS originates from.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Do <strong class="ph b">not</strong> style HTML elements directly; all selectors must include a SAPUI5-specific
+							CSS class to avoid affecting non-owned HTML.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Avoid the star selector (like: <samp class="ph codeph">* { color: black;}</samp>) in CSS, in particular
+							without a "direct child" selector ("&gt;") in front of it
+							(performance).</p>
+
+					</li>
+<li class="li">
+						<p class="p">Only use inline CSS for control instance specific style, for example the button width.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Do <strong class="ph b">not</strong> use <samp class="ph codeph">!important</samp> as it makes custom adaptations more
+							difficult; use more specific selectors instead.</p>
+
+						<p class="p">There are rare justified exceptions, but they need to be documented.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Put browser-prefixed properties before the un-prefixed variant.</p>
+
+					</li>
+<li class="li">
+						<p class="p">When the visuals of certain controls are different depending on the
+							context/container where they are used, use CSS cascades along with
+							marker CSS classes in the parent control:</p>
+
+						<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_mb2_lbw_np"><li class="li">
+								<p class="p">The area/container shall write a certain marker CSS class to the
+									HTML and document this CSS class in its JSDoc.</p>
+
+							</li>
+<li class="li">
+								<p class="p">The documentation should mention the purpose and contract/meaning of this class, for
+									example, that it is meant to modify the appearance of children
+									in a way that better fits table cells, toolbars or headers.</p>
+
+							</li>
+<li class="li">
+								<p class="p">This CSS class may not have any CSS styles attached, it is a pure marker.</p>
+
+							</li>
+<li class="li">
+								<p class="p">This CSS class has the suffix "-CTX" (e.g. "sapUiTable-CTX" or "sapUiBorderless-CTX") to
+									make it discernible from "normal" CSS class names.</p>
+
+							</li>
+<li class="li">
+								<p class="p">Controls which want to modify their appearance in such an area use the marker class in a
+									cascade: <samp class="ph codeph">.sapUiTable-CTX .sapUiInput { border: none;
+										}</samp></p>
+
+							</li>
+</ul>
+
+					</li>
+</ul>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Themes/CSS - Naming Guidelines</div><div type="Themes/CSS - Naming Guidelines">
+			
+			<p class="p">The following naming guidelines apply:</p>
+
+			<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_o4r_tbw_np"><li class="li">
+					<p class="p">All CSS classes must begin with the "sapUi" prefix (or "sapM" in the sap.m library).
+						Exception: some global CSS classes used in the core start with "sap-".</p>
+
+				</li>
+<li class="li">
+					<p class="p">For each control there must be one unique control-specific prefix for CSS classes.</p>
+
+					<p class="p">For example, <samp class="ph codeph">sapUiBtn</samp> for a Button control, or <samp class="ph codeph">sapMITB</samp> for
+						an <samp class="ph codeph">IconTabBar</samp> in the <samp class="ph codeph">sap.m</samp> library. This
+						class must be written to the HTML root element of the control. All CSS
+						classes within the HTML of this control must append a suffix to this class
+						name, for example.<samp class="ph codeph"> sapUiBtnInner</samp> or
+							<samp class="ph codeph">sapMITBHeader</samp>.</p>
+
+				</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Themes/CSS - LESS Theme Parameters</div><div type="Themes/CSS - LESS Theme Parameters">
+			
+			<div class="p">For LESS theme parameters, the following guidelines apply:<ul class="ul" id="loio4549da61e2d949d6a3d20ad8a9d17a6f__ul_grr_ybw_np"><li class="li">
+						<p class="p">Use the correct theme parameter - do not find by color value, but by
+							semantics. In general, let the visual designers give the correct
+							parameter to use.</p>
+
+						<p class="p">If finding a color for a text, do not use any border or background color
+							parameter. Start with <samp class="ph codeph">@sapUiText</samp> and try to find
+							something more specific like <samp class="ph codeph">@sapUiHeaderText</samp>. Use
+							parameters like <samp class="ph codeph">@sapUiTextInverted</samp> for bright-on-dark
+							scenarios.</p>
+
+						<p class="p">If no suitable parameter exists, derive the color by calculation from a
+							suitable parameter.</p>
+
+					</li>
+<li class="li">
+						<p class="p">Do <strong class="ph b">not</strong> add parameters to the public API (using annotations)
+							without sufficient clarification with designers and Product Owners.</p>
+
+					</li>
+<li class="li">
+						<p class="p">You can (but do not need to) create your own internal control-specific
+							parameters. If you do, also prefix their name with your control name,
+							for example <samp class="ph codeph">@sapUiBtnDisabledText</samp>.</p>
+
+					</li>
+</ul>
+</div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="SAPUI5 Control Development Guidelines";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

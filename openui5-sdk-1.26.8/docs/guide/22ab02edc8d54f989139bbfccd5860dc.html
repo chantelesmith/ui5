@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="For each configuration option, you can have one attribute in the bootstrap script tag to provide SAPUI5 runtime configuration."/>
+<meta name="description" content="For each configuration option, you can have one attribute in the bootstrap script tag to provide SAPUI5 runtime configuration."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using Script Tag Attributes for Configuration</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio22ab02edc8d54f989139bbfccd5860dc">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using Script Tag Attributes for Configuration</h1>
+<div class="body conbody"><p class="shortdesc">For each configuration option, you can have one attribute in the bootstrap script tag to
+		provide SAPUI5 runtime configuration.</p>
+<p class="p">The attributes have to provide the following information:</p>
+<ul class="ul" id="loio22ab02edc8d54f989139bbfccd5860dc__ul_tqf_ttl_wk"><li class="li">
+				<p class="p">Attribute name</p>
+
+				<p class="p">The attribute name is composed of the name of the configuration option and the
+						<samp class="ph codeph">data-sap-ui-</samp> prefix. The first part of the prefix
+						(<samp class="ph codeph">data-</samp>) is necessary to comply with the W3C recommendations
+					for custom attributes in HTML. The second part (<samp class="ph codeph">-sap-ui-</samp>)
+					separates SAPUI5 attributes from custom attributes defined by any other
+					framework.</p>
+
+				<p class="p">Attribute names in HTML are case-insensitive and this also applies to the
+					configuration attribute names. However, SAPUI5 has defined some configuration
+					options names in camel case, for example <samp class="ph codeph">originInfo</samp>. SAPUI5
+					converts these names automatically to lower case when accessing the
+					configuration.</p>
+
+			</li>
+<li class="li">
+				<p class="p">Value</p>
+
+				<p class="p">Element attributes in HTML have a <samp class="ph codeph">string</samp> value by definition.
+					For configuration options of type <samp class="ph codeph">string</samp>, the attribute value
+					is equivalent to the value of the option.</p>
+
+				<div class="note note" id="loio22ab02edc8d54f989139bbfccd5860dc__note_N10069_N10056_N10039_N1002D_N10013_N10001"><span class="notetitle">Note</span> 
+					<p class="p">If the value contains specific HTML characters, such as '&lt;' or '&gt;', or
+						if the value contains the same quote character that is used to wrap the
+						attribute value, the usual HTML escape mechanisms must be used: Use entities
+						for the specific HTML characters, for example &amp;lt; instead of &lt;, and
+						switch the type of quotes from single to double or vice versa.</p>
+
+				</div>
+
+				<p class="p">For configuration options that are <strong class="ph b">not</strong> of type <samp class="ph codeph">string</samp>,
+					the format of the allowed values has to be defined as follows:</p>
+
+				<table summary="" id="loio22ab02edc8d54f989139bbfccd5860dc__simpletable_zrf_ttl_wk" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d354016e69" class="stentry">Type</th>
+<th valign="bottom" align="left" id="d354016e71" class="stentry">Notation/Values</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d354016e69" class="stentry"><samp class="ph codeph">string</samp></td>
+<td valign="top" headers="d354016e71" class="stentry">Just a string, but escaped according to the HTML
+							conventions</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d354016e69" class="stentry"><samp class="ph codeph">boolean</samp></td>
+<td valign="top" headers="d354016e71" class="stentry">'true' and 'x' are both accepted as true values (case-insensitive),
+							all others are false. We recommend to use 'false' for false
+							values</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d354016e69" class="stentry"><samp class="ph codeph">int</samp></td>
+<td valign="top" headers="d354016e71" class="stentry">Any integer value</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d354016e69" class="stentry">string array</td>
+<td valign="top" headers="d354016e71" class="stentry">Comma separated list of values; comma is not supported in the
+							values (no escaping)</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d354016e69" class="stentry">map from string to string</td>
+<td valign="top" headers="d354016e71" class="stentry">JavaScript object literal (preferably JSON syntax)</td>
+</tr>
+</table>
+
+			</li>
+</ul>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using Script Tag Attributes for Configuration";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

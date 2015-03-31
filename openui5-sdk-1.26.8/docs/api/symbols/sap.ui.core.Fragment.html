@@ -1,0 +1,611 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.core.Fragment</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.core.Fragment
+					</h1>
+					
+						<div class="classRelation extends"><span class="caption">extends </span><a title="sap.ui.base.ManagedObject" href="../symbols/sap.ui.base.ManagedObject.html">ManagedObject</a></div>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>Fragments support the definition of light-weight stand-alone UI control trees.
+This class acts as factory which returns the UI control tree defined inside the Fragments. When used within declarative Views,
+the Fragment content is imported and seamlessly integrated into the View.
+</p><p>
+Fragments are used similar as sap.ui.core.mvc.Views, but Fragments do not have a Controller on their own (they may know one, though),
+they are not a Control, they are not part of the UI tree and they have no representation in HTML.
+By default, in contrast to declarative Views, they do not do anything to guarantee ID uniqueness.
+</p><p>
+But like Views they can be defined in several Formats (XML, declarative HTML, JavaScript; support for other types can be plugged in),
+the declaration syntax is the same as in declarative Views and the name and location of the Fragment files is similar to Views. 
+Controller methods can also be referenced in the declarations, but as Fragments do not have their own controllers, 
+this requires the Fragments to be used within a View which does have a controller.
+That controller is used, then.
+</p><p>
+Do not call the Fragment constructor directly!
+</p><p>
+</p><p>
+Use-cases for Fragments are e.g.:
+- Modularization of UIs without fragmenting the controller structure
+- Re-use of UI parts
+- 100%-declarative definition of Views</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Accepts an object literal mSettings that defines initial property values, aggregated and associated objects as well as event handlers.">new <a href="../symbols/sap.ui.core.Fragment.html#constructor">sap.ui.core.Fragment</a></b>
+										<span class='signature'>()</span>
+										<span class='description'>Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+						<div class="summary section">
+							<div class="sectionTitle">Events borrowed from class <a href="../symbols/sap.ui.base.ManagedObject.html">sap.ui.base.ManagedObject</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.ManagedObject.html#event:formatError">formatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:parseError">parseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:validationError">validationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:validationSuccess">validationSuccess</a>
+							</div>
+						</div>
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Returns an Element/Control by its ID in the context of the Fragment with the given ID"><a href="../symbols/sap.ui.core.Fragment.html#.byId">sap.ui.core.Fragment.byId</a></b><span class='signature'>(<span title="(string) string">sFragmentId</span>, <span title="(string) string">sId</span>)</span>
+									<span class='description'>Returns an Element/Control by its ID in the context of the Fragment with the given ID</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Returns the ID which a Control with the given ID in the context of the Fragment with the given ID would have"><a href="../symbols/sap.ui.core.Fragment.html#.createId">sap.ui.core.Fragment.createId</a></b><span class='signature'>(<span title="(string) string">sFragmentId</span>, <span title="(string) string">sId</span>)</span>
+									<span class='description'>Returns the ID which a Control with the given ID in the context of the Fragment with the given ID would have</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Creates a new subclass of class sap.ui.core.Fragment with name sClassName and enriches it with the information contained in oClassInfo."><a href="../symbols/sap.ui.core.Fragment.html#.extend">sap.ui.core.Fragment.extend</a></b><span class='signature'>(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+									<span class='description'>Creates a new subclass of class sap.ui.core.Fragment with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Returns a metadata object for class sap.ui.core.Fragment."><a href="../symbols/sap.ui.core.Fragment.html#.getMetadata">sap.ui.core.Fragment.getMetadata</a></b><span class='signature'>()</span>
+									<span class='description'>Returns a metadata object for class sap.ui.core.Fragment.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Registers a new Fragment type"><a href="../symbols/sap.ui.core.Fragment.html#.registerType">sap.ui.core.Fragment.registerType</a></b><span class='signature'>(<span title="(string) the Fragment type.">sType</span>, <span title="(object) an object having a property &quot;init&quot; of type &quot;function&quot; which is called on Fragment instantiation with the settings map as argument">oFragmentImpl</span>)</span>
+									<span class='description'>Registers a new Fragment type</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Getter for property type."><a href="../symbols/sap.ui.core.Fragment.html#getType">getType</a></b><span class='signature'>()</span>
+									<span class='description'>Getter for property <code>type</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Setter for property type."><a href="../symbols/sap.ui.core.Fragment.html#setType">setType</a></b><span class='signature'>(<span title="(string) new value for property type">sType</span>)</span>
+									<span class='description'>Setter for property <code>type</code>.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.ManagedObject.html">sap.ui.base.ManagedObject</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.ManagedObject.html#addAggregation">addAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#addAssociation">addAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#applySettings">applySettings</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachFormatError">attachFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachParseError">attachParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachValidationError">attachValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachValidationSuccess">attachValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindAggregation">bindAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindContext">bindContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindObject">bindObject</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindProperty">bindProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#clone">clone</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#destroy">destroy</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#destroyAggregation">destroyAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachFormatError">detachFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachParseError">detachParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachValidationError">detachValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachValidationSuccess">detachValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#findAggregatedObjects">findAggregatedObjects</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireFormatError">fireFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireParseError">fireParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireValidationError">fireValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireValidationSuccess">fireValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getAggregation">getAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getAssociation">getAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBinding">getBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingContext">getBindingContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingInfo">getBindingInfo</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingPath">getBindingPath</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getEventingParent">getEventingParent</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getId">getId</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getModel">getModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getObjectBinding">getObjectBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getOriginInfo">getOriginInfo</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getParent">getParent</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getProperty">getProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#hasModel">hasModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#indexOfAggregation">indexOfAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#insertAggregation">insertAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#invalidate">invalidate</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isBound">isBound</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isInvalidateSuppressed">isInvalidateSuppressed</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isTreeBinding">isTreeBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAggregation">removeAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAllAggregation">removeAllAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAllAssociation">removeAllAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAssociation">removeAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setAggregation">setAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setAssociation">setAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setBindingContext">setBindingContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setModel">setModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setProperty">setProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#toString">toString</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindAggregation">unbindAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindContext">unbindContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindObject">unbindObject</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindProperty">unbindProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#validateAggregation">validateAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#validateProperty">validateProperty</a>
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.EventProvider.html">sap.ui.base.EventProvider</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.EventProvider.html#attachEvent">attachEvent</a>, <a href="../symbols/sap.ui.base.EventProvider.html#attachEventOnce">attachEventOnce</a>, <a href="../symbols/sap.ui.base.EventProvider.html#detachEvent">detachEvent</a>, <a href="../symbols/sap.ui.base.EventProvider.html#fireEvent">fireEvent</a>
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.Object.html">sap.ui.base.Object</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.Object.html#getInterface">getInterface</a>
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.core.Fragment</b>()
+										</div>
+										
+										<div class="full-description">
+											</p><p>
+Accepts an object literal <code>mSettings</code> that defines initial
+property values, aggregated and associated objects as well as event handlers.
+See <a href="../symbols/sap.ui.base.ManagedObject.html#constructor">sap.ui.base.ManagedObject</a> for a general description of the syntax of the settings object.
+</p><p>
+The supported settings are:
+<ul>
+<li>Properties
+<ul>
+<li><a href="#getType">type</a> : string</li>
+</ul>
+</li>
+</ul>
+</p><p>
+In addition, all settings applicable to the base type <a href="../symbols/sap.ui.base.ManagedObject.html#constructor">sap.ui.base.ManagedObject</a>
+can be used as well.
+										</div>
+										
+										
+										
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".byId"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.Fragment.byId<span class="signature">(<span title="(string) string">sFragmentId</span>, <span title="(string) string">sId</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Returns an Element/Control by its ID in the context of the Fragment with the given ID
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sFragmentId</b>
+													</td>
+													<td class="methodItemDesc">
+												    
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sId</b>
+													</td>
+													<td class="methodItemDesc">
+												    
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".createId"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.Fragment.createId<span class="signature">(<span title="(string) string">sFragmentId</span>, <span title="(string) string">sId</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Returns the ID which a Control with the given ID in the context of the Fragment with the given ID would have
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sFragmentId</b>
+													</td>
+													<td class="methodItemDesc">
+												    
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sId</b>
+													</td>
+													<td class="methodItemDesc">
+												    
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".extend"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.Fragment.extend<span class="signature">(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+											<span class="light" title="returns function">: function</span>
+										</div>
+										<div class="full-description">
+											Creates a new subclass of class sap.ui.core.Fragment with name <code>sClassName</code>
+and enriches it with the information contained in <code>oClassInfo</code>.
+</p><p>
+<code>oClassInfo</code> might contain the same kind of information as described in <a href="../symbols/sap.ui.base.ManagedObject.html#.extend">sap.ui.base.ManagedObject.extend</a>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sClassName</b>
+													</td>
+													<td class="methodItemDesc">
+												    name of the class to be created
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oClassInfo</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    object literal with informations about the class
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{function}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>FNMetaImpl</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    constructor function for the metadata object. If not given, it defaults to sap.ui.core.ElementMetadata.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{function}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the created class / constructor function
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".getMetadata"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.Fragment.getMetadata<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.base.Metadata">: <a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a></span>
+										</div>
+										<div class="full-description">
+											Returns a metadata object for class sap.ui.core.Fragment.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														metadata object describing thi class
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".registerType"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.Fragment.registerType<span class="signature">(<span title="(string) the Fragment type.">sType</span>, <span title="(object) an object having a property &quot;init&quot; of type &quot;function&quot; which is called on Fragment instantiation with the settings map as argument">oFragmentImpl</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Registers a new Fragment type
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sType</b>
+													</td>
+													<td class="methodItemDesc">
+												    the Fragment type. Types "XML", "HTML" and JS" are built-in and always available.
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oFragmentImpl</b>
+													</td>
+													<td class="methodItemDesc">
+												    an object having a property "init" of type "function" which is called on Fragment instantiation with the settings map as argument
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getType"> </a>
+										<div class="itemTitle icon">
+											getType<span class="signature">()</span>
+											<span class="light" title="returns string">: string</span>
+										</div>
+										<div class="full-description">
+											Getter for property <code>type</code>.
+</p><p>
+</p><p>
+Default value is <code>undefined</code>
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{string}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the value of property <code>type</code>
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setType"> </a>
+										<div class="itemTitle icon">
+											setType<span class="signature">(<span title="(string) new value for property type">sType</span>)</span>
+											<span class="light" title="returns sap.ui.core.Fragment">: <a href="../symbols/sap.ui.core.Fragment.html">sap.ui.core.Fragment</a></span>
+										</div>
+										<div class="full-description">
+											Setter for property <code>type</code>.
+</p><p>
+Default value is <code>undefined</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sType</b>
+													</td>
+													<td class="methodItemDesc">
+												    new value for property <code>type</code>
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Fragment.html">sap.ui.core.Fragment</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

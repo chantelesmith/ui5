@@ -1,0 +1,538 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.model.analytics.odata4analytics.SortExpression</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.model.analytics.odata4analytics.SortExpression
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>Representation of a $orderby expression for an OData entity type.</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Create a representation of an order by expression for a given entity type.">new <a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#constructor">sap.ui.model.analytics.odata4analytics.SortExpression</a></b>
+										<span class='signature'>(<span title="(object) DataJS object for the OData model containing this entity type">oModel</span>, <span title="(object) DataJS object for the schema containing this entity type">oSchema</span>, <span title="(sap.ui.model.analytics.odata4analytics.EntityType) object for the entity type">oEntityType</span>)</span>
+										<span class='description'>Create a representation of an order by expression for a given entity type.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Add a condition to the order by expression."><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#addSorter">addSorter</a></b><span class='signature'>(<span title="(string) The name of the property bound in the condition">sPropertyName</span>, <span title="(sap.ui.model.analytics.odata4analytics.SortOrder) sorting order used for the condition">sSortOrder</span>)</span>
+									<span class='description'>Add a condition to the order by expression.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Clear expression from any sort conditions that may have been set previously"><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#clear">clear</a></b><span class='signature'>()</span>
+									<span class='description'>Clear expression from any sort conditions that may have been set previously</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get description for this entity type"><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#getEntityType">getEntityType</a></b><span class='signature'>()</span>
+									<span class='description'>Get description for this entity type</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the first SAPUI5 Sorter object."><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#getExpressionAsUI5Sorter">getExpressionAsUI5Sorter</a></b><span class='signature'>()</span>
+									<span class='description'>Get the first SAPUI5 Sorter object.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get an array of SAPUI5 Sorter objects corresponding to this expression."><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#getExpressionsAsUI5SorterArray">getExpressionsAsUI5SorterArray</a></b><span class='signature'>()</span>
+									<span class='description'>Get an array of SAPUI5 Sorter objects corresponding to this expression.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the value for the OData system query option $orderby corresponding to this expression."><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#getURIOrderByOptionValue">getURIOrderByOptionValue</a></b><span class='signature'>(<span title="(object) Object with properties requested for $select">oSelectedPropertyNames</span>)</span>
+									<span class='description'>Get the value for the OData system query option $orderby corresponding to this expression.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Removes the order by expression for the given property name from the list of order by expression."><a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html#removeSorter">removeSorter</a></b><span class='signature'>(<span title="(string) The name of the property to be removed from the condition">sPropertyName</span>)</span>
+									<span class='description'>Removes the order by expression for the given property name from the list of order by expression.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.model.analytics.odata4analytics.SortExpression</b>(<span title="(object) DataJS object for the OData model containing this entity type">oModel</span>, <span title="(object) DataJS object for the schema containing this entity type">oSchema</span>, <span title="(sap.ui.model.analytics.odata4analytics.EntityType) object for the entity type">oEntityType</span>)
+										</div>
+										
+										<div class="full-description">
+											Create a representation of an order by expression for a given entity type. It
+can be rendered as value for the $orderby system query option.
+										</div>
+										
+										
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oModel</b>
+													</td>
+													<td class="methodItemDesc">
+												    DataJS object for the OData model containing this entity
+           type
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oSchema</b>
+													</td>
+													<td class="methodItemDesc">
+												    DataJS object for the schema containing this entity type
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.EntityType.html">sap.ui.model.analytics.odata4analytics.EntityType</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oEntityType</b>
+													</td>
+													<td class="methodItemDesc">
+												    object for the entity type
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod'>
+										<a name="addSorter"> </a>
+										<div class="itemTitle icon">
+											addSorter<span class="signature">(<span title="(string) The name of the property bound in the condition">sPropertyName</span>, <span title="(sap.ui.model.analytics.odata4analytics.SortOrder) sorting order used for the condition">sSortOrder</span>)</span>
+											<span class="light" title="returns sap.ui.model.analytics.odata4analytics.SortExpression">: <a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a></span>
+										</div>
+										<div class="full-description">
+											Add a condition to the order by expression. It replaces any previously specified
+sort order for the property.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sPropertyName</b>
+													</td>
+													<td class="methodItemDesc">
+												    The name of the property bound in the condition
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.SortOrder.html">sap.ui.model.analytics.odata4analytics.SortOrder</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sSortOrder</b>
+													</td>
+													<td class="methodItemDesc">
+												    sorting order used for the condition
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+											<div class="heading">Exceptions:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														 <b></b>
+													</td>
+													<td class="methodItemDesc">
+														Exception
+            if the property is unknown, not sortable or already added as
+            sorter
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														This object for method
+         chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="clear"> </a>
+										<div class="itemTitle icon">
+											clear<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											Clear expression from any sort conditions that may have been set
+previously
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getEntityType"> </a>
+										<div class="itemTitle icon">
+											getEntityType<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.model.analytics.odata4analytics.EntityType">: <a href="../symbols/sap.ui.model.analytics.odata4analytics.EntityType.html">sap.ui.model.analytics.odata4analytics.EntityType</a></span>
+										</div>
+										<div class="full-description">
+											Get description for this entity type
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.EntityType.html">sap.ui.model.analytics.odata4analytics.EntityType</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The object representing the
+         entity type
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getExpressionAsUI5Sorter"> </a>
+										<div class="itemTitle icon">
+											getExpressionAsUI5Sorter<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.model.Sorter">: <a href="../symbols/sap.ui.model.Sorter.html">sap.ui.model.Sorter</a></span>
+										</div>
+										<div class="full-description">
+											Get the first SAPUI5 Sorter object.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.Sorter.html">sap.ui.model.Sorter</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														first sorter object or null if empty
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getExpressionsAsUI5SorterArray"> </a>
+										<div class="itemTitle icon">
+											getExpressionsAsUI5SorterArray<span class="signature">()</span>
+											<span class="light" title="returns array(sap.ui.model.Sorter)">: array(sap.ui.model.Sorter)</span>
+										</div>
+										<div class="full-description">
+											Get an array of SAPUI5 Sorter objects corresponding to this expression.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{array(sap.ui.model.Sorter)}</span> 
+													</td>
+													<td class="methodItemDesc">
+														List of sorter objects representing
+         this expression
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getURIOrderByOptionValue"> </a>
+										<div class="itemTitle icon">
+											getURIOrderByOptionValue<span class="signature">(<span title="(object) Object with properties requested for $select">oSelectedPropertyNames</span>)</span>
+											<span class="light" title="returns string">: string</span>
+										</div>
+										<div class="full-description">
+											Get the value for the OData system query option $orderby corresponding to
+this expression.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oSelectedPropertyNames</b>
+													</td>
+													<td class="methodItemDesc">
+												    Object with properties requested for $select
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{string}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The $orderby value for the sort expressions
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="removeSorter"> </a>
+										<div class="itemTitle icon">
+											removeSorter<span class="signature">(<span title="(string) The name of the property to be removed from the condition">sPropertyName</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Removes the order by expression for the given property name from the list
+of order by expression. If no order by expression with this property name
+exists the method does nothing.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sPropertyName</b>
+													</td>
+													<td class="methodItemDesc">
+												    The name of the property to be removed from the
+           condition
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

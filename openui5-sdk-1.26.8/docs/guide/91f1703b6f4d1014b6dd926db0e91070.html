@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="For developing controls for SAPUI5 in JavaScript, it is either possible to extend existing controls or to create new controls on the fly, so-called notepad controls."/>
+<meta name="description" content="For developing controls for SAPUI5 in JavaScript, it is either possible to extend existing controls or to create new controls on the fly, so-called notepad controls."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Developing UI5 Controls in JavaScript</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f1703b6f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Developing UI5 Controls in JavaScript</h1>
+<div class="body"><p class="shortdesc">For developing controls for SAPUI5 in JavaScript, it is either possible to extend
+		existing controls or to create new controls on the fly, so-called <dfn class="term">notepad
+			controls</dfn>.</p>
+<p class="p">For notepad controls, a library definition or running generation steps is not necessary.</p>
+<p class="p">When several controls should be developed for reuse in different applications, we
+			recommend to create a control library instead of using these notepad controls. Control
+			libraries have additional features like automatic support for theming and right-to-left
+			languages, but the implementation of the controls is the same as for notepad
+			controls.</p>
+<div class="note note"><span class="notetitle">Note</span> 
+			<p class="p">This functionality is not restricted to controls, but can also be used to create or
+				extend arbitrary objects derived from <samp class="ph codeph">sap.ui.base.Object</samp>.</p>
+
+		</div>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="7b52540d9d8c4e00b9723151622bbb64.html">Defining the Control Metadata</a></strong><br/>
+Control metadata consist of properties, events, as well as aggregations and 		associations.</li>
+<li class="link ulchildlink"><strong><a href="91f0a8dc6f4d1014b6dd926db0e91070.html">Adding Method Implementations</a></strong><br/>
+After defining the metadata of a control, you add the method implementation to the 		control.</li>
+<li class="link ulchildlink"><strong><a href="ac56d92162ed47ff858fdf1ce26c18c4.html">Defining Control Properties</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="91f184586f4d1014b6dd926db0e91070.html">Examples for Creating and Extending Controls</a></strong><br/>
+Examples how to create and extend controls in SAPUI5.</li>
+<li class="link ulchildlink"><strong><a href="91f393916f4d1014b6dd926db0e91070.html">Writing a Control Renderer</a></strong><br/>
+SAPUI5 provides three classes for control rendering: 			<samp class="ph codeph">sap.ui.core.Control</samp>, <samp class="ph codeph">sap.ui.core.RenderManager</samp>, and 			<samp class="ph codeph">sap.ui.core.Renderer</samp>.</li>
+<li class="link ulchildlink"><strong><a href="91f19f036f4d1014b6dd926db0e91070.html">Implementing Focus Handling</a></strong><br/>
+SAPUI5 provides mechanisms for observing the moving focus in an application page for 		controls. This information is then preserved for refocusing elements after rerendering. The 		focus triggers event firing. However, due to the high degree of flexibility in control 		rendering, a functionality tailored to the respective controls is required. For this, the 		framework provides helper functions for the implementation of focus handling.</li>
+<li class="link ulchildlink"><strong><a href="91f203236f4d1014b6dd926db0e91070.html">Item Navigation - Supporting Keyboard Handling in List-like Controls</a></strong><br/>
+The helper class <samp class="ph codeph">sap.ui.core.delegate.ItemNavigation</samp> supports item 		navigation in lists.</li>
+<li class="link ulchildlink"><strong><a href="10b14c7284ba48a185ae2046db470706.html">Fast Navigation</a></strong><br/>
+The fast navigation feature in SAPUI5 allows fast access to the tab chain provided by 		browsers that allows to reach all UI areas using the TAB or Shift+TAB key. As this chain is 		fine grained, it may take some time to reach the relevant area on complex 		screens</li>
+<li class="link ulchildlink"><strong><a href="91f2c24b6f4d1014b6dd926db0e91070.html">Right-to-Left Support in Controls</a></strong><br/>
+SAPUI5 supports RTL in controls.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Developing UI5 Controls in JavaScript";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The API of sap.m.Column implies that width can be any valid CSS size, for example, 100px, 6em, 25%. The default value of the width is empty and this makes the column flexible which means it covers the remaining space."/>
+<meta name="description" content="The API of sap.m.Column implies that width can be any valid CSS size, for example, 100px, 6em, 25%. The default value of the width is empty and this makes the column flexible which means it covers the remaining space."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Defining Column Width</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio6f778a805bc3453dbb66e246d8271839">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Defining Column Width</h1>
+<div class="body"><p class="shortdesc">The API of <samp class="ph codeph">sap.m.Column</samp> implies that <samp class="ph codeph">width</samp> can be any
+		valid CSS size, for example, 100px, 6em, 25%. The default value of the width is empty and
+		this makes the column flexible which means it covers the remaining space.</p>
+<p class="p">There are three important things that you should to define the width of the column
+			properly.</p>
+<ul class="ul" id="loio6f778a805bc3453dbb66e246d8271839__ol_q2b_rtj_ln"><li class="li">While defining the column width you can use percent values but you should be careful
+				with percent values. Because, maybe this value fits to desktop screen well, but
+				maybe not to mobile devices. In this case using absolute width(e.g. 200px, 4rem) can
+				be better.</li>
+<li class="li">Leave the most important column's width empty if your table demand pop-in. Let's say
+				you have 100% width table with four columns each has 200px width and viewport is
+				800px wide. Everything is fine. We resized the viewport to 500px. We can still show
+				two columns nicely with setting the rest two columns to go pop-in. But after two
+				columns go to pop-in total width of two main columns is 400px but the viewport is
+				500px and table is 100%! In that case browser decides how to handle this. Current
+				Chrome version increases the last column width and IE increases the first column
+				width. But if we have Selection or Navigation these are also columns and browser can
+				change the width of these column and that can look strange. So the best solution is
+				leaving the most important column's width empty that it can take the much space as
+				it can. In our example it will be 300px and all will be fine.</li>
+<li class="li">Do not try to give percent width to all columns even if it reaches 100% total column
+				width. What, if there is a <samp class="ph codeph">Selection(3rem width)</samp>,
+					<samp class="ph codeph">Navigation(3rem width)</samp> or <samp class="ph codeph">Deletion(3rem
+				width)</samp>? In this case, the total width would be 100% + 6rem. Or if the total
+				width is less than 100%, for example one column with 20% and the other column with
+				40%, the total width would be 60% + 6rem. By default, <samp class="ph codeph">Table</samp> itself
+				is in fixed layout mode and 100% width. The browser needs to decide how to share the
+				width as it cannot fit to 100% width. In some cases browsers are smart and handle
+				this correctly or it just looks correctly, but you should try to avoid such a use to
+				get a cross browser result. As in 2nd point hit leaving the most important column
+				width would fix this problem because then column will be flexible and cover the
+				space. </li>
+</ul>
+<div class="section"><div class="section_title">API References</div><div type="API References">
+			
+			<ul class="ul" id="loio6f778a805bc3453dbb66e246d8271839__ul_prd_p5j_ln"><li class="li"><a class="xref" href="../../docs/api/symbols/sap.m.Column.html">sap.m.Column</a></li>
+<li class="li"><a class="xref" href="../../docs/api/symbols/sap.m.ScreenSize.html">sap.m.ScreenSize</a>
+				</li>
+</ul>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Defining Column Width";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

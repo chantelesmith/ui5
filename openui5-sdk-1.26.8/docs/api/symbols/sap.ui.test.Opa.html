@@ -1,0 +1,427 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.test.Opa</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.test.Opa
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>One Page Acceptance testing.
+This class will help you write acceptance tests in one page or single page applications.
+You can wait for certain conditions to be met.</p>
+						
+						
+						
+						
+						
+						
+							<br />
+							<i>Since: </i>1.22.
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="">new <a href="../symbols/sap.ui.test.Opa.html#constructor">sap.ui.test.Opa</a></b>
+										<span class='signature'>(<span title="An object containing properties and functions.">extensionObject</span>)</span>
+										<span class='description'></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="the global configuration of Opa."><a href="../symbols/sap.ui.test.Opa.html#config">config</a></b><span class='signature'>()</span>
+									<span class='description'>the global configuration of Opa.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Waits until all waitFor calls are done"><a href="../symbols/sap.ui.test.Opa.html#emptyQueue">emptyQueue</a></b><span class='signature'>()</span>
+									<span class='description'>Waits until all waitFor calls are done</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Extends and overwrites default values of the Opa.config"><a href="../symbols/sap.ui.test.Opa.html#extendConfig">extendConfig</a></b><span class='signature'>(<span title="(object) the values to be added to the existion config">options</span>)</span>
+									<span class='description'>Extends and overwrites default values of the Opa.config</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Gives access to a singleton object you can save values in."><a href="../symbols/sap.ui.test.Opa.html#getContext">getContext</a></b><span class='signature'>()</span>
+									<span class='description'>Gives access to a singleton object you can save values in.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Reset Opa.config to its default values"><a href="../symbols/sap.ui.test.Opa.html#resetConfig">resetConfig</a></b><span class='signature'>()</span>
+									<span class='description'>Reset Opa.config to its default values</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Waits for a check condition to return true."><a href="../symbols/sap.ui.test.Opa.html#waitFor">waitFor</a></b><span class='signature'>(<span title="(object) containing check, success and error function; properties:  timeout: default 15 (seconds) specifies how long the waitFor function polls before it fails pollingInterval: default 400 (milliseconds) specifies how often the waitFor function polls check: function will get invoked in every polling interval.">options</span>)</span>
+									<span class='description'>Waits for a check condition to return true.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.test.Opa</b>(<span title="An object containing properties and functions.">extensionObject</span>)
+										</div>
+										
+										<div class="full-description">
+											
+										</div>
+										
+										
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  
+													</td>
+													<td class="methodItemName">
+													  <b>extensionObject</b>
+													</td>
+													<td class="methodItemDesc">
+												    An object containing properties and functions. The newly created Opa will be extended by these properties and functions - see jQuery.extend.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod'>
+										<a name="config"> </a>
+										<div class="itemTitle icon">
+											config<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											the global configuration of Opa.
+All of the global values can be overwritten in an individual waitFor call.
+defaults are :
+<ul>
+		<li>timeout : 15 seconds, is increased to 5 minutes if running in debug mode e.g. with URL parameter sap-ui-debug=true</li>
+		<li>pollingIntervall: 400 milliseconds</li>
+</ul>
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="emptyQueue"> </a>
+										<div class="itemTitle icon">
+											emptyQueue<span class="signature">()</span>
+											<span class="light" title="returns jQuery.promise">: jQuery.promise</span>
+										</div>
+										<div class="full-description">
+											Waits until all waitFor calls are done
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{jQuery.promise}</span> 
+													</td>
+													<td class="methodItemDesc">
+														If the waiting was successful, the promise will be resolved. If not it will be rejected
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="extendConfig"> </a>
+										<div class="itemTitle icon">
+											extendConfig<span class="signature">(<span title="(object) the values to be added to the existion config">options</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Extends and overwrites default values of the Opa.config
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>options</b>
+													</td>
+													<td class="methodItemDesc">
+												    the values to be added to the existion config
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getContext"> </a>
+										<div class="itemTitle icon">
+											getContext<span class="signature">()</span>
+											<span class="light" title="returns object">: object</span>
+										</div>
+										<div class="full-description">
+											Gives access to a singleton object you can save values in.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{object}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the context object
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="resetConfig"> </a>
+										<div class="itemTitle icon">
+											resetConfig<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											Reset Opa.config to its default values
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+											<dl class="detailList since">
+												<dt class="heading since">Since:</dt>
+												<dd>1.25</dd>
+											</dl>
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="waitFor"> </a>
+										<div class="itemTitle icon">
+											waitFor<span class="signature">(<span title="(object) containing check, success and error function; properties:  timeout: default 15 (seconds) specifies how long the waitFor function polls before it fails pollingInterval: default 400 (milliseconds) specifies how often the waitFor function polls check: function will get invoked in every polling interval.">options</span>)</span>
+											<span class="light" title="returns jQuery.promise">: jQuery.promise</span>
+										</div>
+										<div class="full-description">
+											Waits for a check condition to return true. Then a success function will be called.
+If check does not return true until timeout is reached, an error function will be called.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>options</b>
+													</td>
+													<td class="methodItemDesc">
+												    containing check, success and error function;
+properties:
+<ul>
+	<li>timeout: default 15 (seconds) specifies how long the waitFor function polls before it fails</li>
+	<li>pollingInterval: default 400 (milliseconds) specifies how often the waitFor function polls</li>
+	<li>check: function will get invoked in every polling interval. If it returns true, the check is successful and the polling will stop</li>
+	<li>success: function will get invoked after the check function returns true. If there is no check function defined, it will be directly invoked. waitFor statements added in the success handler will be executed before previously added waitFor statements</li>
+	<li>error: function will get invoked, when the timeout is reached and check did never return a true.</li>
+</ul>
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{jQuery.promise}</span> 
+													</td>
+													<td class="methodItemDesc">
+														a promise that gets resolved on success.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

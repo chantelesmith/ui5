@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="For modifying views, control properties of standard views can be changed."/>
+<meta name="description" content="For modifying views, control properties of standard views can be changed."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>View Modification</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioaa93e1c6953a41b48cd912a7331eadee">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">View Modification</h1>
+<div class="body"><p class="shortdesc">For modifying views, control properties of standard views can be changed.</p>
+<p class="p">The view modification is currently restricted to the <samp class="ph codeph">visible</samp> property of
+			controls, meaning that controls can be hidden in the custom application. The controls
+			must have the <samp class="ph codeph">visible</samp> property and the control's ID must be defined in
+			the view. The view name together with the control ID uniquely determines the control in
+			the standard application.</p>
+<p class="p">View modification is available for XML views, JS views and HTML views. Below is an example that
+			explains how a view modification works. The first code snippet describes the
+				<samp class="ph codeph">Sub3.view.xml</samp> view in the delivered standard application.</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;mvc:View xmlns="sap.ui.commons" xmlns:mvc="sap.ui.core.mvc"&gt;
+    &lt;TextView text="SAP View 'Sub3' - the text after this one is hidden by customizing: "&gt;&lt;/TextView&gt;
+    &lt;TextView id="someCustomizableTextControl" text="This text is made invisible by customization"&gt;&lt;/TextView&gt;  
+&lt;/mvc:View&gt;
+</pre></div>
+<p class="p">The following code snippet describes the customizing that identifies the control
+				<samp class="ph codeph">someCustomizableTextControl</samp> with the <samp class="ph codeph">visible</samp>
+			property set to <samp class="ph codeph">false</samp>.</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">customizing: {  
+    "sap.ui.viewModifications": {
+        "samples.components.ext.sap.Sub3": {
+            "someCustomizableTextControl": {
+                "visible": false
+            }
+        }
+    }
+}
+</pre></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="View Modification";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

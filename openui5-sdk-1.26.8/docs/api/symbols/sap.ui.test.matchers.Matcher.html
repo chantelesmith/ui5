@@ -1,0 +1,236 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.test.matchers.Matcher</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static abstract">
+					
+					abstract Class sap.ui.test.matchers.Matcher
+					</h1>
+					
+						<div class="classRelation extends"><span class="caption">extends </span><a title="sap.ui.base.ManagedObject" href="../symbols/sap.ui.base.ManagedObject.html">ManagedObject</a></div>
+					
+					
+					
+						<div class="classRelation subclasses"><span class="caption">known direct subclasses: </span><a title="sap.ui.test.matchers.AggregationContainsPropertyEqual" href="../symbols/sap.ui.test.matchers.AggregationContainsPropertyEqual.html">AggregationContainsPropertyEqual</a>, <a title="sap.ui.test.matchers.AggregationFilled" href="../symbols/sap.ui.test.matchers.AggregationFilled.html">AggregationFilled</a>, <a title="sap.ui.test.matchers.PropertyStrictEquals" href="../symbols/sap.ui.test.matchers.PropertyStrictEquals.html">PropertyStrictEquals</a></div>
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>Matchers for Opa5 - needs to implement an isMatching function that returns a boolean and will get a control instance as parameter</p>
+						
+						
+						
+						
+						
+						
+							<br />
+							<i>Since: </i>1.23.
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static abstract">
+									<div class="itemName">
+										<b class="icon" title="">new <a href="../symbols/sap.ui.test.matchers.Matcher.html#constructor">sap.ui.test.matchers.Matcher</a></b>
+										<span class='signature'>()</span>
+										<span class='description'></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+						<div class="summary section">
+							<div class="sectionTitle">Events borrowed from class <a href="../symbols/sap.ui.base.ManagedObject.html">sap.ui.base.ManagedObject</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.ManagedObject.html#event:formatError">formatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:parseError">parseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:validationError">validationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:validationSuccess">validationSuccess</a>
+							</div>
+						</div>
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Checks if the matcher is matching - will get an instance of sap.ui.Control as parameter Should be overwritten by subclasses"><a href="../symbols/sap.ui.test.matchers.Matcher.html#isMatching">isMatching</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the control that is checked by the matcher">oControl</span>)</span>
+									<span class='description'>Checks if the matcher is matching - will get an instance of sap.ui.Control as parameter Should be overwritten by subclasses</span>
+								</div>
+							
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.ManagedObject.html">sap.ui.base.ManagedObject</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.ManagedObject.html#addAggregation">addAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#addAssociation">addAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#applySettings">applySettings</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachFormatError">attachFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachParseError">attachParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachValidationError">attachValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachValidationSuccess">attachValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindAggregation">bindAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindContext">bindContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindObject">bindObject</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindProperty">bindProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#clone">clone</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#destroy">destroy</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#destroyAggregation">destroyAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachFormatError">detachFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachParseError">detachParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachValidationError">detachValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachValidationSuccess">detachValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#findAggregatedObjects">findAggregatedObjects</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireFormatError">fireFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireParseError">fireParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireValidationError">fireValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireValidationSuccess">fireValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getAggregation">getAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getAssociation">getAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBinding">getBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingContext">getBindingContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingInfo">getBindingInfo</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingPath">getBindingPath</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getEventingParent">getEventingParent</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getId">getId</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getModel">getModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getObjectBinding">getObjectBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getOriginInfo">getOriginInfo</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getParent">getParent</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getProperty">getProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#hasModel">hasModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#indexOfAggregation">indexOfAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#insertAggregation">insertAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#invalidate">invalidate</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isBound">isBound</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isInvalidateSuppressed">isInvalidateSuppressed</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isTreeBinding">isTreeBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAggregation">removeAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAllAggregation">removeAllAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAllAssociation">removeAllAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAssociation">removeAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setAggregation">setAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setAssociation">setAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setBindingContext">setBindingContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setModel">setModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setProperty">setProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#toString">toString</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindAggregation">unbindAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindContext">unbindContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindObject">unbindObject</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindProperty">unbindProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#validateAggregation">validateAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#validateProperty">validateProperty</a>
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.EventProvider.html">sap.ui.base.EventProvider</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.EventProvider.html#attachEvent">attachEvent</a>, <a href="../symbols/sap.ui.base.EventProvider.html#attachEventOnce">attachEventOnce</a>, <a href="../symbols/sap.ui.base.EventProvider.html#detachEvent">detachEvent</a>, <a href="../symbols/sap.ui.base.EventProvider.html#fireEvent">fireEvent</a>
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.Object.html">sap.ui.base.Object</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.Object.html#getInterface">getInterface</a>
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static abstract">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.test.matchers.Matcher</b>()
+										</div>
+										
+										<div class="full-description">
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="isMatching"> </a>
+										<div class="itemTitle icon protected">
+											isMatching<span class="signature">(<span title="(sap.ui.core.Control) the control that is checked by the matcher">oControl</span>)</span>
+											<span class="light" title="returns boolean">: boolean</span>
+										</div>
+										<div class="full-description">
+											Checks if the matcher is matching - will get an instance of sap.ui.Control as parameter
+Should be overwritten by subclasses
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oControl</b>
+													</td>
+													<td class="methodItemDesc">
+												    the control that is checked by the matcher
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{boolean}</span> 
+													</td>
+													<td class="methodItemDesc">
+														true if the Control is matching the condition of the matcher
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

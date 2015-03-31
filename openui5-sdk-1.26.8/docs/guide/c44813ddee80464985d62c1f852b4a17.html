@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="In case of problems or errors in the custom application, several options exist that support you in resolving the issues."/>
+<meta name="description" content="In case of problems or errors in the custom application, several options exist that support you in resolving the issues."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Supportability</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioc44813ddee80464985d62c1f852b4a17">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Supportability</h1>
+<div class="body"><p class="shortdesc">In case of problems or errors in the custom application, several options exist that
+		support you in resolving the issues.</p>
+<div class="section"><div class="section_title">Disabling Extensions/Customizing</div><div type="Disabling Extensions/Customizing">
+			
+			<p class="p">If a customized application does not run properly, you can disable the customizing. In a
+				support case, for example, you can set a breakpoint early in the
+					<samp class="ph codeph">sap-ui-core.js</samp> and then execute the following code in the
+				browser developer tool console:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"> 
+  window["sap-ui-config"] = window["sap-ui-config"] ||{};
+  window["sap-ui-config"]["xx-disableCustomizing"] = true;</pre></div>
+
+			<div class="note note"><span class="notetitle">Note</span> For security reasons, it is not possible to use a URL parameter.</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Using the Log</div><div type="Using the Log">
+			
+			<p class="p">The console log contains information about the processing of customizing or
+				extensibility information. Depending on the importance of the respective
+				information, different log levels are used. To enable a certain log level, execute
+				the following code in the browser console:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">jQuery.sap.log.setLevel(jQuery.sap.log.Level.INFO)</pre></div>
+
+			<p class="p">As an alternative, you can set the log level to <samp class="ph codeph">INFO</samp> in the support
+				popup if you want to see all messages of level "INFO" or more important.</p>
+
+			<p class="p">The following information is provided per log level:</p>
+
+			<ul class="ul" id="loioc44813ddee80464985d62c1f852b4a17__ul_d3s_mxg_pp"><li class="li">
+					<p class="p"><samp class="ph codeph">WARNING</samp>/<samp class="ph codeph">ERROR</samp>: Any critical or error
+						situation; such messages must be checked because something may have gone
+						wrong</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">INFO</samp>: Information about successful customizing activities,
+						such as applying a view extension or modifying a control property</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">DEBUG</samp>: Information about "non-activities", for example, if
+						no extension configured for an extension point was found; this provides
+						comprehensive information for each situation where an extension might be
+						configured. Exception: Non-existing control property modifications are
+							<span class="ph emphasis emphasis">not</span> logged at this log level (see below how you can
+						enable this). In addition, a complete dump of the extensibility
+						configuration is logged when it is activated.</p>
+
+				</li>
+</ul>
+
+			<p class="p">Certain information is only logged when an additional URL parameter is used, because
+				otherwise there would be too much information in the log for other debugging
+				scenarios: To enable this extra logging, add
+					<samp class="ph codeph">sap-ui-xx-debugCustomizing</samp> to the query part of the URL. This
+				extra logging enables an explicit log statement for each control, for which
+					<span class="ph emphasis emphasis">no</span> control modification has been found.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Reading the Current Customizing Data</div><div type="Reading the Current Customizing Data">
+			
+			<p class="p">To dump the complete extensibility data, use the following command in the browser
+				console:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.core.CustomizingConfiguration.log()</pre></div>
+
+			<p class="p">As a result, an object is returned in the console which contains the customizing
+				configuration, structured by type of customization and view name.</p>
+
+			<div class="note note"><span class="notetitle">Note</span> If Customizing is not enabled, this command causes an error because
+					<samp class="ph codeph">sap.ui.core.CustomizingConfiguration</samp> is not defined.</div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Supportability";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

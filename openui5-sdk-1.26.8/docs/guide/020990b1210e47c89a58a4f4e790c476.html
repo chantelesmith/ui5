@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Declarative support in SAPUI5 also enables data binding."/>
+<meta name="description" content="Declarative support in SAPUI5 also enables data binding."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Declarative Support: Data Binding</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio020990b1210e47c89a58a4f4e790c476">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Declarative Support: Data Binding</h1>
+<div class="body"><p class="shortdesc">Declarative support in SAPUI5 also enables data binding.</p>
+<p class="p">Just add the model path in curly brackets and bind the model to the control (or parent
+			control): </p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;div data-sap-ui-type="sap.ui.commons.Button" data-text="{/stringValue}" data-enabled="{model2&gt;/booleanValue}"&gt;&lt;/div&gt;</pre></div>
+<p class="p">0..n aggregations can define templates to use for the aggregation binding: </p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;div data-sap-ui-type="sap.ui.commons.Carousel" data-content="{/buttons}"&gt;
+    &lt;div data-sap-ui-type="sap.ui.commons.Button" data-text="{title}"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></div>
+<p class="p">In the example above, the button template is used for the carousel content data binding.
+		</p>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="91f0ca956f4d1014b6dd926db0e91070.html" title="Data binding is used to bind two data sources or information sources together and to keep them in synch. Model instances hold the data and provide the methods required to set the data or to retrieve data from a server.">Data Binding</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Declarative Support: Data Binding";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

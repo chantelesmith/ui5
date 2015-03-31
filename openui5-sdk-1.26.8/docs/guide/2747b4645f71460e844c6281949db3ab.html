@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Notepad controls can be used to create reusable controls in a structured way and can be used to use SAPUI5 controls in custom list items."/>
+<meta name="description" content="Notepad controls can be used to create reusable controls in a structured way and can be used to use SAPUI5 controls in custom list items."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Notepad List Item Content Controls</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio2747b4645f71460e844c6281949db3ab">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Notepad List Item Content Controls</h1>
+<div class="body"><p class="shortdesc">Notepad controls can be used to create reusable controls in a structured way and can be
+		used to use SAPUI5 controls in custom list items.</p>
+<p class="p">The following example assumes that you want to build a product list item. It shows an image of
+			the product and product details. You can create a notepad control for the list item
+			content and than add it to the <samp class="ph codeph">CustomListItem</samp> as follows:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">jQuery.sap.declare("my.control.ListItemContent");
+sap.ui.core.Control.extend("my.control.ListItemContent", {
+
+metadata: {
+        properties : {
+            "name": {type: "string", defaultValue: ""},
+            "description": {type: "string", defaultValue: ""},
+            "price": {type: "string", defaultValue: ""},
+            "currency": {type: "string", defaultValue: ""},
+            "image": {type: "string", defaultValue: ""}
+        },
+                events: {
+            "myTap": {},
+        },
+    },
+
+    init: function(){
+        this._image = new sap.m.Image({src:"&lt;myImageSrc&gt;"}).addStyleClass("myImageCSS").setParent(this);
+    },
+    
+    renderer: function(oRm, oControl) { 
+        oRm.write("&lt;div class='listItemCSS'");
+        oRm.writeControlData(oControl);
+        oRm.write("&gt;");
+            oRm.renderControl(oControl._image); 
+            oRm.write("&lt;div class='descCSS'&gt;");
+            oRm.writeEscaped(oControl.getDescription());
+            oRm.write("&lt;/div&gt;");        
+                        
+            oRm.write("&lt;div class='priceCSS'&gt;");
+            oRm.writeEscaped(oControl.getPrice());
+            oRm.write("&lt;/div&gt;");
+
+            oRm.write("&lt;div class='curCSS'&gt;");
+            oRm.writeEscaped(oControl.getCurrency());
+            oRm.write("&lt;/div&gt;");
+                            
+            oRm.write("&lt;div class='nameCSS'&gt;");
+            oRm.writeEscaped(oControl.getName());
+            oRm.write("&lt;/div&gt;");        
+        oRm.write("&lt;/div&gt;");        
+    oRm.write("&lt;/div&gt;");
+    }
+});
+
+//example how to avoid rerendering of text, when the name property is changed
+my.control.ListItemContent.prototype.setName = function(sText){
+    this.setProperty("name", sText, true);
+    return this;
+};
+
+//example how to use events
+my.control.ListItemContent.prototype.ontap = function(){
+        //your own tap logic
+    this.fireMyTap({});
+};
+</pre></div>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var oCustomListItem = new sap.m.CustomListItem({ content: [new my.control.ListItemContent({
+    //usual control setup
+})]});
+</pre></div>
+<div class="section"><div class="section_title">Notepad List Item Control</div><div type="Notepad List Item Control">
+			
+			<p class="p">Instead of using <samp class="ph codeph">CustomListItem</samp>, where you add the list item
+				content, you can also create a new notepad list item control. For this, you have to
+				inherit from <samp class="ph codeph">ListItemBase</samp> and use the renderer hook. The benefit is
+				that no <samp class="ph codeph">CustomListItem</samp> is required and you have control over the
+				whole list item. On the other hand side, you should know what you do, otherwise you
+				can cause a lot of issues. Since this extends the <samp class="ph codeph">ListItemBase</samp> you
+				can accidentally overwrite properties or methods for all <samp class="ph codeph">sap.m list</samp>
+				items. If you overwrite methods without calling the base method, the control might
+				not work anymore. Therefore, check the existing methods first, and if you need to
+				extend them, make sure you call the base method, too.</p>
+
+			<p class="p">The following example assumes that you want to build a product list item, which shows
+				an image of the product and some product details:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">jQuery.sap.declare("my.control.MyListItem");
+sap.m.ListItemBase.extend("my.control.MyListItem", {
+
+metadata: {
+        properties : {
+            "name": {type: "string", defaultValue: ""},
+            "description": {type: "string", defaultValue: ""},
+            "price": {type: "string", defaultValue: ""},
+            "currency": {type: "string", defaultValue: ""},
+            "image": {type: "string", defaultValue: ""}
+        },
+                events: {
+            "myTap": {},
+        },
+    },
+
+    init: function(){
+        this._image = new sap.m.Image({src:"&lt;myImageSrc&gt;"}).addStyleClass("myImageCSS").setParent(this);
+    },
+    
+    renderer: {
+            //this is the hook method of the !ListItemBase
+            renderLIContent : function(oRm, oControl) { 
+        oRm.write("&lt;div class='listItemCSS'");
+        oRm.writeControlData(oControl);
+        oRm.write("&gt;");
+            oRm.renderControl(oControl._image); 
+            oRm.write("&lt;div class='descCSS'&gt;");
+            oRm.writeEscaped(oControl.getDescription());
+            oRm.write("&lt;/div&gt;");        
+                        
+            oRm.write("&lt;div class='priceCSS'&gt;");
+            oRm.writeEscaped(oControl.getPrice());
+            oRm.write("&lt;/div&gt;");
+
+            oRm.write("&lt;div class='curCSS'&gt;");
+            oRm.writeEscaped(oControl.getCurrency());
+            oRm.write("&lt;/div&gt;");
+                            
+            oRm.write("&lt;div class='nameCSS'&gt;");
+            oRm.writeEscaped(oControl.getName());
+            oRm.write("&lt;/div&gt;");        
+        oRm.write("&lt;/div&gt;");        
+    oRm.write("&lt;/div&gt;");
+    }
+    }
+});
+
+//example how to avoid rerendering of text, when the name property is changed
+my.control.MyListItem.prototype.setName = function(sText){
+    this.setProperty("name", sText, true);
+    return this;
+};
+
+//example how to use events
+my.control.MyListItem.prototype.ontap = function(){
+        //your own tap logic
+    this.fireMyTap({});
+
+        //this is very important, when the base method should be called
+        //otherwise the base method won't be called anymore and depending on the method a control might not work anymore
+        sap.m.ListItemBase.prototype.ontap.apply(this, arguments);
+};
+</pre></div>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var oMyListItem = new my.control.MyListItem({
+    //usual control setup
+});
+</pre></div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Notepad List Item Content Controls";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

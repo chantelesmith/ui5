@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="QUnit is a powerful, easy-to-use JavaScript unit testing framework. It is used by the jQuery, jQuery UI and jQuery Mobile projects and is capable of testing any generic JavaScript code. It supports asynchronous tests out-of-the-box."/>
+<meta name="description" content="QUnit is a powerful, easy-to-use JavaScript unit testing framework. It is used by the jQuery, jQuery UI and jQuery Mobile projects and is capable of testing any generic JavaScript code. It supports asynchronous tests out-of-the-box."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>QUnit Testing Fundamentals</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio708002929ea548fd9433954a9275eb5f">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">QUnit Testing Fundamentals</h1>
+<div class="body conbody"><p class="shortdesc">QUnit is a powerful, easy-to-use JavaScript unit testing framework. It is used by the
+		jQuery, jQuery UI and jQuery Mobile projects and is capable of testing any generic
+		JavaScript code. It supports asynchronous tests out-of-the-box.</p>
+<p class="p">The following section gives you some background information about QUnit tests in general,
+			explains how to set up your environment for QUnit testing, and how to write and execute
+			QUnit tests. </p>
+<div class="note note"><span class="notetitle">Note</span> Before you begin setting up a QUnit test evironment, we suggest that you read the background
+			information and introduction to the QUnit test API itself, which is available on the
+			external web site <span class="ph filepath">http://api.qunitjs.com/</span>. This official QUnit
+			documentation features a complete description of the QUnit test API and contains many
+			examples. For detailed information about creating QUnit tests for SAPUI5 controls, see
+				<a class="xref" href="a6b0657d226343da81ad96632cd1bd83.html" title="Comprehensive overview of QUnit testing for controls.">QUnit Testing for SAPUI5
+				Controls</a>.</div>
+<div class="section"><div class="section_title">Why Does SAPUI5 Use QUnit Tests?</div><div type="Why Does SAPUI5 Use QUnit Tests?">
+			
+			<p class="p">QUnit tests provide good support for asynchronous testing. These types of tests are
+				often needed for UI functional tests, for example if you have to wait until
+				rendering is done, animations are complete, or a backend call returns. In addition,
+				a QUnit test page can be executed standalone in the browser without the need of an
+				additional "tool". This makes the creation and execution of single QUnit tests much
+				easier. Finally, QUnit is closely related to jQuery, which is also a fundamental
+				part of SAPUI5.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Creating a QUnit Test Page</div><div type="Creating a QUnit Test Page">
+			
+			<p class="p">As a prerequisite for creating a test, you need to have created a SAPUI5 application
+				(such as <samp class="ph codeph">myapp</samp>). Once you have done this, continue with the steps
+				described below:</p>
+
+			<div class="p">Create a QUnit test page <samp class="ph codeph">myqunittest.qunit.html</samp> in the folder
+					<samp class="ph codeph">test-resources/</samp>. <div class="note note"><span class="notetitle">Note</span> The file name
+						<samp class="ph codeph">XYZ.qunit.html</samp> is a recommendation to clearly indicate that
+					this is a QUnit test. Technically, the <samp class="ph codeph">.qunit</samp> name extension is
+					not required.</div>
+You can use the file template shown below. This code snippet
+				shows a basic QUnit test template which is used for SAPUI5 control tests, for
+				example: </div>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!text/html</samp>
+&lt;html&gt;
+  &lt;head&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+       
+    &lt;base href="../../../../../../"&gt;
+    &lt;!--[if lte IE 9]&gt;&lt;script type="text/javascript"&gt;
+         (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+         })();
+    &lt;/script&gt;&lt;![endif]--&gt;
+   
+    &lt;script id="sap-ui-bootstrap" 
+        type="text/javascript"
+        src="resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_bluecrystal"
+        data-sap-ui-noConflict="true"&gt;
+    &lt;/script&gt;
+   
+    &lt;link rel="stylesheet" href="resources/sap/ui/thirdparty/qunit.css" type="text/css" media="screen" /&gt;
+    &lt;script type="text/javascript" src="resources/sap/ui/thirdparty/qunit.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="resources/sap/ui/qunit/qunit-junit.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="resources/sap/ui/qunit/QUnitUtils.js"&gt;&lt;/script&gt;
+
+    &lt;script language="javascript"&gt;
+    /* Create and structure your QUnit tests here
+    Documentation can be found at http://docs.jquery.com/QUnit
+    
+    Example:
+      module("Module A");
+      test("1. a basic test example", 2, function() {
+        ok( true, "this test is fine" );
+        var value = "hello1";
+        equals( value, "hello1", "We expect value to be 'hello1'" );
+      });
+    */
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="qunit"&gt;&lt;/div&gt;
+    &lt;!-- [TODO: add additional html content here] --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre></div>
+
+			<p class="p">You can see above that a QUnit test page includes the SAPUI5 bootstrap
+					(<samp class="ph codeph">sap-ui-core.js</samp>), the QUnit related files
+					(<samp class="ph codeph">qunit.css</samp> and <samp class="ph codeph">qunit.js</samp>) as well as the SAPUI5
+				utilities (<samp class="ph codeph">QUnitUtils.js</samp>). The html body contains the tags needed
+				by QUnit to report the test results. Each UI5 library also contains a QUnit test
+				template that you can copy. You can find it under
+					<samp class="ph codeph">../src/test/uilib/&lt;library-name&gt;/qunit/template.qunit.html</samp>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Writing Test Functions</div><div type="Writing Test Functions">
+			
+			<p class="p">This section gives a short introduction to how test functions can be written. For a
+				complete reference of what can be done using QUnit testing, refer to the
+				documentation section mentioned above.</p>
+
+			<p class="p">Write your test code (like the following example) into the template introduced in the
+				previous section:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+    /* Create e.g. a SAPUI5 control which you need for your tests
+       Alternatively you can do this also in the setup phase of a module */
+    var oButton = new sap.ui.commons.Button("myButton", {text: "Click me"});
+    //...
+    oButton.placeAt("myContent");
+
+
+    /* The QUnit processing starts automatically when the page is
+       loaded. If you want to delay the start because of some
+       additional preparation work you can use the following utility
+       function: */
+    qutils.delayTestStart(5000);
+
+    /* The module call can be used to categorize your test functions.
+       In addition it is possible to define actions which are processed
+       during setup and tearDown. */
+    module("Module A");
+    
+    /* Example for a non-asynchronous test function:
+       The first parameter is the name of the test,
+       the second (optional) parameter is the number of expected assertions in the test,
+       the third parameter is the test function to call when the tests runs. */
+    test("Test 1", 3, function() {
+        ok( true, "this test is fine" );
+        var value = "hello1";
+        equals( value, "hello1", "We expect value to be 'hello1'" );
+
+        /* You can also do some actions between the assertions,
+           like triggering a keydown event with Enter key on the
+           Dom element with ID 'myButton' using the utilities.
+           Note: The utility function simulates a keyboard event
+                 using 'jQuery.trigger'. This is not a 'real'
+                 event which comes from the browser and there might
+                 be differences you must be aware of: When the
+                 user presses the Enter key on a button several
+                 events are fired by the browser like keydown, keyup,
+                 click, .... The function below ONLY simulates a
+                 keydown! */
+        sap.ui.test.qunit.triggerKeydown("myButton", "ENTER");
+
+        ok( true, "another test after the action" );
+    });
+
+    /* Modules have a second, optional "lifecycle" parameter. The life cycle object can 
+       have two methods "setup" and "teardown". Both methods are called for each test
+       of the module. It is best practice to use those life cycle methods to have standelone
+       tests that do not have dependencies on other tests. */
+    module("Module B", {
+      setup : function(){
+       // Code needed for the tests of this module
+       // this.foo = new Bar();
+      },
+
+      teardown : function(){
+       // Cleanup here
+       // this.foo = null;
+      }
+    });
+    
+
+    /* Example for an asynchronous test function:
+       The first parameter is the name of the test,
+       the second (optional) parameter is the number of expected assertions in the test,
+       the third parameter is the test function to call when the tests runs. */
+    asyncTest("Test 2", 3, function() {
+        
+        /* Instead of using the second parameter in the test definition you can
+           define the number expected assertions in the function body.
+           This is handy, when you write tests with different outcome. */
+        // expect(3);
+
+        /* First you start with tests in the normal flow */
+        ok( true, "this test is fine" );
+
+        /* Asynchronous tests are automatically stopped. There is
+           no need to call "stop" explicitly  */
+
+        setTimeout(function(){
+           ok( true, "this test is executed asynchronously" );
+           /* Do the asynchrounos tests and give QUnit the sign
+              to go on with the next test function via 'start'
+              when the processing of the current one is completed */
+           start();
+        }, 1000);
+
+        /* Do the things which needs a test delay, e.g. press
+           a button which starts a backend call */
+        sap.ui.test.qunit.triggerKeydown("myButton", "ENTER");
+
+        ok( true, "this test is not executed asynchronously" );
+    });</pre></div>
+
+			<p class="p">For the test example shown above, the following additional line was added to the body
+				of the test template:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!text/html</samp>
+&lt;div id="myContent"&gt;&lt;/div&gt;</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Executing a Test</div><div type="Executing a Test">
+			
+			<p class="p"><strong class="ph b">Standalone Unit Testing</strong></p>
+
+			<p class="p">When you have created a QUnit test page as described in the previous section, you can easily
+				run this test page without the need of any tool in any browser by using the URL of
+				the QUnit test page (e.g.
+					<samp class="ph codeph">http://localhost:8080/myapp/test-resources/myqunittest.qunit.html</samp>).
+				This will execute the test and then inform you about its success or show you any
+				errors.</p>
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div></div>
+<div class="section"><div class="section_title">Sinon.JS: Spies, Stubs, Mocks, Faked Timers &amp; XHR</div><div type="Sinon.JS: Spies, Stubs, Mocks, Faked Timers &amp; XHR">
+			
+			<p class="p">By integrating Sinon.JS for QUnit, you can use spies, stubs, mocks, faked timers or
+				faked XHR. For more information about using sinon.js, see the official documentation
+				at <span class="ph filepath">http://sinonjs.org/docs/</span>. Essentially, all you have to do is
+				add sinon.js to the script section of your QUnit test HTML file (add the files after
+				the qunit.js js file), as shown below:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!text/html</samp>
+  &lt;script type="text/javascript" src="../../../../../resources/sap/ui/thirdparty/qunit.js"&gt;&lt;/script&gt;
+
+  &lt;!-- SINON JS SUPPORT START --&gt;
+
+  &lt;script type="text/javascript" src="../../../../../resources/sap/ui/thirdparty/sinon.js"&gt;&lt;/script&gt;
+  &lt;!--[if IE]&gt;
+  &lt;script type="text/javascript" src="../../../../../resources/sap/ui/thirdparty/sinon.ie.js"&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+  &lt;script type="text/javascript" src="../../../../../resources/sap/ui/thirdparty/sinon.qunit.js"&gt;&lt;/script&gt;
+
+  &lt;!-- SINON JS SUPPORT END --&gt;
+
+  &lt;script type="text/javascript" src="/jsunit-testrunner/qunit/qunit-jsunit.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="../../../../../resources/sap/ui/qunit/QUnitUtils.js"&gt;&lt;/script&gt;</pre></div>
+
+			<p class="p">The following examples show you the basic way in which Sinon.JS can be used. These
+				examples are adapted from the official Sinon.JS documentation available at
+					<span class="ph filepath">http://sinonjs.org/docs/</span>:</p>
+
+			<p class="p">A simple spy test:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Spy", 2, function() {
+
+  var callback = sinon.spy();
+  var oButton = new sap.ui.commons.Button();
+  oButton.attachPress(callback);
+  ok(!callback.called, "Callback Spy not called yet");
+  oButton.firePress();
+  ok(callback.called, "Callback Spy called");
+  oButton.destroy();
+});</pre></div>
+
+			<p class="p">A simple stub test:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Stub", 1, function() {
+  sinon.stub(jQuery, "ajax").yieldsTo("success", [1, 2, 3]);
+
+  jQuery.ajax({
+    success: function (data) {
+    deepEqual(data, [1, 2, 3], "Right data set");
+    }
+  });
+  jQuery.ajax.restore();
+});</pre></div>
+
+			<p class="p">A simple mock test:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Mock", 2, function() {
+  var myAPI = { method: function () {} };
+
+  var mock = sinon.mock(myAPI);
+  mock.expects("method").once().throws();
+
+  try {
+    myAPI.method(); 
+  } catch (exc) {
+    ok(mock.verify(), "Mock function called and all expectations are fullfilled");
+  }
+  mock.restore();
+});</pre></div>
+
+			<p class="p">A simple faked timer test:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Basic", 1, function() {
+  var oClock = sinon.useFakeTimers();
+  setTimeout(function() {
+    ok(true, "Called without need of async test");
+  },800);
+  oClock.tick(800);
+  oClock.restore();
+});</pre></div>
+
+			<p class="p">A simple faked XHR test:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+module("Faked XHR", {
+  setup : function() {
+    this.xhr = sinon.useFakeXMLHttpRequest();
+    var requests = this.requests = [];
+
+    this.xhr.onCreate = function (xhr) {
+    requests.push(xhr);
+    };
+  },
+                
+  teardown : function() {
+    this.xhr.restore();
+  }
+});
+            
+test("Basic", 2, function() {
+  var callback = sinon.spy();
+                
+  jQuery.ajax("test", {
+    success : callback
+  });
+                
+  equal(1, this.requests.length, "Right number of requests");
+
+  this.requests[0].respond(200, { "Content-Type": "application/json" },
+                                         '[{ "foo": "bar", "bar" : "foo" }]');
+  ok(callback.calledWith([{ "foo": "bar", "bar" : "foo" }]), "Data is called right");
+});</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">QUnit Version Information</div><div type="QUnit Version Information">
+			
+			<p class="p">This section describes the differences in behavior between QUnit versions prior to
+				1.0 and QUnit versions after 1.0. See the table below for further details:</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio708002929ea548fd9433954a9275eb5f__table_x4y_rty_4p" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1:
+					QUnit Version</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="33.33333333333333%" id="d775048e207">Prior to QUnit 1.0</th>
+<th class="entry" valign="top" width="33.33333333333333%" id="d775048e209">As of QUnit 1.0</th>
+<th class="entry" valign="top" width="33.33333333333333%" id="d775048e211">What Has Changed Exactly?</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d775048e207 ">stop(timeout)</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e209 ">stop(semaphore)</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e211 ">In QUnit versions prior to 1.0 <em class="ph i">stop</em> pauses the execution
+								for a certain time when called with the optional timeout argument.
+								In the new QUnit version, <em class="ph i">stop</em> is called with the number of
+									<em class="ph i">start</em> calls needed to finish the test.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d775048e207 ">equals</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e209 ">equal</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e211 "><em class="ph i">equals</em> is deprecated. Please rename all <em class="ph i">equals</em>
+								references in your code to <em class="ph i">equal</em>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d775048e207 ">raises</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e209 ">throws</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e211 "><em class="ph i">raises</em> is deprecated. Please rename all <em class="ph i">raises</em>
+								references in your code to <em class="ph i">throws</em>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d775048e207 ">same</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e209 ">deepEqual</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d775048e211 "><em class="ph i">same</em> is deprecated. Please rename all <em class="ph i">same</em>
+								references in your code to <em class="ph i">deepEqual</em>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="QUnit Testing Fundamentals";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

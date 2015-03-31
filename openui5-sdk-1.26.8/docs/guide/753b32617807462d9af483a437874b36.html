@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="To keep the SAPUI5 code readable and maintainable, development conventions and guidelines are introduced. We strongly recommend that you follow these guidelines even if you find them violated somewhere. For files that are consistently not following these rules and for which adhering to the rules would make the code worse, follow the local style."/>
+<meta name="description" content="To keep the SAPUI5 code readable and maintainable, development conventions and guidelines are introduced. We strongly recommend that you follow these guidelines even if you find them violated somewhere. For files that are consistently not following these rules and for which adhering to the rules would make the code worse, follow the local style."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Development Conventions and Guidelines</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio753b32617807462d9af483a437874b36">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Development Conventions and Guidelines</h1>
+<div class="body"><p class="shortdesc">To keep the SAPUI5 code readable and maintainable, development conventions and
+		guidelines are introduced. We strongly recommend that you follow these guidelines even if
+		you find them violated somewhere. For files that are consistently <strong class="ph b">not</strong> following these
+		rules and for which adhering to the rules would make the code worse, follow the local
+		style.</p>
+<div class="note note"><span class="notetitle">Note</span> 
+			<p class="p">This list is not complete.</p>
+
+		</div>
+<div class="section"><div class="section_title">General Guidelines</div><div type="General Guidelines">
+			
+			<p class="p">The following list gives some general guidelines to be adehered to when developing
+				content for SAPUI5:</p>
+
+			<ul class="ul" id="loio753b32617807462d9af483a437874b36__ul_ndr_jmg_np"><li class="li">
+					<p class="p">Always consider the developers who <span class="ph emphasis emphasis">use</span> your control or code! Do not
+						surprise them, but give them what they expect. And make it simple.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use tabs, not spaces, for indentation; adhere to local standards in the file.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use Unix line endings (LF-only).</p>
+
+					<p class="p">In Eclipse, this is configured in <span class="ph menucascade"><img src="images/navstart.gif" alt="Start of the navigation path" title="Start of the navigation path"/> <span class="ph uicontrol">Preferences</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">General</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Workspace</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">New Text File Line Delimiter</span> <img src="images/navend.gif" alt="End of the navigation path" title="End of the navigation path"/></span>.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Text files must be UTF-8 encoded (HANA); only <samp class="ph codeph">*.properties</samp>
+						and <samp class="ph codeph">*.hdbtextbundle</samp> files must be ISO8859-1 encoded as
+						defined in the corresponding standard.</p>
+
+					<p class="p">This is the status quo. As this causes issues, it may be subject to change.
+						In Eclipse, this is configured in <span class="ph menucascade"><img src="images/navstart.gif" alt="Start of the navigation path" title="Start of the navigation path"/> <span class="ph uicontrol">Preferences</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">General</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Workspace</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Text File Encoding</span> <img src="images/navend.gif" alt="End of the navigation path" title="End of the navigation path"/></span>.</p>
+
+				</li>
+<li class="li">
+					<p class="p">An 80-character line length guideline does <strong class="ph b">not</strong> exist.</p>
+
+				</li>
+<li class="li">
+					<p class="p">Use comments; do <strong class="ph b">not</strong> rephrase the code, but tell the reader what is <strong class="ph b">not</strong> in the
+						code. Describe why your code does what it does. Prefer line comments.</p>
+
+				</li>
+</ul>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="eded636b85584cd586b1fe231d2b5dac.html">JavaScript Coding Guidelines</a></strong><br/>
+Overview of the guidelines for JavaScript coding for SAPUI5 with regard to code 		formatting, naming conventions, creating classes, and documentation.</li>
+<li class="link ulchildlink"><strong><a href="4549da61e2d949d6a3d20ad8a9d17a6f.html">SAPUI5 Control Development Guidelines</a></strong><br/>
+Content developers developing SAPUI5 controls should follow the guidelines outlined 		below with regard to API, behavior, and themes/CSS.</li>
+<li class="link ulchildlink"><strong><a href="bafc6867041644a9b596370e48a106ee.html">Product Standards and Acceptance Criteria</a></strong><br/>
+To be of high quality and usable in mission-critical business software, SAPUI5 needs to 		fulfill specific product standards and acceptance criteria. While these are not directly 		related to code conventions, the most important standards and criteria are mentioned here, 		because new code needs to fulfill these requirements.</li>
+<li class="link ulchildlink"><strong><a href="104135dda5524696ba641001f54c3a95.html">File Names and Encoding</a></strong><br/>
+Some target platforms of SAPUI5 impose technical restrictions on the naming or structure 		of resources (files).For this, rules for file names and encoding have been 		introduced.</li>
+<li class="link ulchildlink"><strong><a href="b2f563900ed2492b9b9003560e00ea9d.html">Git Guidelines</a></strong><br/>
+For using Git for developing content for SAPUI5, rules and guidelines for the use of Git 		and the content of commit messages have been introduced.</li>
+<li class="link ulchildlink"><strong><a href="41de83f642224556b8716dec2b41ce86.html">Tools</a></strong><br/>
+For the tools used for SAPUI5 content development, guidelines and recommendations have 		been introduced.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Development Conventions and Guidelines";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="There are a few limitations in the compatibility of custom applications that have to be considered when extending SAPUI5 standard applications."/>
+<meta name="description" content="There are a few limitations in the compatibility of custom applications that have to be considered when extending SAPUI5 standard applications."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Caveats Regarding Stability Across Application Upgrades</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioaef3384510724522a07df94ec90d1351">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Caveats Regarding Stability Across Application Upgrades</h1>
+<div class="body"><p class="shortdesc">There are a few limitations in the compatibility of custom applications that have to be
+		considered when extending SAPUI5 standard applications.</p>
+<p class="p">Offering modification-free extensions and customizing allows to ship new versions of the
+			application without overwriting customer-specific modifications. Thus, these
+			modifications can survive an application upgrade. However, the degree of compatibility
+			which can be guaranteed is limited. If a view is replaced by a custom view but the
+			original view is no longer used, the custom view will, of course, also no longer be
+			used. Or, if a custom controller extension accesses a field in the original view, it has
+			to be able to cope with the possibility that the field may no longer exist or have a
+			different type in an upgraded version of the application, otherwise it will break.</p>
+<p class="p">Many possible reasons exist that modifications can not be applied any longer or even break the
+			upgraded version of an application and it is, therefore, not possible to compile an
+			exhaustive list of all possible reasons. The following list gives some examples:</p>
+<ul class="ul" id="loioaef3384510724522a07df94ec90d1351__ul_xj3_syl_pp"><li class="li">
+				<p class="p">View modifications (hiding controls)</p>
+
+				<ul class="ul" id="loioaef3384510724522a07df94ec90d1351__ul_elz_syl_pp"><li class="li">
+						<p class="p">If the original control is no longer used or has a different or not a
+							given ID, a view modification will no longer be applied.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If the original view name is changed or the view is no longer used, an invalid view
+							modification will no longer be applied.</p>
+
+					</li>
+<li class="li">
+						<p class="p">However, a view modification is simply ignored and will never lead to a
+							crash.</p>
+
+					</li>
+</ul>
+
+			</li>
+<li class="li">
+				<p class="p">View extensions (added content in extension points)</p>
+
+				<ul class="ul" id="loioaef3384510724522a07df94ec90d1351__ul_cbp_wyl_pp"><li class="li">
+						<p class="p">If the extension point is removed or renamed or in an area or container
+							which is invisible under certain conditions, the view extension will no
+							longer be applied.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If the view name is changed or the extension point is moved to a
+							different view, the view extension will no longer be applied.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If the controls around the extension point have changed or the extension
+							point has been moved to a different environment inside the same view,
+							view extensions may look weird, have a broken layout or display or do
+							not really fit the new environment.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If the updated application requires the extension to be of a certain
+							control type, the view extension may break the application.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If custom code relies on the presence of the extensions, the view extension may break the
+							application.</p>
+
+					</li>
+</ul>
+
+			</li>
+<li class="li">
+				<p class="p">View replacements</p>
+
+				<ul class="ul" id="loioaef3384510724522a07df94ec90d1351__ul_t4t_zyl_pp"><li class="li">
+						<p class="p">If the original view name is changed or the view is no longer used, view replacements will
+							no longer be applied.</p>
+
+					</li>
+<li class="li">
+						<p class="p">As long as no other custom code relies on the view to be present, view replacements should
+							not cause a crash.</p>
+
+					</li>
+</ul>
+
+			</li>
+<li class="li">
+				<p class="p">Controller extensions</p>
+
+				<ul class="ul" id="loioaef3384510724522a07df94ec90d1351__ul_x3b_jzl_pp"><li class="li">
+						<p class="p">If the extension code accesses parts of the original application which are changed, for
+							example, removed, have a different type or a different ID, controller
+							extensions can cause a crash.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If the extension code makes assumptions about the application which are no longer valid
+							after an update, controller extensions can lead to a crash.</p>
+
+					</li>
+<li class="li">
+						<p class="p"> If original code is overwritten which is required for the application to run properly,
+							controller extensions can lead to a crash.</p>
+
+					</li>
+<li class="li">
+						<p class="p">If the controller name is changed, controller extensions are no longer applied.</p>
+
+					</li>
+</ul>
+
+			</li>
+<li class="li">
+				<p class="p">Other extension types have similar caveats.</p>
+
+			</li>
+</ul>
+<p class="p">In addition to this, all content changes such as additions, removals, and structure changes may
+			affect CSS and JavaScript code which relies of the position of certain elements in the
+			DOM. Partly these caveats are compatibility requirements for applications, partly they
+			are suggestions for customizing development how to create more robust extensions.</p>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Caveats Regarding Stability Across Application Upgrades";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

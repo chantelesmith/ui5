@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 provides several methods and events for navigation."/>
+<meta name="description" content="SAPUI5 provides several methods and events for navigation."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Methods and Events for Navigation</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio516e477e7e0b4e188b19a406e7528c1e">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Methods and Events for Navigation</h1>
+<div class="body"><p class="shortdesc">SAPUI5 provides several methods and events for navigation.</p>
+<p class="p">The most general sequence of navigation is that the hash is changed (e. g. because the
+			user clicks on something which leads to a navigation), this leads to pattern matching
+			which will then notify the attached handlers which have to react accordingly.</p>
+<div class="section"><div class="section_title">navTo</div><div type="navTo">
+			
+			<p class="p">Use this method to navigate to the given route and fill the hash with the
+				corresponding data. The listener callbacks of controllers listening to this route
+				are provided with data. The method uses takes the following parameters:</p>
+
+			<ul class="ul" id="loio516e477e7e0b4e188b19a406e7528c1e__ul_z1n_1ld_cp"><li class="li">
+					<p class="p"><samp class="ph codeph">name</samp></p>
+
+					<p class="p">Name of the route parameter</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">parameters</samp></p>
+
+					<p class="p">Route parameters</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">replace</samp></p>
+
+					<p class="p">Defines if the hash should be replaced (no browser history entry) or set
+						(browser history entry)</p>
+
+				</li>
+</ul>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.controller("MyApp.View2", {
+  anyEvent: function() {
+        sap.ui.core.UIComponent.getRouterFor(this).navTo("product",{ id: "5", productId: "3"});
+    }
+});</pre></div>
+
+			<p class="p">When changing the hash, all listeners to this hash are informed.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">attachRouteMatched</div><div type="attachRouteMatched">
+			
+			<p class="p">The route matched event is fired every time a changed hash matches a route or a pattern. If
+				you want to only react to specific routes, check if the name parameter matches the
+				route you want to listen to. The event has the following parameters:</p>
+
+			<ul class="ul" id="loio516e477e7e0b4e188b19a406e7528c1e__ul_vcc_qn3_cp"><li class="li">
+					<p class="p"><samp class="ph codeph">name</samp></p>
+
+					<p class="p">Name of the route that has matched</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">arguments</samp></p>
+
+					<p class="p">Object of arguments that are part of the route, mainly the parameters of the
+						hash</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">targetControl</samp></p>
+
+					<p class="p">Control instance of the <samp class="ph codeph">targetControl</samp> if given</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">view</samp></p>
+
+					<p class="p">Instance of the view, if a view was inserted</p>
+
+				</li>
+</ul>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.controller("MyApp.View1", {
+    onInit: function() {
+        var oRouter = sap.ui.core.routing.Router.getRouter("appRouter");
+        oRouter.attachRouteMatched(function(oEvent) {
+            if (oEvent.getParameter("name") !== "view1") {
+                            return:
+                        }
+            this._selectItemWithId(oEvent.getParameter("arguments").id);
+        }, this);
+       },
+    _selectItemWithId : function(id) {
+        //implementation
+       }</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">attachRoutePatternMatched</div><div type="attachRoutePatternMatched">
+			
+			<p class="p">This event is similar to route matched, but it only fires for the route that has a matching
+				pattern, and not for its parent route. This means, if a subroute matches, the
+					<samp class="ph codeph">attachRoutePatternMatched</samp> event is only fired for the subroute
+				whereas the <samp class="ph codeph">attachRouteMatched</samp> event is fired for the subroute as
+				well as for the parent. You still have to check for the name of the route inside
+				your listener function.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">viewCreated</div><div type="viewCreated">
+			
+			<p class="p">A <samp class="ph codeph">viewCreated</samp> event is fired every time a new view has been created by the
+				navigation system. The event has the following parameters:</p>
+
+			<ul class="ul" id="loio516e477e7e0b4e188b19a406e7528c1e__ul_hzl_vq3_cp"><li class="li">
+					<p class="p"><samp class="ph codeph">view</samp></p>
+
+					<p class="p">View instance</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">viewName</samp></p>
+
+					<p class="p">Name of the view</p>
+
+				</li>
+<li class="li">
+					<p class="p"><samp class="ph codeph">type</samp></p>
+
+					<p class="p">View type</p>
+
+				</li>
+</ul>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Methods and Events for Navigation";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Creating Representations</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio41e2803d910146e58af6f32ee64b761d">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Creating Representations</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">To create a representation, select the step you want to create the representation for, click <span class="ph menucascade"><img src="images/navstart.gif" alt="Start of the navigation path" title="Start of the navigation path"/> <span class="ph uicontrol">Add</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Representation</span> <img src="images/navend.gif" alt="End of the navigation path" title="End of the navigation path"/></span> and enter the following:</p>
+
+<div class="tablenoborder"><table summary="" id="loio41e2803d910146e58af6f32ee64b761d__table_fbn_s5n_kq" class="table" frame="border" border="1" rules="all"><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d537005e25">Field</th>
+<th class="entry" valign="top" width="50%" id="d537005e27">Explanation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d537005e25 ">Chart Type</td>
+<td class="entry" valign="top" width="50%" headers="d537005e27 ">
+							<p class="p">Select a chart type or table representation from the value help. </p>
+
+							<p class="p">In the analysis step gallery, the chart type is indicated by an icon
+								and a label.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d537005e25 ">Basic Data</td>
+<td class="entry" valign="top" width="50%" headers="d537005e27 ">
+							<p class="p">Depending on the chart type you chose, enter data such as the
+								dimension for the x-axis and the legend, and the measure. Some chart
+								types offer more fields, for example, the stacked column chart, or
+								fewer fields, for example, the pie chart.</p>
+
+							<p class="p">Ensure that all properties of drill-down dimensions that are selected
+								for the step are also used in the representation for this step.
+								Otherwise the data may not be displayed correctly. </p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d537005e25 ">Sorting</td>
+<td class="entry" valign="top" width="50%" headers="d537005e27 ">You can define whether a certain sorting criterion is applied to the
+							data request and subsequently to the chart. You can also specify the
+							sorting direction (ascending or descending). If you don’t specify a
+							sorting field, the data is displayed in the order provided by the OData
+							service.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d537005e25 ">Corner Text for Thumbnail</td>
+<td class="entry" valign="top" width="50%" headers="d537005e27 ">
+							<p class="p">The texts that are displayed in the four corners of the thumbnail in
+								the analysis path display. All of them are optional.</p>
+
+							<p class="p">The fields are prefilled with the texts entered at step level, if
+								applicable. When a text is entered or changed on representation
+								level, this text takes precedence over the corresponding text
+								entered at step level and is displayed at runtime. When you now
+								again change the same text at step level, this change is not copied
+								to the representation and also not reflected at runtime. This only
+								applies to those representations where a change has been made on
+								representation level.</p>
+
+						</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">At runtime, for each representation there is also an alternative table representation
+			available. The user can toggle between the chart representation and the table
+			representation. Exception: The alternative representation is not available if the
+			representation itself is a table. The alternative table representation is created
+			implicitly for each representation and you do not have to define it in the APF
+			Configuration Modeler. </p>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Creating Representations";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

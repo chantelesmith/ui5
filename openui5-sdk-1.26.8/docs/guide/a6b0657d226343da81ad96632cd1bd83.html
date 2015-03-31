@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Comprehensive overview of QUnit testing for controls."/>
+<meta name="description" content="Comprehensive overview of QUnit testing for controls."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>QUnit Testing for SAPUI5 Controls</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioa6b0657d226343da81ad96632cd1bd83">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">QUnit Testing for SAPUI5 Controls</h1>
+<div class="body conbody"><p class="shortdesc">Comprehensive overview of QUnit testing for controls.</p>
+<div class="section"><div class="section_title">Do's and Don'ts</div><div type="Do's and Don'ts">
+			
+			<ul class="ul"><li class="li">When writing QUnits, always keep your tests atomic.</li>
+<li class="li">That means: don't rely on the execution of previous tests.</li>
+<li class="li">Don't introduce globals, destroy controls after creating them.</li>
+<li class="li">Only test one single thing.</li>
+<li class="li">When writing a test, always make sure you break it first: don't rely on tests that have
+					never failed!</li>
+<li class="li">Write human readable tests - use descriptive names for variables. Readability &gt;
+					performance. You don't have to write a reuse for everything: it's ok to repeat
+					yourself in unit tests if it helps readability.</li>
+<li class="li">Don't test too many internal aspects: try to test the control like an application or user
+					will use it.</li>
+<li class="li">You have to find a balance between not stubbing / expecting too much of the internal aspects
+					and not doing it at all. If you tightly couple your test to the implementation,
+					maintenance will be a pain.</li>
+<li class="li">If your test is too long, you're squeezing too much stuff into one of your control's
+					functions: divide the complexity, then your test will be simpler and your
+					productive code will be better.</li>
+<li class="li">Don't test general SAPUI5 functionality: only test things actually done by your control (see
+					"What Should You Test?" below).</li>
+<li class="li">Never write an <samp class="ph codeph">if</samp> in a test: it is a sign that you're either not stubbing
+					correctly or you're testing multiple things in one test.</li>
+<li class="li">Never use the <samp class="ph codeph">expect</samp> QUnit statement: you should always write your test in
+					a way that every assertion you set up will be hit 100%.</li>
+<li class="li">Whenever you encounter a Bug/Ticket, start by writing a QUnit that fails first, and
+						<em class="ph i">then</em> fix the code.</li>
+<li class="li">Write your tests as small as possible: don't add a statement that is not needed for the
+					test, such as an id in controls, contructor properties.</li>
+<li class="li">Use fake timers to avoid as many async tests as possible.</li>
+<li class="li">Don't test the exact same thing multiple times.</li>
+<li class="li">Use modules for grouping your tests: this will give you a better organizational test
+					setup.</li>
+<li class="li">You may use modules for setup/teardown, but don't overuse this feature: if you have a longer
+					module, you might not see what the test does because you don't know its
+					setup.</li>
+<li class="li">In this case it's sometimes better to write code multiple times.</li>
+<li class="li">Don't set up your system being tested in the setup/teardown: it is very rare that all tests
+					in a module have the same constructor. Furthermore, using a global constructor
+					object is dangerous.</li>
+</ul>
+
+			<p class="p">If you stick to these rules, you will find it much easier to refactor/maintain your tests.
+				Keeping the tests atomic will make debugging much easier, because you will hit your
+				breakpoints for the code being tested only. If you write QUnits without keeping to
+				these rules, you may well not notice anything bad to begin with, but you <strong class="ph b">will</strong>
+				eventually end up in the middle of a maintenance nightmare!</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Arrange Act Assert Pattern</div><div type="Arrange Act Assert Pattern"><p class="p">Internally, we use three templates for testing. The one shown below is the general control
+				template. If you are using eclipse, a description of how you can import the
+				templates is included at the end of this section.</p>
+
+			<p class="p">Use the following pattern to structure your tests. If everyone sticks to this same
+				pattern, you will be able to read your colleagues' tests very quickly:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Should do Something", function() {
+    // Arrange
+    
+    // System under Test
+    var oMyControl = new nameSpace.myControl({
+    });
+    
+    // Act
+    
+    // Assert
+
+    // Cleanup
+    oMyControl.destroy();
+});</pre></div>
+
+			<p class="p"><strong class="ph b">Arrange</strong></p>
+<p class="p">In <samp class="ph codeph">Arrange</samp>, you should set up the dependencies and options you need for your
+					<samp class="ph codeph">System under Test</samp>.</p>
+<p class="p">Examples:</p>
+<ul class="ul" id="loioa6b0657d226343da81ad96632cd1bd83__ul_xsd_gng_pp"><li class="li">The constructor object of your control</li>
+<li class="li">Sinon spies/stubs and mocks (dependencies of your System under Test)</li>
+<li class="li">Model</li>
+</ul>
+
+			<p class="p"><strong class="ph b">System under Test</strong></p>
+<p class="p">In <samp class="ph codeph">System under Test</samp>, you should create your control and you should also render
+				it if you want to test the rendering.</p>
+
+			<p class="p"><strong class="ph b">Act</strong></p>
+<p class="p">Ideally, this part is only one single line of code executing the function you want to test.</p>
+
+			<p class="p"><strong class="ph b">Assert</strong></p>
+<p class="p">This part may contain multiple statements of QUnit assertions, but ideally not too many in
+				total.</p>
+<p class="p">Make sure that you also test negative paths, not only the expected ones.</p>
+
+			<p class="p"><strong class="ph b">Optional: Cleanup</strong></p>
+<p class="p">Here you should destroy all the
+				controls/models you created.</p>
+<p class="p">If you don't use sinon sandboxes, revert all the
+				spies/stubs/mocks.</p>
+</div></div>
+<div class="section"><div class="section_title">What Should You Test?</div><div type="What Should You Test?">
+			
+			<ul class="ul" id="loioa6b0657d226343da81ad96632cd1bd83__ul_j11_nng_pp"><li class="li">Test all the public functions you introduced.</li>
+<li class="li">Test all the overwritten getters and setters.</li>
+<li class="li">Test your control's events and how often they are called.</li>
+<li class="li">Test all possible user interactions (tap, keyboard, focus).</li>
+<li class="li">You could test how often your control gets rerendered when interacting with it, but only if
+					you are worried that it might be rerenderd too often or not at all.</li>
+<li class="li">Test RTL if you have special things done in javascript.</li>
+<li class="li">Write some integration tests if you have a composite control (don't cover 100% of your child
+					controls - that's overkill and child controls will be hard to maintain).</li>
+<li class="li">You may test default values of properties, since we cannot change them backwards compatible
+					and a test will recognize this.</li>
+<li class="li">Test how your control interacts with models (OData + Json).</li>
+<li class="li">Test the destruction of your control when working with composites, test if all
+					dependencies/events are unbound on destruction.</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">What Should You NOT Test?</div><div type="What Should You NOT Test?">
+			
+			<ul class="ul" id="loioa6b0657d226343da81ad96632cd1bd83__ul_pzc_4ng_pp"><li class="li">Never test non-overwritten getters and setters (these are tested in the core of the
+					framework).</li>
+<li class="li">Never test your complete css with computed styles: just check if the classes are set
+					correctly. Focus on testing javascript.</li>
+<li class="li">Never test other generic framework functionality: focus on your control.</li>
+</ul>
+
+		</div></div>
+<div class="section"><div class="section_title">Rendering Tests</div><div type="Rendering Tests">
+			
+			<p class="p">In the rendering tests part, you have to place your control to the DOM. The best place to put
+				it is the <samp class="ph codeph">qunit-fixture</samp> div, since its content gets deleted after
+				every test.</p>
+
+			<p class="p">Make sure you destroy your control, since SAPUI5 will keep a reference to it and may also
+				rerender it.</p>
+
+			<p class="p">It's crucial that you call <samp class="ph codeph">sap.ui.getCore().applyChanges()</samp> after every time
+				you have caused a rerendering.</p>
+
+			<p class="p">The call to this function synchronizes the changes of your control with the DOM. If you do not
+				make this call, the DOM will not be updated.</p>
+
+			<p class="p">You can use the following template to make sure that you don't forget to destroy your
+				control:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Should do Something", function() {
+    // Arrange
+        var oContructor = {
+        
+    };
+    
+    // System under Test
+    var oMyControl = new nameSpace.myControl(oContructor);
+    oMyControl.placeAt("qunit-fixture");
+    sap.ui.getCore().applyChanges();
+
+    // Act
+    
+    // Assert
+
+    // Cleanup
+    oMyControl.destroy();
+});</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Pitfalls</div><div type="Pitfalls">
+			<p class="p"><strong class="ph b">Sinon Fake Timers</strong></p>
+<p class="p">If you are using sinon.qunit, it will automatically use fake timers by itself. Fake timers will
+				prevent any setTimeout/setIntervall function from beeing executed, unless you call
+				this.clock.tick(milliseconds) in your test. This means that a Mock Server with
+				autorespond will not respond and OPA will not be able to wait for controls.</p>
+<p class="p">In addition, control events might be fired inside of a setTimeout(, 0), so the event might not be
+				triggered at all.</p>
+
+			<p class="p"><strong class="ph b">Testing SAPUI5 Control Events with Sinon</strong></p>
+<p class="p">If you want to test SAPUI5 events, you can use spies to test how often they are called. If you
+				try to test the parameters, however, you cannot do this with spies as SAPUI5 uses an
+				eventPool that reuses the same object again. This means that after an event is set,
+				all of the parameters will be deleted, Sinon will keep a reference to the object
+				without properties.</p>
+<p class="p">The effect of this is that you cannot assert on them anymore. The workaround is to use a stub
+				with a custom implementation that saves a copy of the parameters to your test
+				function scope.</p>
+<p class="p">An example of this is shown in the cookbook below (events).</p>
+
+			<p class="p"><strong class="ph b">I set a property on my control: Why aren't the changes in the DOM?</strong></p>
+<p class="p">The most likely reason for this is that <samp class="ph codeph">sap.ui.getCore().applyChanges()</samp> was not
+				called. SAPUI5 does not render synchronously, but calling this function will render
+				immediately.</p>
+</div></div>
+<div class="section"><div class="section_title">Cookbook</div><div type="Cookbook">
+			<p class="p"><strong class="ph b">Test Cases</strong></p>
+<p class="p">You can use a factory function. To keep this pointer and have a descriptive message, you should
+				use the test inside of the function and pass a test name to it.</p>
+<p class="p">Internally, we prefer to pass an object to the test for retrieving the values - it makes the test
+				cases readable.</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+function renderBarInPageTestCase(sTestName, oOptions) {
+    test(sTestName, function () {
+        // System under Test
+        var oBar = new sap.m.Bar();
+
+        oBar.placeAt("qunit-fixture");
+
+        // Act
+        oBar.applyTagAndContextClassFor(oOptions.context);
+
+        sap.ui.getCore().applyChanges();
+
+        // Assert
+        strictEqual(oBar.getDomRef().nodeName, oOptions.expectedTag.toUpperCase());
+        ok(oBar.$().hasClass(oOptions.expectedClass), "The bar has the context class: " + oOptions.expectedClass);
+
+        // Cleanup
+        oBar.destroy();
+    });
+};
+
+renderBarInPageTestCase("Should render the header context", {
+    context : "header",
+    expectedTag : "header",
+    expectedClass : "sapMHeader-CTX"
+});
+
+renderBarInPageTestCase("Should render the header context", {
+    context : "subheader",
+    expectedTag : "header",
+    expectedClass : "sapMSubHeader-CTX"
+});
+
+renderBarInPageTestCase("Should render the header context", {
+    context : "footer",
+    expectedTag : "footer",
+    expectedClass : "sapMFooter-CTX"
+});</pre></div>
+
+			<p class="p"><strong class="ph b">Testing Control Events</strong></p>
+<p class="p">As mentioned in the pitfalls above, you cannot test for event parameters in SAPUI5 so you have to
+				record them. Nevertheless, you can still use Sinon to retain the spy's call counting
+				capabilities. Here is a working example for this:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Should set the Hash", function() {
+    //Arrange
+    var aCalls = [],
+        fnHashChanged = function(oEvt) {
+                 aCalls.push({ newHash : oEvt.getParameter("newHash"), oldHash : oEvt.getParameter("oldHash") });
+        },
+        oSpy = this.spy(fnHashChanged);
+
+    
+    //System under Test
+    var oHashChanger = new sap.ui.core.routing.HashChanger();
+    oHashChanger.init();
+    oHashChanger.attachEvent("hashChanged", oSpy);
+
+    //Act
+    oHashChanger.setHash("one", true);
+    oHashChanger.setHash("two");
+
+    //Assert
+    strictEqual(oSpy.callCount, 2, "did change the Hash two times");
+
+    strictEqual(aCalls[0].newHash, "one", "first event was correct");
+    strictEqual(aCalls[1].newHash, "two", "second event was correct");
+    
+    //Cleanup
+    oHashChanger.destroy();
+});</pre></div>
+
+			<p class="p"><strong class="ph b">Testing User Interactions</strong></p>
+<p class="p">When testing user interactions, you can use <samp class="ph codeph">sap.ui.test.qunit</samp> to trigger
+				events.</p>
+<p class="p">Here is an example for when a user presses escape on the select:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Should close the popup menu if it is open and you press escape", function() {
+    // Arrange
+    var oContstructor = {
+        items: [
+        new sap.ui.core.Item({
+            key: "0",
+            text: "item 0"
+        }),
+
+        new sap.ui.core.Item({
+            key: "1",
+            text: "item 1"
+        })
+       ]
+    };
+
+    // System under test
+    var oSelect = new sap.m.Select(oContstructor);
+
+    oSelect.placeAt("select-content");
+    sap.ui.getCore().applyChanges();
+
+    // Arrange after rendering
+    oSelect.focus();
+    var fnEscapeSpy = this.spy(oSelect, "onsapescape");
+    var fnCloseSpy = this.spy(oSelect, "close");
+
+    // Act
+    sap.ui.test.qunit.triggerKeydown(oSelect.getDomRef(), jQuery.sap.KeyCodes.ESCAPE);
+
+    // Assertion
+    strictEqual(fnEscapeSpy.callCount, 1, "onsapescape() method was called exactly once");
+    strictEqual(fnCloseSpy.callCount, 0, "close() method is not called");
+
+    // Cleanup
+    oSelect.destroy();
+});</pre></div>
+
+			<p class="p"><strong class="ph b">Testing the Rerendering</strong></p>
+<p class="p">In this example, you will test to see whether the control fails to rerender. The control has
+				overwritten the setter of the tooltip property to avoid triggering a
+				rerendering.</p>
+<p class="p">To test this, we add an <samp class="ph codeph">eventDelegate</samp> to see how often the rendering function is
+				called. We need to make sure that we apply the changes after setting the property
+				because we want SAPUI5 to render synchronously:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+test("Should supress rerendering when tooltip is set", function() {
+    // Arrange
+    var oContructor = {
+        tooltip : "foo"
+        };
+    var oRerenderingSpy = this.spy();
+
+    // System under Test
+    var oLabel = new sap.m.Label(oContructor);
+    oLabel.placeAt("qunit-fixture");
+    sap.ui.getCore().applyChanges();
+
+    oLabel.addEventDelegate({
+        onBeforeRendering : oRerenderingSpy
+    });
+
+    // Act
+    oLabel.setTooltip("bar");
+    sap.ui.getCore().applyChanges();
+
+    // Assert
+    strictEqual(oRerenderingSpy.callCount, 0, "Did not rerender");
+    strictEqual(oLabel.getTooltip(), "bar", "Tooltip property got set");
+    strictEqual(oLabel.$().attr("title"), "bar", "Tooltip got updated");
+
+    // Cleanup
+    oLabel.destroy();
+});</pre></div>
+
+			<p class="p"><strong class="ph b">Testing with Models</strong></p>
+<p class="p">When testing with models, you need to make sure that you also setup/destroy your model inside a
+				test itself. OData tests will always be integration tests, since you will require
+				multiple files in order to use the Mock Server. You may use a factory method to do
+				this.</p>
+<p class="p">An example for setting up the Mock Server is shown below: </p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+jQuery.sap.require("sap.ui.app.MockServer");
+jQuery.sap.require("sap.ui.model.odata.ODataModel");
+
+function startMockServer(iRespondAfter) {
+    // configure respond to requests delay
+    sap.ui.app.MockServer.config({
+        autoRespond : true,
+        autoRespondAfter : iRespondAfter || 10
+    });
+
+    // create mockserver
+    var oMockServer = new sap.ui.app.MockServer({
+        rootUri : "http://sap.com/service/"
+    });
+
+    // start and return
+    oMockServer.simulate("data/metadata.xml", "data");
+    oMockServer.start();
+    return oMockServer;
+}
+
+//Your test:
+asyncTest("Should do something with the model", function() {
+    //Arrange
+    var oMockServer = startMockServer(0)
+
+    // System under Test + Act
+
+    //Cleanup
+    oMockServer.stop();
+});</pre></div>
+<p class="p">When using the Mock Server, you can use async tests since calling respond each time on the Mock
+				Server does not help the readability of the test.</p>
+<p class="p">After setting up the Mock Server, we set up the model as follows:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+function createODataModel(sURL, mSettings) {
+    sURL = sURL || "http://sap.com/service/";
+    var oModel = new sap.ui.model.odata.ODataModel(sURL, true);
+    
+    mSettings = mSettings || {};
+    jQuery.each(mSettings, function(sProperty, vValue) {
+        sProperty = jQuery.sap.charToUpperCase(sProperty);
+        oModel["set" + sProperty](vValue);
+    });
+    
+    return oModel;
+}
+
+//Your test:
+asyncTest("Should do something with the model", function() {
+    //Arrange
+    var oModel = createODataModel(),
+        oMockServer = startMockServer(0);
+
+    // System under Test + Act
+
+    //Cleanup
+    oModel.destroy();
+    oMockServer.stop();
+});</pre></div>
+<p class="p">You can now bind your model against your control and test whatever you want.</p>
+<p class="p">We use <samp class="ph codeph">clock.tick</samp> to trigger the server response. If we did not do this, the
+				text of the label would still be empty:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+//Your test:
+asyncTest("Should do something with the model", function() {
+    // Arrange
+    var oModel = createODataModel(),
+        oMockServer = startMockServer(50);
+
+    // System under Test
+    var oLabel = new sap.m.Label({
+        text : "{/myProperty}"
+    });
+
+    oLabel.placeAt("qunit-fixture");
+    sap.ui.getCore().applyChanges();
+
+    // Act - trigger the request
+    this.clock.tick(50);
+
+    // Assert
+    strictEqual("myExpected", oLabel.getText(), "The expected text was present");
+
+    // Cleanup
+    oModel.destroy();
+    oMockServer.stop();
+});</pre></div>
+</div></div>
+<div class="section"><div class="section_title">Importing the Templates</div><div type="Importing the Templates">
+			
+			<p class="p">If you are using eclipse, to import the templates start by calling up
+					<span class="ph uicontrol">Preferences</span> as shown below:</p>
+
+			<div class="fig fignone" id="loioa6b0657d226343da81ad96632cd1bd83__fig_vzb_lqg_pp"><div class="figcontainer"><img class="image" id="loioa6b0657d226343da81ad96632cd1bd83__image_q4v_nqg_pp" src="loiof4fca357881049c093221d6bd3cf28f5_LowRes.jpg"/></div></div>
+
+			<p class="p">Make sure that you have added the JavaScript Editor to the <span class="ph uicontrol">File
+					Associations</span> under <span class="ph menucascade"><img src="images/navstart.gif" alt="Start of the navigation path" title="Start of the navigation path"/> <span class="ph uicontrol">General</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Editors</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">File Associations</span> <img src="images/navend.gif" alt="End of the navigation path" title="End of the navigation path"/></span>:</p>
+
+			<div class="fig fignone" id="loioa6b0657d226343da81ad96632cd1bd83__fig_gqm_lqg_pp"><div class="figcontainer"><img class="image" id="loioa6b0657d226343da81ad96632cd1bd83__image_pdt_4qg_pp" src="loio05510f4e61d94b069b5f4c90a893e6cb_LowRes.jpg"/></div></div>
+
+			<p class="p">You can do this by choosing the <span class="ph uicontrol">File Associations</span> link on the
+					<span class="ph uicontrol">Editors</span> start page, then selecting
+					<span class="ph uicontrol">*.html</span> from the top list and adding <span class="ph uicontrol">JavaScript
+					Editor</span> as an associated editor:</p>
+
+			<div class="fig fignone" id="loioa6b0657d226343da81ad96632cd1bd83__fig_x45_lqg_pp"><div class="figcontainer"><img class="image" id="loioa6b0657d226343da81ad96632cd1bd83__image_il2_qqg_pp" src="loio9f1653e06f06468cbfa817d78222faf6_LowRes.jpg"/></div></div>
+
+			<p class="p">While still in the <span class="ph uicontrol">Preferences</span>, navigate to <span class="ph menucascade"><img src="images/navstart.gif" alt="Start of the navigation path" title="Start of the navigation path"/> <span class="ph uicontrol">JavaScript</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Editor</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">Templates</span> <img src="images/navend.gif" alt="End of the navigation path" title="End of the navigation path"/></span> and choose <span class="ph uicontrol">Import...</span>:</p>
+
+			<div class="fig fignone" id="loioa6b0657d226343da81ad96632cd1bd83__fig_g3z_lqg_pp"><div class="figcontainer"><img class="image" id="loioa6b0657d226343da81ad96632cd1bd83__image_pyp_qqg_pp" src="loio54a76dee6b284beb85e80a18c44a8411_LowRes.jpg"/></div></div>
+
+			<p class="p">After doing this, you test press ctrl + space in your js/html files and start writing your
+				test.</p>
+
+			<p class="p">The following templates are available:</p>
+
+			<ul class="ul" id="loioa6b0657d226343da81ad96632cd1bd83__ul_b12_vxg_pp"><li class="li">Test - for general classes</li>
+<li class="li">TestControl - for control tests without rendering</li>
+<li class="li">TestRendering - for control tests with rendering</li>
+</ul>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="QUnit Testing for SAPUI5 Controls";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

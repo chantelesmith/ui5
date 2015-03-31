@@ -1,0 +1,470 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.core.format.FileSizeFormat</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.core.format.FileSizeFormat
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>The FileSizeFormat is a static class for formatting and parsing numeric file size values according
+to a set of format options.
+</p><p>
+Supports the same options as <a href="../symbols/sap.ui.core.format.NumberFormat.html#.getFloatInstance">NumberFormat.getFloatInstance</a>
+For format options which are not specified default values according to the type and locale settings are used.
+</p><p>
+Supported format options (additional to NumberFormat):
+<ul>
+<li>binaryFilesize: if true, base 2 is used: 1 Kibibyte = 1024 Byte, ... , otherwise base 10 is used: 1 Kilobyte = 1000 Byte (Default is false)</li>
+</ul></p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Constructor for FileSizeFormat - must not be used: To get a FileSizeFormat instance, please use getInstance.">new <a href="../symbols/sap.ui.core.format.FileSizeFormat.html#constructor">sap.ui.core.format.FileSizeFormat</a></b>
+										<span class='signature'>()</span>
+										<span class='description'>Constructor for FileSizeFormat - must not be used: To get a FileSizeFormat instance, please use getInstance.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Creates a new subclass of class sap.ui.core.format.FileSizeFormat with name sClassName and enriches it with the information contained in oClassInfo."><a href="../symbols/sap.ui.core.format.FileSizeFormat.html#.extend">sap.ui.core.format.FileSizeFormat.extend</a></b><span class='signature'>(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+									<span class='description'>Creates a new subclass of class sap.ui.core.format.FileSizeFormat with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Get an instance of the FileSizeFormat, which can be used for formatting."><a href="../symbols/sap.ui.core.format.FileSizeFormat.html#.getInstance">sap.ui.core.format.FileSizeFormat.getInstance</a></b><span class='signature'>(<span title="(object) Object which defines the format options">oFormatOptions</span><i class="help" title="Optional parameter">?</i>, <span title="(sap.ui.core.Locale) Locale to get the formatter for">oLocale</span><i class="help" title="Optional parameter">?</i>)</span>
+									<span class='description'>Get an instance of the FileSizeFormat, which can be used for formatting.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Returns a metadata object for class sap.ui.core.format.FileSizeFormat."><a href="../symbols/sap.ui.core.format.FileSizeFormat.html#.getMetadata">sap.ui.core.format.FileSizeFormat.getMetadata</a></b><span class='signature'>()</span>
+									<span class='description'>Returns a metadata object for class sap.ui.core.format.FileSizeFormat.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Format a filesize (in bytes) according to the given format options."><a href="../symbols/sap.ui.core.format.FileSizeFormat.html#format">format</a></b><span class='signature'>(<span title="(number|string) the number (or hex string) to format">oValue</span>)</span>
+									<span class='description'>Format a filesize (in bytes) according to the given format options.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Parse a string which is formatted according to the given format options."><a href="../symbols/sap.ui.core.format.FileSizeFormat.html#parse">parse</a></b><span class='signature'>(<span title="(string) the string containing a formatted filesize value">sValue</span>)</span>
+									<span class='description'>Parse a string which is formatted according to the given format options.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.core.format.FileSizeFormat</b>()
+										</div>
+										
+										<div class="full-description">
+											Constructor for FileSizeFormat - must not be used: To get a FileSizeFormat instance, please use getInstance.
+										</div>
+										
+										
+										
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".extend"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.format.FileSizeFormat.extend<span class="signature">(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+											<span class="light" title="returns function">: function</span>
+										</div>
+										<div class="full-description">
+											Creates a new subclass of class sap.ui.core.format.FileSizeFormat with name <code>sClassName</code>
+and enriches it with the information contained in <code>oClassInfo</code>.
+</p><p>
+<code>oClassInfo</code> might contain the same kind of information as described in <a href="../symbols/sap.ui.base.Object.html#.extend">Object.extend</a>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sClassName</b>
+													</td>
+													<td class="methodItemDesc">
+												    name of the class to be created
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oClassInfo</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    object literal with informations about the class
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{function}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>FNMetaImpl</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    constructor function for the metadata object. If not given, it defaults to sap.ui.core.ElementMetadata.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{function}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the created class / constructor function
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".getInstance"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.format.FileSizeFormat.getInstance<span class="signature">(<span title="(object) Object which defines the format options">oFormatOptions</span><i class="help" title="Optional parameter">?</i>, <span title="(sap.ui.core.Locale) Locale to get the formatter for">oLocale</span><i class="help" title="Optional parameter">?</i>)</span>
+											<span class="light" title="returns sap.ui.core.format.FileSizeFormat">: <a href="../symbols/sap.ui.core.format.FileSizeFormat.html">sap.ui.core.format.FileSizeFormat</a></span>
+										</div>
+										<div class="full-description">
+											Get an instance of the FileSizeFormat, which can be used for formatting.
+</p><p>
+If no locale is given, the currently configured 
+<a href="../symbols/sap.ui.core.Configuration.FormatSettings.html#getFormatLocale">formatLocale</a> will be used.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oFormatOptions</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    Object which defines the format options
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Locale.html">sap.ui.core.Locale</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oLocale</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    Locale to get the formatter for
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.format.FileSizeFormat.html">sap.ui.core.format.FileSizeFormat</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														instance of the FileSizeFormat
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".getMetadata"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.format.FileSizeFormat.getMetadata<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.base.Metadata">: <a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a></span>
+										</div>
+										<div class="full-description">
+											Returns a metadata object for class sap.ui.core.format.FileSizeFormat.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														metadata object describing thi class
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="format"> </a>
+										<div class="itemTitle icon">
+											format<span class="signature">(<span title="(number|string) the number (or hex string) to format">oValue</span>)</span>
+											<span class="light" title="returns string">: string</span>
+										</div>
+										<div class="full-description">
+											Format a filesize (in bytes) according to the given format options.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{number|string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oValue</b>
+													</td>
+													<td class="methodItemDesc">
+												    the number (or hex string) to format
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{string}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the formatted output value
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="parse"> </a>
+										<div class="itemTitle icon">
+											parse<span class="signature">(<span title="(string) the string containing a formatted filesize value">sValue</span>)</span>
+											<span class="light" title="returns number">: number</span>
+										</div>
+										<div class="full-description">
+											Parse a string which is formatted according to the given format options.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sValue</b>
+													</td>
+													<td class="methodItemDesc">
+												    the string containing a formatted filesize value
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{number}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the parsed value in bytes
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

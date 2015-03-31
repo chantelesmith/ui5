@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Facet filters support users in finding the information they need from potentially very large data sets."/>
+<meta name="description" content="Facet filters support users in finding the information they need from potentially very large data sets."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Working with Facet Filters</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioc6c38217a4a64001a22ad76cdfa97fae">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Working with Facet Filters</h1>
+<div class="body"><p class="shortdesc">Facet filters support users in finding the information they need from potentially very
+		large data sets.</p>
+<p class="p">With the facet filter, users can explore a data collection by applying multiple filters along
+			certain discrete attributes or facets of the overall data collection.</p>
+<p class="p">The following figure shows the structure of the facet filter.</p>
+<img class="image" id="loioc6c38217a4a64001a22ad76cdfa97fae__image_ohk_mfp_qn" src="loiof144853312cd42a1bff62ce4695eba2d_LowRes.png"/><div class="example"><h2 class="exampletitle">Example</h2><p class="p">Your application displays a large list of products that can be grouped by
+				category and supplier. With the facet filter, you allow users to dynamically filter
+				the list so it only displays products fror the categories and suppliers they want to
+				see. In the following figure, the <samp class="ph codeph">FacetFilter</samp> control is outlined
+				in red and will be referred to as the 'toolbar' for the user. In the example, the
+				user has set the following filters:</p>
+<ul class="ul" id="loioc6c38217a4a64001a22ad76cdfa97fae__ul_axx_whh_qn"><li class="li">
+					<p class="p">Category: Printer</p>
+
+				</li>
+<li class="li">
+					<p class="p">Supplier: Red Point Stores</p>
+
+				</li>
+</ul>
+<img class="image" id="loioc6c38217a4a64001a22ad76cdfa97fae__image_mt4_kkh_qn" src="loiof57566c5aa854e2f86a8df84040ba13c_LowRes.png"/></div>
+<p class="p">The facet filter supports the following two typeswhich can be configures using the
+			control's <samp class="ph codeph">type</samp> property:</p>
+<ul class="ul" id="loioc6c38217a4a64001a22ad76cdfa97fae__ul_xwd_rkh_qn"><li class="li">
+				<p class="p">Simple type</p>
+
+				<p class="p">The simple type is the default type and available for desktop and tablets.</p>
+
+			</li>
+<li class="li">
+				<p class="p">Light type</p>
+
+				<p class="p">The light type is automatically enabled on smart phone sized devices, but is also
+					available for desktop and tablets.</p>
+
+			</li>
+</ul>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="1586c19a9d854f6e82613fd75290c34f.html">Facet Filter: Simple Type</a></strong><br/>
+The simple type of the <samp class="ph codeph">FacetFilter</samp> control is only available for 		desktop and tablets.</li>
+<li class="link ulchildlink"><strong><a href="bb2aca0957534dba8f0b4cfe689c30c9.html">Facet Filter: Light Type</a></strong><br/>
+The light type of the <samp class="ph codeph">FacetFilter</samp> control is automatically enabled on 		smart phone devices and is also available for desktop and tablets.</li>
+<li class="link ulchildlink"><strong><a href="395392f30f2a4c4d80d110d5f923da77.html">Using the Facet Filter List and Facet Filter Item Controls</a></strong><br/>
+The <samp class="ph codeph">FacetFilter</samp> control uses the <samp class="ph codeph">FacetFilterList</samp> and 		the <samp class="ph codeph">FacetFilterItem</samp> controls to model facets and their associated 		filters.</li>
+<li class="link ulchildlink"><strong><a href="05c0ffca736f4336ae135ca108a07234.html">Events for Facet Filters</a></strong><br/>
+Facet filters support several events, such as reset and list open.</li>
+<li class="link ulchildlink"><strong><a href="e17becae8bf446ac92f169b726373f0a.html">Data Binding for Facet Filters</a></strong><br/>
+<samp class="ph codeph">FacetFilter</samp> fully supports the SAPUI5 data binding concept.</li>
+<li class="link ulchildlink"><strong><a href="559f60eaf71b47bb9f11a07622880f7c.html">Filter Search</a></strong><br/>
+The popover and dialog displayed by <samp class="ph codeph">FacetFilter</samp> contain a 			<samp class="ph codeph">sap.m.SearchField</samp> control. This enables the user to search for specific 		items in the list.</li>
+<li class="link ulchildlink"><strong><a href="ef860fc989764439957c6446ecebd7ec.html">Facet Filter Selection</a></strong><br/>
+The <samp class="ph codeph">FacetFilterList.getSelectedItems()</samp> method returns a copy of each         selected facet filter item. You use the method to get the selected filter items when         filterin the target data set.</li>
+<li class="link ulchildlink"><strong><a href="e7027747b8ef4ef483cadeeec4cffb1e.html">Dependent Facets</a></strong><br/>
+Applications can have dependencies between facets where selection of filter items in one         facet list limits the list of valid filters in another facet list.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Working with Facet Filters";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

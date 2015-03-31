@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="For using Git for developing content for SAPUI5, rules and guidelines for the use of Git and the content of commit messages have been introduced."/>
+<meta name="description" content="For using Git for developing content for SAPUI5, rules and guidelines for the use of Git and the content of commit messages have been introduced."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Git Guidelines</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiob2f563900ed2492b9b9003560e00ea9d">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Git Guidelines</h1>
+<div class="body"><p class="shortdesc">For using Git for developing content for SAPUI5, rules and guidelines for the use of Git
+		and the content of commit messages have been introduced.</p>
+<p class="p">Set the <samp class="ph codeph">core.autocrlf</samp> configuration property in Git to <samp class="ph codeph">false</samp>
+			and make sure to use Unix-style linebreaks (LR-only).</p>
+<p class="p">The commit message consists of two or three parts, which are separated by empty
+			lines:</p>
+<ul class="ul" id="loiob2f563900ed2492b9b9003560e00ea9d__ul_dch_c2p_np"><li class="li">
+				<p class="p">The first line contains the commit summary</p>
+
+			</li>
+<li class="li">
+				<p class="p">The second line contains an optional commit description text; additional
+					additional empty lines may be contained in the description text</p>
+
+			</li>
+<li class="li">
+				<p class="p">Data section</p>
+
+			</li>
+</ul>
+<p class="p">For Git, the following rules and guidelines apply:</p>
+<ul class="ul" id="loiob2f563900ed2492b9b9003560e00ea9d__ul_fbp_dhp_np"><li class="li">
+				<p class="p">The summary line must be prefixed with either <samp class="ph codeph">[FIX]</samp> or
+						<samp class="ph codeph">[FEATURE]</samp>, which should be followed by the control or
+					component that is the main subject of the change.</p>
+
+			</li>
+<li class="li">
+				<p class="p">Exception for this rule is the use of the prefix <samp class="ph codeph">[INTERNAL]</samp> for commits or
+					explanations which are not supposed to be part of the release notes because they
+					are not relevant for SAPUI5 users.</p>
+
+			</li>
+<li class="li">
+				<p class="p">The data section consists of name-value pairs:</p>
+
+				<ul class="ul" id="loiob2f563900ed2492b9b9003560e00ea9d__ul_e5g_qhp_np"><li class="li">
+						<p class="p"><samp class="ph codeph">Change-Id</samp> (mandatory)</p>
+
+					</li>
+<li class="li">
+						<p class="p">Further information, such as <samp class="ph codeph">Bug-URL</samp> for Git-reported
+							bugs, <samp class="ph codeph">CSS</samp> for bugs reported internally at SAP,
+								<samp class="ph codeph">BCS</samp> for customer messages reported at SAP,
+								<samp class="ph codeph">CR-Id</samp> for change requests; the
+								<samp class="ph codeph">CR-Id</samp> is mandatory for maintenance codelines</p>
+
+					</li>
+</ul>
+
+			</li>
+</ul>
+<div class="example"><h2 class="exampletitle">Example</h2>
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">[FIX] sap.m.Popover: scrolling is removed after Popover is rerendered
+
+- this was caused by the special treatment in dealing with rerendering
+in Popover.
+
+- Now the normal invalidation is used and Popup.js takes care of the
+focus/blur event listener in onBefore/AfterRerendering
+
+Change-Id: I3c7d6e4d52fa71e9412b729b7a234a112915c2a4
+CSS: 0120061532 0001255146 2014
+CR-Id: 012006153200014140602014
+</pre></div>
+
+		</div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Git Guidelines";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

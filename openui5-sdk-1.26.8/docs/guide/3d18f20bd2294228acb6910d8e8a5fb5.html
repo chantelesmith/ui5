@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 uses a hash-based navigation that enables you to pass data from the hash to any view, and to adjust a current hash so that you can use it as a bookmarkable URL. Depending on the hash, you can also generate views automatically. And it enables the app users to use the browser history buttons for navigation."/>
+<meta name="description" content="SAPUI5 uses a hash-based navigation that enables you to pass data from the hash to any view, and to adjust a current hash so that you can use it as a bookmarkable URL. Depending on the hash, you can also generate views automatically. And it enables the app users to use the browser history buttons for navigation."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Navigation</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio3d18f20bd2294228acb6910d8e8a5fb5">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Navigation</h1>
+<div class="body conbody"><p class="shortdesc">SAPUI5 uses a hash-based navigation that enables you to pass data from the hash to any
+        view, and to adjust a current hash so that you can use it as a bookmarkable URL. Depending
+        on the hash, you can also generate views automatically. And it enables the app users to use
+        the browser history buttons for navigation.</p>
+<div class="p">Navigation is used for the following use cases:<ul class="ul" id="loio3d18f20bd2294228acb6910d8e8a5fb5__ul_scj_gk2_1p"><li class="li">
+                    <p class="p">Browser History Handling</p>
+
+                    <p class="p">On mobile devices you do not only have the browser back but also physical
+                        back buttons (android).</p>
+
+                </li>
+<li class="li">
+                    <p class="p">Bookmarks/Deep Links</p>
+
+                    <p class="p">bookmark/deep link a page inside an app. This means we can start the app and
+                        resume the bookmarked state.</p>
+
+                </li>
+</ul>
+</div>
+<p class="p">The one-page apps of SAPUI5 enable navigation by changing the hash: The browser does not
+            reload the page, instead there is a callback to which the app and especially the
+            affected view can react. Therefore, a string (the hash) is used, which is parsed and
+            matched against patterns which will then inform the handlers. SAPUI5 uses Crossroads.js
+            for parsing the hash and the Hasher framework for manipulating the hash.</p>
+<p class="p">The following general rules apply:</p>
+<ul class="ul" id="loio3d18f20bd2294228acb6910d8e8a5fb5__ul_zd5_hl2_1p"><li class="li">
+                <p class="p">The user can always navigate back to the previous page.</p>
+
+            </li>
+<li class="li">
+                <p class="p">Each full page change creates an entry in the back chain (browser history).</p>
+
+            </li>
+<li class="li">
+                <p class="p">The <span class="ph uicontrol">Back</span> button in the upper left corner of an app has
+                    always the same functionality as browser back.</p>
+
+            </li>
+<li class="li">
+                <p class="p">All pages can be bookmarked.</p>
+
+            </li>
+<li class="li">
+                <p class="p">Dialogs and popovers can <span class="ph emphasis emphasis">not</span> be bookmarked.</p>
+
+            </li>
+</ul>
+<p class="p">Navigation with Master-detail pattern, for example, is different for desktop/tablet and
+            mobile device. This is not done by the framework and has to be taken care of in the
+            application.</p>
+<div class="section"><div class="section_title">Pattern Matching</div><div type="Pattern Matching">
+            
+            <p class="p">A route is used to notify your application that the hash has changed to a certain
+                value. When a route matches the hash, it provides the data passed over the hash to a
+                defined handler. The pattern of the route is matched against the hash. If the
+                pattern matches your application will also get the parameters.</p>
+
+            <div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">// Some basic patterns
+{
+    "pattern" : "product" // "product" is mandatory, e. g. the following hash only would match: product
+
+    "pattern" : "product/{id}" // {id} is a mandatory parameter, e. g. the following hashes would match: product/5, product/3
+
+    "pattern" : "product/{id}/detail/:detailId:" // :detailId: is an optional parameter, e. g. the following hashes would match: product/5/detail, product/3/detail/2
+
+    "pattern" : "product{?query}" // {?query} allows you to pass queries with any parameters, e. g. the following hashes would match: product?first=firstValue, product?first=firstValue&amp;second=secondValue
+
+    "pattern" : ":all*:" // this pattern can be used to define a catchall route, e. g. the following hashes would match: foo, product/5/3, product/5/detail/3/foo
+}
+</pre></div>
+
+            <p class="p">When defining routes, the order is important: Only the first route that matches is
+                matched. The following rule applies: Define specific routes first. Define catchall
+                routes as the last route. The first route that is hit is informed. All routes
+                defined after the first route that was hit are ignored.</p>
+
+        </div></div>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="902313063d6f45aeaa3388cc4c13c34e.html">Configuration Parameters for Navigation</a></strong><br/>
+For navigation, configuration parameters for the route and the router have to be 		provided.</li>
+<li class="link ulchildlink"><strong><a href="acdb6cd408ec4b9eb5e1fe45e607abdd.html">Routing in Components</a></strong><br/>
+Routing can also be used in components.</li>
+<li class="link ulchildlink"><strong><a href="516e477e7e0b4e188b19a406e7528c1e.html">Methods and Events for Navigation</a></strong><br/>
+SAPUI5 provides several methods and events for navigation.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Navigation";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

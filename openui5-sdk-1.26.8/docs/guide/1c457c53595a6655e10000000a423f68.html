@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="LOIO.FOLDER.IWB_FOLDER_ID" content="1234AC50C238B656E10000000A445394"/>
+<meta name="LOIO.FOLDER.IWB_TECH_NAME" content="HELPX.UI_EXT"/>
+<meta name="LOIO.FOLDER.IWB_FOLDER_GROUP" content="SAPXH"/>
+<meta name="LOIO.FOLDER.IWB_SHH_KEY" content=""/>
+<meta name="LOIO.FOLDER.IWB_TRANSLATION_MEMORY" content=""/>
+<meta name="LOIO.FOLDER.TERM_DOMAIN" content="FF"/>
+<meta name="LOIO.IWB_TYPE" content="ICG"/>
+<meta name="LOIO.IWB_SHH_KEY" content=""/>
+<meta name="LOIO.KW_CONVREF.CLASS" content=""/>
+<meta name="LOIO.KW_CONVREF.OBJID" content=""/>
+<meta name="PHIO.IWB_INDUSTRY" content="SHL"/>
+<meta name="PHIO.RELEASE" content="1.0_2014Q3"/>
+<meta name="PHIO.CREATED_AT" content="20140605161056"/>
+<meta name="PHIO.LAST_CHANGED_AT" content="20140605161056"/>
+<meta name="PHIO.IWB_LEVEL" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Analysis Path Framework (APF)</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio1c457c53595a6655e10000000a423f68">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Analysis Path Framework (APF)</h1>
+<div class="body"><p class="p">Analysis Path Framework (APF) provides reuse components that allow you to build and enhance
+            interactive analytical Web applications. You can use these applications to explore KPIs
+            and their influencing factors by drilling down into multidimensional representations of
+            data, such as charts or tables.</p>
+<p class="p">APF provides the following features:</p>
+<ul class="ul"><li class="li"><p class="p"><span class="ph emphasis emphasis">Reusable UI elements</span>:</p>
+ <ul class="ul"><li class="li"><p class="p">Various chart types to visually and interactively depict the data.</p>
+</li>
+<li class="li"><p class="p">UI elements to display and interact with an analysis path.</p>
+</li>
+</ul>
+ </li>
+<li class="li"><p class="p">Use of <span class="ph emphasis emphasis">OData service requests</span> to expose the data in the underlying server, for example, <span class="ph pname">SAP HANA</span> Extended Application Services (<span class="ph pname">SAP HANA</span> XS). Using OData makes APF independent of the server and database technology used.</p>
+</li>
+<li class="li">
+                <p class="p">The logic for controlling the <span class="ph emphasis emphasis">behavior of your application</span>,
+                    even for complex analysis scenarios where you filter data, for example.</p>
+
+            </li>
+<li class="li">The <span class="ph emphasis emphasis">APF Configuration Modeler</span> app to enable you to create your
+                own APF-based applications in a very quick and easy way. You can also use this app
+                to enhance shipped applications.</li>
+<li class="li"><p class="p">A <span class="ph emphasis emphasis">message handling</span> concept.</p>
+</li>
+<li class="li"><p class="p">A <span class="ph emphasis emphasis">persistence</span> concept for analysis paths that allows you to save paths under a name and to retrieve them from the server.</p>
+</li>
+<li class="li">
+                <p class="p">A <span class="ph emphasis emphasis">translation process</span> to change the language of UI texts or
+                    to switch the development language.</p>
+
+            </li>
+<li class="li">
+                <p class="p">A <span class="ph emphasis emphasis">generic runtime application</span> to execute APF configurations
+                    that have been created using the APF Configuration Modeler.</p>
+
+            </li>
+<li class="li">Integration with <span class="ph emphasis emphasis">SAP Fiori</span> and <span class="ph emphasis emphasis">SAP Smart
+                    Business</span>.</li>
+</ul>
+<div class="section"><div class="section_title">APF-Related Applications</div><div type="APF-Related Applications"><p class="p">The following APF-related applications
+                are available:</p>
+<div class="sectiondiv"><strong class="ph b">Configured APF-Based Applications</strong><p class="p">A number of APF-based applications are
+                    available that are already configured and ready to be used.</p>
+<p class="p">APF-based
+                    applications consist of a BSP application along with an application
+                    configuration file in JSON format. This application configuration file refers to
+                    the analytical content configuration file, also in JSON format. If you want to
+                    run an APF-based application without making any changes to it, the configuration
+                    can be read directly from the JSON files. You don't need the APF Configuration
+                    Modeler to use this scenario.</p>
+<p class="p">For information about the shipped APF-based
+                    apps, see the documentation of the individual apps.</p>
+</div><div class="sectiondiv"><strong class="ph b">APF Configuration Modeler App</strong><p class="p">You can use the APF Configuration Modeler app to
+                    configure your own application or to enhance an existing one. A configuration
+                    that was created or enhanced using the APF Configuration Modeler is stored in a
+                    table. Each configuration has its own table entry with its own ID. At runtime,
+                    the configuration is read from the table, that is, JSON files are not used in
+                    this scenario.</p>
+<p class="p">When you import the JSON file of a shipped application into
+                    the APF Configuration Modeler to enhance the application, the configuration is
+                    also written into a table.</p>
+</div><div class="sectiondiv"><strong class="ph b">Generic APF Runtime Application</strong><p class="p">The generic
+                    APF runtime application can be used to execute APF configurations that have been
+                    created with the APF Configuration Modeler.</p>
+<p class="p">Some restrictions exist for
+                    the generic APF runtime application:</p>
+<ul class="ul" id="loio1c457c53595a6655e10000000a423f68__ul_wyp_14t_kq"><li class="li"> You can run it in one language only. This is because the generic
+                        application reads texts from the text table and not from the text properties
+                        files. In addition, the APF Configuration Modeler supports one language
+                        only, which is the development language.</li>
+<li class="li"> It cannot have coded elements, such as additional footer elements.</li>
+<li class="li"> Using functions for setting default values in the facet filters is not
+                        possible. You can only select <span class="ph uicontrol">Fixed Values</span> as the
+                        default value mode when configuring the facet filters.</li>
+</ul>
+<p class="p">If you don’t need more than one language, a footer toolbar, nor a function
+                    for defaults in the facet filters, you can use the generic application to set up
+                    an APF-based application in a quick and easy way.</p>
+For more information, see
+                    <a class="xref" href="3aa60841f1d542088ae85fda131ff094.html">Using APF Configuration Modeler to Create Your Own Application</a>.</div></div></div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Analysis Path Framework (APF)";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

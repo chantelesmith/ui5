@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The Model View Controller (MVC) concept is used in SAPUI5 to separate the representation of information from the user interaction. This separation facilitates development and the changing of parts independently."/>
+<meta name="description" content="The Model View Controller (MVC) concept is used in SAPUI5 to separate the representation of information from the user interaction. This separation facilitates development and the changing of parts independently."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Model View Controller (MVC)</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f233476f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Model View Controller (MVC)</h1>
+<div class="body conbody"><p class="shortdesc">The Model View Controller (MVC) concept is used in SAPUI5 to separate the representation
+		of information from the user interaction. This separation facilitates development and the
+		changing of parts independently.</p>
+<p class="p">Model, view, and controller are assigned the following roles:</p>
+<ul class="ul"><li class="li">The <dfn class="term">view</dfn> is responsible for defining and rendering the UI. </li>
+<li class="li">The <dfn class="term">model</dfn> manages the application data. </li>
+<li class="li">The <dfn class="term">controller</dfn> reacts to view events and user interaction by modifying the view and
+				model. </li>
+</ul>
+<img class="image" id="loio91f233476f4d1014b6dd926db0e91070__image_gz3_xdw_vk" src="loio1eb216151b1b41f1979b7b6c969670df_LowRes.png" alt="SAPUI5 Model View Controller Concept" title="SAPUI5 Model View Controller Concept"/><p class="p">The purpose of data binding in the UI is to separate the definition of the user interface
+				(<dfn class="term">view</dfn>), the data visualized by the application (<dfn class="term">model</dfn>),
+			and the code for the business logic for processing the data (<dfn class="term">controller</dfn>).
+			The separation has the following advantages: It provides better readability,
+			maintainability, and extensibility and it allows you to change the view without touching
+			the underlying business logic and to define several views of the same data.</p>
+<p class="p">Views and controllers often form a 1:1 relationship, but it is also possible to have controllers
+			without a UI, these controllers are called application controllers. It is also possible
+			to create views without controllers. From a technical position, a view is a SAPUI5
+			control and can have or inherit a SAPUI5 model. </p>
+<p class="p">View and controller represent reusable units, and distributed development is highly
+			supported.</p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="e1b625940c104b558e52f47afe5ddb4f.html">Models</a></strong><br/>
+A model in the Model View Controller concept holds the data and provides methods to 		retrieve the data from the database and to set and update data.</li>
+<li class="link ulchildlink"><strong><a href="91f27e3e6f4d1014b6dd926db0e91070.html">Views</a></strong><br/>
+The view in the Model View Controller concept is responsible for defining and renderign 		the UI. SAPUI5 supports predefined view types.</li>
+<li class="link ulchildlink"><strong><a href="121b8e6337d147af9819129e428f1f75.html">Controllers</a></strong><br/>
+SAPUI5 uses the controller to separate the view logic from the model logic.</li>
+<li class="link ulchildlink"><strong><a href="68b9644a253741e8a4b9e4279a35c247.html">Data Binding</a></strong><br/>
+SAPUI5 uses data binding to bind two data sources or information sources together to 		keep them in synch: All changes in one data source are also reflected in the other data 		source.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Model View Controller (MVC)";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Data binding is used to bind two data sources or information sources together and to keep them in synch. Model instances hold the data and provide the methods required to set the data or to retrieve data from a server."/>
+<meta name="description" content="Data binding is used to bind two data sources or information sources together and to keep them in synch. Model instances hold the data and provide the methods required to set the data or to retrieve data from a server."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Models and Data Binding</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f0ca956f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Models and Data Binding</h1>
+<div class="body conbody"><p class="shortdesc">Data binding is used to bind two data sources or information sources together and to
+		keep them in synch. Model instances hold the data and provide the methods required to set
+		the data or to retrieve data from a server.</p>
+<p class="p"> If data binding is implemented and defined properly, all changes in one data source are
+			automatically reflected in the other data source. Usually, the UI uses data binding to
+			bind UI controls to a data source that holds the application data, so that the controls
+			are updated automatically whenever application data is changed. The model provides the
+			method for creating bindings to the data. When this method is called, a <dfn class="term">data
+				binding</dfn> instance is created, which contains the binding information and
+			provides an event, which is fired whenever the bound data is changed. An element can
+			listen to this event and update its visualization according to the new data. </p>
+<p class="p">The term <dfn class="term">data binding</dfn> is also used when changes in the control cause updates in
+			the underlying application data, such as data being entered by a user. This is called
+				<dfn class="term">bi-directional binding</dfn> or <dfn class="term">two-way binding</dfn>. </p>
+<p class="p">A Web application should support several data sources, such as JSON, XML, Atom, or OData.
+			However, the way in which data binding is defined and implemented within the UI controls
+			should be independent of the respective data source. It should also be possible to
+			create a custom model implementation for data sources that are not yet covered by the
+			framework or are domain-specific. </p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="91f0f3cd6f4d1014b6dd926db0e91070.html">Data Binding: Getting Started</a></strong><br/>
+The process for using data binding for SAPUI5 controls in a simple application 		comprises five steps: Deciding on the model, creating a model and a control instance, 		binding the properties or lists to the model and, if required, unbinding the properties 		again.</li>
+<li class="link ulchildlink"><strong><a href="91f0fa976f4d1014b6dd926db0e91070.html">Models and Data Binding in Applications</a></strong><br/>
+Models and data binding is used in SAPUI5 applications to connect snd synchronize two 		data or information sources.</li>
+<li class="link ulchildlink"><strong><a href="91f050cf6f4d1014b6dd926db0e91070.html">Binding Types</a></strong><br/>
+SAPUI5 supports three different binding types: Property binding, aggregation binding, 		and element binding.</li>
+<li class="link ulchildlink"><strong><a href="91f37e746f4d1014b6dd926db0e91070.html">Using the Data Binding Type System</a></strong><br/>
+Data binding supports the definiton of binding types that are handed over when 		binding properties. Binding types define the data type of the properties used in the 		model.</li>
+<li class="link ulchildlink"><strong><a href="a2fe8e763014477e87990ff50657a0d0.html">Calculated Fields for Data Binding</a></strong><br/>
+Calculated fields enable the binding of multiple properties in different models to a 		single property of a control.</li>
+<li class="link ulchildlink"><strong><a href="f1ee7a8b2102415bb0d34268046cd3ea.html">Using Data Binding for Data Export</a></strong><br/>
+Data binding supports the export of data in a specific format so that the data can be         used in other programs.</li>
+<li class="link ulchildlink"><strong><a href="f5aa4bb75c20445194494b264d3b3cd2.html">Property Metadata Binding</a></strong><br/>
+The extended syntax makes it possible to access the metadata for certain properties of 		an entity in OData services, such as heading, label, precision.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Models and Data Binding";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

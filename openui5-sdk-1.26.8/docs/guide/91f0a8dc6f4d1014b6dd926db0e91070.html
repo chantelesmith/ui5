@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="After defining the metadata of a control, you add the method implementation to the control."/>
+<meta name="description" content="After defining the metadata of a control, you add the method implementation to the control."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Adding Method Implementations</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f0a8dc6f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Adding Method Implementations</h1>
+<div class="body"><p class="shortdesc">After defining the metadata of a control, you add the method implementation to the
+		control.</p>
+<p class="p">The following restrictions apply with regard to the method names:</p>
+<ul class="ul"><li class="li"> 
+		  <p class="p">Do not use names of methods that are or will be provided by a superclass. Due to inheritance,
+					your implementation would overwrite the implementation of the superclass.</p>
+ 
+		</li>
+<li class="li"> 
+		  <p class="p">Names starting with
+						<samp class="ph codeph">set...</samp>/<samp class="ph codeph">get...</samp>/<samp class="ph codeph">insert...</samp>/<samp class="ph codeph">add...</samp>/<samp class="ph codeph">remove...</samp>/<samp class="ph codeph">indexOf...</samp>/<samp class="ph codeph">destroy...</samp>
+					shall not be used because they may collide with setters/getters for properties
+					or aggregations you or a superclass defined.</p>
+ 
+		</li>
+<li class="li"> 
+		  <p class="p">Names starting with
+						<samp class="ph codeph">attach...</samp>/<samp class="ph codeph">detach...</samp>/<samp class="ph codeph">fire</samp>
+					may collide with methods created for events.</p>
+ 
+		</li>
+</ul>
+<p class="p">The following method names have a specific meaning and should be used accordingly:</p>
+<ul class="ul" id="loio91f0a8dc6f4d1014b6dd926db0e91070__ul_r1j_szp_gq"><li class="li">
+				<p class="p"><samp class="ph codeph">on...</samp>: Used for event handlers that are automatically bound to
+					browser events</p>
+
+			</li>
+<li class="li">
+				<p class="p"><samp class="ph codeph">init</samp>: Used for the initialization function that is called after
+					control instantiation</p>
+
+			</li>
+<li class="li">
+				<p class="p"><samp class="ph codeph">renderer</samp>: Used for the function that creates the control's
+					HTML</p>
+
+			</li>
+</ul>
+<div class="note note"><span class="notetitle">Note</span> 
+			<p class="p">Any method in your inheriting control overrides methods with the same name in the superclass.
+				If, for example, your control implements the <samp class="ph codeph">init()</samp> method, the
+					<samp class="ph codeph">init()</samp> of the superclass will no longer be executed. The
+				control is then no longer properly initialized and this typically causes an error.
+				To avoid breaking the control, call the superclass method.</p>
+
+			<p class="p">Consider also that the superclass might implement the method later on, or removes its
+				own method implementation because it is not needed anymore. We recommend that you
+				check for the existence of the superclass method before calling it:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.somelib.SomeControl.extend("my.OwnControl", {
+       ...
+       init: function() {
+             if (sap.ui.somelib.SomeControl.prototype.init) { // check whether superclass implements the method
+                    sap.ui.somelib.SomeControl.prototype.init.apply(this, arguments); // call the method with the original arguments
+             }
+
+             //... do any further initialization of your subclass... 
+       } </pre></div>
+
+		</div>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="85738e3ac3bb407d9e1cfeb8bb9268cb.html">Normal Methods</a></strong><br/>
+Normal or public methods comprise all methods that do not belong to one of the special       method types.</li>
+<li class="link ulchildlink"><strong><a href="6d6b5bda5727419eadcc9cbac1f6e6a1.html">init() Method</a></strong><br/>
+The <samp class="ph codeph">init()</samp> method can be used to set up, for example, internal 		variables or subcontrols of a composite control.</li>
+<li class="link ulchildlink"><strong><a href="d4ac0edbc467483585d0c53a282505a5.html">exit() Method</a></strong><br/>
+The <samp class="ph codeph">exit()</samp> method is used to clean up resources and to deregister event 		handlers.</li>
+<li class="link ulchildlink"><strong><a href="bdf3e9818cd84d37a18ee5680e97e1c1.html">Event Handler Methods</a></strong><br/>
+Event handler methods are invoked when an event occurs. Method names starting with 			<samp class="ph codeph">on</samp> are reserved for event handler methods.</li>
+<li class="link ulchildlink"><strong><a href="91f1b3856f4d1014b6dd926db0e91070.html">Browser Events</a></strong><br/>
+To react to browser events, a control needs to register for the event either 		explicitely, or by implementing the event handler.</li>
+<li class="link ulchildlink"><strong><a href="c9ab34570cc14ea5ab72a6d1a4a03e3f.html">Renderer Methods</a></strong><br/>
+The <samp class="ph codeph">renderer</samp> method is responsible for creating the HTML structure for 		the control.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Adding Method Implementations";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

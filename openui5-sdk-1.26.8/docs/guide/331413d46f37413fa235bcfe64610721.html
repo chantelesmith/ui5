@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Configuring a Fiori App Launcher Tile</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio331413d46f37413fa235bcfe64610721">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Configuring a Fiori App Launcher Tile</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">You can use a Fiori app launcher tile to launch your APF-based application.</p>
+<div class="section"><div class="section_title">Prerequisites</div><div type="Prerequisites">
+			
+			<p class="p">Mandatory HANA view parameters must be filled to be able to launch the application.
+				This can be implemented in the BSP application by extracting the parameter values
+				from the URL created by the Fiori app launcher tile. Another option is to configure
+				a facet filter for a parameter. In this case, the user can set the values at
+				runtime.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Procedure</div><div type="Procedure">
+			
+			<p class="p">Configure the Fiori app launcher tile using the Fiori launchpad designer. For more
+				information, see SAP Library for User Interface Add-On for SAP NetWeaver on SAP Help
+				Portal at <a class="xref" href="http://help.sap.com/">http://help.sap.com/</a>nw-uiaddon. Under <em class="ph i">Application Help</em>, open SAP
+				Library and search for "Using the Launchpad Designer".</p>
+
+			<p class="p">If required, enter fixed values for the HANA view parameters in the Fiori tile. This
+				is relevant for parameters that shall not be displayed in the application and for
+				which you therefore do not configure facet filters.</p>
+
+			<p class="p">If you want to specify a configuration ID, you can also enter it as a parameter. The
+				parameter name is sap-apf-configuration-id. If you have imported the JSON file of a
+				shipped application into the APF Configuration Modeler, the configuration ID takes
+				precedence over the location of the analytical content configuration specified in
+				the application configuration file.</p>
+
+			<p class="p"/>
+
+		</div></div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Configuring a Fiori App Launcher Tile";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

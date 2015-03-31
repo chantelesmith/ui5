@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Configuring Facet Filters</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiof8c73e17084f4b2baf2a35ad9c85f28b">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Configuring Facet Filters</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">APF-based applications can use facet filters that narrow down the data of an entire analysis
+			path. For each facet filter, you can configure the following:</p>
+<ul class="ul" id="loiof8c73e17084f4b2baf2a35ad9c85f28b__ul_nfs_mvn_kq"><li class="li">The property for which a facet filter is displayed</li>
+<li class="li">The values that are listed in the value help for the property<p class="p">You may have to
+					configure a value help request to generate the list of values that the user can
+					choose from to filter the data.</p>
+</li>
+<li class="li">The values that are preselected in the value help.</li>
+</ul>
+<p class="p">When you launch your APF-based application from a Smart Business KPI tile, you must also
+			consider whether a filter is handed over with the Smart Business context and how that
+			affects the facet filter.</p>
+<p class="p">You can use the fields listed in the following table to configure a facet filter. Not all
+			of the fields are relevant for each use case. For example, you can configure a value
+			help request to determine the entries in the value help list. A filter resolution
+			request is necessary if the Smart Business context contains not only single values, but
+			also other operators. The filter resolution request then resolves the context into a
+			list of single values. This is necessary because a facet filter can only display single
+			values. For details about possible use cases, see <a class="xref" href="146f649b9bfe4969bc08446b7d023399.html">Use Cases for Configuring Facet Filters</a>.</p>
+
+<div class="tablenoborder"><table summary="" id="loiof8c73e17084f4b2baf2a35ad9c85f28b__table_ayj_xvn_kq" class="table" frame="border" border="1" rules="all"><thead class="thead" align="left"><tr class="row"><th class="entry" colspan="2" valign="top" id="d1757290e39">Field</th>
+<th class="entry" valign="top" width="33.33333333333333%" id="d1757290e41">Explanation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" rowspan="4" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Facet Filter Definition</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Property</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">The property for which you want to configure a facet filter. This
+							property is also used as the property displayed in the facet filter if
+							an alias is not defined. Values that the user selects in the facet
+							filter are handed over to the entire analysis path as filter.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Label</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">The label displayed for the facet filter at runtime.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Alias</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">The property displayed in the facet filter. It is used if the field
+							name of the facet filter’s property is different in the value help
+							request. If the property and the alias are the same, the alias can be
+							omitted.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Selection Mode</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">Choose whether you want to allow single selection or multiple
+							selections.</td>
+</tr>
+<tr class="row"><td class="entry" rowspan="5" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Value Help</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Service</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">The request that determines the values that are displayed in the
+							value help. Enter the path to the OData service root. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Entity Set</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">Entity set that corresponds to the SAP HANA view. This field is
+							mandatory if a service has been entered.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Properties</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">
+							<p class="p">The properties that determine the values in the value help. Select at
+								least the facet filter property or the alias property. You can also
+								select further properties. For example, you can select CompanyCode
+								and Revenue so that the value help lists those company codes for
+								which revenue exists. </p>
+
+							<p class="p">If you select both a filter property and the corresponding text
+								property, for example, CompanyCode and CompanyCodeName, a
+								concatenation of key and text is displayed in the facet filter and
+								you can search for both of them.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Default Value Mode</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">Select <span class="ph uicontrol">Fixed Values</span> if you want to list
+							specific values that are preselected in the value help. Select
+								<span class="ph uicontrol">Function</span> if you want to specify a function
+							that calculates the default values.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Default Values/Function</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">
+							<p class="p">Depending on the default value mode, either specify the fixed default
+								values or a function.</p>
+
+							<p class="p">If you chose single selection and fixed default values, it is
+								mandatory to enter a default value.</p>
+
+							<p class="p">If you chose multiple selection and fixed default values, it is
+								optional. In this case, if you don’t enter any default values, all
+								values are selected in the facet filter. </p>
+
+							<div class="note note"><span class="notetitle">Note</span> If a context is handed over from a Smart Business KPI tile for
+								this filter property, this context replaces the default values. The
+								default values are used as a fallback only. This is necessary
+								because it is not possible to have an empty facet filter.</div>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" rowspan="3" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Filter Resolution</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Service</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 "><p class="p">The request used for resolving a context into single values for
+								the value help. You should specify a filter resolution request if
+								there is a possibility that a Smart Business context is handed over
+								that does not contain single values.</p>
+If you did not specify a
+							filter resolution request, but a filter resolution is necessary to be
+							able to display the values in the value help, the facet filter for the
+							corresponding property is not displayed on the UI. Instead, the context
+							is applied to the analysis path in the background. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Entity Set</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">Entity set that corresponds to the SAP HANA view.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e39 ">Properties</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d1757290e41 ">The properties that determine which values are preselected in the
+							facet filter. Select at least the facet filter property or the alias
+							property. You can also select further properties. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Configuring Facet Filters";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

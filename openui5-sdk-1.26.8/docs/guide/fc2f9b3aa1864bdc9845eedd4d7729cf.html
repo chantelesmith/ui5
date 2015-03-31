@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Use Case 3: Facet Filter with Default Values Determined by Smart Business Context</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiofc2f9b3aa1864bdc9845eedd4d7729cf">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Use Case 3: Facet Filter with Default Values Determined by Smart Business Context</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">For this use case, all of the following apply:</p>
+<ul class="ul" id="loiofc2f9b3aa1864bdc9845eedd4d7729cf__ul_gmz_h14_kq"><li class="li">You configure a facet filter for a property in your application.</li>
+<li class="li">A value help request determines the entries in the value help list.</li>
+<li class="li">The Smart Business KPI tile passes a filter for the same property in the
+				context.</li>
+</ul>
+<p class="p">As a result, the value help for the facet filter lists all values retrieved by the value
+			help request. By default, those values are preselected that were passed as filters with
+			the Smart Business context. </p>
+<p class="p">As in use case 2, if the context contains operators other than just single values, an
+			additional filter resolution request is required. This request resolves the context into
+			a list of single values. In the value help, these single values are then selected by
+			default. </p>
+<p class="p">To configure a facet filter for this use case, you must enter information for the facet
+			filter definition and for the value help. </p>
+<p class="p">To configure the filter resolution request, enter the required information in the
+				<span class="ph uicontrol">Filter Resolution</span> section.</p>
+<p class="p">The option described above is depicted in the following figure:</p>
+<img class="image" id="loiofc2f9b3aa1864bdc9845eedd4d7729cf__image_uvt_414_kq" src="loioba04452e85a24a5aa88a70d0a0d3aa67_LowRes.png"/><div class="example"><h2 class="exampletitle">Example</h2>
+			<p class="p">You configure a facet filter for the property
+					<span class="ph sap-technical-name sap-technical-name">CompanyCode</span>. You define a value help
+				request that retrieves all company codes that are available. These are listed in the
+				value help for the facet filter. </p>
+
+			<p class="p">The Smart Business context passes company codes 1000 and 2000 as filters. These
+				company codes are then preselected in the facet filter. The user can, for example,
+				add more company codes to the analysis as required.</p>
+
+		</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Use Case 3: Facet Filter with Default Values Determined by Smart Business Context";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

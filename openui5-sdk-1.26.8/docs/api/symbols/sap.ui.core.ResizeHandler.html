@@ -1,0 +1,348 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.core.ResizeHandler</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Namespace sap.ui.core.ResizeHandler
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>API for resize handling on registered DOM elements and controls.
+</p><p>
+This API provides firing of resize events on all browsers by regularly 
+checking width and height of registered DOM elements and controls and firing events accordingly.</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+					
+					
+		
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Deregisters the registered handler for resize events with the given ID."><a href="../symbols/sap.ui.core.ResizeHandler.html#.deregister">sap.ui.core.ResizeHandler.deregister</a></b><span class='signature'>(<span title="(string) Registration ID">sId</span>)</span>
+									<span class='description'>Deregisters the registered handler for resize events with the given ID.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Creates a new subclass of class sap.ui.core.ResizeHandler with name sClassName and enriches it with the information contained in oClassInfo."><a href="../symbols/sap.ui.core.ResizeHandler.html#.extend">sap.ui.core.ResizeHandler.extend</a></b><span class='signature'>(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+									<span class='description'>Creates a new subclass of class sap.ui.core.ResizeHandler with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Returns a metadata object for class sap.ui.core.ResizeHandler."><a href="../symbols/sap.ui.core.ResizeHandler.html#.getMetadata">sap.ui.core.ResizeHandler.getMetadata</a></b><span class='signature'>()</span>
+									<span class='description'>Returns a metadata object for class sap.ui.core.ResizeHandler.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Registers the given handler for resize events on the given DOM reference or Control."><a href="../symbols/sap.ui.core.ResizeHandler.html#.register">sap.ui.core.ResizeHandler.register</a></b><span class='signature'>(<span title="(Element|sap.ui.core.Control) the Control or the DOM reference for which the given handler should be registered (beside the window)">oRef</span>, <span title="(function) the handler which should be called on a resize event">fHandler</span>)</span>
+									<span class='description'>Registers the given handler for resize events on the given DOM reference or Control.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+		
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".deregister"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.ResizeHandler.deregister<span class="signature">(<span title="(string) Registration ID">sId</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Deregisters the registered handler for resize events with the given ID.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sId</b>
+													</td>
+													<td class="methodItemDesc">
+												    Registration ID
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".extend"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.ResizeHandler.extend<span class="signature">(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+											<span class="light" title="returns function">: function</span>
+										</div>
+										<div class="full-description">
+											Creates a new subclass of class sap.ui.core.ResizeHandler with name <code>sClassName</code>
+and enriches it with the information contained in <code>oClassInfo</code>.
+</p><p>
+<code>oClassInfo</code> might contain the same kind of information as described in <a href="../symbols/sap.ui.base.Object.html#.extend">Object.extend</a>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sClassName</b>
+													</td>
+													<td class="methodItemDesc">
+												    name of the class to be created
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oClassInfo</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    object literal with informations about the class
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{function}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>FNMetaImpl</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    constructor function for the metadata object. If not given, it defaults to sap.ui.core.ElementMetadata.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{function}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the created class / constructor function
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".getMetadata"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.ResizeHandler.getMetadata<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.base.Metadata">: <a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a></span>
+										</div>
+										<div class="full-description">
+											Returns a metadata object for class sap.ui.core.ResizeHandler.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														metadata object describing thi class
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".register"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.ResizeHandler.register<span class="signature">(<span title="(Element|sap.ui.core.Control) the Control or the DOM reference for which the given handler should be registered (beside the window)">oRef</span>, <span title="(function) the handler which should be called on a resize event">fHandler</span>)</span>
+											<span class="light" title="returns string">: string</span>
+										</div>
+										<div class="full-description">
+											Registers the given handler for resize events on the given
+DOM reference or Control.
+In case the core is not initialized yet, the timer cannot be registered and this method
+will return null. Please use sap.ui.getCore().attachInit() with a callback as parameter 
+that calls ResizeHandler.register().
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{Element|<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oRef</b>
+													</td>
+													<td class="methodItemDesc">
+												    the Control or the DOM reference for which the given handler should be registered (beside the window)
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{function}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>fHandler</b>
+													</td>
+													<td class="methodItemDesc">
+												    the handler which should be called on a resize event
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{string}</span> 
+													</td>
+													<td class="methodItemDesc">
+														Registration ID which can be used for deregistering
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

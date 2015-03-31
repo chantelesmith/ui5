@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Text Pool Cleanup</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio80fa2456fdc440c6ab8699589855c32c">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Text Pool Cleanup</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">All configurations that you create under one application node share a common text pool, that
+			is, one set of texts for all configurations belonging to an application node. This is
+			useful if you have configurations that share large parts of their texts, for example,
+			because they are very similar as far as their content is concerned.</p>
+<p class="p">When you export a configuration, the corresponding text pool can be exported too, for example,
+			for translation purposes. However, in certain cases, texts that are no longer used may
+			exist in the text pool. For example, if you change a text, both the old text and the new
+			one are retained in the text pool. Therefore, to keep your text pool as small as
+			possible and save translation costs, we recommend performing a text pool cleanup
+			whenever you want to export a text pool. Otherwise, obsolete texts may end up in the
+			translation process.</p>
+<p class="p">On the <span class="ph uicontrol">Application Overview</span> screen, click
+				<span class="ph uicontrol">Edit</span>, select an application, and click <span class="ph uicontrol">Textpool
+				Cleanup</span>.</p>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Text Pool Cleanup";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

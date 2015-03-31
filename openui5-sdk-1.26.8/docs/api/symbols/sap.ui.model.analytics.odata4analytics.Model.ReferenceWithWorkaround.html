@@ -1,0 +1,169 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.model.analytics.odata4analytics.Model.ReferenceWithWorkaround</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.model.analytics.odata4analytics.Model.ReferenceWithWorkaround
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>Handle to an already instantiated SAP UI5 OData model.</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Create a reference to an OData model having certain workarounds activated.">new <a href="../symbols/sap.ui.model.analytics.odata4analytics.Model.ReferenceWithWorkaround.html#constructor">sap.ui.model.analytics.odata4analytics.Model.ReferenceWithWorkaround</a></b>
+										<span class='signature'>(<span title="(object) holding a reference to the OData model, obtained by odata4analytics.Model.ReferenceByModel or by sap.odata4analytics.Model.ReferenceByURI.">oModel</span>, <span title="(string[]) listing all workarounds to be applied.">aWorkaroundID</span>)</span>
+										<span class='description'>Create a reference to an OData model having certain workarounds activated.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.model.analytics.odata4analytics.Model.ReferenceWithWorkaround</b>(<span title="(object) holding a reference to the OData model, obtained by odata4analytics.Model.ReferenceByModel or by sap.odata4analytics.Model.ReferenceByURI.">oModel</span>, <span title="(string[]) listing all workarounds to be applied.">aWorkaroundID</span>)
+										</div>
+										
+										<div class="full-description">
+											Create a reference to an OData model having certain workarounds activated. A
+workaround is an implementation that changes the standard behavior of the API
+to overcome some gap or limitation in the OData provider. The workaround
+implementation can be conditionally activated by passing the identifier in
+the contructor.
+</p><p>
+Known workaround identifiers are:
+</p><p>
+<li>"CreateLabelsFromTechnicalNames" - If a property has no label text, it
+gets generated from the property name.</li>
+</p><p>
+<li>"IdentifyTextPropertiesByName" -If a dimension property has no text and
+another property with the same name and an appended "Name", "Text" etc.
+exists, they are linked via annotation.</li>
+										</div>
+										
+										
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oModel</b>
+													</td>
+													<td class="methodItemDesc">
+												    holding a reference to the OData model, obtained
+           by odata4analytics.Model.ReferenceByModel or by
+           sap.odata4analytics.Model.ReferenceByURI.
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string[]}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>aWorkaroundID</b>
+													</td>
+													<td class="methodItemDesc">
+												    listing all workarounds to be applied.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

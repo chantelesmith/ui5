@@ -1,0 +1,1698 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.core.UIArea</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.core.UIArea
+					</h1>
+					
+						<div class="classRelation extends"><span class="caption">extends </span><a title="sap.ui.base.ManagedObject" href="../symbols/sap.ui.base.ManagedObject.html">ManagedObject</a></div>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>An area in a page that hosts a tree of UI elements.
+</p><p>
+Provides means for event-handling, rerendering, etc.
+</p><p>
+Special aggregation "dependents" is connected to the lifecycle management and databinding,
+but not rendered automatically and can be used for popups or other dependent controls. This allows
+definition of popup controls in declarative views and enables propagation of model and context
+information to them.</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Accepts an object literal mSettings that defines initial property values, aggregated and associated objects as well as event handlers.">new <a href="../symbols/sap.ui.core.UIArea.html#constructor">sap.ui.core.UIArea</a></b>
+										<span class='signature'>(<span title="(sap.ui.core.Core) internal API of the Core that manages this UIArea">oCore</span>, <span title="(object) reference to the Dom Node that should be 'hosting' the UI Area.">oRootNode</span><i class="help" title="Optional parameter">?</i>)</span>
+										<span class='description'>Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+						<div class="summary section">
+							<div class="sectionTitle">Events borrowed from class <a href="../symbols/sap.ui.base.ManagedObject.html">sap.ui.base.ManagedObject</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.ManagedObject.html#event:formatError">formatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:parseError">parseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:validationError">validationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#event:validationSuccess">validationSuccess</a>
+							</div>
+						</div>
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Creates a new subclass of class sap.ui.core.UIArea with name sClassName and enriches it with the information contained in oClassInfo."><a href="../symbols/sap.ui.core.UIArea.html#.extend">sap.ui.core.UIArea.extend</a></b><span class='signature'>(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+									<span class='description'>Creates a new subclass of class sap.ui.core.UIArea with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod static">
+									<b class="icon" title="Returns a metadata object for class sap.ui.core.UIArea."><a href="../symbols/sap.ui.core.UIArea.html#.getMetadata">sap.ui.core.UIArea.getMetadata</a></b><span class='signature'>()</span>
+									<span class='description'>Returns a metadata object for class sap.ui.core.UIArea.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Adds some content into the aggregation named content."><a href="../symbols/sap.ui.core.UIArea.html#addContent">addContent</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the content to add; to add; if empty, nothing is inserted">oContent</span>)</span>
+									<span class='description'>Adds some content into the aggregation named <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Adds some dependent into the aggregation named dependents."><a href="../symbols/sap.ui.core.UIArea.html#addDependent">addDependent</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the dependent to add; to add; if empty, nothing is inserted">oDependent</span>)</span>
+									<span class='description'>Adds some dependent into the aggregation named <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Destroys all the content in the aggregation named content."><a href="../symbols/sap.ui.core.UIArea.html#destroyContent">destroyContent</a></b><span class='signature'>()</span>
+									<span class='description'>Destroys all the content in the aggregation named <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Destroys all the dependents in the aggregation named dependents."><a href="../symbols/sap.ui.core.UIArea.html#destroyDependents">destroyDependents</a></b><span class='signature'>()</span>
+									<span class='description'>Destroys all the dependents in the aggregation named <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Provide getBindingContext, as UIArea can be parent of an element."><a href="../symbols/sap.ui.core.UIArea.html#getBindingContext">getBindingContext</a></b><span class='signature'>()</span>
+									<span class='description'>Provide getBindingContext, as UIArea can be parent of an element.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Getter for aggregation content."><a href="../symbols/sap.ui.core.UIArea.html#getContent">getContent</a></b><span class='signature'>()</span>
+									<span class='description'>Getter for aggregation <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Getter for aggregation dependents."><a href="../symbols/sap.ui.core.UIArea.html#getDependents">getDependents</a></b><span class='signature'>()</span>
+									<span class='description'>Getter for aggregation <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Returns the Core as new eventing parent to enable control event bubbling to the core to ensure compatibility with the core validation events."><a href="../symbols/sap.ui.core.UIArea.html#getEventingParent">getEventingParent</a></b><span class='signature'>()</span>
+									<span class='description'>Returns the Core as new eventing parent to enable control event bubbling to the core to ensure compatibility with the core validation events.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Returns this UIArea's id (as determined from provided RootNode)."><a href="../symbols/sap.ui.core.UIArea.html#getId">getId</a></b><span class='signature'>()</span>
+									<span class='description'>Returns this <code>UIArea</code>'s id (as determined from provided RootNode).</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Returns the Root Node hosting this instance of UIArea."><a href="../symbols/sap.ui.core.UIArea.html#getRootNode">getRootNode</a></b><span class='signature'>()</span>
+									<span class='description'>Returns the Root Node hosting this instance of <code>UIArea</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Returns this UI area."><a href="../symbols/sap.ui.core.UIArea.html#getUIArea">getUIArea</a></b><span class='signature'>()</span>
+									<span class='description'>Returns this UI area.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Checks for the provided sap.ui.core.Control in the aggregation named content."><a href="../symbols/sap.ui.core.UIArea.html#indexOfContent">indexOfContent</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the content whose index is looked for.">oContent</span>)</span>
+									<span class='description'>Checks for the provided <code>sap.ui.core.Control</code> in the aggregation named <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Checks for the provided sap.ui.core.Control in the aggregation named dependents."><a href="../symbols/sap.ui.core.UIArea.html#indexOfDependent">indexOfDependent</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the dependent whose index is looked for.">oDependent</span>)</span>
+									<span class='description'>Checks for the provided <code>sap.ui.core.Control</code> in the aggregation named <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Inserts a content into the aggregation named content."><a href="../symbols/sap.ui.core.UIArea.html#insertContent">insertContent</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the content to insert; if empty, nothing is inserted">oContent</span>, <span title="(int) the 0-based index the content should be inserted at; for a negative value of iIndex, the content is inserted at position 0; for a value greater than the current size of the aggregation, the content is inserted at the last position">iIndex</span>)</span>
+									<span class='description'>Inserts a content into the aggregation named <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Inserts a dependent into the aggregation named dependents."><a href="../symbols/sap.ui.core.UIArea.html#insertDependent">insertDependent</a></b><span class='signature'>(<span title="(sap.ui.core.Control) the dependent to insert; if empty, nothing is inserted">oDependent</span>, <span title="(int) the 0-based index the dependent should be inserted at; for a negative value of iIndex, the dependent is inserted at position 0; for a value greater than the current size of the aggregation, the dependent is inserted at the last position">iIndex</span>)</span>
+									<span class='description'>Inserts a dependent into the aggregation named <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Will be used as end-point for invalidate-bubbling from controls up their hierarchy."><a href="../symbols/sap.ui.core.UIArea.html#invalidate">invalidate</a></b><span class='signature'>()</span>
+									<span class='description'>Will be used as end-point for invalidate-bubbling from controls up their hierarchy.</span>
+								</div>
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Checks whether the control is still valid (is in the DOM)"><a href="../symbols/sap.ui.core.UIArea.html#isActive">isActive</a></b><span class='signature'>()</span>
+									<span class='description'>Checks whether the control is still valid (is in the DOM)</span>
+								</div>
+							
+								<div class="sectionItem classMethod protected">
+									<b class="icon protected" title="Returns whether rerendering is currently suppressed on this UIArea"><a href="../symbols/sap.ui.core.UIArea.html#isInvalidateSuppressed">isInvalidateSuppressed</a></b><span class='signature'>()</span>
+									<span class='description'>Returns whether rerendering is currently suppressed on this UIArea</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Returns the locked state of the sap.ui.core.UIArea"><a href="../symbols/sap.ui.core.UIArea.html#isLocked">isLocked</a></b><span class='signature'>()</span>
+									<span class='description'>Returns the locked state of the <code>sap.ui.core.UIArea</code></span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Locks this instance of UIArea."><a href="../symbols/sap.ui.core.UIArea.html#lock">lock</a></b><span class='signature'>()</span>
+									<span class='description'>Locks this instance of UIArea.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Removes all the controls in the aggregation named content."><a href="../symbols/sap.ui.core.UIArea.html#removeAllContent">removeAllContent</a></b><span class='signature'>()</span>
+									<span class='description'>Removes all the controls in the aggregation named <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Removes all the controls in the aggregation named dependents."><a href="../symbols/sap.ui.core.UIArea.html#removeAllDependents">removeAllDependents</a></b><span class='signature'>()</span>
+									<span class='description'>Removes all the controls in the aggregation named <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Removes an content from the aggregation named content."><a href="../symbols/sap.ui.core.UIArea.html#removeContent">removeContent</a></b><span class='signature'>(<span title="(int|string|sap.ui.core.Control) the contentto remove or its index or id">vContent</span>)</span>
+									<span class='description'>Removes an content from the aggregation named <code>content</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Removes an dependent from the aggregation named dependents."><a href="../symbols/sap.ui.core.UIArea.html#removeDependent">removeDependent</a></b><span class='signature'>(<span title="(int|string|sap.ui.core.Control) the dependentto remove or its index or id">vDependent</span>)</span>
+									<span class='description'>Removes an dependent from the aggregation named <code>dependents</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Allows setting the Root Node hosting this instance of UIArea."><a href="../symbols/sap.ui.core.UIArea.html#setRootNode">setRootNode</a></b><span class='signature'>(<span title="(object) the hosting Dom Ref for this instance of UIArea.">oRootNode</span>)</span>
+									<span class='description'>Allows setting the Root Node hosting this instance of <code>UIArea</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Un-Locks this instance of UIArea."><a href="../symbols/sap.ui.core.UIArea.html#unlock">unlock</a></b><span class='signature'>()</span>
+									<span class='description'>Un-Locks this instance of UIArea.</span>
+								</div>
+							
+								<div class="sectionItem classMethod deprecated">
+									<b class="icon" title="Returns the content control of this UIArea at the specified index."><a href="../symbols/sap.ui.core.UIArea.html#getRootControl">getRootControl</a></b><span class='signature'>(<span title="(int) index of the control in the content of this UIArea">idx</span>)</span>
+									<span class='description'>Returns the content control of this <code>UIArea</code> at the specified index.</span>
+								</div>
+							
+								<div class="sectionItem classMethod deprecated">
+									<b class="icon" title="Sets the root control to be displayed in this UIArea."><a href="../symbols/sap.ui.core.UIArea.html#setRootControl">setRootControl</a></b><span class='signature'>(<span title="(sap.ui.base.Interface|sap.ui.core.Control) the Control that should be the Root for this UIArea.">oRootControl</span>)</span>
+									<span class='description'>Sets the root control to be displayed in this UIArea.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.ManagedObject.html">sap.ui.base.ManagedObject</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.ManagedObject.html#addAggregation">addAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#addAssociation">addAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#applySettings">applySettings</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachFormatError">attachFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachParseError">attachParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachValidationError">attachValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#attachValidationSuccess">attachValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindAggregation">bindAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindContext">bindContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindObject">bindObject</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#bindProperty">bindProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#destroy">destroy</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#destroyAggregation">destroyAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachFormatError">detachFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachParseError">detachParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachValidationError">detachValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#detachValidationSuccess">detachValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#findAggregatedObjects">findAggregatedObjects</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireFormatError">fireFormatError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireParseError">fireParseError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireValidationError">fireValidationError</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#fireValidationSuccess">fireValidationSuccess</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getAggregation">getAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getAssociation">getAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBinding">getBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingInfo">getBindingInfo</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getBindingPath">getBindingPath</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getModel">getModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getObjectBinding">getObjectBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getOriginInfo">getOriginInfo</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getParent">getParent</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#getProperty">getProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#hasModel">hasModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#indexOfAggregation">indexOfAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#insertAggregation">insertAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isBound">isBound</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#isTreeBinding">isTreeBinding</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAggregation">removeAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAllAggregation">removeAllAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAllAssociation">removeAllAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#removeAssociation">removeAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setAggregation">setAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setAssociation">setAssociation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setBindingContext">setBindingContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setModel">setModel</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#setProperty">setProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#toString">toString</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindAggregation">unbindAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindContext">unbindContext</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindObject">unbindObject</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#unbindProperty">unbindProperty</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#validateAggregation">validateAggregation</a>, <a href="../symbols/sap.ui.base.ManagedObject.html#validateProperty">validateProperty</a>
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.EventProvider.html">sap.ui.base.EventProvider</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.EventProvider.html#attachEvent">attachEvent</a>, <a href="../symbols/sap.ui.base.EventProvider.html#attachEventOnce">attachEventOnce</a>, <a href="../symbols/sap.ui.base.EventProvider.html#detachEvent">detachEvent</a>, <a href="../symbols/sap.ui.base.EventProvider.html#fireEvent">fireEvent</a>
+							</div>
+						</div>
+					
+						<div class="summary section">
+							<div class="sectionTitle">Methods borrowed from class <a href="../symbols/sap.ui.base.Object.html">sap.ui.base.Object</a></div>
+							<div class="sectionItems">
+							<a href="../symbols/sap.ui.base.Object.html#getInterface">getInterface</a>
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.core.UIArea</b>(<span title="(sap.ui.core.Core) internal API of the Core that manages this UIArea">oCore</span>, <span title="(object) reference to the Dom Node that should be 'hosting' the UI Area.">oRootNode</span><i class="help" title="Optional parameter">?</i>)
+										</div>
+										
+										<div class="full-description">
+											</p><p>
+Accepts an object literal <code>mSettings</code> that defines initial
+property values, aggregated and associated objects as well as event handlers.
+See <a href="../symbols/sap.ui.base.ManagedObject.html#constructor">sap.ui.base.ManagedObject</a> for a general description of the syntax of the settings object.
+</p><p>
+The supported settings are:
+<ul>
+<li>Aggregations
+<ul>
+<li><a href="#getContent">content</a> : sap.ui.core.Control[]</li>
+<li><a href="#getDependents">dependents</a> : sap.ui.core.Control[]</li>
+</ul>
+</li>
+</ul>
+</p><p>
+In addition, all settings applicable to the base type <a href="../symbols/sap.ui.base.ManagedObject.html#constructor">sap.ui.base.ManagedObject</a>
+can be used as well.
+										</div>
+										
+										
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Core.html">sap.ui.core.Core</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oCore</b>
+													</td>
+													<td class="methodItemDesc">
+												    internal API of the <core>Core</code> that manages this UIArea
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oRootNode</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    reference to the Dom Node that should be 'hosting' the UI Area.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".extend"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.UIArea.extend<span class="signature">(<span title="(string) name of the class to be created">sClassName</span>, <span title="(object) object literal with informations about the class">oClassInfo</span><i class="help" title="Optional parameter">?</i>, <span title="(function) constructor function for the metadata object.">FNMetaImpl</span><i class="help" title="Optional parameter">?</i>)</span>
+											<span class="light" title="returns function">: function</span>
+										</div>
+										<div class="full-description">
+											Creates a new subclass of class sap.ui.core.UIArea with name <code>sClassName</code>
+and enriches it with the information contained in <code>oClassInfo</code>.
+</p><p>
+<code>oClassInfo</code> might contain the same kind of information as described in <a href="../symbols/sap.ui.base.ManagedObject.html#.extend">sap.ui.base.ManagedObject.extend</a>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{string}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sClassName</b>
+													</td>
+													<td class="methodItemDesc">
+												    name of the class to be created
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oClassInfo</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    object literal with informations about the class
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{function}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>FNMetaImpl</b><i class="help" title="Optional parameter">?</i>
+													</td>
+													<td class="methodItemDesc">
+												    constructor function for the metadata object. If not given, it defaults to sap.ui.core.ElementMetadata.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{function}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the created class / constructor function
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod static'>
+										<a name=".getMetadata"> </a>
+										<div class="itemTitle icon">
+											sap.ui.core.UIArea.getMetadata<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.base.Metadata">: <a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a></span>
+										</div>
+										<div class="full-description">
+											Returns a metadata object for class sap.ui.core.UIArea.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.base.Metadata.html">sap.ui.base.Metadata</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														metadata object describing thi class
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="addContent"> </a>
+										<div class="itemTitle icon">
+											addContent<span class="signature">(<span title="(sap.ui.core.Control) the content to add; to add; if empty, nothing is inserted">oContent</span>)</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Adds some content into the aggregation named <code>content</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oContent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the content to add; to add; if empty, nothing is inserted
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="addDependent"> </a>
+										<div class="itemTitle icon">
+											addDependent<span class="signature">(<span title="(sap.ui.core.Control) the dependent to add; to add; if empty, nothing is inserted">oDependent</span>)</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Adds some dependent into the aggregation named <code>dependents</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oDependent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the dependent to add; to add; if empty, nothing is inserted
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="destroyContent"> </a>
+										<div class="itemTitle icon">
+											destroyContent<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Destroys all the content in the aggregation
+named <code>content</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="destroyDependents"> </a>
+										<div class="itemTitle icon">
+											destroyDependents<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Destroys all the dependents in the aggregation
+named <code>dependents</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="getBindingContext"> </a>
+										<div class="itemTitle icon protected">
+											getBindingContext<span class="signature">()</span>
+											<span class="light" title="returns null">: null</span>
+										</div>
+										<div class="full-description">
+											Provide getBindingContext, as UIArea can be parent of an element.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{null}</span> 
+													</td>
+													<td class="methodItemDesc">
+														Always returns null.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getContent"> </a>
+										<div class="itemTitle icon">
+											getContent<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.Control[]">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]</span>
+										</div>
+										<div class="full-description">
+											Getter for aggregation <code>content</code>.<br/>
+Content that is displayed in the UIArea.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]}</span> 
+													</td>
+													<td class="methodItemDesc">
+														
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getDependents"> </a>
+										<div class="itemTitle icon">
+											getDependents<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.Control[]">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]</span>
+										</div>
+										<div class="full-description">
+											Getter for aggregation <code>dependents</code>.<br/>
+Dependent objects whose lifecycle is bound to the UIarea but which are not automatically rendered by the UIArea.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]}</span> 
+													</td>
+													<td class="methodItemDesc">
+														
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="getEventingParent"> </a>
+										<div class="itemTitle icon protected">
+											getEventingParent<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.base.EventProvider">: <a href="../symbols/sap.ui.base.EventProvider.html">sap.ui.base.EventProvider</a></span>
+										</div>
+										<div class="full-description">
+											Returns the Core as new eventing parent to enable control event bubbling to the core to ensure compatibility with the core validation events.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.base.EventProvider.html">sap.ui.base.EventProvider</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the parent event provider
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getId"> </a>
+										<div class="itemTitle icon">
+											getId<span class="signature">()</span>
+											<span class="light" title="returns string|null">: string|null</span>
+										</div>
+										<div class="full-description">
+											Returns this <code>UIArea</code>'s id (as determined from provided RootNode).
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{string|null}</span> 
+													</td>
+													<td class="methodItemDesc">
+														id of this UIArea
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getRootNode"> </a>
+										<div class="itemTitle icon">
+											getRootNode<span class="signature">()</span>
+											<span class="light" title="returns Element">: Element</span>
+										</div>
+										<div class="full-description">
+											Returns the Root Node hosting this instance of <code>UIArea</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{Element}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the Root Node hosting this instance of <code>UIArea</code>.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="getUIArea"> </a>
+										<div class="itemTitle icon protected">
+											getUIArea<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Returns this UI area. Needed to stop recursive calls from an element to its parent.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														this
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="indexOfContent"> </a>
+										<div class="itemTitle icon">
+											indexOfContent<span class="signature">(<span title="(sap.ui.core.Control) the content whose index is looked for.">oContent</span>)</span>
+											<span class="light" title="returns int">: int</span>
+										</div>
+										<div class="full-description">
+											Checks for the provided <code>sap.ui.core.Control</code> in the aggregation named <code>content</code>.
+and returns its index if found or -1 otherwise.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oContent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the content whose index is looked for.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{int}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the index of the provided control in the aggregation if found, or -1 otherwise
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="indexOfDependent"> </a>
+										<div class="itemTitle icon">
+											indexOfDependent<span class="signature">(<span title="(sap.ui.core.Control) the dependent whose index is looked for.">oDependent</span>)</span>
+											<span class="light" title="returns int">: int</span>
+										</div>
+										<div class="full-description">
+											Checks for the provided <code>sap.ui.core.Control</code> in the aggregation named <code>dependents</code>.
+and returns its index if found or -1 otherwise.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oDependent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the dependent whose index is looked for.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{int}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the index of the provided control in the aggregation if found, or -1 otherwise
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="insertContent"> </a>
+										<div class="itemTitle icon">
+											insertContent<span class="signature">(<span title="(sap.ui.core.Control) the content to insert; if empty, nothing is inserted">oContent</span>, <span title="(int) the 0-based index the content should be inserted at; for a negative value of iIndex, the content is inserted at position 0; for a value greater than the current size of the aggregation, the content is inserted at the last position">iIndex</span>)</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Inserts a content into the aggregation named <code>content</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oContent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the content to insert; if empty, nothing is inserted
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{int}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>iIndex</b>
+													</td>
+													<td class="methodItemDesc">
+												    the <code>0</code>-based index the content should be inserted at; for
+             a negative value of <code>iIndex</code>, the content is inserted at position 0; for a value
+             greater than the current size of the aggregation, the content is inserted at
+             the last position
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="insertDependent"> </a>
+										<div class="itemTitle icon">
+											insertDependent<span class="signature">(<span title="(sap.ui.core.Control) the dependent to insert; if empty, nothing is inserted">oDependent</span>, <span title="(int) the 0-based index the dependent should be inserted at; for a negative value of iIndex, the dependent is inserted at position 0; for a value greater than the current size of the aggregation, the dependent is inserted at the last position">iIndex</span>)</span>
+											<span class="light" title="returns sap.ui.core.UIArea">: <a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a></span>
+										</div>
+										<div class="full-description">
+											Inserts a dependent into the aggregation named <code>dependents</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oDependent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the dependent to insert; if empty, nothing is inserted
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{int}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>iIndex</b>
+													</td>
+													<td class="methodItemDesc">
+												    the <code>0</code>-based index the dependent should be inserted at; for
+             a negative value of <code>iIndex</code>, the dependent is inserted at position 0; for a value
+             greater than the current size of the aggregation, the dependent is inserted at
+             the last position
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.UIArea.html">sap.ui.core.UIArea</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														<code>this</code> to allow method chaining
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="invalidate"> </a>
+										<div class="itemTitle icon protected">
+											invalidate<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											Will be used as end-point for invalidate-bubbling from controls up their hierarchy.<br/> Triggers re-rendering of
+the UIAreas content.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="isActive"> </a>
+										<div class="itemTitle icon protected">
+											isActive<span class="signature">()</span>
+											<span class="light" title="returns boolean">: boolean</span>
+										</div>
+										<div class="full-description">
+											Checks whether the control is still valid (is in the DOM)
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{boolean}</span> 
+													</td>
+													<td class="methodItemDesc">
+														True if the control is still in the active DOM
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod protected'>
+										<a name="isInvalidateSuppressed"> </a>
+										<div class="itemTitle icon protected">
+											isInvalidateSuppressed<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											Returns whether rerendering is currently suppressed on this UIArea
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="isLocked"> </a>
+										<div class="itemTitle icon">
+											isLocked<span class="signature">()</span>
+											<span class="light" title="returns boolean">: boolean</span>
+										</div>
+										<div class="full-description">
+											Returns the locked state of the <code>sap.ui.core.UIArea</code>
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{boolean}</span> 
+													</td>
+													<td class="methodItemDesc">
+														locked state
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="lock"> </a>
+										<div class="itemTitle icon">
+											lock<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											Locks this instance of UIArea.
+</p><p>
+Rerendering and eventing will not be active as long as no
+<a href="#unlock">#unlock</a> is called.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="removeAllContent"> </a>
+										<div class="itemTitle icon">
+											removeAllContent<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.Control[]">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]</span>
+										</div>
+										<div class="full-description">
+											Removes all the controls in the aggregation named <code>content</code>.<br/>
+Additionally unregisters them from the hosting UIArea.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]}</span> 
+													</td>
+													<td class="methodItemDesc">
+														an array of the removed elements (might be empty)
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="removeAllDependents"> </a>
+										<div class="itemTitle icon">
+											removeAllDependents<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.core.Control[]">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]</span>
+										</div>
+										<div class="full-description">
+											Removes all the controls in the aggregation named <code>dependents</code>.<br/>
+Additionally unregisters them from the hosting UIArea.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>[]}</span> 
+													</td>
+													<td class="methodItemDesc">
+														an array of the removed elements (might be empty)
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="removeContent"> </a>
+										<div class="itemTitle icon">
+											removeContent<span class="signature">(<span title="(int|string|sap.ui.core.Control) the contentto remove or its index or id">vContent</span>)</span>
+											<span class="light" title="returns sap.ui.core.Control">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a></span>
+										</div>
+										<div class="full-description">
+											Removes an content from the aggregation named <code>content</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{int|string|<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>vContent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the contentto remove or its index or id
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the removed content or null
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="removeDependent"> </a>
+										<div class="itemTitle icon">
+											removeDependent<span class="signature">(<span title="(int|string|sap.ui.core.Control) the dependentto remove or its index or id">vDependent</span>)</span>
+											<span class="light" title="returns sap.ui.core.Control">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a></span>
+										</div>
+										<div class="full-description">
+											Removes an dependent from the aggregation named <code>dependents</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{int|string|<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>vDependent</b>
+													</td>
+													<td class="methodItemDesc">
+												    the dependentto remove or its index or id
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the removed dependent or null
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setRootNode"> </a>
+										<div class="itemTitle icon">
+											setRootNode<span class="signature">(<span title="(object) the hosting Dom Ref for this instance of UIArea.">oRootNode</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Allows setting the Root Node hosting this instance of <code>UIArea</code>.<br/> The Dom Ref must have an Id that
+will be used as Id for this instance of <code>UIArea</code>.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{object}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oRootNode</b>
+													</td>
+													<td class="methodItemDesc">
+												    the hosting Dom Ref for this instance of <code>UIArea</code>.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="unlock"> </a>
+										<div class="itemTitle icon">
+											unlock<span class="signature">()</span>
+											
+										</div>
+										<div class="full-description">
+											Un-Locks this instance of UIArea.
+</p><p>
+Rerendering and eventing will now be enabled again.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod deprecated'>
+										<a name="getRootControl"> </a>
+										<div class="itemTitle icon">
+											getRootControl<span class="signature">(<span title="(int) index of the control in the content of this UIArea">idx</span>)</span>
+											<span class="light" title="returns sap.ui.core.Control">: <a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a></span>
+										</div>
+										<div class="full-description">
+											Returns the content control of this <code>UIArea</code> at the specified index.
+If no index is given the first content control is returned.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{int}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>idx</b>
+													</td>
+													<td class="methodItemDesc">
+												    index of the control in the content of this <code>UIArea</code>
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+											<dl class="detailList deprecation">
+												<dt class="heading deprecation">Deprecated:</dt>
+												<dt>
+													use function <code>getContent</code> instead
+												</dt>
+											</dl>
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the content control of this <code>UIArea</code> at the specified index.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod deprecated'>
+										<a name="setRootControl"> </a>
+										<div class="itemTitle icon">
+											setRootControl<span class="signature">(<span title="(sap.ui.base.Interface|sap.ui.core.Control) the Control that should be the Root for this UIArea.">oRootControl</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Sets the root control to be displayed in this UIArea.
+</p><p>
+First, all old content controls (if any) will be detached from this UIArea (e.g. their parent
+relationship to this UIArea will be cut off). Then the parent relationship for the new
+content control (if not empty) will be set to this UIArea and finally, the UIArea will
+be marked for re-rendering.
+</p><p>
+The real re-rendering happens whenever the re-rendering is called. Either implicitly
+at the end of any control event or by calling sap.ui.getCore().applyChanges().
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.base.Interface.html">sap.ui.base.Interface</a>|<a href="../symbols/sap.ui.core.Control.html">sap.ui.core.Control</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oRootControl</b>
+													</td>
+													<td class="methodItemDesc">
+												    the Control that should be the Root for this <code>UIArea</code>.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+											<dl class="detailList deprecation">
+												<dt class="heading deprecation">Deprecated:</dt>
+												<dt>
+													use functions <code>removeAllContent</code> and <code>addContent</code> instead
+												</dt>
+											</dl>
+										
+										
+										
+										
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

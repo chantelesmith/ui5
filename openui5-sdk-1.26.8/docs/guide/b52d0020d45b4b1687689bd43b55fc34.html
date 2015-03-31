@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Configuration parameters are parameters that are added to the start URL of an application and contain the required configuration information."/>
+<meta name="description" content="Configuration parameters are parameters that are added to the start URL of an application and contain the required configuration information."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using URL Parameters for Configuration</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiob52d0020d45b4b1687689bd43b55fc34">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using URL Parameters for Configuration</h1>
+<div class="body conbody"><p class="shortdesc">Configuration parameters are parameters that are added to the start URL of an
+		application and contain the required configuration information.</p>
+<p class="p">The URL parameter name is composed of the name of the configuration option and the
+				<samp class="ph codeph">sap-ui-</samp> prefix.</p>
+<div class="note note" id="loiob52d0020d45b4b1687689bd43b55fc34__note_N1013A_N1012A_N10013_N10001"><span class="notetitle">Note</span> The W3C proposed that the <samp class="ph codeph">data-</samp>
+			prefix is not needed and not even allowed here as all URL parameters are kind of custom
+			parameters.</div>
+<p class="p">The value of a URL parameter is of type <samp class="ph codeph">string</samp> and the same type mapping
+			as for HTML attributes applies. However, URLs require a different encoding than HTML;
+			they use, for example % encoding instead of entity encoding.</p>
+<p class="p">For security reasons, only some configuration options can be set via URL parameters. An
+			application can set the <samp class="ph codeph">ignoreUrlParameters</samp> option to
+				<samp class="ph codeph">true</samp> to disable URL configuration parameters completely.</p>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using URL Parameters for Configuration";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

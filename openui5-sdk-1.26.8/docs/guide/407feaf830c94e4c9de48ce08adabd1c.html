@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 supports the extension of a base controller by merging the delivered standard controller with a custom controller on JavaScript object level."/>
+<meta name="description" content="SAPUI5 supports the extension of a base controller by merging the delivered standard controller with a custom controller on JavaScript object level."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Controller Extension</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio407feaf830c94e4c9de48ce08adabd1c">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Controller Extension</h1>
+<div class="body"><p class="shortdesc">SAPUI5 supports the extension of a base controller by merging the delivered standard
+		controller with a custom controller on JavaScript object level.</p>
+<p class="p">The SAPUI5 controller extension concept does <span class="ph emphasis emphasis">not</span> use inheritance.
+			Instead, methods of the custom controller override standard methods with the same name.
+			The following controller lifecycle methods are, however, an exception to this rule:
+				<samp class="ph codeph">onInit</samp>, <samp class="ph codeph">onExit</samp>,
+			<samp class="ph codeph">onBeforeRendering</samp>, <samp class="ph codeph">onAfterRendering</samp>. For these
+			methods, the controller methods of your custom application are called either after (for
+				<samp class="ph codeph">onInit</samp> and <samp class="ph codeph">onAfterRendering</samp>), or before (for
+				<samp class="ph codeph">onExit</samp> and <samp class="ph codeph">onBeforeRendering</samp>) the standard
+			lifecycle methods.</p>
+<p class="p">The following examples show, how controller extension concept in SAPUI5 works. The
+			following code snippet shows the standard controller <samp class="ph codeph">Main.controller.js</samp>
+			of the delivered standard application:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.controller("samples.components.ext.sap.Main", {
+    onInit : function () {
+        console.log("samples.components.ext.sap.Main - onInit");
+    },
+
+    doSomething: function() {
+        alert("this is an original standard action");
+    },
+
+    doSomeStandardAction: function() {
+        alert("this is another original standard action");
+    }
+});
+</pre></div>
+<p class="p">The following code snippet represents the custom controller
+				<samp class="ph codeph">CustomMain.controller.js</samp>:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.controller("samples.components.ext.customer.CustomMain", {
+    onInit : function () {
+        console.log("samples.components.ext.customer.CustomMain - onInit");
+    },
+
+    doSomething: function() {
+        alert("this is a customer action");
+    },
+
+    doSomeCustomAction: function() {
+        alert("this is another customer action");
+    }
+});
+</pre></div>
+<p class="p">The following customizing merges the two controllers:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">customizing: {  
+    "sap.ui.controllerExtensions": {
+        "samples.components.ext.sap.Main": {
+            controllerName: "samples.components.ext.customer.CustomMain"
+        }
+    },
+    .....some more content
+</pre></div>
+<p class="p">As a result, the <samp class="ph codeph">samples.components.ext.customer.CustomMain</samp> controller
+			functions are merged when the controller
+				<samp class="ph codeph">samples.components.ext.sap.Main</samp> is called. After initialization,
+			the log contains the following messages:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">samples.components.ext.sap.Main - onInit
+samples.components.ext.customer.CustomMain - onInit</pre></div>
+<p class="p">The <samp class="ph codeph">doSomething</samp> method of the new controller overwrites the
+				<samp class="ph codeph">doSomething</samp> method of the standard controller. Thus, if the method
+			is invoked, an alert popup with the following text appears: <em class="ph i">this is a customer
+				action</em>.</p>
+<p class="p">The <samp class="ph codeph">doSomeStandardAction</samp> method remains available without changes, as no
+			method with the same name exists in the new controller.</p>
+<p class="p">The <samp class="ph codeph">doSomeCustomAction</samp> method is additionally available and you can use
+			it, for example, in a view extension.</p>
+<p class="p">The controller extensions are applied to all controllers with the specified name within
+			the customized component, regardless of whether the controller is instantiated
+			explicitly or belongs to a view.</p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="8fbf4e728bd146fcb2053aeb6ca741f9.html">Providing Hooks in the Standard Controller</a></strong><br/>
+Hooks are extension points in the controller code that are used to make controller 		extensions more stabile.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Controller Extension";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

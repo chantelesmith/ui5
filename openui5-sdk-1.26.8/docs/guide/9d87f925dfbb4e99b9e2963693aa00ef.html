@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="This section lists some of the most important rules relating to CSS styling in UI5."/>
+<meta name="description" content="This section lists some of the most important rules relating to CSS styling in UI5."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>CSS Styling Issues</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio9d87f925dfbb4e99b9e2963693aa00ef">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">CSS Styling Issues</h1>
+<div class="body conbody"><p class="shortdesc">This section lists some of the most important rules relating to CSS styling in
+		UI5.</p>
+<p class="p">UI5 controls are styled with CSS, and as applications can provide their own CSS, they can adapt
+			the styling. However, the deeper such adaptations are, the more likely is it that they
+			break with future UI5 updates or with other libraries and apps getting involved. If you
+			follow the rules listed below, you will reduce this risk.</p>
+<div class="section"><div class="section_title">Don't override control class styling directly</div><div type="Don't override control class styling directly">
+			
+			<p class="p">UI5 does not guarantee the stability of style class names across versions. If the naming of
+				style classes is changed in future versions, styling rules will no longer be applied
+				to targeted elements. In addition, overriding control class styles directly might
+				lead to style clashes when applications are run in shared runtime environments (like
+				the Fiori Launchpad).</p>
+
+			<p class="p">Add your own namespaced classes instead.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_ehh_rkk_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e33">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e35">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e33 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.sapMInputBaseError {
+	font-weight: bold;
+}</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d1318901e35 "><p class="p">Add a custom CSS class to the control in those situations where you want additional
+									styling:</p>
+
+								<samp class="ph codeph">oButton.addStyleClass("poaAppError");</samp><p class="p">Then
+									provide the style for this
+								class:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.poaAppError {
+	font-weight: bold;
+}
+</pre></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't style DOM element names directly</div><div type="Don't style DOM element names directly">
+			
+			<p class="p">Styling DOM elements directly will lead to unpredictable results, as UI5 does not
+				guarantee the stability of the inner-control DOM-tree over time. In addition, this
+				might lead to styling clashes when applications run in shared runtime environments
+				(like the Fiori launchpad) or when custom HTML is added. It is better to limit
+				styling changes to specifically used CSS classes.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_mdl_qcq_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 2:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e71">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e73">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e71 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">div {
+	width: 120px;
+}</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d1318901e73 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.myStyleClass {
+	width: 120px;
+}</pre></div>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't use generated IDs in CSS selectors</div><div type="Don't use generated IDs in CSS selectors">
+			
+			<p class="p">UI5 applications can create dynamic IDs for all elements. Do not use these IDs as selectors in
+				custom CSS as they can change over time. It is better to add and use CSS classes
+				instead.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_lzk_5dq_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 3:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e104">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e106">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e104 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">#__view1__button0 {
+	font-weight: bold;
+}</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d1318901e106 ">
+								<p class="p">Add a style class as described above and then define the following:</p>
+
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.myEmphasizedButton {
+	font-weight: bold;
+}</pre></div>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't create selectors that are not namespaced</div><div type="Don't create selectors that are not namespaced">
+			
+			<p class="p">Custom selectors and CSS classes that are not namespaced might lead to style clashes
+				in shared runtime environments like the Fiori Launchpad, or when other JavaScript
+				libraries are included that might use the same CSS class names.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_j2n_l2q_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 4:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e140">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e142">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e140 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.title {
+	font-weight: bold;
+}</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d1318901e142 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.poaAppTitle {
+	font-weight: bold;
+}</pre></div>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't use hard-coded colors, font sizes and images if the app should be themable</div><div type="Don't use hard-coded colors, font sizes and images if the app should be themable">
+			
+			<p class="p">Themability of applications relies on LESS calculations within the UI5 theme CSS. Hard-coding
+				colors, fonts and images in applications and custom controls means that these colors
+				are not modified by theming, which leads to design issues or accessibility issues
+				(for example, in the High Contrast Black (HCB) theme). You can use special CSS
+				classes instead that are supplied by these LESS calculations.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_twd_s2q_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 5:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e173">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e175">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e173 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">.myCustomHTML {
+	color: #FFF;
+	background-color: blue;
+}</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d1318901e175 ">
+								<p class="p">Add the CSS classes <samp class="ph codeph">sapThemeTextInverted</samp> and
+										<samp class="ph codeph">sapThemeHighlight-asBackgroundColor</samp> to your
+									custom HTML element.</p>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="ea08f53503da42c19afd342f4b0c9ec7.html" title="SAPUI5 provides a set of important adjustable colors behind the generic predefined CSS rules that enable custom content to use the respective CSS classes to get the correct colors.">CSS Classes for Theme
+					Parameters</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't use theming parameters for attributes they were not intended for</div><div type="Don't use theming parameters for attributes they were not intended for">
+			
+			<p class="p">UI5 applications come with a built-in set of parameters which are used for theme-dependent
+				styling, mainly for colors. They are accessible using the
+					<samp class="ph codeph">sap.ui.core.theming.Parameters.get()</samp> API (and for library
+				builds using the OpenUI5 build mechanism, also in the *.less files in control
+				libraries). These theme parameters have descriptive names, meaning that by looking
+				at a parameter name, you can see the usage it has been defined for.</p>
+
+			<p class="p">To ensure that you do not use combinations of theme colors which may clash after future theme
+				changes, do not use background colors for fonts or vice versa, for example, and do
+				not use border colors for anything else but borders.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_qsf_kfq_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 6:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e228">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e230">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e228 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var sColor = sap.ui.core.theming.Parameters.get("sapUiMediumBorder");
+$(oSomeDomElement).css("background-color", sColor);</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d1318901e230 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var sColor = sap.ui.core.theming.Parameters.get("sapUiMediumBorder");
+$(oSomeDomElement).css("border-color", sColor);</pre></div>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/sap.ui.core.theming.Parameters.html">Namespace
+					sap.ui.core.theming.Parameters</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't use unstable less parameters</div><div type="Don't use unstable less parameters">
+			
+			<p class="p">Only a subset of these parameters described above is guaranteed to be stable across versions.
+				If you need to style applications with these parameters, only use parameters that
+				are stable or be prepared to have to rework them at any time.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio9d87f925dfbb4e99b9e2963693aa00ef__table_u2b_5fq_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 7:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1318901e268">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d1318901e270">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1318901e268 "><samp class="ph codeph">sap.ui.core.theming.Parameters.get("sapUiSegmentedBtnTextShadowFooter")</samp></td>
+<td class="entry" valign="top" width="50%" headers="d1318901e270 "><samp class="ph codeph">sap.ui.core.theming.Parameters.get("sapUiText")</samp></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/sap.ui.core.theming.Parameters.html">Namespace
+					sap.ui.core.theming.Parameters</a>.</p>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="CSS Styling Issues";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

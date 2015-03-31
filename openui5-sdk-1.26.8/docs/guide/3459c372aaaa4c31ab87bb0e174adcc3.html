@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="List of OData version 2.0 features supported by mock server"/>
+<meta name="description" content="List of OData version 2.0 features supported by mock server"/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>OData Features Supported by Mock Server</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio3459c372aaaa4c31ab87bb0e174adcc3">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">OData Features Supported by Mock Server</h1>
+<div class="body"><p class="shortdesc">List of OData version 2.0 features supported by mock server</p>
+<p class="p">Mock server only supports the JSON format for representing the resources it exposes, such as
+			collections, entries, and links.</p>
+
+<div class="tablenoborder"><table summary="" id="loio3459c372aaaa4c31ab87bb0e174adcc3__table_krw_bbz_v4" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1:
+					Supported OData Features</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="49.504950495049506%" id="d463196e22">Feature</th>
+<th class="entry" valign="top" width="50.495049504950494%" id="d463196e24">Status</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">CRUD calls</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Navigations</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" colspan="2" valign="top" headers="d463196e22 d463196e24 "><span class="ph emphasis emphasis">Query String
+							options:</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Orderby System Query Option (<samp class="ph codeph">$orderby</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Top System Query Option (<samp class="ph codeph">$top</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Skip System Query Option (<samp class="ph codeph">$skip</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Filter System Query Option (<samp class="ph codeph">$filter</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported; <samp class="ph codeph">eq</samp>, <samp class="ph codeph">ne</samp>, <samp class="ph codeph">gt</samp>,
+								<samp class="ph codeph">lt</samp>, <samp class="ph codeph">ge</samp>, <samp class="ph codeph">le</samp>,
+								<samp class="ph codeph">substringof</samp>, <samp class="ph codeph">startswith</samp>,
+								<samp class="ph codeph">endswith</samp>, <samp class="ph codeph">and</samp>,
+							<samp class="ph codeph">or</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Expand System Query Option (<samp class="ph codeph">$expand</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Select System Query Option (<samp class="ph codeph">$select</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Inlinecount System Query Option (<samp class="ph codeph">$inlinecount</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">- Format System Query Option (<samp class="ph codeph">$format</samp>)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported; only JSON format is allowed</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Service Operations (function imports)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Unsupported, but can be extended</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Batch Processing</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Multiple Services</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported; we recommend to create one Mock Server instance per
+							service</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Update via MERGE/PATCH</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Supported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">ETag Handling</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Unsupported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Annotations</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Unsupported</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="49.504950495049506%" headers="d463196e22 ">Getting individual properties of an entity ($value)</td>
+<td class="entry" valign="top" width="50.495049504950494%" headers="d463196e24 ">Unsupported</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="OData Features Supported by Mock Server";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Data binding supports the definiton of binding types that are handed over when binding properties. Binding types define the data type of the properties used in the model."/>
+<meta name="description" content="Data binding supports the definiton of binding types that are handed over when binding properties. Binding types define the data type of the properties used in the model."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using the Data Binding Type System</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f37e746f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using the Data Binding Type System</h1>
+<div class="body"><p class="shortdesc">Data binding supports the definiton of binding types that are handed over when
+		binding properties. Binding types define the data type of the properties used in the
+		model.</p>
+<p class="p">The values of these properties are automatically formatted for display in the UI. In addition to
+			this, the input values in UI controls are parsed and converted back to the defined type
+			in the model. If an error occurs during formatting or parsing, the following exception
+			occurs: <samp class="ph codeph">sap.ui.model.FormatException</samp> /
+				<samp class="ph codeph">sap.ui.model.ParseException</samp>. </p>
+<p class="p">All types inherit from the abstract <samp class="ph codeph">sap.ui.model.Type</samp> class. A subclass of this
+			class is <samp class="ph codeph">sap.ui.model.SimpleType</samp>. The currently available types inherit
+			from <samp class="ph codeph">SimpleType</samp> class.</p>
+<p class="p">You can generate the following parameters for each 
+		<samp class="ph codeph">SimpleType</samp> in the
+		constructor: 
+	 </p>
+<ul class="ul"><li class="li"> 
+		  <p class="p"><samp class="ph codeph">format
+				options</samp>: Format options define how a value is formatted and displayed
+			 in the UI. 
+		  </p>
+ 
+		</li>
+<li class="li"> 
+		  <p class="p"> 
+			 <samp class="ph codeph">constraints</samp>:
+			 Constraints are optional and define how an input value entered in the UI should
+			 look like. During parsing the value is validated against these constraints. For
+			 example, a 
+			 <samp class="ph codeph">String</samp> type has a
+			 constraint for 
+			 <samp class="ph codeph">maxLength</samp> and 
+			 <samp class="ph codeph">minLength</samp> which are
+			 automatically validated when parsing the input values. 
+		  </p>
+ 
+		</li>
+</ul>
+<p class="p">The following sections describe the available
+		constraints and format options for each type. 
+	 </p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="0eac123bf7da42bb957cca46047e6556.html">Example: Using Data Types</a></strong><br/>
+Example, how data types are used in the data binding type system.</li>
+<li class="link ulchildlink"><strong><a href="c75861e33942410d9ac77322763db203.html">Handling Wrong User Input</a></strong><br/>
+A handler can be used to validate, parse, and format issues.</li>
+<li class="link ulchildlink"><strong><a href="91f06be06f4d1014b6dd926db0e91070.html">Simple Types</a></strong><br/>
+SAPUI5 supports several simple types and the respective formatter classes for data 		binding, such as integer, float and date. </li>
+<li class="link ulchildlink"><strong><a href="35cbd6c6694a45f7bdbbe557f0107d63.html">Data Types for Use Without Data Binding</a></strong><br/>
+The simple types use formatter classes which an also be used standalone.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using the Data Binding Type System";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

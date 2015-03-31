@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 provides several options for the configuration of the SAPUI5 runtime, such as runtime default values and script tag attributes."/>
+<meta name="description" content="SAPUI5 provides several options for the configuration of the SAPUI5 runtime, such as runtime default values and script tag attributes."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Configuration of the SAPUI5 Runtime</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f08de06f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Configuration of the SAPUI5 Runtime</h1>
+<div class="body"><p class="shortdesc">SAPUI5 provides several options for the configuration of the SAPUI5 runtime, such as
+		runtime default values and script tag attributes.</p>
+<p class="p">The following options exist:</p>
+<ul class="ul" id="loio91f08de06f4d1014b6dd926db0e91070__ul_hrl_xtl_wk"><li class="li">Runtime default values</li>
+<li class="li">Individual script tag attributes</li>
+<li class="li">Single and complex configuration attributes</li>
+<li class="li">Global configuration object</li>
+<li class="li">URL parameters</li>
+<li class="li">Runtime configuration object</li>
+</ul>
+<p class="p">The following order of significance applies:</p>
+<p class="p">Attributes of the DOM reference override the system defaults. URL parameters override the
+			DOM attributes; empty URL parameters set the parameter back to its system default. If
+			you call setters at runtime, any previous settings calculated during object creation are
+			overwritten.</p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="91f2d03b6f4d1014b6dd926db0e91070.html">Configuration Options</a></strong><br/>
+The complete list of configuration options available in SAPUI5 can be found in the 		API reference under <samp class="ph codeph">sap.ui.core.Configuration</samp>. The table here is an 		abstract.</li>
+<li class="link ulchildlink"><strong><a href="47bf167913f64d74b992a59ee5de1126.html">Using Runtime Default Values for Configuration</a></strong><br/>
+SAPUI5 runtime provides default values for the configuration parameters. These default 		values can be used for the configuration. </li>
+<li class="link ulchildlink"><strong><a href="22ab02edc8d54f989139bbfccd5860dc.html">Using Script Tag Attributes for Configuration</a></strong><br/>
+For each configuration option, you can have one attribute in the bootstrap script tag to 		provide SAPUI5 runtime configuration.</li>
+<li class="link ulchildlink"><strong><a href="f5d8f9f2f5b54f81aa7ae5391898b61a.html">Using Single and Complex Attributes for Configuration</a></strong><br/>
+The attribute <samp class="ph codeph">data-sap-ui-config</samp> makes it possible to provide a single 		attribute with the configuration information for the SAPUI5 runime.</li>
+<li class="link ulchildlink"><strong><a href="a0fd75b756a04d058f7b5ac2b40b526e.html">Using the Global Configuration Object for Configuration</a></strong><br/>
+The global configuration object is a property in the global <samp class="ph codeph">window</samp> 		object with property name <samp class="ph codeph">sap-ui-config</samp>. The property must be a simple 		object, where each property represents the configuration option of the corresponding 		name.</li>
+<li class="link ulchildlink"><strong><a href="b52d0020d45b4b1687689bd43b55fc34.html">Using URL Parameters for Configuration</a></strong><br/>
+Configuration parameters are parameters that are added to the start URL of an 		application and contain the required configuration information.</li>
+<li class="link ulchildlink"><strong><a href="d9147e2db9d8498bad257ec2bcad4066.html">Using a Runtime Configuration Object for Configuration</a></strong><br/>
+The runtime configuration object enables you to modify a limited set of configuration 		optionsat runtime.</li>
+<li class="link ulchildlink"><strong><a href="9feb96da02c2429bb1afcf6534d77c79.html">Compatibility Version Information</a></strong><br/>
+Compatibility version flags allow applications to react to incompatible changes in 		SAPUI5.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Configuration of the SAPUI5 Runtime";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

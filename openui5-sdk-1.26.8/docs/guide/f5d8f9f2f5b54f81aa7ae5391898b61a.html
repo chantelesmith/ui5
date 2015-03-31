@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The attribute data-sap-ui-config makes it possible to provide a single attribute with the configuration information for the SAPUI5 runime."/>
+<meta name="description" content="The attribute data-sap-ui-config makes it possible to provide a single attribute with the configuration information for the SAPUI5 runime."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using Single and Complex Attributes for Configuration</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiof5d8f9f2f5b54f81aa7ae5391898b61a">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using Single and Complex Attributes for Configuration</h1>
+<div class="body conbody"><p class="shortdesc">The attribute <samp class="ph codeph">data-sap-ui-config</samp> makes it possible to provide a single
+		attribute with the configuration information for the SAPUI5 runime.</p>
+<p class="p">You can use this attribute instead of attaching individual options with individual
+			configuration attributes to the script tag. Its content is similar to the global
+			configuration object, but without the enclosing parenthesis: It is a comma separated
+			list of key/value pairs.</p>
+<div class="note note" id="loiof5d8f9f2f5b54f81aa7ae5391898b61a__note_N100CF_N100BF_N10013_N10001"><span class="notetitle">Note</span> The usual HTML escape mechanisms must be used if
+			the value contains specific HTML characters (&lt;, &gt;, &amp;) or the quote character
+			that is used to enclose the attribute value.</div>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">
+	&lt;script id="sap-ui-bootstrap" 
+		type="text/javascript"
+		src="resources/sap-ui-core.js"
+		data-sap-ui-config="theme:'sap_platinum',libs:'sap.ui.commons'"
+		&gt;
+	&lt;/script&gt;</pre></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using Single and Complex Attributes for Configuration";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

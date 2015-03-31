@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="This section lists some of the most important issues that should be avoided when writing JavaScript code in UI5."/>
+<meta name="description" content="This section lists some of the most important issues that should be avoided when writing JavaScript code in UI5."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>JavaScript Code Issues</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio030fcd14963048218488048f407f8f34">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">JavaScript Code Issues</h1>
+<div class="body conbody"><p class="shortdesc">This section lists some of the most important issues that should be avoided when writing
+		JavaScript code in UI5.</p>
+<div class="section"><div class="section_title">Don't use private and protected methods or properties of UI5</div><div type="Don't use private and protected methods or properties of UI5">
+			
+			<p class="p">Don't use or override "private" and "protected" functions. Private functions are typically
+				(but not always) prefixed with "_". Protected functions are indicated by a yellow
+				diamond in front of the function name within the API Reference documentation.</p>
+
+			<p class="p">Always double check in the API Reference documentation. If UI5 changes the implementation in a
+				future release, your code will break if you fail to follow this guideline.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_ybz_cpd_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e31">Bad Examples</th>
+<th class="entry" valign="top" width="50%" id="d16428e33">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e31 "><samp class="ph codeph">oSelectDialog._oList.setGrowing(false)</samp></td>
+<td class="entry" valign="top" width="50%" headers="d16428e33 "><samp class="ph codeph">oControl.getText();</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e31 "><samp class="ph codeph">oControl.mProperties["text"]</samp></td>
+<td class="entry" valign="top" width="50%" headers="d16428e33 "> </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e31 "><samp class="ph codeph">oEvent.oSource.oBindingContexts.description.sPath.split('/')[3]</samp></td>
+<td class="entry" valign="top" width="50%" headers="d16428e33 "> </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="91f087396f4d1014b6dd926db0e91070.html" title="SAPUI5 is a Release-independant component (RIC) and, therefore, has specific requirements with regard to compatilbilty. This includes topics such as the versioning scheme and the API evolution as well as an overview of the compatible and incompatible changes to the API, deprecation, experimental features, and third party open source libraries.">Compatibility
+					Rules</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't use deprecated APIs</div><div type="Don't use deprecated APIs">
+			
+			<p class="p">Entities marked as “deprecated” in the API Reference documentation (this includes properties,
+				methods, events, and their parameters as well as entire controls and other APIs) are
+				no longer intended to be used. They will not get feature updates in the future.
+				Alternatives, if available, are described in the API Reference documentation.</p>
+
+			<p class="p">One prominent example is the old <samp class="ph codeph">jQuery.sap.device</samp> API that has been
+				replaced with <samp class="ph codeph">sap.ui.Device</samp>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't override or add control methods</div><div type="Don't override or add control methods">
+			
+			<p class="p">If you override methods like <samp class="ph codeph">onBeforeRendering</samp>,
+					<samp class="ph codeph">onAfterRendering</samp>, or getters and setters, the original methods
+				will no longer be called. You have to make sure that you call them in your method
+				explicitly. Even if they are not implemented right now, they could be added in the
+				future. This applies to control inheritance in particular.</p>
+
+			<p class="p">Instead, you should consider using delegates.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_qzr_5rd_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 2:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e106">Bad Examples</th>
+<th class="entry" valign="top" width="50%" id="d16428e108">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e106 ">oControl.onAfterRendering = fnMyFunction</td>
+<td class="entry" valign="top" width="50%" headers="d16428e108 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">    oControl.addEventDelegate({
+        onAfterRendering:function() {
+            // do something
+        }
+    });</pre></div>
+
+							</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e106 ">oControl.prototype.setText = function(){ ... }; </td>
+<td class="entry" valign="top" width="50%" headers="d16428e108 "> </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/docs/api/symbols/sap.ui.core.Element.html#addEventDelegate">sap.ui.core.Element -
+					addEventDelegate</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't manipulate the DOM structure within controls</div><div type="Don't manipulate the DOM structure within controls">
+			
+			<p class="p">Manipulating the DOM structure of controls rendered by UI5 can result in undesired behavior
+				and only has a temporary effect. Changes will be overridden after the next
+				rerendering or the DOM might change in a future version of UI5, which can break your
+				code. In addition, your DOM changes could break the code of the UI5 control if it
+				relies on a certain structure.</p>
+
+			<p class="p">If you need to manipulate the DOM of a UI5 control, attach a delegate to the
+					<samp class="ph codeph">afterRendering</samp> hook of the control, safeguard your code against
+				DOM changes, but still be prepared to have to rework your code at any time when the
+				DOM structure (which is in no way guaranteed to remain stable!) changes. The
+				adaptation should be covered by your automated tests.</p>
+
+			<p class="p">Even <samp class="ph codeph">onAfterRendering</samp> may not be called when a control handles certain
+				property changes without complete rerendering.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_ejg_hdj_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 3:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e159">Bad Examples</th>
+<th class="entry" valign="top" width="50%" id="d16428e161">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e159 "><samp class="ph codeph">oControl.$().find(".sapMLabel").remove();</samp></td>
+<td class="entry" valign="top" width="50%" headers="d16428e161 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">oControl.addEventDelegate({
+	"onAfterRendering": function() {
+		var $label = oControl.$().find(".sapMLabel");
+		if (/* sanity check whether the change still makes sense */) { 
+		      // TODO: re-test after UI5 updates, create automated test
+			$label.text("Better");
+		}
+	}
+});</pre></div>
+
+							</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e159 "><samp class="ph codeph">oControl.$().find(".sapMLabel")[0].innerHTML =
+									"reallybad";</samp></td>
+<td class="entry" valign="top" width="50%" headers="d16428e161 "> </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't attach DOM event handlers</div><div type="Don't attach DOM event handlers">
+			
+			<p class="p">Use <samp class="ph codeph">attachBrowserEvent()</samp> if you need to listen to any DOM event on UI5
+				controls. An even better approach is to use <samp class="ph codeph">addEventDelegate()</samp> for
+				the most important event types instead, as it avoids additional event registrations
+				and listens to the regular UI5 event dispatching.</p>
+
+			<p class="p">If you are creating event handlers in custom controls, you can use listen to DOM events
+				directly, but make sure that the listeners are properly deregistered in
+					<samp class="ph codeph">onBeforeRendering()</samp> and in <samp class="ph codeph">exit()</samp>, and
+				registered in <samp class="ph codeph">onAfterRendering()</samp>.</p>
+
+			<p class="p">Good example for arbitrary events:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">oControl.attachBrowserEvent("mousemove", function() {
+	// do something
+});</pre></div>
+
+			<p class="p">Good example for wide but limited selection of browser events:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">oControl.addEventDelegate({
+        onmouseover:function() {
+            // do something
+        }
+    });</pre></div>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/sap.ui.core.Control.html#attachBrowserEvent">sap.ui.core.Control -
+					attachBrowserEvent</a> and <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/docs/api/symbols/sap.ui.core.Element.html#addEventDelegate">sap.ui.core.Element -
+					addEventDelegate</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't create global IDs (when running with other views or apps)</div><div type="Don't create global IDs (when running with other views or apps)">
+			
+			<p class="p">When you create JSViews or applications that will be running together with views or
+				applications from other sources (that are not owned by you), or JSViews that will be
+				instantiated several times in parallel, you must not create static IDs for your
+				controls, fragments, or views in UI5. Doing so might result in duplicate ID errors
+				that will break your app. Especially when running together with other apps, there
+				could be name clashes or other errors.</p>
+
+			<p class="p">Use the <samp class="ph codeph">createId()</samp> function of a view or controller instead. This is done
+				automatically in XMLViews and JSONViews. The <samp class="ph codeph">createId()</samp> function
+				adds the View ID as a prefix, thus recursively ensuring uniqueness of the ID (for
+				example: <samp class="ph codeph">__page0--__dialog0</samp>).</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_lvp_52j_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 4:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e257">Bad Example (Inside a JSView)</th>
+<th class="entry" valign="top" width="50%" id="d16428e259">Good Example (Inside a JSView)</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e257 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">createContent: function(oController) {
+	var btn = new sap.m.Button("myBtn", {text: "Hello"});
+	return btn;
+}</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d16428e259 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">createContent: function(oController) {
+	var btn = new sap.m.Button(this.createId("myBtn"), {text: "Hello"});
+	return btn;
+}</pre></div>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/sap.ui.core.mvc.View.html#createId">sap.ui.core.mvc.View -
+					createId</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't forget about control lifecycle management</div><div type="Don't forget about control lifecycle management">
+			
+			<p class="p">UI5 controls are kept alive until they are destroyed, so lifecycle management of
+				controls is important since multiple apps can be opened and closed in the same user
+				session. Controls that are not destroyed cause memory leaks and may slow down the
+				browser after prolonged use.</p>
+
+			<p class="p">Also clean up internal structures in controllers, views and your custom controls.</p>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/sap.ui.core.Element.html#destroy">sap.ui.core.Element -
+					destroy</a> (for applications) and <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/sap.ui.core.Element.html#exit">sap.ui.core.Element - exit</a>
+				(for custom control implementation).</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't hard code or concatenate strings that need to be translatable</div><div type="Don't hard code or concatenate strings that need to be translatable">
+			
+			<p class="p">Hard coding UI strings will exclude them from translation. In addition, concatenating
+				translatable strings in applications might lead to errors in internationalization:
+				the texts in question might have a different translation order in other languages
+				and will then be syntactically wrong.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_yyd_ggj_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 5:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e319">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d16428e321">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e319 ">
+								<p class="p">Using separate texts like " you selected " and " items " in the translation file to
+									construct sentences like: " you selected " + 10 + "items ". This
+									would lead to a wrong word order in languages where the verb
+									needs to be at the end of the sentence, for example.</p>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d16428e321 ">
+								<p class="p">Using a complete sentence including a placeholder in the translation file: " you selected
+									{0} items ". This allows translators to change the word order
+									and the position of the inserted placeholder value.</p>
+
+							</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't forget about proper "this" handling</div><div type="Don't forget about proper &#34;this&#34; handling">
+			
+			<p class="p">For developers new to JavaScript, it is often confusing to understand how the "this" keyword
+				behaves. In event handlers in particular, but also for other callback functions, the
+				"this"-pointer must be used correctly, so make sure you check what it actually
+				refers to. Without proper usage of the execution context, unexpected results can
+				occur (this-pointer might be the global window object or a different control).</p>
+
+			
+		</div></div>
+<div class="section"><div class="section_title">Don’t use console.log()</div><div type="Don’t use console.log()">
+			
+			<p class="p">There is an API available for logging errors and warnings in the developer console of your
+				browser, but some browsers might even crash while you are using it (because
+				"console" is only defined while the console is actually open). Use
+					<samp class="ph codeph">jQuery.sap.log.*</samp> instead, which offers different severities as
+				well as additional filter strings. <samp class="ph codeph">jQuery.sap.log.setLevel()</samp> then
+				defines the minimum severity to be logged.</p>
+
+			<p class="p">Note that most errors and warnings in the developer console thrown by the UI5 framework are
+				potential bugs in your application and must be analyzed thoroughly!</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_qyj_kjj_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 6:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e371">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d16428e373">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e371 "><samp class="ph codeph">console.log("some message");</samp></td>
+<td class="entry" valign="top" width="50%" headers="d16428e373 "><samp class="ph codeph">jQuery.sap.log.info("some message");</samp></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+			<p class="p">See also: <a class="xref" href="http://veui5infra.dhcp.wdf.sap.corp:8080/demokit/#docs/api/symbols/jQuery.sap.log.html">Namespace
+				jQuery.sap.log</a>.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't use timeouts</div><div type="Don't use timeouts">
+			
+			<p class="p">Executing logic with timeouts is often a workaround for faulty behavior and does not fix the
+				root cause. The timing that works for you may not work under different circumstances
+				(other geographical locations with greater network latency, or other devices that
+				have slower processors) or when the code is changed. Use callbacks or events
+				instead, if available.</p>
+
+			
+<div class="tablenoborder"><table summary="" id="loio030fcd14963048218488048f407f8f34__table_skm_fkj_jq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 7:
+					Examples</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d16428e407">Bad Example</th>
+<th class="entry" valign="top" width="50%" id="d16428e409">Good Example</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16428e407 ">
+								<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">jQuery.ajax("someData.json");
+setTimeout(fnProcessResults, 300);</pre></div>
+
+							</td>
+<td class="entry" valign="top" width="50%" headers="d16428e409 "><samp class="ph codeph">jQuery.ajax("someData.json").done(fnDoSomeThing);</samp></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Don't build apps without reasonable automated tests</div><div type="Don't build apps without reasonable automated tests">
+			
+			<p class="p">This should not come as surprise, but it is very difficult to refactor or modify apps that do
+				not have any (or have bad) automated test cases. There are substantial risks when
+				QUnit and OPA tests are missing in applications.</p>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="JavaScript Code Issues";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

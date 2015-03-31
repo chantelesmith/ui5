@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 supports column-based and row-based solutions to support flexible and clearly arranged tables."/>
+<meta name="description" content="SAPUI5 supports column-based and row-based solutions to support flexible and clearly arranged tables."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Implementing a Responsive Table</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio38855e06486f4910bfa6f4485f7c2bac">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Implementing a Responsive Table</h1>
+<div class="body conbody"><p class="shortdesc">SAPUI5 supports column-based and row-based solutions to support flexible and clearly
+		arranged tables.</p>
+<p class="p">One of the biggest challenges in responsive web design (RWD) is presenting tabular data.
+			Large tables with lots of columns don't fit on smaller screens and there isn't a simple
+			way to re-format the table content with CSS and media queries for an acceptable
+			presentation. To address this, our framework offers column based solution (column
+			hiding) and row based solution (pop-ins) for presenting tables responsively and both
+			options are applicable at the same time. I know this sounds a little bit complicated.
+			Let's go trough on an example.</p>
+<p class="p">Suppose that we build such a nice table for desktop.</p>
+<p class="p"><img class="image" id="loio38855e06486f4910bfa6f4485f7c2bac__image_ndc_kxd_tp" src="loioa6dd36ccbabf424c9ab4dafc9d06d4ad_LowRes.png"/></p>
+<p class="p">On mobile, we know that we do not have enough space to show all these columns. Now, we
+			should decide which columns are important. Let's say</p>
+<ul class="ul" id="loio38855e06486f4910bfa6f4485f7c2bac__ul_pcb_rtj_ln"><li class="li"><em class="ph i">Product</em> and <em class="ph i">Price</em> are most important. So they should never be hidden.</li>
+<li class="li"><em class="ph i">Supplier</em>, <em class="ph i">Dimensions</em> and <em class="ph i">Weight</em> are not particularly important, so we
+				show them as pop-ins</li>
+</ul>
+<p class="p">According to our assumption we should have the following on mobile</p>
+<p class="p"><img class="image" id="loio38855e06486f4910bfa6f4485f7c2bac__image_w4h_txd_tp" src="loioe3cdfd6815bf4536a3498cadbe3fc2c7_LowRes.png"/></p>
+<div class="section"><div class="section_title">Responsive Column Control</div><div type="Responsive Column Control">
+			
+			<p class="p">You can control the responsive table design using the API of <samp class="ph codeph">sap.m.Column</samp>.
+				This control provides two properties to handle column hiding and pop-in.</p>
+
+			<ol class="ol" id="loio38855e06486f4910bfa6f4485f7c2bac__ol_bdb_rtj_ln"><li class="li"><samp class="ph codeph">minScreenWidth</samp> : This value defines the break point for the column
+					visibility. e.g. iPhone5 has 568px x 320px resolution (dip/device-width). So if
+					we assign 400px (or 25em based on 16px) then this column will not be visible for
+					portrait mode (width 320px) but will be visible for landscape mode (width
+					568px). Instead of px or em you can assign one of the predefined
+						<samp class="ph codeph">sap.m.ScreenSize</samp> types like <em class="ph i">Tablet</em> (for 600px) or
+						<em class="ph i">Desktop</em> (for 1024px). Default value of this property is empty string
+					this means this column will be visible always. </li>
+<li class="li"><samp class="ph codeph">demandPopin</samp>: Depending on your minScreenWidth the column can be hidden in
+					different screen sizes. Setting this property to true, shows this column as
+					pop-in instead of hiding it. Default value is false. </li>
+</ol>
+
+			<p class="p">That's it! All you need to know is these two variables for responsive table. If we
+				turn back to our example.</p>
+
+			<ul class="ul" id="loio38855e06486f4910bfa6f4485f7c2bac__ul_tdb_rtj_ln"><li class="li"><em class="ph i">Name and Status</em> column should never be hidden. This is the default
+					behavior of column so just let the default values(<em class="ph i">minScreenWidth : "" and
+						demandPopin: false</em>) make their job.</li>
+<li class="li"><em class="ph i">Model Number</em> column should be hidden for small devices so, our break
+					point is <em class="ph i">minScreenWidth : "Small"</em> and <em class="ph i">demandPopin : false</em>(default
+					value).</li>
+<li class="li"><em class="ph i">Quantity, Unit Price and Final Price</em> these columns should go to pop-in,
+					our break point is same <em class="ph i">minScreenWidth : "Small"</em> but now <em class="ph i">demandPopin :
+						true</em> to show column in pop-in.</li>
+<li class="li">For example in tablet we will have more space then we can show <em class="ph i">Final
+						Price</em> for tablet(or wider devices) but goes to pop-in for small device.
+					So our break point should be <em class="ph i">minScreenWidth : "Tablet"</em> and <em class="ph i">demandPopin
+						: true</em>.</li>
+<li class="li">Also please note that at least one column should be visible to have a valid
+					table design.</li>
+</ul>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Implementing a Responsive Table";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The renderer method is responsible for creating the HTML structure for the control."/>
+<meta name="description" content="The renderer method is responsible for creating the HTML structure for the control."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Renderer Methods</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioc9ab34570cc14ea5ab72a6d1a4a03e3f">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Renderer Methods</h1>
+<div class="body"><p class="shortdesc">The <samp class="ph codeph">renderer</samp> method is responsible for creating the HTML structure for
+		the control.</p>
+<p class="p">The <samp class="ph codeph">renderer</samp> method is a static method, so no <samp class="ph codeph">this</samp> keyword is
+			available, but a control instance and a <samp class="ph codeph">RenderManager</samp> instance are
+			given to the method. The <samp class="ph codeph">RenderManager</samp> collects and concatenates string
+			fragments and places them in the DOM at the appropriate position.</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">renderer: function(oRM, oControl) {
+   oRM.write("&lt;div&gt;", oControl.getText(), "&lt;/div&gt;");
+}</pre></div>
+<p class="p">A control must have exactly one HTML element as a root node, additional elements may be added
+			below this node. <samp class="ph codeph">oRM.writeControlData(oControl);</samp> must be called while
+			the root node is written. Thus, the root element can be marked as SAPUI5 control root
+			and the ID of the control is written. Also, <samp class="ph codeph">oRM.writeClasses();</samp> must be
+			called in the root element of the control, in order to enable support of
+				<samp class="ph codeph">addStyleClass()</samp> for the control.</p>
+<p class="p">A new renderer type inherits from the renderer of the parent control. If a control extends, for
+			example, the <samp class="ph codeph">TextField</samp> control, the function is added to a class that
+			inherits from <samp class="ph codeph">sap.ui.commons.!TextFieldRenderer</samp> and can access the
+			respective functions.</p>
+<p class="p">If an existing renderer is used without modification, you can use the name of the respective
+			renderer class: </p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">renderer: "sap.ui.commons.ButtonRenderer"</pre></div>
+<p class="p">A control renderer can also override or implement methods from the renderer superclass. And it
+			can separate out helper functions.</p>
+<p class="p">This is shown in the following example. Note that the methods need to be packed together into
+			an object to indicate that they all go into the control renderer. The main rendering
+			method is called <samp class="ph codeph">render</samp>. The <samp class="ph codeph">this</samp> keyword refers to
+			the control renderer type and is used to access the other methods: </p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">renderer: {
+
+   render: function(oRM, oControl) {
+
+      oRM.write("&lt;div&gt;");
+
+      oRM.writeEscaped(this.square(oControl.getValue()));
+
+      oRM.write("&lt;/div&gt;");
+
+   },
+
+   square: function(value) {
+
+      return value * value;
+
+   }
+
+}</pre></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Renderer Methods";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

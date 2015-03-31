@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="With this release the UI development toolkit for HTML5 (SAPUI5) is upgraded from version 1.24 to 1.26."/>
+<meta name="description" content="With this release the UI development toolkit for HTML5 (SAPUI5) is upgraded from version 1.24 to 1.26."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>What's New in SAPUI5</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio2bfac839aa21483f89403dc4ab090724">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">What's New in SAPUI5</h1>
+<div class="body conbody"><p class="shortdesc">With this release the UI development toolkit for HTML5 (SAPUI5) is upgraded from version
+		1.24 to 1.26.</p>
+<p class="p">The following sections highlight the main new features and enhancements to SAPUI5. For a
+			complete, detailed list of all new and enhanced functions, see: <a class="extlink" href="../../docs/guide/ReleaseNotes.html">SAPUI5 Release Notes<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a></p>
+<div class="section"><div class="section_title">Main New Features</div><div type="Main New Features">
+			
+			<p class="p"><strong class="ph b">New OData Model implementation</strong>, featuring greatly improved two-way binding and
+				$batch support, as well as improved performance overall through reduced and more
+				asynchronous requests.</p>
+
+			<div class="p"><strong class="ph b">Support for Windows Phone</strong> (IE11 in Windows Phone 8.1 update 1). This support
+				is valid for the following libraries (those supporting mobile devices):
+					<samp class="ph codeph">sap.m</samp>, <samp class="ph codeph">sap.ui.core</samp>,
+					<samp class="ph codeph">sap.ui.layout</samp>, <samp class="ph codeph">sap.ui.unified</samp>. <div class="note note"><span class="notetitle">Note</span> Certain
+					new / more complex controls that do not yet offer mobile device support also do
+					not support Windows Phone at this time, such as:
+						<samp class="ph codeph">sap.m.FacetFilter</samp>, <samp class="ph codeph">sap.m.ComboBox</samp>,
+						<samp class="ph codeph">sap.m.Tokenizer</samp>, <samp class="ph codeph">sap.m.MultiInput</samp>,
+						<samp class="ph codeph">sap.m.MultiComboBox</samp>,
+						<samp class="ph codeph">sap.ui.unified.Calendar</samp>.</div>
+</div>
+
+			<p class="p"><strong class="ph b">Usability enhancements</strong>. Version 1.26 contains enhanced usability features,
+				including new keyboard shortcuts for SAPUI5 controls and High Contrast Black (HCB)
+				theme support for the <samp class="ph codeph">sap.m</samp> library.</p>
+
+			<p class="p"><strong class="ph b">Fast keyboard navigation</strong>. The new fast keyboard navigation allows you to
+				navigate quickly between groups using <kbd class="key">F6</kbd>.</p>
+
+			<p class="p"><strong class="ph b">SAPUI5 Mobile Diagnostics</strong>. We have improved the structure of the mobile
+				diagnostics dialog and added a new function for end-to-end (E2E) tracing. You can
+				now open the dialog with the following touch combination: press two fingers on a
+				non-interactive screen area (for example, a blank area) for at least 3 seconds, then
+				tap with a third finger while still holding the other two on the screen.</p>
+
+			<p class="p"><strong class="ph b">jQuery 1.11.1</strong> is now used by default.</p>
+
+			<p class="p"><strong class="ph b">SAPUI5 Flexibility Services</strong>. These services offer a multiple-layer approach and provide
+				various features with regards to configuration and personalization functions for
+				your SAPUI5 applications, such as variant management and personalized table
+				settings.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Main New Controls</div><div type="Main New Controls">
+			
+			<p class="p"><strong class="ph b">New control <samp class="ph codeph">sap.ui.layout.FixFlex</samp></strong>. This new control addresses
+				the common layout use-case where one part of the UI has a certain size (which may be
+				set, or may be defined by the content size) and the other part of the UI should use
+				all of the remaining space (horizontally and vertically).</p>
+
+			<p class="p"><strong class="ph b">New control <samp class="ph codeph">sap.m.RadioButtonGroup</samp></strong>. This new control improves the use
+				of layouting, keyboard navigation and data binding.</p>
+
+			<p class="p"><strong class="ph b">New control <samp class="ph codeph">sap.m.ToolbarSeparator</samp></strong>. This new control is used for
+					<samp class="ph codeph">sap.m.Toolbar</samp>.</p>
+
+			<p class="p"><strong class="ph b">New control <samp class="ph codeph">sap.m.SelectList</samp></strong>. This new control is similar to
+					<samp class="ph codeph">sap.ui.commons.ListBox</samp>.</p>
+
+			<p class="p"><strong class="ph b">New control <samp class="ph codeph">Smart Table</samp></strong>. This new control is used to create
+				various types of tables based on OData metadata and for personalized table
+				settings.</p>
+
+			<p class="p"><strong class="ph b">New control <samp class="ph codeph">P13nDialog</samp></strong>. This new control provides a dialog to
+				personalize tables.</p>
+
+		</div></div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="What's New in SAPUI5";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

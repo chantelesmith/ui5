@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Views of a delivered standard application can be replaced to adapt the application to the customer needs."/>
+<meta name="description" content="Views of a delivered standard application can be replaced to adapt the application to the customer needs."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>View Replacement</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio98861cf90b874e3394b666cfb347ff0b">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">View Replacement</h1>
+<div class="body"><p class="shortdesc">Views of a delivered standard application can be replaced to adapt the application to
+		the customer needs.</p>
+<p class="p">If the extension points provided for view extension are not sufficient to meet the requirements
+			of the custom application, you can replace the standard view with a custom view.</p>
+<p class="p">The following view is delivered in the standard application:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;mvc:View xmlns="sap.ui.commons" xmlns:mvc="sap.ui.core.mvc"&gt;
+    &lt;TextView text="SAP View 'Sub1' - this one should have been replaced by the customer View"&gt;&lt;/TextView&gt;  
+&lt;/mvc:View&gt;
+</pre></div>
+<p class="p">This is the custom view to replace the standard view:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;mvc:View xmlns="sap.ui.commons" xmlns:mvc="sap.ui.core.mvc"&gt;
+    &lt;TextView text="Custom View 'Sub1' - this one replaces the original SAP View 'Sub1'"&gt;&lt;/TextView&gt;    
+&lt;/mvc:View&gt;</pre></div>
+<p class="p">The following customizing replaces the custom view with the view in the standard
+			application</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">customizing: {
+    .....some more content
+    "sap.ui.viewReplacements": {
+        "samples.components.ext.sap.Sub1": {
+            viewName: "samples.components.ext.customer.CustomSub1",
+            type: "XML"
+        }
+    },
+    .....some more content
+</pre></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="View Replacement";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Explains step-by-step how to easily write tests for SAPUI5 apps"/>
+<meta name="description" content="Explains step-by-step how to easily write tests for SAPUI5 apps"/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Getting Started with OPA5</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio22f175e7084247bc896c15280af9d1dc">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Getting Started with OPA5</h1>
+<div class="body"><p class="shortdesc">Explains step-by-step how to easily write tests for SAPUI5 apps</p>
+<p class="p">We assume a simple app that displays a button on the page after a random time between 0 and 10
+			seconds. After pressing the button, the text on the button changes. Again, this may take
+			0 to 10 seconds.</p>
+<p class="p">This simulates the behaviour of many SAPUI5 apps: Depending on user actions and model changes,
+			controls change after some time. How can we easily test these SAPUI5 apps without having
+			to write complicated tests that know a lot about the implementation of the app?</p>
+<div class="section"><div class="section_title">Creating an Asynchronous App</div><div type="Creating an Asynchronous App">
+			
+			<p class="p">First, we create a very simple view with an invisible button with <span class="ph uicontrol">Press
+					me</span> as button text:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;mvc:View controllerName="view.Main"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"&gt;
+  &lt;App&gt;
+    &lt;Page&gt;
+      &lt;headerContent&gt;
+        &lt;Button id="pressMeButton" text="Press me" press="onPress" visible="false"/&gt;
+      &lt;/headerContent&gt;
+    &lt;/Page&gt;
+  &lt;/App&gt;
+&lt;/mvc:View&gt;
+</pre></div>
+
+			<p class="p">We display the button in the controller after 0 to 10 seconds. On press, we change the
+				text.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.controller("view.Main", {
+
+    onInit : function () {
+          
+            var that = this;
+            window.setTimeout(function () {
+              that.byId("pressMeButton").setVisible(true);
+            },Math.random()*10000);
+          },
+
+
+      onPress : function () {
+            this.byId("pressMeButton").setText("I got pressed");
+      }
+
+});
+</pre></div>
+
+			<p class="p">Now how can we test this app without having to do a lot of mocking or writing of cryptic
+				code?</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Creating an OPA Test</div><div type="Creating an OPA Test">
+			
+			<p class="p">When we write tests, we try to write it in a way that everyone can immediately understand what
+				is done and tested with this test: </p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">jQuery.sap.require("sap.ui.test.Opa5");
+jQuery.sap.require("sap.ui.test.opaQunit");
+
+
+opaTest("Should press a Button", function (Given, When, Then) {
+    // Arrangements
+    Given.iStartMyApp();
+
+    //Actions
+    When.iPressOnTheButton();
+
+    // Assertions
+    Then.theButtonShouldHaveADifferentText();
+});
+</pre></div>
+
+			<p class="p">If you use <samp class="ph codeph">opaQunit</samp>, OPA gives you the following three objects in your
+				QUnit:</p>
+
+			<ul class="ul" id="loio22f175e7084247bc896c15280af9d1dc__ul_fbp_3mf_y4"><li class="li">Given = arrangements</li>
+<li class="li">When = actions</li>
+<li class="li">Then = assertions</li>
+</ul>
+
+			<p class="p">You have to define these functions, so that OPA knows what they are.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Given: Defining Arrangements</div><div type="Given: Defining Arrangements">
+			
+			<p class="p">Let's start by defining arrangements. In the following example, we assume that the app runs in
+				a page called <samp class="ph codeph">index.html</samp>. Our OPA test is located in the
+					<samp class="ph codeph">test/opa5.html</samp> folder.</p>
+
+			<p class="p">We define a relative path pointing to the <samp class="ph codeph">index.html</samp> of our application under
+					<samp class="ph codeph">test ../index.html - ../</samp>. This means that you go one directory
+				up relative to the current directory:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var arrangements = new sap.ui.test.Opa5({
+    iStartMyApp : function () {
+        return this.iStartMyAppInAFrame("../index.html");
+    }
+});</pre></div>
+
+			<p class="p">This is simple because we already have programmed our app and just need to start it. The
+					<samp class="ph codeph">return this</samp> is needed for chaining the statements. </p>
+
+		</div></div>
+<div class="section"><div class="section_title">When: Defining Actions</div><div type="When: Defining Actions">
+			
+			<p class="p">We now give OPA the ID and the <samp class="ph codeph">viewName</samp> of the control we are looking for.
+				OPA waits until the element is present in the respective view. OPA checks whether it
+				is visible. After OPA found the button, it invokes <samp class="ph codeph">success</samp>. We have
+				a reference to the button control like calling
+					<samp class="ph codeph">this.getView().byId("pressMeButton")</samp> inside the
+					<samp class="ph codeph">Main.controller</samp>.</p>
+
+			<p class="p">We now know that the button is present and we can trigger a <samp class="ph codeph">tap</samp>
+				event. If no button is found, we specify an error message so we know which
+					<samp class="ph codeph">waitFor</samp> went wrong.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var actions = new sap.ui.test.Opa5({
+    iPressOnTheButton : function () {
+        return this.waitFor({
+            viewName : "Main",
+            id : "pressMeButton",
+            success : function (oButton) {
+                oButton.$().trigger("tap");
+            },
+            errorMessage : "did not find the Button"
+        });
+    }
+});</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Then: Defining Assertions</div><div type="Then: Defining Assertions">
+			
+			<p class="p">After clicking the button, we want to check if the text has changed. For this, we can use
+				matchers to check if the button we are searching for matches our conditions. We want
+				to be sure that the text property of the button is equal to "I got pressed".</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">var assertions = new sap.ui.test.Opa5({
+    theButtonShouldHaveADifferentText : function () {
+        return this.waitFor({
+            viewName : "Main",
+            id : "pressMeButton",
+            matchers : new sap.ui.test.matchers.PropertyStrictEquals({
+                name : "text",
+                value : "I got pressed"
+            }),
+            success : function (oButton) {
+                ok(true, "The button's text changed to: " + oButton.getText());
+            },
+            errorMessage : "did not change the Button's text"
+        });
+    }
+});</pre></div>
+
+		</div></div>
+<div class="section"><div class="section_title">Running the Test</div><div type="Running the Test"><p class="p">We have now defined all statements and must now add
+				them to the <samp class="ph codeph">OpaConfig</samp> as
+				follows:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">sap.ui.test.Opa5.extendConfig({
+    arrangements : arrangements,
+    actions : actions,
+    assertions : assertions,
+    viewNamespace : "view."
+});
+</pre></div>
+<p class="p">The
+					<samp class="ph codeph">viewNamespace</samp> is very important for finding the correct view.
+				As you probably do not want to set this in every single <samp class="ph codeph">waitFor</samp>, a
+				default is provided. You can now launch the testpage and the OPA test should run. If
+				everything worked, you get the following result:</p>
+<img class="image" id="loio22f175e7084247bc896c15280af9d1dc__image_bfj_jlf_pp" src="loiob7d6ee389a984eada89d1e21cc1a27f6_LowRes.jpg"/></div></div>
+<div class="section"><div class="section_title">API Documentation</div><div type="API Documentation">
+			
+			<p class="p">For the API documentation, see <a class="extlink" href="../../docs/api/symbols/sap.ui.test.html">https://sapui5.hana.ondemand.com/sdk/#docs/api/symbols/sap.ui.test.html<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a></p>
+
+		</div></div>
+<div class="section"><div class="section_title">Samples</div><div type="Samples">
+			
+			<p class="p">For samples, see <a class="extlink" href="http://help.sap.com/disclaimer?site=http://sapui5.hana.ondemand.com/sdk/explored.html#/entity/sap.ui.test.Opa5/samples">http://sapui5.hana.ondemand.com/sdk/explored.html#/entity/sap.ui.test.Opa5/samples<img src="images/sap_link.png" class="link-sap" alt="Information published on SAP site" title="Information published on SAP site" border="0"/></a></p>
+
+		</div></div>
+<div class="section"><div class="section_title">iframe Support</div><div type="iframe Support">
+			
+			<p class="p">You can use iframe to run your OPA5 tests. To do this, your app has to run on the
+				same domain as your test, for example, if you have the <samp class="ph codeph">test.html</samp>
+				file next to the <samp class="ph codeph">index.html</samp> file of your app, you can call:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">new sap.ui.test.Opa5().iStartMyAppInAFrame("index.html?responderOn=true");</pre></div>
+
+			<p class="p">Your app will now run in iframe.</p>
+
+			<p class="p">In Internet Explorer, the history behaves differently if an iframe was added with
+				JavaScript. So you can add the iframe directly to the HTML of your test page:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;iframe id="OpaFrame" src="index.html?responderOn=true" style="width:100%; height:100%"&gt;&lt;/iframe&gt;</pre></div>
+
+			<p class="p">To access iframe properties, you can get three objects via OPA:</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">//returns the body of the iframe wrapped in a jQuery object
+sap.ui.test.Opa5.getJQuery()("body");
+//gives the iframe UI5 plugin 
+sap.ui.test.Opa5.getPlugin();
+//gives the iframe window object and retrieves the ui5 core interface
+sap.ui.test.Opa5.getWindow().sap.ui.getCore();</pre></div>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Getting Started with OPA5";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

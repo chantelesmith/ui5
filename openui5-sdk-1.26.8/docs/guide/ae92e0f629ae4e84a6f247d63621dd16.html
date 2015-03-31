@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Creating a Configuration</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioae92e0f629ae4e84a6f247d63621dd16">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Creating a Configuration</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">Once you have created an application, you can add a configuration to it. First, navigate to the
+			application by clicking the corresponding row in the application overview. If the
+			application does not yet have any configurations, you are immediately directed to the
+			screen where you can define one. If you want to create an additional configuration,
+			click <span class="ph menucascade"><img src="images/navstart.gif" alt="Start of the navigation path" title="Start of the navigation path"/> <span class="ph uicontrol">Add</span> <img src="images/navstep.gif" alt="Next navigation step" title="Next navigation step"/> <span class="ph uicontrol">New Configuration</span> <img src="images/navend.gif" alt="End of the navigation path" title="End of the navigation path"/></span>. In both cases, enter the following:</p>
+
+<div class="tablenoborder"><table summary="" id="loioae92e0f629ae4e84a6f247d63621dd16__table_tgt_zkn_kq" class="table" frame="border" border="1" rules="all"><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d1416903e25">Field</th>
+<th class="entry" valign="top" width="50%" id="d1416903e27">Explanation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d1416903e25 ">Configuration Title</td>
+<td class="entry" valign="top" width="50%" headers="d1416903e27 ">Text used as title at runtime. This title is translated.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d1416903e25 ">Configuration ID</td>
+<td class="entry" valign="top" width="50%" headers="d1416903e27 ">Generated GUID that is required for configuring a Fiori app launcher tile. This ID
+							cannot be changed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d1416903e25 ">Semantic Object</td>
+<td class="entry" valign="top" width="50%" headers="d1416903e27 ">Inherited from the application. It is displayed for information only
+							and cannot be changed here.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section"><div class="section_title">Adding Objects to a Configuration</div><div type="Adding Objects to a Configuration">
+			
+			<p class="p">Within a configuration, you can now start adding objects according to the following
+				structure:</p>
+
+			<div class="fig fignone" id="loioae92e0f629ae4e84a6f247d63621dd16__fig_zlh_hpn_kq"><div class="figcontainer"><img class="image" id="loioae92e0f629ae4e84a6f247d63621dd16__image_ccb_lpn_kq" src="loiod6135df9397948a9ac54cb7156d17068_LowRes.png"/></div></div>
+
+			<p class="p">The design time layout of these objects is organized as a tree structure to reflect
+				the dependencies between them. For example, steps can only be added under a
+				category, and representations can only be added under a step.</p>
+
+			<p class="p">The order in which the objects are arranged in the APF Configuration Modeler also
+				determines the order in which they are displayed on the UI at runtime. In the
+				analysis step gallery, the categories, for instance, are listed in the same order as
+				they were designed in the APF Configuration Modeler.</p>
+
+			<p class="p">When you add a new object, for example, an additional step in a category, it is
+				always added at the end of the list. You can use the <span class="ph uicontrol">Up</span> and
+					<span class="ph uicontrol">Down</span> arrows to move an object to another position in the
+				list.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Copying Objects</div><div type="Copying Objects">
+			
+			<p class="p">The following objects can be copied: </p>
+
+			<ul class="ul" id="loioae92e0f629ae4e84a6f247d63621dd16__ul_x12_tpn_kq"><li class="li">Configuration</li>
+<li class="li">Categories</li>
+<li class="li">Steps</li>
+<li class="li">Representations</li>
+<li class="li">Facet Filters</li>
+</ul>
+
+			<p class="p">In all cases, the object is always copied including all subordinate objects. For
+				example, a category is copied including all steps and representations assigned to
+				it.</p>
+
+			<p class="p">A copy is always added in the same place as the original object. For example, when
+				you copy a configuration, the application GUID is retained so that the new
+				configuration is created in the same application. The same applies to, for example,
+				a step: The copy of a step is added in the same category as the original step. You
+				can move the copy to a different category by changing the category assignment in the
+				step itself.</p>
+
+		</div></div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Creating a Configuration";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

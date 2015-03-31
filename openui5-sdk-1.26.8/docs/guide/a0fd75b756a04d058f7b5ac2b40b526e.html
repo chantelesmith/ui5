@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The global configuration object is a property in the global window object with property name sap-ui-config. The property must be a simple object, where each property represents the configuration option of the corresponding name."/>
+<meta name="description" content="The global configuration object is a property in the global window object with property name sap-ui-config. The property must be a simple object, where each property represents the configuration option of the corresponding name."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using the Global Configuration Object for Configuration</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioa0fd75b756a04d058f7b5ac2b40b526e">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using the Global Configuration Object for Configuration</h1>
+<div class="body conbody"><p class="shortdesc">The global configuration object is a property in the global <samp class="ph codeph">window</samp>
+		object with property name <samp class="ph codeph">sap-ui-config</samp>. The property must be a simple
+		object, where each property represents the configuration option of the corresponding
+		name.</p>
+<p class="p">The name of the <samp class="ph codeph">window</samp> property intentionally is not a valid JavaScript
+			identifier. This helps to avoid conflicts with typical JavaScript coding and the
+			structured nature of the name is intended to avoid conflicts with SAP objects. To define
+			the object, quotes must be used.</p>
+<p class="p">If a configuration option has a name that is not a valid JavaScript identifier or that is
+			a reserved token in JavaScript, the property name in the configuration object must be
+			quoted. Currently, such a configuration option does <strong class="ph b">not</strong> exist.</p>
+<p class="p">As the configuration is evaluated during bootstrap, the configuration object must be
+			created <strong class="ph b">before</strong> SAPUI5 is booted. Otherwise, the contained configuration cannot be
+			evaluated. As a consequenece, using the global configuration object requires another
+			script tag in front of the bootstrap script tag. It is up to the application whether it
+			uses an inline script tag or a separate JavaScript file, which is loaded via a script
+			tag, for this purpose. If you use a dedicated file, it may require more work initially,
+			but offers the following advantages: </p>
+<ul class="ul" id="loioa0fd75b756a04d058f7b5ac2b40b526e__ul_osf_ttl_wk"><li class="li">
+				<p class="p">Several pages can share the file and, thus, use the same configuration.</p>
+
+			</li>
+<li class="li">
+				<p class="p">The Content Security Policy (CSP) mechanism as introduced, for example, by
+					FireFox 4.0 and others requires the use of a file.</p>
+
+			</li>
+</ul>
+<p class="p">The following code snippet shows an example for an inline script tag:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">
+	&lt;script type="text/javascript"&gt;
+		window["sap-ui-config"] = {
+			theme : "sap_platinum",
+			libs : "sap.ui.commons",
+		};
+	&lt;/script&gt;
+	&lt;script id="sap-ui-bootstrap" 
+		type="text/javascript"
+		src="resources/sap-ui-core.js"
+		&gt;
+	&lt;/script&gt;</pre></div>
+<p class="p">This option requires an additional script or script tag, but it offers the following
+			advantages:</p>
+<ul class="ul" id="loioa0fd75b756a04d058f7b5ac2b40b526e__ul_drg_fqz_fp"><li class="li">
+				<p class="p">Possibility to share configuration between pages</p>
+
+			</li>
+<li class="li">
+				<p class="p">Can be used in environments where the scrip tag cannot be influenced, for
+					example, because it is created out of some configuration, like in some mashup
+					frameworks</p>
+
+			</li>
+<li class="li">
+				<p class="p">Allows to provide configuration before the core boots</p>
+
+			</li>
+</ul>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using the Global Configuration Object for Configuration";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

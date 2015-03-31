@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>The Facet Filter Object</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio2a43fbb03ace4b9386ee57b16a632858">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">The Facet Filter Object</h1>
+<div class="body conbody"><p class="shortdesc"/>
+<p class="p">The analytical content configuration can optionally contain one or more facet filter
+			objects, which define the configuration of the facet filters used in an APF-based
+			application. Facet filters provide global filters that are applied to all analysis steps
+			of an analysis path.</p>
+<p class="p">The facet filter object has the following format:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">
+{
+  "type" : "facetFilter",    //optional
+  "description" : &lt;same as label text&gt;
+  "id" : <var class="keyword varname">&lt;id::string&gt;</var>,
+  "property" : <var class="keyword varname">&lt;property&gt;</var>,
+  "alias" : <var class="keyword varname">&lt;property&gt;</var>,   //optional
+  "valueHelpRequest" : <var class="keyword varname">&lt;request ID&gt;</var>,    //optional
+  "filterResolutionRequest" : <var class="keyword varname">&lt;request ID&gt;</var>,    //optional
+  "multiSelection" : <var class="keyword varname">&lt;boolean&gt;</var>,    //optional
+  "preselectionDefaults" : [ <var class="keyword varname">&lt;value&gt;</var>* ],     //optional
+  "preselectionFunction" : <var class="keyword varname">&lt;function path&gt;</var>,    //optional
+  "label" : <var class="keyword varname">&lt;label&gt;</var>    //optional
+}
+</pre></div>
+<p class="p">The properties used in the facet filter object denote the following:</p>
+
+<div class="tablenoborder"><table summary="" id="loio2a43fbb03ace4b9386ee57b16a632858__table_ntd_lcl_hp" class="table" frame="border" border="1" rules="all"><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="50%" id="d409551e53">
+							<p class="p">Property</p>
+
+						</th>
+<th class="entry" valign="top" width="50%" id="d409551e58">
+							<p class="p">Description</p>
+
+						</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">description</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Contains the string entered as label so that a specific facet filter
+								object can easily be found in the file.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">id</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Unique ID of type string</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">property</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Filter property for the facet filter.</p>
+
+							<p class="p">If <span class="ph sap-technical-name sap-technical-name">alias</span> is not defined,
+									<span class="ph sap-technical-name sap-technical-name">property</span> is also used
+								as select property for
+									<span class="ph sap-technical-name sap-technical-name">valueHelpRequest</span>.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">alias</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Select property for
+									<span class="ph sap-technical-name sap-technical-name">valueHelpRequest</span>.</p>
+
+							<p class="p">Used if the field name of the property of the facet filter is
+								different in the
+									<span class="ph sap-technical-name sap-technical-name">valueHelpRequest</span>.</p>
+
+							<p class="p">If <span class="ph sap-technical-name sap-technical-name">property</span> and
+									<span class="ph sap-technical-name sap-technical-name">alias</span> are the same,
+									<span class="ph sap-technical-name sap-technical-name">alias</span> can be
+								omitted.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">valueHelpRequest</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">ID of the request used for providing a value help to select values in
+								the facet filter.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">filterResolutionRequest</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">ID of the request used for resolving a filter into single values for
+								the value help.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">multiSelection</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Defines whether selection of multiple values is possible.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">preselectionDefaults</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Array of values that are preselected in the facet filter.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">preselectionFunction</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Path to the function used if the preselected values need to be
+								calculated.</p>
+
+						</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d409551e53 ">
+							<p class="p"><span class="ph sap-technical-name sap-technical-name">label</span></p>
+
+						</td>
+<td class="entry" valign="top" width="50%" headers="d409551e58 ">
+							<p class="p">Defines the label text.</p>
+
+						</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">If a <span class="ph sap-technical-name sap-technical-name">preselectionFunction</span> is defined as string
+			in the facet filter object, the system internally converts it into a callable function
+			before the configuration object is returned. If the defined function string cannot be
+			resolved or does not point to a function, the property
+				<span class="ph sap-technical-name sap-technical-name">preselectFunction</span> is set to
+				<em class="ph i">undefined</em> .</p>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="The Facet Filter Object";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

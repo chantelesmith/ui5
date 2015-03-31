@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Fragments are light-weight UI parts (UI sub-trees) which can be reused, defined similar to views, but do not have any controller or other behavior code involved"/>
+<meta name="description" content="Fragments are light-weight UI parts (UI sub-trees) which can be reused, defined similar to views, but do not have any controller or other behavior code involved"/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Fragments</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio36a5b130076e4b4aac2c27eebf324909">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Fragments</h1>
+<div class="body conbody"><p class="shortdesc">Fragments are light-weight UI parts (UI sub-trees) which can be reused, defined similar
+		to views, but do not have any controller or other behavior code involved</p>
+<p class="p">UI parts which are to be used in several views cannot be easily defined. They either have to be
+			created as new controls, or they have to be created as views. Creating them as new
+			controls results in a development overhead, while creating them as separate views
+			results in a runtime overhead. In the latter case they would have a separate controller
+			instead of having the same controller as the view does. Also, views and popup controls
+			like dialogs do not go well together. The dialog content can be defined as a view but
+			the dialog control itself always has to be written in the program.</p>
+<p class="p">To solve these issues, fragments have been introduced. They can be reused and, if source code
+			is required and for event handler methods, they can connect to existing controllers of
+			the "owning" view. This means that one important characteristic of fragments is that
+			they are independent of the MVC concept and can be used without using MVC. However, if
+			fragments are used together with views and controllers, fragments can make use of them
+			and integrate them neatly.</p>
+<p class="p">Similar to <samp class="ph codeph">DocumentFragments</samp> in HTML, the fragment itself has no HTML
+			representation when it is inserted into the UI tree. Instead, its content is inserted.
+			This means that fragments are not like controls, but more like a factory creating the
+			contained controls. They support reuse and view modularization without adding
+			overhead.</p>
+<p class="p">Because of the huge similarities of fragments and the definition and usage of MVC views, it is
+			important to be familiar with the SAPUI5 MVC concept. Many topics, such as the fragment
+			content definition, are identical.</p>
+<p class="p">To support different use cases and because some developers prefer declarative UIs while others
+			prefer to programmatically construct them, SAPUI5 provides different types of
+			fragments:</p>
+<ul class="ul" id="loio36a5b130076e4b4aac2c27eebf324909__ul_zgg_rgv_3m"><li class="li">XML fragments</li>
+<li class="li">HTML fragments</li>
+<li class="li">JS fragments</li>
+</ul>
+<p class="p">More fragment types can be implemented and plugged in.</p>
+<p class="p">Defining a fragment is similar to defining views within a separate file. The fragments
+			simply end with <span class="ph filepath">*.fragment</span> instead of <span class="ph filepath">*.view</span>.
+			Also, the same rules for file location apply.</p>
+</div>
+<div class="related-links"> 
+<div class="childtopics">In this section:</div><ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="08d220676c1c4de38fa8bbc515e2477f.html">HTML Fragments</a></strong><br/>
+HTML fragments have a similar syntax as HTML views, but without the 			<samp class="ph codeph">&lt;template&gt;</samp> tag.</li>
+<li class="link ulchildlink"><strong><a href="2c677b574ea2486a8d5f5414d15e21c5.html">XML Fragments</a></strong><br/>
+ XML fragments are similar to XML view, but have no &lt;View&gt; tag as root element. 		Instead, there is a SAPUI5 control.</li>
+<li class="link ulchildlink"><strong><a href="9c069828d0064136ac6a499aa2cdace3.html">JS Fragments</a></strong><br/>
+The structur of JS fragments is similar to the structure of the respective views: They 		habe a name and an object with a <samp class="ph codeph">createConten()</samp> function.</li>
+</ul>
+
+
+<div class="familylinks">
+</div>
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="91f233476f4d1014b6dd926db0e91070.html" title="The Model View Controller (MVC) concept is used in SAPUI5 to separate the representation of information from the user interaction. This separation facilitates development and the changing of parts independently.">Model View Controller (MVC)</a></div>
+<div><a class="link" href="454b208d49cb4f169d483e4223674cfd.html" title="Fragments are light-weight UI parts (UI subtrees) which can be reused, defined similar to views, but do not have any controller or other behavior code involved">Fragments</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Fragments";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

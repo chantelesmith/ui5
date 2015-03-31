@@ -1,0 +1,518 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>Creation of URIs for fetching a query parameter value set.</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Create a request object for interaction with a query parameter value help.">new <a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#constructor">sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest</a></b>
+										<span class='signature'>(<span title="(sap.ui.model.analytics.odata4analytics.Parameter) Description of a query parameter">oParameter</span>)</span>
+										<span class='description'>Create a request object for interaction with a query parameter value help.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the filter expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#getFilterExpression">getFilterExpression</a></b><span class='signature'>()</span>
+									<span class='description'>Get the filter expression for this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the sort expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#getSortExpression">getSortExpression</a></b><span class='signature'>()</span>
+									<span class='description'>Get the sort expression for this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the value of an query option for the OData request URI corresponding to this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#getURIQueryOptionValue">getURIQueryOptionValue</a></b><span class='signature'>(<span title="(String) Identifies the query option: $select, $filter,.">sQueryOptionName</span>)</span>
+									<span class='description'>Get the value of an query option for the OData request URI corresponding to this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the unescaped URI to fetch the parameter value set."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#getURIToParameterValueSetEntries">getURIToParameterValueSetEntries</a></b><span class='signature'>(<span title="(String) (optional) Identifies the root of the OData service">sServiceRootURI</span>)</span>
+									<span class='description'>Get the unescaped URI to fetch the parameter value set.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Specify which components of the parameter shall be included in the value set."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#includeParameterText">includeParameterText</a></b><span class='signature'>(<span title="Indicator whether or not to include the parameter text (if available) in the value set.">bIncludeText</span>)</span>
+									<span class='description'>Specify which components of the parameter shall be included in the value set.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Set the filter expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#setFilterExpression">setFilterExpression</a></b><span class='signature'>(<span title="(sap.ui.model.analytics.odata4analytics.FilterExpression) The filter object to be associated with this request.">oFilter</span>)</span>
+									<span class='description'>Set the filter expression for this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Set the sort expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest.html#setSortExpression">setSortExpression</a></b><span class='signature'>(<span title="(sap.ui.model.analytics.odata4analytics.SortExpression) The sort object to be associated with this request.">oSorter</span>)</span>
+									<span class='description'>Set the sort expression for this request.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.model.analytics.odata4analytics.ParameterValueSetRequest</b>(<span title="(sap.ui.model.analytics.odata4analytics.Parameter) Description of a query parameter">oParameter</span>)
+										</div>
+										
+										<div class="full-description">
+											Create a request object for interaction with a query parameter value help.
+										</div>
+										
+										
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.Parameter.html">sap.ui.model.analytics.odata4analytics.Parameter</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oParameter</b>
+													</td>
+													<td class="methodItemDesc">
+												    Description of a query parameter
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod'>
+										<a name="getFilterExpression"> </a>
+										<div class="itemTitle icon">
+											getFilterExpression<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.model.analytics.odata4analytics.FilterExpression">: <a href="../symbols/sap.ui.model.analytics.odata4analytics.FilterExpression.html">sap.ui.model.analytics.odata4analytics.FilterExpression</a></span>
+										</div>
+										<div class="full-description">
+											Get the filter expression for this request.
+</p><p>
+Expressions are represented by separate objects. If none exists so far, a
+new expression object gets created.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.FilterExpression.html">sap.ui.model.analytics.odata4analytics.FilterExpression</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The filter object
+         associated to this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getSortExpression"> </a>
+										<div class="itemTitle icon">
+											getSortExpression<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.model.analytics.odata4analytics.SortExpression">: <a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a></span>
+										</div>
+										<div class="full-description">
+											Get the sort expression for this request.
+</p><p>
+Expressions are represented by separate objects. If none exists so far, a
+new expression object gets created.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The sort object
+         associated to this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getURIQueryOptionValue"> </a>
+										<div class="itemTitle icon">
+											getURIQueryOptionValue<span class="signature">(<span title="(String) Identifies the query option: $select, $filter,.">sQueryOptionName</span>)</span>
+											<span class="light" title="returns String">: String</span>
+										</div>
+										<div class="full-description">
+											Get the value of an query option for the OData request URI corresponding
+to this request.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{String}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sQueryOptionName</b>
+													</td>
+													<td class="methodItemDesc">
+												    Identifies the query option: $select,
+           $filter,... or any custom query option
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{String}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The value of the requested query option or null, if
+         this option is not used for the OData request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getURIToParameterValueSetEntries"> </a>
+										<div class="itemTitle icon">
+											getURIToParameterValueSetEntries<span class="signature">(<span title="(String) (optional) Identifies the root of the OData service">sServiceRootURI</span>)</span>
+											<span class="light" title="returns String">: String</span>
+										</div>
+										<div class="full-description">
+											Get the unescaped URI to fetch the parameter value set.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{String}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sServiceRootURI</b>
+													</td>
+													<td class="methodItemDesc">
+												    (optional) Identifies the root of the OData
+           service
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{String}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The unescaped URI that contains the OData resource path
+         and OData system query options to express the request for the
+         parameter value set..
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="includeParameterText"> </a>
+										<div class="itemTitle icon">
+											includeParameterText<span class="signature">(<span title="Indicator whether or not to include the parameter text (if available) in the value set.">bIncludeText</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Specify which components of the parameter shall be included in the value
+set.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  
+													</td>
+													<td class="methodItemName">
+													  <b>bIncludeText</b>
+													</td>
+													<td class="methodItemDesc">
+												    Indicator whether or not to include the parameter text (if
+           available) in the value set. Pass null to keep current
+           setting.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setFilterExpression"> </a>
+										<div class="itemTitle icon">
+											setFilterExpression<span class="signature">(<span title="(sap.ui.model.analytics.odata4analytics.FilterExpression) The filter object to be associated with this request.">oFilter</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Set the filter expression for this request.
+</p><p>
+Expressions are represented by separate objects. Calling this method
+replaces the filter object maintained by this request.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.FilterExpression.html">sap.ui.model.analytics.odata4analytics.FilterExpression</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oFilter</b>
+													</td>
+													<td class="methodItemDesc">
+												    The filter object to be associated with this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setSortExpression"> </a>
+										<div class="itemTitle icon">
+											setSortExpression<span class="signature">(<span title="(sap.ui.model.analytics.odata4analytics.SortExpression) The sort object to be associated with this request.">oSorter</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Set the sort expression for this request.
+</p><p>
+Expressions are represented by separate objects. Calling this method
+replaces the sort object maintained by this request.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oSorter</b>
+													</td>
+													<td class="methodItemDesc">
+												    The sort object to be associated with this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

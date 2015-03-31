@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The structur of JS fragments is similar to the structure of the respective views: They habe a name and an object with a createConten() function."/>
+<meta name="description" content="The structur of JS fragments is similar to the structure of the respective views: They habe a name and an object with a createConten() function."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>JS Fragments</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio9c069828d0064136ac6a499aa2cdace3">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">JS Fragments</h1>
+<div class="body conbody"><p class="shortdesc">The structur of JS fragments is similar to the structure of the respective views: They
+		habe a name and an object with a <samp class="ph codeph">createConten()</samp> function.</p>
+<p class="p">You  define a simple JS fragment named <samp class="ph codeph">my.useful.UiPartX</samp> as shown in the
+			following code snippet:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">
+sap.ui.jsfragment("my.useful.UiPartX", { 
+	createContent: function(oController ) {
+		var oButton = new sap.ui.commons.Button({ 
+			text:"Hello World", 
+			press:oController.doSomething 
+		}); 
+		return oButton;
+	} 
+});</pre></div>
+<p class="p">The <samp class="ph codeph">createContent()</samp> function is responsible for the UI definition and has to
+			return a control. The definition can be created either inline or in a separate file, for
+			instance in <span class="ph filepath">…/my/useful/UiPartX.fragment.js</span>. The
+				<samp class="ph codeph">oController</samp> is either already defined or it is null. In the first
+			case, its methods can be used for the event handlers of controls.</p>
+<p class="p">Despite the many similarities to views, there are also differences: First of all, there is no
+				<samp class="ph codeph">getControllerName()</samp> method. Fragments cannot specify whether they
+			have a controller. Whether <samp class="ph codeph">oController</samp> is defined or not is not a
+			decision of the fragment itself. Instead, it is decided by the code instantiating the
+			fragment. If that code is part of a controller, it can pass a reference to itself to the
+			fragment. This means there can be a dependency between controllers and fragments:
+			Fragments may expect a controller to exist and to have certain methods. And controllers
+			may expect certain controls to be in the fragment. This is in line with the purpose of
+			fragments - to be very light-weight re-use entities that provide little encapsulation.
+			For more encapsulation, views or even components are better suited.</p>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="958ead51e2e94ab8bcdc90fb7e9d53d0.html" title="Components are independent and reusable parts used in SAPUI5 applications.">SAPUI5 Components</a></div>
+<div><a class="link" href="91f27e3e6f4d1014b6dd926db0e91070.html" title="The view in the Model View Controller concept is responsible for defining and renderign the UI. SAPUI5 supports predefined view types.">Views</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="JS Fragments";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

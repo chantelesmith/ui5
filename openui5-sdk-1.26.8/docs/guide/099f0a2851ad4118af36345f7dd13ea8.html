@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Extended syntax can be used to add filters and sorters for aggregation binding. One or multiple objects can be defined."/>
+<meta name="description" content="Extended syntax can be used to add filters and sorters for aggregation binding. One or multiple objects can be defined."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Using Extended Syntax to Add Filters and Sorters</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio099f0a2851ad4118af36345f7dd13ea8">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Using Extended Syntax to Add Filters and Sorters</h1>
+<div class="body"><p class="shortdesc">Extended syntax can be used to add filters and sorters for aggregation binding. One or
+        multiple objects can be defined.</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;table:Table rows="{
+    path: '/table', 
+    filters: [{
+        path: 'field3', 
+        operator: 'EQ',
+        value1: 'test'
+    }],
+    sorter: [{
+        path: 'field1', 
+        descending: false
+    }, {
+        path: 'field2', 
+        descending: true
+    }]
+ }"&gt;
+...
+&lt;/table:Table&gt;
+</pre></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Using Extended Syntax to Add Filters and Sorters";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="KPIs modelled using the Wave 2, 3, 4, and 5 version of the KPI modeler should be migrated from the old SAP Smart Business KPI modeler to the new SAP Smart Business modeler apps version."/>
+<meta name="description" content="KPIs modelled using the Wave 2, 3, 4, and 5 version of the KPI modeler should be migrated from the old SAP Smart Business KPI modeler to the new SAP Smart Business modeler apps version."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Upgrading and Migrating SAP Smart Business Entities</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio2ce62f4feb7745c896807e51ed56b173">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Upgrading and Migrating SAP Smart Business Entities</h1>
+<div class="body conbody"><p class="shortdesc">KPIs modelled using the Wave 2, 3, 4, and 5 version of the KPI modeler should be
+		migrated from the old SAP Smart Business KPI modeler to the new SAP Smart Business modeler
+		apps version.</p>
+<div class="section"><div class="section_title">Delta List</div><div type="Delta List">
+			
+			<div class="p">The following list describes the differences between the old and the new frameworks
+				that are relevant for migration: <ol class="ol" id="loio2ce62f4feb7745c896807e51ed56b173__ol_gmq_mpp_np"><li class="li">Variant<p class="p">The evaluation and the variant are merged into a single object
+							(the evaluation). The migration tool makes this change
+							automatically.</p>
+</li>
+<li class="li">Percent<div class="p">If you have a percentage based KPI, you must do the following:<ul class="ul" id="loio2ce62f4feb7745c896807e51ed56b173__ul_y3h_wpp_np"><li class="li">Use the scaling factor <span class="ph uicontrol">Percent</span> in the evaluation </li>
+<li class="li">Add an extra measure in your <span class="ph pname">SAP HANA</span> Live views that provides
+									the percent value as a fraction of 1 and not as a fraction of
+									100 (for example, this can be a calculated measure).</li>
+</ul>
+</div>
+</li>
+<li class="li">Trend<p class="p">The trend has been simplified. Previously, to establish a trend you had to define
+							two evaluations (one for the current value and another for an earlier
+							time period).</p>
+<p class="p">You can now use one evaluation (and one request to
+							the backend) to retrieve the current value in one measure and the value
+							that the trend is derived from in a separate measure (for example, a
+							measure that provides the current value as of two weeks ago). This means
+							that you must later extend your <span class="ph pname">SAP HANA</span> Live views by this measure. We
+							recommend that you add an input parameter that provides the timeframe in
+							your query.</p>
+</li>
+<li class="li">Unit of Measure<p class="p">You can no longer specify or overwrite the unit of measure (UoM) in the
+							KPI Modeler. Instead, the <span class="ph pname">SAP HANA</span> Live view should expose the
+						UoM.</p>
+</li>
+<li class="li">Decimals<p class="p">You can no longer specify the decimal in the modeler. Instead,
+							this is provided in the OData service. For decimals that are not
+							currency-based but UoM-based, you can provide the number of decimals
+							directly in the <span class="ph pname">SAP HANA</span> Live view. For currency-based apps, the backend
+							automatically generates results with the default number of decimals for
+							that currency (if it is configured correctly).</p>
+</li>
+<li class="li">App to App Navigation<p class="p">The URL schema has changed. Custom apps now must deal with a chip
+							(tile) ID and the evaluation ID instead of the KPI ID and the variant ID
+							as was previously the case.</p>
+</li>
+<li class="li">Navigating from Drill-Down Application for KPI 1 to Drill-Down Application
+						for KPI 2<p class="p">This feature has been replaced by the feature that lets you add
+							associated KPIs to the drill-down application and click them to navigate
+							to them.</p>
+</li>
+</ol>
+</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Prerequisites</div><div type="Prerequisites">
+			
+			<p class="p">You have installed both the old version and the new version of the modeler in the
+				same system before starting the migration process. The Migration Tool
+				assumes that both the old tables and the new tables are available in the same
+				backend system. </p>
+
+			<div class="note note"><span class="notetitle">Note</span> You should migrate all content at once and not use the old and the new framework at the
+				same time other than during the migration itself. If you have built custom apps that
+				integrate with the SAP Smart Business framework we recommend adjusting the custom
+				apps such that they support the new framework and then switch over productive use
+				only to the new version of your custom app.</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Upgrade and Migration Process</div><div type="Upgrade and Migration Process">
+			
+			<ol class="ol" id="loio2ce62f4feb7745c896807e51ed56b173__ol_oxb_lqp_np"><li class="li">Launch the Migration Tool app and select the KPIs that you want
+					to migrate. A message lets you know if some or all of the KPIs are already
+					migrated. If you choose to migrate again, forced migration occurs.<p class="p">If the KPIs
+						contain evaluations and drill-downs, the details are displayed.</p>
+</li>
+<li class="li">Adjust the IDs generated for the new evaluations. The Migration Tool app
+					proposes a new ID for each evaluation. You must adjust this proposal to suit
+					your requirements. We recommend the following naming convention:
+						<span class="ph sap-technical-name sap-technical-name">KPI_ID.shortEvaluationID</span> (for
+					example,
+						<span class="ph sap-technical-name sap-technical-name">sap.hba.ecc.ProjectCompletion.ProjectPercentageofCompletion</span>).</li>
+<li class="li">Adjust the IDs generated for the new drill-downs. Under <span class="ph uicontrol">IDs after
+						Migration</span>, click <span class="ph uicontrol">Configured Drill-Down</span>
+					and edit the ID in the dialog box. Click <span class="ph uicontrol">Save and
+					Close</span>.</li>
+<li class="li">Choose <span class="ph uicontrol">Migrate</span> to start the migration process. </li>
+<li class="li">Create new tiles using the Configure KPI Tiles app. The tile visualizations
+					associated with the KPI are not migrated. As a result, you must create and
+					activate new tile visualizations using the Configure KPI Tiles
+					app after you migrate a KPI.</li>
+</ol>
+
+			<div class="note note"><span class="notetitle">Note</span> You can repeat the migration, however this overrides the already migrated
+				content.</div>
+
+		</div></div>
+<div class="section"><div class="section_title">Migrating Custom Apps that Interface with SAP Smart Business Apps and Tiles</div><div type="Migrating Custom Apps that Interface with SAP Smart Business Apps and Tiles">
+			
+			<p class="p">To migrate your custom app so that it works with the new SAP Smart Business KPI tile
+				and drill-down, your custom app must react to different parameters in the URL
+				provided by the KPI tile. Previously, the KPI ID and the variant ID were required;
+				now, a newly generated chip ID that refers to the metadata in the KPI tile is
+				required along with the evaluation ID (and optionally the view ID). When navigating
+				to another app, you must provide the chip ID that refers to the KPI tile and the
+				evaluation ID. When being called, you can use the services offered by the SAP Smart
+				Business repository to retrieve metadata for the evaluation based on its ID.</p>
+
+		</div></div>
+<div class="section"><div class="section_title">Post Upgrade and Migration Steps</div><div type="Post Upgrade and Migration Steps">
+			
+			<ol class="ol" id="loio2ce62f4feb7745c896807e51ed56b173__ol_zjm_ctp_np"><li class="li">When migration is complete, you can use the KPI Workspace app to search for
+					the migrated KPIs and their associated entities. Bring up the KPI, evaluation,
+					and drill-down and check that all field values are correct.<div class="note note"><span class="notetitle">Note</span> The new SAP
+						Smart Business application deals with percentage values differently, for
+						this reason you must add a measure to your calculation view that divides
+						your original value by 100.</div>
+</li>
+<li class="li">If you have custom navigation options, re-establish them for the new tile and
+					drill-down and check that they function as before.</li>
+<li class="li">If you had built a custom drill-down app, re-build the drill-down app based on
+					the new architecture.</li>
+<li class="li">Check which of the new configuration options in the KPI (related KPIs, backend target, and
+					thresholds), evaluation (filters optional), tile, and drill-down configuration
+					benefit your use case and adjust them accordingly.</li>
+<li class="li">If you have migrated all of the KPIs, users cannot access the old KPIs and you
+					should delete the following roles:<ul class="ul" id="loio2ce62f4feb7745c896807e51ed56b173__ul_gqb_3tp_np"><li class="li">PFCG role <span class="ph sap-technical-name sap-technical-name">SAP_KPI_FRW_TCR_S</span> and
+								<span class="ph sap-technical-name sap-technical-name">SAP_KPI_FRW4_TCR_S</span></li>
+<li class="li">The role in <span class="ph pname">SAP HANA</span> is
+								<span class="ph sap-technical-name sap-technical-name">sap.hba.apps.kpi.s.roles::SAP_SMART_BUSINESS_RUNTIME</span></li>
+</ul>
+</li>
+<li class="li">Retest the entities. </li>
+</ol>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="77543cb4350147ac84937fc16a4182bb.html" title="The Migration Tool app allows you to migrate content that you created with SAP Smart Business 1.0 (SP 02) wave 4 KPI modeler to the new SAP Smart Business wave 5 version.">Migration Tool</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Upgrading and Migrating SAP Smart Business Entities";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

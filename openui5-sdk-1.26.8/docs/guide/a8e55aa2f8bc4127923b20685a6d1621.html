@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="SAPUI5 Flexibility Services allow you to manage smart control changes and provide personalization functions for your SAPUI5 applications."/>
+<meta name="description" content="SAPUI5 Flexibility Services allow you to manage smart control changes and provide personalization functions for your SAPUI5 applications."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>SAPUI5 Flexibility Services</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loioa8e55aa2f8bc4127923b20685a6d1621">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">SAPUI5 Flexibility Services</h1>
+<div class="body conbody"><p class="shortdesc"><span class="ph pname">SAPUI5 Flexibility Services</span> allow
+		you
+		to manage smart control changes and provide personalization functions for your SAPUI5
+		applications.</p>
+<p class="p"><span class="ph pname">SAPUI5 Flexibility Services</span> allow you to work in multiple layers and store
+			entities in a layered repository. This allows, for example, customers to create their
+			own SAPUI5 entities based on the delivery of SAP without having to modify existing
+			entities in a lower layer.</p>
+<p class="p"> Flexibility services offer you various options for your SAPUI5 applications, for
+			example:</p>
+<ul class="ul" id="loioa8e55aa2f8bc4127923b20685a6d1621__ul_eyq_sw5_3q"><li class="li">Variant management</li>
+<li class="li">Personalization of tables</li>
+</ul>
+</div>
+<div class="topic concept nested1" id="concept_or4_sz5_3q"><h2 class="title topictitle2">Technical Background</h2>
+<div class="body conbody"><p class="p"><span class="ph pname">SAPUI5 Flexibility Services</span> enable the communication between the
+				layered repository and the browser and, in particular, the storing and retrieving of
+				variants.</p>
+<div class="note note"><span class="notetitle">Note</span> For the flexibility services, the same browsers and platforms as for the
+					<span class="ph sap-technical-name sap-technical-name">sap.ui.comp</span> library are supported. The
+				services run on the ABAP front-end server and NetWeaver 7.31 SP11 or higher.</div>
+<div class="section"><div class="section_title">Layers</div><div type="Layers">
+				
+				<p class="p">The following layers are available in the repository:</p>
+
+				<ul class="ul" id="concept_or4_sz5_3q__ul_lw3_2jl_jq"><li class="li"><span class="ph sap-technical-name sap-technical-name">VENDOR</span><p class="p">Stores SAP content, for
+							example, SAP-delivered variants.</p>
+</li>
+<li class="li"><span class="ph sap-technical-name sap-technical-name">CUSTOMER</span><p class="p">Stores customer-specific
+							personalization settings and variants. The content is stored separately
+							for each client.</p>
+</li>
+<li class="li"><span class="ph sap-technical-name sap-technical-name">USER</span><p class="p">Stores customer-specific
+							personalization settings and variants. The content is stored separately
+							for each user.</p>
+</li>
+</ul>
+
+			</div></div>
+<div class="section"><div class="section_title">Authorizations</div><div type="Authorizations">
+				
+				<p class="p">To load variants and other content changes to the client via the
+						<span class="ph sap-technical-name sap-technical-name">//SAP/BC/UI5_UI5/**/COMPONENT-CHANGES.JSON</span>
+					file, the SAPUI5 component name for which data is requested is provided with the
+					request. The system checks in the <span class="ph uicontrol">SAP Fiori Launchpad</span>
+					target mapping for the current user and whether the component has been assigned
+					to the user.</p>
+
+				<p class="p"> To create, change, and delete variants and other content in the
+						<span class="ph sap-technical-name sap-technical-name">CUSTOMER</span> and
+						<span class="ph sap-technical-name sap-technical-name">USER</span> layers, no specific
+					authorization is required.</p>
+
+				<div class="note note"><span class="notetitle">Note</span> Ensure the user has the required authorizations for transports.</div>
+
+			</div></div>
+<div class="section"><div class="section_title">Setup</div><div type="Setup">
+				
+				<p class="p">To enable remote access to the layered repository, you must activate the
+					following ICF nodes in transaction <span class="ph sap-technical-name sap-technical-name">SICF</span>
+					in the target system:</p>
+
+				<ul class="ul" id="concept_or4_sz5_3q__ul_v3d_bk4_kq"><li class="li">
+						<p class="p"><span class="ph sap-technical-name sap-technical-name">/SAP/BC/UI5_UI5</span></p>
+
+						<p class="p">Required to load the
+								<span class="ph sap-technical-name sap-technical-name">*/COMPONENT-CHANGES.JSON</span>
+							file and load SAPUI5 libraries from the <span class="ph sap-technical-name sap-technical-name">Mime
+								Repository</span> and Fiori applications from the
+								<span class="ph sap-technical-name sap-technical-name">BSP</span> repository.</p>
+
+					</li>
+<li class="li">
+						<p class="p"><span class="ph sap-technical-name sap-technical-name">/SAP/BC/LREP</span></p>
+
+						<p class="p">Required to create, change, and delete variants and other content.</p>
+
+					</li>
+</ul>
+
+				<p class="p">The <span class="ph sap-technical-name sap-technical-name">/UI5/UI5_INFRA_APP/REP_DT_PUT</span> virus
+					scan profile must be active to use the layered repository and the
+						<samp class="ph codeph">SmartVariantManagement</samp> control for the handling of
+					variants.</p>
+
+				<p class="p">For more information about virus scans, refer to the SAPUI5 Security
+					Information.</p>
+
+			</div></div>
+<div class="section"><div class="section_title">Master Language</div><div type="Master Language">
+				
+				<p class="p">Each file in the layered repository has a master language. The master language is
+					the same as the logon language of the user who has created the file (for
+					example, a variant). If the file is changed later on, you can only change the
+					file in that language.</p>
+
+				<div class="p">
+					<div class="note note"><span class="notetitle">Note</span> If you do not change the file in the same language, and the file contains
+						translatable texts, these changes can only be saved to the translation
+						tables of the layered repository in the master language. Additional
+						languages that you require need to be added using the ABAP translation
+						tools.</div>
+
+				</div>
+
+				<p class="p">The logon language of a user and thus master language of new files in the
+					repository depend on the following:</p>
+
+				<ul class="ul" id="concept_or4_sz5_3q__ul_a44_4km_kq"><li class="li">The URL parameter <span class="ph sap-technical-name sap-technical-name">sap-language</span></li>
+<li class="li">The browser language settings</li>
+</ul>
+
+				<p class="p">The URL parameter overrides the browser language settings.</p>
+
+			</div></div>
+<div class="section"><div class="section_title">Transports</div><div type="Transports">
+				
+				<p class="p">To transport content from the layered repository (for example, from a test system
+					to a productive system), a valid ABAP transport with a task for the user must
+					exist.</p>
+
+				<p class="p">The file is then automatically added to the transport request by the layered
+					repository.</p>
+
+			</div></div>
+<div class="section"><div class="section_title">Logging</div><div type="Logging">
+				
+				<p class="p">The logging for creating, changing, or deleting content is done using the
+					application log in transaction <span class="ph sap-technical-name sap-technical-name">SLG1</span>
+					(log object <span class="ph sap-technical-name sap-technical-name">/UIF/LREP</span>).</p>
+
+			</div></div>
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="SAPUI5 Flexibility Services";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

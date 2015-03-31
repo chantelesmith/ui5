@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The table design in SAPUI5 is faciliteted by various table and column features, such as the pop-in design."/>
+<meta name="description" content="The table design in SAPUI5 is faciliteted by various table and column features, such as the pop-in design."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Table Design</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loiod3234bc1b7b64af99a3d6990039f7eed">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Table Design</h1>
+<div class="body"><p class="shortdesc">The table design in SAPUI5 is faciliteted by various table and column features, such as
+    the pop-in design.</p>
+<div class="section"><div class="section_title">Pop-in Design</div><div type="Pop-in Design">
+			
+			<p class="p">When displaying information in a Pop-in, the information, typically a column header
+				and the column (cell) content, can be displayed in an "Inline" or in a "Block"
+				display style. The difference can be seen in the following example.</p>
+
+			<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint"><samp class="ph codeph">#!js</samp>
+   &lt;columns&gt;
+      &lt;Column
+        width="12em"&gt;
+        &lt;Text text="Product" /&gt;
+      &lt;/Column&gt;
+      &lt;Column
+        popinDisplay: "Block"
+        minScreenWidth="Tablet"
+        demandPopin="true"&gt;
+        &lt;Text text="Supplier" /&gt;
+      &lt;/Column&gt;
+      &lt;Column
+        popinDisplay: "Inline"
+        minScreenWidth="Tablet"
+        hAlign="Right"&gt;
+        &lt;Text text="Dimensions" /&gt;
+      &lt;/Column&gt;
+      &lt;Column
+        popinDisplay: "Inline"
+        minScreenWidth="Tablet"
+        demandPopin="true"
+        hAlign="Center"&gt;
+        &lt;Text text="Weight" /&gt;
+      &lt;/Column&gt;
+      &lt;Column
+        hAlign="Right"&gt;
+        &lt;Text text="Price" /&gt;
+      &lt;/Column&gt;
+    &lt;/columns&gt;
+</pre></div>
+
+			<p class="p">The Dimension column is hidden, the Weight column is displayed in a pop-in when the
+				screen size is smaller than a Desktop. The Supplier is to be displayed in "Block"
+				mode, with the header and content arranged vertically, whereas the two prices are to
+				be displayed in "Inline" mode, with the header and content arranged next to each
+				other. </p>
+
+			<p class="p"><img class="image" id="loiod3234bc1b7b64af99a3d6990039f7eed__image_k3z_bb2_tp" src="loioec5a03af10ce4a289359b6f11307581f_LowRes.png"/></p>
+
+		</div></div>
+<div class="section"><div class="section_title">Merging Duplicate Values</div><div type="Merging Duplicate Values"><p class="p">When you have repeated values in your table,
+        you can use the <samp class="ph codeph">mergeDuplicate</samp> feature of the <samp class="ph codeph">sap.m.Column</samp>
+        control. There are two properties that are related to merging duplicate values:</p>
+<ul class="ul" id="loiod3234bc1b7b64af99a3d6990039f7eed__ul_agj_gzj_tp"><li class="li">
+          <p class="p"><samp class="ph codeph">mergeDuplicates</samp>: set this to true if you want duplicate values for the
+            given column to be merged</p>
+
+        </li>
+<li class="li">
+          <p class="p"><samp class="ph codeph">mergeFunctionName</samp>: use this to specify the name of the getter function
+            of the Control in the column</p>
+
+        </li>
+</ul>
+<p class="p">Duplicate values will only be merged if they are contiguous. That means that you
+        probably want to sort your data first before binding it.</p>
+<p class="p">Here's a simple example of
+        using the <samp class="ph codeph">mergeDuplicates</samp> feature. We'll set up a table of sales data, and
+        display the data in a table, merging any duplicate regions. When the "Mix Up" button is
+        pressed to lightly shuffle the salesFigures array of objects, you will see that only
+        adjacent duplicates are merged. Press the "Sort" button again to see the ideal
+        merging.</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;Table
+    headerText="Products"
+    items="{
+      path:'/ProductCollection',
+      sorter: {
+        path: 'SupplierName',
+        descending: false
+      }
+    }" &gt;
+    &lt;columns&gt;
+      &lt;Column mergeDuplicates="true"&gt;
+        &lt;header&gt;
+          &lt;Text text="Supplier" /&gt;
+        &lt;/header&gt;
+      &lt;/Column&gt;
+      &lt;Column mergeDuplicates="true"&gt;
+        &lt;header&gt;
+          &lt;Text text="Product" /&gt;
+        &lt;/header&gt;
+      &lt;/Column&gt;
+      &lt;Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+        hAlign="Right" &gt;
+        &lt;header&gt;
+          &lt;Text text="Dimensions" /&gt;
+        &lt;/header&gt;
+      &lt;/Column&gt;
+      &lt;Column
+        minScreenWidth="Tablet"
+        demandPopin="true"
+        hAlign="Center" &gt;
+        &lt;header&gt;
+          &lt;Text text="Weight" /&gt;
+        &lt;/header&gt;
+      &lt;/Column&gt;
+      &lt;Column hAlign="Right" &gt;
+        &lt;header&gt;
+          &lt;Text text="Price" /&gt;
+        &lt;/header&gt;
+      &lt;/Column&gt;
+    &lt;/columns&gt;
+    &lt;ColumnListItem&gt;
+      &lt;Text text="{SupplierName}" /&gt;
+      &lt;ObjectIdentifier title="{Name}" text="{ProductId}" class="sapMTableContentMargin" /&gt;
+      &lt;Text text="{Width} x {Depth} x {Height} {DimUnit}" /&gt;
+      &lt;ObjectNumber
+        number="{WeightMeasure}" unit="{WeightUnit}"
+        state="{
+          path: 'WeightMeasure',
+          formatter: 'sap.m.sample.TableMergeCells.Formatter.weightState'
+        }" /&gt;
+      &lt;ObjectNumber
+        number="{Price}"
+        unit="{CurrencyCode}" /&gt;
+    &lt;/ColumnListItem&gt;
+  &lt;/Table&gt;
+</pre></div>
+<img class="image" id="loiod3234bc1b7b64af99a3d6990039f7eed__image_cmw_c22_tp" src="loio32ef8dc03ad44224994aeab8279bf5c6_LowRes.png"/></div></div>
+<div class="section"><div class="section_title">Highlighting Rows and Columns</div><div type="Highlighting Rows and Columns"><p class="p">You can use CSS to achieve striping of
+        table rows as you might do in other web-based applications. For example, to highlight
+        alternative rows in the table above, like this:</p>
+<img class="image" id="loiod3234bc1b7b64af99a3d6990039f7eed__image_hb3_b1k_tp" src="loioc15900388cb447fd96d2dbdaa264cb77_LowRes.png"/><p class="p">You just need to
+        note the id of the <strong class="ph b">sap.m.List</strong> or <strong class="ph b">sap.m.Table</strong> control (in this case it is
+        "salesdata") and then apply some appropriate CSS such as:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">#ProductsView-ProductsTable tbody tr:nth-child(even) {
+	background: rgb(245, 245, 245);
+}
+</pre></div>
+<div class="note note"><span class="notetitle">Note</span> 
+        <p class="p">Use <var class="keyword varname">&lt;even&gt;</var>, rather than <var class="keyword varname">&lt;odd&gt;</var>, for the sibling
+          specification. This way, the pop-in highlighting will be correct.</p>
+
+      </div>
+<p class="p">Highlighting of table columns is also possible by means of the <strong class="ph b">styleClass</strong>
+        property of the <strong class="ph b">sap.m.Column</strong> control. The value of this property is applied as a
+        class to the whole column (header, cells and footer) and can be used like this: Specify a
+        class name for the <strong class="ph b">styleClass</strong> property of your Column, and set the style as you
+        wish:</p>
+<div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">&lt;style&gt;
+#products .MyPrice {
+  background: rgb(205, 231, 255);
+}
+&lt;/style&gt;
+
+...
+
+&lt;Column
+   hAlign="Right"
+   class="myPrice"&gt;
+   &lt;Text text="Price" /&gt;
+&lt;/Column&gt;
+</pre></div>
+<p class="p">This
+        results in the following: </p>
+<img class="image" id="loiod3234bc1b7b64af99a3d6990039f7eed__image_fbx_s1k_tp" src="loiod90af7b06b7b43e69ecfb9116b99da73_LowRes.png"/></div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Table Design";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

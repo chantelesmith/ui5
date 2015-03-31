@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="The binding mode defines how the data sources are bound. The different model implementations require specific binding modes. The resource model, for example, only supports one-time binding, that is, a binding from the model to the view."/>
+<meta name="description" content="The binding mode defines how the data sources are bound. The different model implementations require specific binding modes. The resource model, for example, only supports one-time binding, that is, a binding from the model to the view."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Binding Modes</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f0df546f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Binding Modes</h1>
+<div class="body conbody"><p class="shortdesc">The binding mode defines how the data sources are bound. The different model
+		implementations require specific binding modes. The resource model, for example, only
+		supports one-time binding, that is, a binding from the model to the view.</p>
+<p class="p">SAPUI5 provides the following binding modes:</p>
+<ul class="ul"><li class="li"> 
+		  <p class="p"><dfn class="term">One Way</dfn>:
+			 One-way binding means a binding from the model to the view; value changes in
+			 the model update all corresponding bindings and the view
+		  </p>
+ 
+		</li>
+<li class="li"> 
+		  <p class="p"><dfn class="term">Two Way</dfn>:
+			 Two-way binding means a binding from the model to the view and from the view to
+			 the model; value changes in the model and in the view update all corresponding
+			 bindings and the view and model, respectively
+		  </p>
+ 
+		</li>
+<li class="li"> 
+		  <p class="p">
+					<dfn class="term">One Time</dfn>: One-time binding means from model to view once.</p>
+ 
+		</li>
+</ul>
+<p class="p">The following table shows, which binding modes the
+		respective binding models support: 
+	 </p>
+<table summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d1028430e41" class="stentry">Model</th>
+<th valign="bottom" align="left" id="d1028430e43" class="stentry">One-way</th>
+<th valign="bottom" align="left" id="d1028430e45" class="stentry">Two-way</th>
+<th valign="bottom" align="left" id="d1028430e47" class="stentry">One-time</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e41" class="stentry">Resource model</td>
+<td valign="top" headers="d1028430e43" class="stentry">--</td>
+<td valign="top" headers="d1028430e45" class="stentry">--</td>
+<td valign="top" headers="d1028430e47" class="stentry">X</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e41" class="stentry">JSON model</td>
+<td valign="top" headers="d1028430e43" class="stentry">X</td>
+<td valign="top" headers="d1028430e45" class="stentry">X</td>
+<td valign="top" headers="d1028430e47" class="stentry">X</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e41" class="stentry">XML model</td>
+<td valign="top" headers="d1028430e43" class="stentry">X</td>
+<td valign="top" headers="d1028430e45" class="stentry">X</td>
+<td valign="top" headers="d1028430e47" class="stentry">X</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e41" class="stentry">OData model</td>
+<td valign="top" headers="d1028430e43" class="stentry">X</td>
+<td valign="top" headers="d1028430e45" class="stentry">X</td>
+<td valign="top" headers="d1028430e47" class="stentry">X</td>
+</tr>
+</table>
+<p class="p">The resource model only supports the one-time binding mode because it deals with static
+			texts only.</p>
+<div class="section" id="loio91f0df546f4d1014b6dd926db0e91070__section_431AB75A34F1417E939D22C548A8181F"><div class="section_title">Default Binding Mode of Models</div><div type="Default Binding Mode of Models">
+		
+		<p class="p">When a model instance is created, the instance has
+		  a default binding mode. All bindings of this model instance have this binding
+		  mode as their default.
+		</p>
+ 
+		<p class="p">The following table shows the supported binding
+		  modes and their default binding mode for each model implementation.
+		</p>
+ 
+		<table summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d1028430e100" class="stentry">Model</th>
+<th valign="bottom" align="left" id="d1028430e102" class="stentry">Default binding mode</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e100" class="stentry">Resource model</td>
+<td valign="top" headers="d1028430e102" class="stentry">One-time</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e100" class="stentry">JSON model</td>
+<td valign="top" headers="d1028430e102" class="stentry">Two-way</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e100" class="stentry">XML model</td>
+<td valign="top" headers="d1028430e102" class="stentry">Two-way</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1028430e100" class="stentry">OData model</td>
+<td valign="top" headers="d1028430e102" class="stentry">One-way</td>
+</tr>
+</table>
+ 
+	 </div></div>
+<div class="section"><div class="section_title">API Reference</div><div type="API Reference">
+			
+			<p class="p"><a class="xref" href="../../docs/api/symbols/sap.ui.model.BindingMode.html">sap.ui.model.BindingMode</a></p>
+
+		</div></div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Binding Modes";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

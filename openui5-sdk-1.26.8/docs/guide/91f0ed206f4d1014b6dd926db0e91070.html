@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="abstract" content="Binding paths address the different properties and lists in a model and define how a node in the hierarchical data tree can be found."/>
+<meta name="description" content="Binding paths address the different properties and lists in a model and define how a node in the hierarchical data tree can be found."/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Defining a Binding Path</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio91f0ed206f4d1014b6dd926db0e91070">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Defining a Binding Path</h1>
+<div class="body taskbody"><p class="shortdesc">Binding paths address the different properties and lists in a model and define how a
+		node in the hierarchical data tree can be found.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Context</h2></div><p class="p">A binding path consists of a number of name tokens, which are separated by a separator char. In
+				all models provided by the framework, the separator char is the slash "/".</p>
+<p class="p">A binding path can either be absolute or relative:
+			Absolute binding paths start with a slash, relative binding paths start with a
+			name token and are resolved relative to the contet of the control that is
+			bound. 
+		</p>
+<p class="p">A context exists either for each entry of the
+			aggregation in case of aggregation binding or can be set explicitly for a
+			control by using the 
+			<samp class="ph codeph">setBindingContext</samp>
+			method. Relative bindings without a defined context are resolved relative to
+			the model root.
+		</p>
+
+			</div><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><div class="li step p"><span class="ph cmd">The syntax is specific to the respective model.</span><ul class="ul choices"><li class="li choice">Resource model: <a class="xref" href="f05c6f2cf18241cbbb2b126989108765.html" title="The binding path syntax for the resource model only contains a flat list of properties.">Binding Path Syntax for Resource Models</a></li>
+<li class="li choice">JSON model: <a class="xref" href="d52e364907f94a3caeb4f5e5ad0cf302.html" title="The JSON model has a simple binding path syntax, because it consists of named objects, such as properties, arrays, or nested objects.">Binding Path Syntax for JSON Models</a></li>
+<li class="li choice">OData model: <a class="xref" href="346de94b5bd14de48b3d61a100a92c72.html" title="The binding path syntax for OData models matches the URL path relative to the service URL used in OData to access specific entries or collections.">Binding Path Syntax for OData Models</a></li>
+<li class="li choice">XML model: <a class="xref" href="b8a2c24356c443228f7819d45697a2b8.html" title="XML models differentiate between attributes and content. XML has no arrays and defines lists as multiple elements with the same name instead. This makes the binding path syntax for XML models more difficult than for JSON oder OData models.">Binding Path Syntax for XML Models</a></li>
+</ul>
+</div>
+</div>
+<div class="related-links"> 
+
+<div class="familylinks">
+</div>
+</div>
+</div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Defining a Binding Path";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>

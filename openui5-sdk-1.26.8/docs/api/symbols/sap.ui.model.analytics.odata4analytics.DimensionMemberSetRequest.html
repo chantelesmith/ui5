@@ -1,0 +1,768 @@
+<!DOCTYPE html><html xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>JsDoc Report - SAP UI development Toolkit for HTML5 - API Reference - sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest</title>
+		<link rel=stylesheet href="../default.css" type="text/css">
+		
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/thirdparty/jquery/jquery-1.11.1.js"></script>
+				
+				
+			
+				
+				<script type="text/javascript" src="../../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+				
+				
+			
+				
+				
+				<link rel="stylesheet" href="../../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+				
+			
+		
+	</head>
+
+	<body>
+
+
+		<div id="main">
+			<div id="content">
+
+					<h1 class="classTitle static">
+					
+					Class sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest
+					</h1>
+					
+					
+					
+					
+					<hr/>
+
+					
+					
+					<div class="full-description">
+						<p>Creation of URIs for fetching a query dimension value set.</p>
+						
+						
+						
+						
+						
+						
+					</div>
+					
+		
+					
+					
+					
+						<div class="summary section">
+							<div class="sectionTitle">Constructor Summary</div>
+							<div class="sectionItems">
+								<div class="sectionItem classConstructor static">
+									<div class="itemName">
+										<b class="icon" title="Create a request object for interaction with a dimension value help.">new <a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#constructor">sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest</a></b>
+										<span class='signature'>(<span title="(sap.ui.model.analytics.odata4analytics.Dimension) Description of a dimension">oDimension</span>, <span title="(sap.ui.model.analytics.odata4analytics.ParameterizationRequest) (optional) Request object for interactions with the parameterization of the query result or (not yet supported) master data entity set Such an object is required if the entity set holding the dimension members includes parameters.">oParameterizationRequest</span>, <span title="(boolean) (optional) Indicates use of master data for determining the dimension members.">bUseMasterData</span>)</span>
+										<span class='description'>Create a request object for interaction with a dimension value help.</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					
+		
+					
+
+					
+						<div class="summary section">
+							<div class="sectionTitle">Method Summary</div>
+							<div class="sectionItems">
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the filter expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#getFilterExpression">getFilterExpression</a></b><span class='signature'>()</span>
+									<span class='description'>Get the filter expression for this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Returns the current page boundaries as object with properties start and end."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#getResultPageBoundaries">getResultPageBoundaries</a></b><span class='signature'>()</span>
+									<span class='description'>Returns the current page boundaries as object with properties <code>start</code> and <code>end</code>.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the sort expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#getSortExpression">getSortExpression</a></b><span class='signature'>()</span>
+									<span class='description'>Get the sort expression for this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the value of an query option for the OData request URI corresponding to this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#getURIQueryOptionValue">getURIQueryOptionValue</a></b><span class='signature'>(<span title="(String) Identifies the query option: $select, $filter,.">sQueryOptionName</span>)</span>
+									<span class='description'>Get the value of an query option for the OData request URI corresponding to this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the URI to locate the entity set for the dimension memebers."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#getURIToDimensionMemberEntitySet">getURIToDimensionMemberEntitySet</a></b><span class='signature'>(<span title="(String) (optional) Identifies the root of the OData service">sServiceRootURI</span>)</span>
+									<span class='description'>Get the URI to locate the entity set for the dimension memebers.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Get the unescaped URI to fetch the dimension members, optionally augmented by text and attributes."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#getURIToDimensionMemberEntries">getURIToDimensionMemberEntries</a></b><span class='signature'>(<span title="(String) (optional) Identifies the root of the OData service">sServiceRootURI</span>)</span>
+									<span class='description'>Get the unescaped URI to fetch the dimension members, optionally augmented by text and attributes.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Set the filter expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#setFilterExpression">setFilterExpression</a></b><span class='signature'>(<span title="(sap.ui.model.analytics.odata4analytics.FilterExpression) The filter object to be associated with this request.">oFilter</span>)</span>
+									<span class='description'>Set the filter expression for this request.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Set the parameterization request required for retrieving dimension members directly from the query result, if it is parameterized."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#setParameterizationRequest">setParameterizationRequest</a></b><span class='signature'>(<span title="Request object for interactions with the parameterization of this query result">oParameterizationRequest</span>)</span>
+									<span class='description'>Set the parameterization request required for retrieving dimension members directly from the query result, if it is parameterized.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Set further options to be applied for the OData request"><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#setRequestOptions">setRequestOptions</a></b><span class='signature'>(<span title="(Boolean) Indicates whether or not the result shall include a count for the returned entities.">bIncludeCount</span>)</span>
+									<span class='description'>Set further options to be applied for the OData request</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Specify that only a page of the query result shall be returned."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#setResultPageBoundaries">setResultPageBoundaries</a></b><span class='signature'>(<span title="(Number) The first row of the query result to be returned.">start</span>, <span title="(Number) The last row of the query result to be returned.">end</span>)</span>
+									<span class='description'>Specify that only a page of the query result shall be returned.</span>
+								</div>
+							
+								<div class="sectionItem classMethod">
+									<b class="icon" title="Set the sort expression for this request."><a href="../symbols/sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest.html#setSortExpression">setSortExpression</a></b><span class='signature'>(<span title="(sap.ui.model.analytics.odata4analytics.SortExpression) The sort object to be associated with this request.">oSorter</span>)</span>
+									<span class='description'>Set the sort expression for this request.</span>
+								</div>
+							
+							</div>
+						</div>
+					
+		
+					
+						<div class="section details">
+							<div class="sectionTitle">
+								Constructor Detail
+							</div>
+							<div class="sectionItems">
+								<div class="sectionItem classItem itemName static">
+									<div class="details"><a name="constructor"> </a>
+										
+										<div class="icon">
+											new <b>sap.ui.model.analytics.odata4analytics.DimensionMemberSetRequest</b>(<span title="(sap.ui.model.analytics.odata4analytics.Dimension) Description of a dimension">oDimension</span>, <span title="(sap.ui.model.analytics.odata4analytics.ParameterizationRequest) (optional) Request object for interactions with the parameterization of the query result or (not yet supported) master data entity set Such an object is required if the entity set holding the dimension members includes parameters.">oParameterizationRequest</span>, <span title="(boolean) (optional) Indicates use of master data for determining the dimension members.">bUseMasterData</span>)
+										</div>
+										
+										<div class="full-description">
+											Create a request object for interaction with a dimension value help. Such a
+value help is served by either the query result entity set, in which case the
+returned dimension members are limited to those also used in the query result
+data. Or, the value help is populated by a master data entity set, if made
+available by the service. In this case, the result will include all valid
+members for that dimension.
+										</div>
+										
+										
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.Dimension.html">sap.ui.model.analytics.odata4analytics.Dimension</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oDimension</b>
+													</td>
+													<td class="methodItemDesc">
+												    Description of a dimension
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.ParameterizationRequest.html">sap.ui.model.analytics.odata4analytics.ParameterizationRequest</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oParameterizationRequest</b>
+													</td>
+													<td class="methodItemDesc">
+												    (optional) Request object for
+           interactions with the parameterization of the query result or (not
+           yet supported) master data entity set Such an object is required
+           if the entity set holding the dimension members includes
+           parameters.
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{boolean}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>bUseMasterData</b>
+													</td>
+													<td class="methodItemDesc">
+												    (optional) Indicates use of master data for
+           determining the dimension members.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										<!--
+										
+										-->
+										
+						
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		
+					
+		
+					
+					
+					
+						<div class="details section">
+							<div class="sectionTitle">
+								Method Detail
+							</div>
+							<div class="sectionItems">
+								
+									<div class='sectionItem classMethod'>
+										<a name="getFilterExpression"> </a>
+										<div class="itemTitle icon">
+											getFilterExpression<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.model.analytics.odata4analytics.FilterExpression">: <a href="../symbols/sap.ui.model.analytics.odata4analytics.FilterExpression.html">sap.ui.model.analytics.odata4analytics.FilterExpression</a></span>
+										</div>
+										<div class="full-description">
+											Get the filter expression for this request.
+</p><p>
+Expressions are represented by separate objects. If none exists so far, a
+new expression object gets created.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.FilterExpression.html">sap.ui.model.analytics.odata4analytics.FilterExpression</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The filter object
+         associated to this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getResultPageBoundaries"> </a>
+										<div class="itemTitle icon">
+											getResultPageBoundaries<span class="signature">()</span>
+											<span class="light" title="returns Object">: <a href="../symbols/Object.html">Object</a></span>
+										</div>
+										<div class="full-description">
+											Returns the current page boundaries as object with properties
+<code>start</code> and <code>end</code>. If the end of the page is
+unbounded, <code>end</code> is null.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/Object.html">Object</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														the current page boundaries as object
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getSortExpression"> </a>
+										<div class="itemTitle icon">
+											getSortExpression<span class="signature">()</span>
+											<span class="light" title="returns sap.ui.model.analytics.odata4analytics.SortExpression">: <a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a></span>
+										</div>
+										<div class="full-description">
+											Get the sort expression for this request.
+</p><p>
+Expressions are represented by separate objects. If none exists so far, a
+new expression object gets created.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a>}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The sort object
+         associated to this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getURIQueryOptionValue"> </a>
+										<div class="itemTitle icon">
+											getURIQueryOptionValue<span class="signature">(<span title="(String) Identifies the query option: $select, $filter,.">sQueryOptionName</span>)</span>
+											<span class="light" title="returns String">: String</span>
+										</div>
+										<div class="full-description">
+											Get the value of an query option for the OData request URI corresponding
+to this request.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{String}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sQueryOptionName</b>
+													</td>
+													<td class="methodItemDesc">
+												    Identifies the query option: $select,
+           $filter,... or any custom query option
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{String}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The value of the requested query option or null, if
+         this option is not used for the OData request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getURIToDimensionMemberEntitySet"> </a>
+										<div class="itemTitle icon">
+											getURIToDimensionMemberEntitySet<span class="signature">(<span title="(String) (optional) Identifies the root of the OData service">sServiceRootURI</span>)</span>
+											<span class="light" title="returns String">: String</span>
+										</div>
+										<div class="full-description">
+											Get the URI to locate the entity set for the dimension memebers.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{String}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sServiceRootURI</b>
+													</td>
+													<td class="methodItemDesc">
+												    (optional) Identifies the root of the OData
+           service
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{String}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The resource path of the URI pointing to the entity
+         set. It is a relative URI unless a service root is given, which
+         would then prefixed in order to return a complete URL.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="getURIToDimensionMemberEntries"> </a>
+										<div class="itemTitle icon">
+											getURIToDimensionMemberEntries<span class="signature">(<span title="(String) (optional) Identifies the root of the OData service">sServiceRootURI</span>)</span>
+											<span class="light" title="returns String">: String</span>
+										</div>
+										<div class="full-description">
+											Get the unescaped URI to fetch the dimension members, optionally
+augmented by text and attributes.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{String}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>sServiceRootURI</b>
+													</td>
+													<td class="methodItemDesc">
+												    (optional) Identifies the root of the OData
+           service
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+											<div class="heading">Returns:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+														<span class="light">{String}</span> 
+													</td>
+													<td class="methodItemDesc">
+														The unescaped URI that contains the OData resource path
+         and OData system query options to express the request for the
+         parameter value set..
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setFilterExpression"> </a>
+										<div class="itemTitle icon">
+											setFilterExpression<span class="signature">(<span title="(sap.ui.model.analytics.odata4analytics.FilterExpression) The filter object to be associated with this request.">oFilter</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Set the filter expression for this request.
+</p><p>
+Expressions are represented by separate objects. Calling this method
+replaces the filter object maintained by this request.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.FilterExpression.html">sap.ui.model.analytics.odata4analytics.FilterExpression</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oFilter</b>
+													</td>
+													<td class="methodItemDesc">
+												    The filter object to be associated with this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setParameterizationRequest"> </a>
+										<div class="itemTitle icon">
+											setParameterizationRequest<span class="signature">(<span title="Request object for interactions with the parameterization of this query result">oParameterizationRequest</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Set the parameterization request required for retrieving dimension
+members directly from the query result, if it is parameterized.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  
+													</td>
+													<td class="methodItemName">
+													  <b>oParameterizationRequest</b>
+													</td>
+													<td class="methodItemDesc">
+												    Request object for interactions with the parameterization of
+           this query result
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setRequestOptions"> </a>
+										<div class="itemTitle icon">
+											setRequestOptions<span class="signature">(<span title="(Boolean) Indicates whether or not the result shall include a count for the returned entities.">bIncludeCount</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Set further options to be applied for the OData request
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{Boolean}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>bIncludeCount</b>
+													</td>
+													<td class="methodItemDesc">
+												    Indicates whether or not the result shall
+           include a count for the returned entities. Default is not to
+           include it. Pass null to keep current setting.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setResultPageBoundaries"> </a>
+										<div class="itemTitle icon">
+											setResultPageBoundaries<span class="signature">(<span title="(Number) The first row of the query result to be returned.">start</span>, <span title="(Number) The last row of the query result to be returned.">end</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Specify that only a page of the query result shall be returned. A page is
+described by its boundaries, that are row numbers for the first and last
+rows in the query result to be returned.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{Number}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>start</b>
+													</td>
+													<td class="methodItemDesc">
+												    The first row of the query result to be returned.
+           Numbering starts at 1. Passing null is equivalent to start
+           with the first row.
+													</td>
+												</tr>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{Number}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>end</b>
+													</td>
+													<td class="methodItemDesc">
+												    The last row of the query result to be returned. Passing
+           null is equivalent to get all rows up to the end of the query
+           result.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+									<div class='sectionItem classMethod'>
+										<a name="setSortExpression"> </a>
+										<div class="itemTitle icon">
+											setSortExpression<span class="signature">(<span title="(sap.ui.model.analytics.odata4analytics.SortExpression) The sort object to be associated with this request.">oSorter</span>)</span>
+											
+										</div>
+										<div class="full-description">
+											Set the sort expression for this request.
+</p><p>
+Expressions are represented by separate objects. Calling this method
+replaces the sort object maintained by this request.
+											
+											
+											
+											
+										</div>
+										
+										
+											<div class="heading">Parameters:</div>
+											<table class="methodItem"><tbody>
+											
+												<tr>
+													<td class="methodItemType">
+													  <span class="light">{<a href="../symbols/sap.ui.model.analytics.odata4analytics.SortExpression.html">sap.ui.model.analytics.odata4analytics.SortExpression</a>}</span> 
+													</td>
+													<td class="methodItemName">
+													  <b>oSorter</b>
+													</td>
+													<td class="methodItemDesc">
+												    The sort object to be associated with this request.
+													</td>
+												</tr>
+											
+											</tbody></table>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								
+							</div>
+						</div>
+					
+
+
+
+		</div>
+	</div>
+
+				
+	</body>
+</html>

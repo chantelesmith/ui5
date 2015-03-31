@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+
+
+
+<meta name="LOIO.FOLDER.IWB_FOLDER_ID" content="1234AC50C238B656E10000000A445394"/>
+<meta name="LOIO.FOLDER.IWB_TECH_NAME" content="HELPX.UI_EXT"/>
+<meta name="LOIO.FOLDER.IWB_FOLDER_GROUP" content="SAPXH"/>
+<meta name="LOIO.FOLDER.IWB_SHH_KEY" content=""/>
+<meta name="LOIO.FOLDER.IWB_TRANSLATION_MEMORY" content=""/>
+<meta name="LOIO.FOLDER.TERM_DOMAIN" content="FF"/>
+<meta name="LOIO.IWB_TYPE" content="ICG"/>
+<meta name="LOIO.IWB_SHH_KEY" content=""/>
+<meta name="LOIO.KW_CONVREF.CLASS" content=""/>
+<meta name="LOIO.KW_CONVREF.OBJID" content=""/>
+<meta name="PHIO.IWB_INDUSTRY" content="SHL"/>
+<meta name="PHIO.RELEASE" content="1.0_2014Q3"/>
+<meta name="PHIO.CREATED_AT" content="20140605161049"/>
+<meta name="PHIO.LAST_CHANGED_AT" content="20140605161049"/>
+<meta name="PHIO.IWB_LEVEL" content=""/>
+
+<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+<title>Consuming APF</title>
+<!--[if lte IE 7]><style>
+      .codeblock{
+          overflow:visible;
+      }</style><![endif]-->
+
+
+  <script src="../../resources/sap/ui/thirdparty/jquery/jquery-1.10.2.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/highlight-query-terms.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/themes/base/highlight-query-terms.css" />
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/run_prettify.js"></script>
+    <script src="../../resources/sap/ui/demokit/js/google-code-prettify/lang-css.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/sap/ui/demokit/js/google-code-prettify/prettify.css" />
+  </head>
+<body class="sap_bluecrystal" id="loio47be85530a5df37ae10000000a44176d">
+<div id="wrapper"><div id="container">
+<h1 class="title topictitle1">Consuming APF</h1>
+<div class="body"><div class="section"><div class="section_title">Use</div><div type="Use"><p class="p">The following code snippet is an example of how to consume APF in a UI5 based application:</p>
+ <div class="div_pre_codeblock"><pre class="pre codeblock prettyprint">
+jQuery.sap.declare("myApp.Component");
+sap.ui.getCore().loadLibrary("sap.apf");
+jQuery.sap.require("sap.apf.Component");
+
+sap.apf.Component.extend("myApp.Component", 
+{
+        oApfApi : null,
+        metadata : {
+            name : &lt;name&gt;,
+            version : &lt;version&gt;
+        },
+        /**
+        * Initialize the application
+        *
+        * @returns 
+        */
+        init : function() {
+            // Get module path of application
+            var modPath = jQuery.sap.getModulePath('myApp');
+
+            // Prepare path to application configuration file 
+            this.configFilePath = modPath + "/config/myApplicationConfiguration.json";
+
+            // Call APF Component init
+            sap.apf.Component.prototype.init.apply(this, arguments);
+        },
+        /**
+        * Creates the application layout and returns the outer layout of APF 
+        *
+        * @returns {sap.ui.core.Control} the content
+        */ 
+        createContent : function() {
+            
+            // Get APF API object
+            this.oApfApi = this.getApi();
+
+            // Load application configuration file using APF API
+            this.oApfApi.loadApplicationConfig(this.configFilePath);
+
+            // Get application layout from APF
+            var layoutView = this.oApfApi.createApplicationLayout();
+
+            /*  Any other application logic */
+
+            //Call APF Component createContent method
+            sap.apf.Component.prototype.createContent.apply(this, arguments);
+
+            return layoutView;
+        }
+        destroy : function() {
+
+            // Destroy application instances
+
+            // Call destroy on APF Component
+            sap.apf.Component.prototype.destroy.apply(this, arguments);
+        }
+    });
+        </pre></div>
+ <p class="p">Replace <span class="ph uicontrol">myApp</span> with the application-specific namespace.</p>
+ <p class="p">Method <span class="ph sap-technical-name sap-technical-name">this.getApi()</span> provides a reference to the APF instance.</p>
+ </div></div>
+</div>
+<div class="related-links"> 
+<div class="relinfo"><div class="relinfotitle ">Related Information</div>
+<div><a class="link" href="958ead51e2e94ab8bcdc90fb7e9d53d0.html" title="Components are independent and reusable parts used in SAPUI5 applications.">SAPUI5 Components</a></div>
+<div><a class="link" href="170638b7a2b4424e8580fb473af6a3cd.html">Step 2: Component</a></div>
+</div>
+</div></div></div>
+<SCRIPT LANGUAGE="JavaScript"><!--
+ var page_title="Consuming APF";
+
+        if (page_title !='' &&
+        parent.document.title != null) {
+ parent.document.title =
+          page_title;
+ } 
+ var
+        anchor = document.getElementById(location.hash.substring(+1)); if (typeof (anchor)
+        !='undefined' && anchor !=null){
+        var top = anchor.getBoundingClientRect().top; } 
+//-->
+</SCRIPT>
+</body>
+</html>
